@@ -5,7 +5,8 @@ HARP combines residual-compensated attention windows with selective removal of B
 | Workflow | Entry point | Reference result |
 |---|---|---|
 | Six-model performance reconstruction | [Quick start](#performance-reconstruction) | 12.243× geometric mean against the historical H100 latency references |
-| DiT Dense quality | [DiT FID](#dit-fid) | **17.967 FID** on 5,000 class-balanced generated images |
+| DiT paired quality | [DiT paired FID](#dit-paired-fid) | Dense, Residual, PlaneClear and Combined on 16 matched inputs |
+| DiT Dense reference | [DiT FID](#dit-fid) | **17.967 FID** on 5,000 class-balanced generated images |
 | Wan paired quality | [Wan VBench](#wan-vbench) | **80.274 VBench** for Combined and **80.370** for Dense on the same 22 inputs |
 
 ## Environment requirements and setup
@@ -88,6 +89,16 @@ bash scripts/reviewer_cpu.sh results/reviewer-performance-check
 ~~~
 
 The command runs 35 tests and checks five reports against the frozen references byte for byte. Open `results/reviewer-performance-check/summary.md` for the six-model latency and speedup table. The report gives a **12.243×** geometric mean against the historical H100 references and a **1.807×** geometric mean for the historical All/Budget ablation. The hardware guide (`HARP-AE/hardware/README.md`) describes the reports and the independent DiT timing record.
+
+## DiT paired FID
+
+Run Dense, Residual, PlaneClear and Combined with the same 16 class and seed pairs. PlaneClear and Combined use the released DiT budget table. The script generates all four groups and scores each against the same ImageNet reference with ADM FID.
+
+~~~bash
+bash scripts/reviewer_quality.sh dit development paired-check
+~~~
+
+Open `results/reviewer-dit-paired-check/heldout/quality.json` for each mode's FID and its change relative to Dense. Use this run for the paired comparison and the separate 5,000-image run below for the class-balanced Dense reference. See the paired development reference in `HARP-AE/results/dit-micro-floor-smoke-v1/summary.json`.
 
 ## DiT FID
 
