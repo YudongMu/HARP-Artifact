@@ -8,7 +8,7 @@ Run the commands from the artifact root. The [README](../README.md#environment-r
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-Expect 35 passing tests and byte-for-byte agreement with the frozen outputs for `baseline.json`, `workload.json`, `report.json`, `formation.json` and `e2e.json`. The generated `summary.md` reports end-to-end estimates from the calibrated timing model, reductions calculated by the workload compiler, and a check that the hardware models use the same Combined tasks. The [hardware guide](../hardware/README.md) explains the timing baselines and which fields are comparison inputs. This run takes a few seconds on the reference host.
+Expect passing tests and byte-for-byte agreement with the frozen outputs for `baseline.json`, `workload.json`, `report.json`, `formation.json` and `e2e.json`. Open `summary.md` for the calibrated end-to-end comparison against H100, work reductions, and the four ablation speedups relative to Matched NPU Dense. The underlying Matched NPU timings are in `matched-npu-ablation.json`. This run takes a few seconds on the reference host. See the [hardware guide](../hardware/README.md) for the timing inputs.
 
 ## DiT paired FID
 

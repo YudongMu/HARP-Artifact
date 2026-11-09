@@ -1,0 +1,80 @@
+{
+  "dense_peak_tflops": 262.1,
+  "hbm_bandwidth_tbps": 2.4,
+  "schema_version": 1,
+  "source": "Historical analytical cycle model workload dimensions and aggregates from synthetic-simulated tile and region profiles",
+  "workloads": {
+    "dit-xl2-512": {
+      "fallback_rate": 0.020224489795918368,
+      "hbm_pressure": 0.31,
+      "hidden_dim": 1152,
+      "joint_work_fraction": 0.3588340399054941,
+      "layers": 28,
+      "operator_irregularity": 0.52,
+      "plane_work_fraction": 0.39144325286286535,
+      "rawa_work_fraction": 0.9151836734693878,
+      "timesteps": 250,
+      "tokens": 1024
+    },
+    "flux1-dev": {
+      "fallback_rate": 0.04120300751879699,
+      "hbm_pressure": 0.55,
+      "hidden_dim": 4096,
+      "joint_work_fraction": 0.3811941292659172,
+      "layers": 38,
+      "operator_irregularity": 0.61,
+      "plane_work_fraction": 0.42643627993342104,
+      "rawa_work_fraction": 0.8904605263157894,
+      "timesteps": 50,
+      "tokens": 4096
+    },
+    "latte-1": {
+      "fallback_rate": 0.05107142857142857,
+      "hbm_pressure": 0.62,
+      "hidden_dim": 1408,
+      "joint_work_fraction": 0.262726401868066,
+      "layers": 28,
+      "operator_irregularity": 0.68,
+      "plane_work_fraction": 0.44182182879787046,
+      "rawa_work_fraction": 0.5923336291038155,
+      "timesteps": 100,
+      "tokens": 16384
+    },
+    "opensora-v13": {
+      "fallback_rate": 0.101875,
+      "hbm_pressure": 0.94,
+      "hidden_dim": 2304,
+      "joint_work_fraction": 0.2961427373247744,
+      "layers": 32,
+      "operator_irregularity": 0.81,
+      "plane_work_fraction": 0.508013325295477,
+      "rawa_work_fraction": 0.5824028268551237,
+      "timesteps": 100,
+      "tokens": 65536
+    },
+    "sd3-medium": {
+      "fallback_rate": 0.02726190476190476,
+      "hbm_pressure": 0.46,
+      "hidden_dim": 1536,
+      "joint_work_fraction": 0.34178483047825736,
+      "layers": 24,
+      "operator_irregularity": 0.58,
+      "plane_work_fraction": 0.41456229552,
+      "rawa_work_fraction": 0.8230392156862745,
+      "timesteps": 50,
+      "tokens": 4096
+    },
+    "wan21-14b-81f": {
+      "fallback_rate": 0.07621428571428572,
+      "hbm_pressure": 0.79,
+      "hidden_dim": 5120,
+      "joint_work_fraction": 0.28203782484432716,
+      "layers": 40,
+      "operator_irregularity": 0.74,
+      "plane_work_fraction": 0.4709836372482553,
+      "rawa_work_fraction": 0.5952340425531915,
+      "timesteps": 50,
+      "tokens": 32768
+    }
+  }
+}

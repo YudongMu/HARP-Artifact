@@ -25,6 +25,7 @@ printf 'Reports and logs: %s\n' "$out"
     cmp "$out/$name.json" "hardware/results/harp-paper-audit/$name.json"
   done
   echo 'All five reports match the frozen references byte for byte.'
+  python3 -B -m hardware.matched_npu_ablation --out "$out/matched-npu-ablation.json"
 } 2>&1 | tee "$out/reconstruction.log"
 
 python3 -B - "$out" <<'PY' > "$out/summary.md"
@@ -35,6 +36,7 @@ from pathlib import Path
 out = Path(sys.argv[1])
 e2e = json.loads((out / 'e2e.json').read_text())
 abl = json.loads((out / 'report.json').read_text())
+matched_npu = json.loads((out / 'matched-npu-ablation.json').read_text())
 baseline = json.loads((out / 'baseline.json').read_text())['baselines']
 methods = ('bitred', 'ditto', 'exion', 'adaptiv', 'dstar')
 print('# Six-workload calibrated performance reconstruction\n')
@@ -70,9 +72,19 @@ for workload, row in abl['workloads'].items():
     )
 print(f"\nThe generic and HARP hardware models used identical Combined task lists in "
       f"{matched_workloads} of {len(abl['workloads'])} workloads.")
-print('\nFigure 7 compares speedups against the original dense algorithm on the Matched NPU. '
-      'The component run uses a dense generic timing proxy. The historical Matched NPU values '
-      'in `report.json` are comparison inputs. Reproducing the figure numerically requires '
-      'timing the variants with the Matched NPU baseline.')
+print('\n## Speedup relative to Matched NPU\n')
+print('The historical analytical model computes Dense, Residual, PlaneClear, and Budget latency '
+      'from the released workload parameters. HARP-All uses the frozen end-to-end HARP latency. '
+      'Each speedup divides the modeled Matched NPU Dense latency by the variant latency. '
+      'Budget is the Combined algorithm configuration.\n')
+print('| Workload | Matched NPU Dense (ms) | HARP-Residual | HARP-PlaneClear | HARP-Budget | HARP-All |')
+print('|---|---:|---:|---:|---:|---:|')
+modes = ('residual', 'planeclear', 'budget', 'all')
+for workload, row in matched_npu['workloads'].items():
+    factors = ' | '.join(f"{row['speedup'][mode]:.3f}×" for mode in modes)
+    print(f"| {workload} | {row['matched_npu_dense_ms']:.3f} | {factors} |")
+factors = ' | '.join(f"{matched_npu['geomean_speedup'][mode]:.3f}×" for mode in modes)
+print(f'| Geometric mean | — | {factors} |')
+print('\nPer-configuration latencies and calculated speedups are in `matched-npu-ablation.json`.')
 PY
 printf 'Summary: %s/summary.md\n' "$out"

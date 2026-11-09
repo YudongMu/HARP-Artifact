@@ -27,4 +27,18 @@ The workload compiler computes net QK/PV MAC-equivalent reductions relative to d
 
 The generic and HARP hardware models used identical Combined task lists in 6 of 6 workloads.
 
-Figure 7 compares speedups against the original dense algorithm on the Matched NPU. The component run uses a dense generic timing proxy. The historical Matched NPU values in `report.json` are comparison inputs. Reproducing the figure numerically requires timing the variants with the Matched NPU baseline.
+## Speedup relative to Matched NPU
+
+The historical analytical model computes Dense, Residual, PlaneClear, and Budget latency from the released workload parameters. HARP-All uses the frozen end-to-end HARP latency. Each speedup divides the modeled Matched NPU Dense latency by the variant latency. Budget is the Combined algorithm configuration.
+
+| Workload | Matched NPU Dense (ms) | HARP-Residual | HARP-PlaneClear | HARP-Budget | HARP-All |
+|---|---:|---:|---:|---:|---:|
+| dit-xl2-512 | 642.988 | 1.103× | 3.761× | 3.584× | 6.581× |
+| flux1-dev | 9077.531 | 1.119× | 3.471× | 3.362× | 6.159× |
+| latte-1 | 23136.134 | 1.570× | 3.368× | 4.095× | 7.713× |
+| opensora-v13 | 608433.490 | 1.564× | 2.979× | 3.694× | 6.774× |
+| sd3-medium | 1142.157 | 1.202× | 3.568× | 3.625× | 6.668× |
+| wan21-14b-81f | 280686.828 | 1.550× | 3.177× | 3.863× | 7.238× |
+| Geometric mean | — | 1.335× | 3.378× | 3.697× | 6.838× |
+
+Per-configuration latencies and calculated speedups are in `matched-npu-ablation.json`.

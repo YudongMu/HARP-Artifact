@@ -5,7 +5,7 @@
 | Q1 | DiT paired ADM FID, 100 inputs for four configurations and 5,000 inputs for Dense and Residual | Per-configuration scores and Dense-relative changes in each run's `fid-comparison.json` |
 | Q2 | Wan paired quality, 22 inputs per mode | [Four-mode VBench and all 16 dimensions](../results/wan-stage4-9f-v1/heldout-scores/summary.json) |
 | P1 | Six-model calibrated performance reconstruction | [End-to-end latency and speedup](../hardware/results/harp-paper-audit/e2e.json) and [baseline comparison](../hardware/results/baseline-paper-audit/report.json) |
-| A1 | Algorithm and hardware ablation and formation | [Workload](../hardware/results/harp-paper-audit/workload.json), [ablation](../hardware/results/harp-paper-audit/report.json), [formation](../hardware/results/harp-paper-audit/formation.json) |
+| A1 | Algorithm and hardware ablation and formation | [Summary](../hardware/results/harp-paper-audit/summary.md), [component report](../hardware/results/harp-paper-audit/report.json), and [formation](../hardware/results/harp-paper-audit/formation.json) |
 | R1 | Independent DiT H100 development timing | [Measurements](../hardware/results/h100-dit-v0.1/measurements.json) and [log](../hardware/results/h100-dit-v0.1/run.log) |
 
 The [runbook](HARP-AE-Runbook.md) maps each workflow to its commands and outputs. The six model source snapshots carry one λ table per model. The four models outside the DiT/Wan quality workflows include their source snapshots, adapter interfaces and λ tables.

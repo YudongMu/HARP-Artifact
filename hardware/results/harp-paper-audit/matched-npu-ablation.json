@@ -1,0 +1,106 @@
+{
+  "geomean_speedup": {
+    "all": 6.837920362328531,
+    "budget": 3.6967203089351535,
+    "planeclear": 3.3776176175902224,
+    "residual": 1.3345343237081044
+  },
+  "input_sha256": {
+    "e2e.json": "9db5ce17d00a584f849914790679130cca459d50d534bd738c191f78f005597f",
+    "matched-npu.json": "119a14bc402e46301084510d8973edd5cc8f89084fa5067c3a2278a2ac3d9a25"
+  },
+  "model": "historical_analytical_matched_npu",
+  "schema_version": 1,
+  "workloads": {
+    "dit-xl2-512": {
+      "latency_ms": {
+        "all": 97.70463740731626,
+        "budget": 179.40864589525597,
+        "planeclear": 170.98427781989213,
+        "residual": 582.9726458490413
+      },
+      "matched_npu_dense_ms": 642.9879233880198,
+      "speedup": {
+        "all": 6.580935567136878,
+        "budget": 3.5839294153271464,
+        "planeclear": 3.760509045546966,
+        "residual": 1.1029469872494142
+      }
+    },
+    "flux1-dev": {
+      "latency_ms": {
+        "all": 1473.840892852605,
+        "budget": 2700.302486175339,
+        "planeclear": 2615.047171756758,
+        "residual": 8111.350789334485
+      },
+      "matched_npu_dense_ms": 9077.531455736826,
+      "speedup": {
+        "all": 6.159098651529033,
+        "budget": 3.3616720727439993,
+        "planeclear": 3.471268722712427,
+        "residual": 1.1191146445882676
+      }
+    },
+    "latte-1": {
+      "latency_ms": {
+        "all": 2999.4342399903917,
+        "budget": 5650.024709956924,
+        "planeclear": 6870.065969676357,
+        "residual": 14732.459219710132
+      },
+      "matched_npu_dense_ms": 23136.13434555292,
+      "speedup": {
+        "all": 7.71349944502435,
+        "budget": 4.094873125914048,
+        "planeclear": 3.3676728065891983,
+        "residual": 1.5704190319155782
+      }
+    },
+    "opensora-v13": {
+      "latency_ms": {
+        "all": 89820.27830220335,
+        "budget": 164715.32802213274,
+        "planeclear": 204213.18544404244,
+        "residual": 388994.1886349314
+      },
+      "matched_npu_dense_ms": 608433.4899410972,
+      "speedup": {
+        "all": 6.773898961813526,
+        "budget": 3.6938486372035895,
+        "planeclear": 2.979403551333454,
+        "residual": 1.5641197419329784
+      }
+    },
+    "sd3-medium": {
+      "latency_ms": {
+        "all": 171.2840345070093,
+        "budget": 315.0692191452275,
+        "planeclear": 320.10597941278365,
+        "residual": 950.0301060122304
+      },
+      "matched_npu_dense_ms": 1142.1565071774128,
+      "speedup": {
+        "all": 6.668201799804485,
+        "budget": 3.6250970827173976,
+        "planeclear": 3.568057395468321,
+        "residual": 1.20223190817777
+      }
+    },
+    "wan21-14b-81f": {
+      "latency_ms": {
+        "all": 38777.65139963074,
+        "budget": 72656.8312756733,
+        "planeclear": 88345.62975316028,
+        "residual": 181111.72164058877
+      },
+      "matched_npu_dense_ms": 280686.8279076518,
+      "speedup": {
+        "all": 7.238365857049419,
+        "budget": 3.863185649298063,
+        "planeclear": 3.177144457421349,
+        "residual": 1.5497993468620825
+      }
+    }
+  }
+}
