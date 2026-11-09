@@ -8,7 +8,7 @@ Run the commands from the artifact root. The [README](../README.md#environment-r
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-Expect 35 passing tests and byte-for-byte agreement for `baseline.json`, `workload.json`, `report.json`, `formation.json` and `e2e.json`. The generated `summary.md` presents the end-to-end table and the HARP ablation series from Figure 7. The [hardware guide](../hardware/README.md) describes their denominators. This run takes a few seconds on the reference host.
+Expect 35 passing tests and byte-for-byte agreement with the frozen outputs for `baseline.json`, `workload.json`, `report.json`, `formation.json` and `e2e.json`. The generated `summary.md` reports end-to-end estimates from the calibrated timing model, reductions calculated by the workload compiler, and a check that the hardware models use the same Combined tasks. The [hardware guide](../hardware/README.md) explains the timing baselines and which fields are comparison inputs. This run takes a few seconds on the reference host.
 
 ## DiT paired FID
 
@@ -25,7 +25,7 @@ The primary run compares Dense BF16, HARP-Residual, HARP-PlaneClear and HARP-Bud
 bash scripts/run_quality.sh wan development dev-check
 ~~~
 
-The script generates Dense, Residual, PlaneClear and Combined for 22 paired inputs and scores all 16 VBench dimensions. Inspect `results/wan-dev-check/heldout-scores/summary.json` and `paired-uncertainty.json`. The totals are **80.370 / 80.153 / 80.430 / 80.274** in mode order. The shared Wan λ table is under `src/Wan2.1/harp/`. The script reads the frozen input and selection records from `results/wan-stage4-9f-v1/`. [Wan scoring reference](../results/wan-stage4-9f-v1/heldout-scores/summary.json)
+The script generates Dense, Residual, PlaneClear and Combined for 22 paired inputs and scores all 16 VBench dimensions. Inspect `results/wan-dev-check/heldout-scores/summary.json` and `paired-uncertainty.json`. The recorded H100 run yielded totals of **80.370 / 80.153 / 80.430 / 80.274** in mode order. The shared Wan λ table is under `src/Wan2.1/harp/`. The script reads the frozen input and selection records from `results/wan-stage4-9f-v1/`. [Wan scoring reference](../results/wan-stage4-9f-v1/heldout-scores/summary.json)
 
 Use `generate` and `score` with the same run name to split or resume the workflow. Generation and scoring logs are written under the run directory. The scoring command returns a failure status if a dimension is undefined or fails. The H100 rehearsal generated one fresh four-mode sample in about 28 minutes and scored the 88 frozen held-out videos in about 7 minutes.
 

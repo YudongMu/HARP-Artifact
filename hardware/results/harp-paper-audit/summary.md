@@ -1,8 +1,8 @@
 # Six-workload calibrated performance reconstruction
 
-Latency covers denoising. Speedups use the historical H100 latency for each workload.
+The calibrated model estimates denoising latency from compiled workloads and fitted service times. Speedups use historical H100 latency inputs. The run checks all five generated reports against frozen outputs.
 
-| Workload | H100 reference (ms) | HARP (ms) | BitRed | Ditto | EXION | AdapTiV | DSTAR | HARP |
+| Workload | H100 reference (ms) | Estimated HARP (ms) | BitRed | Ditto | EXION | AdapTiV | DSTAR | HARP |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | dit-xl2-512 | 1067.983 | 97.705 | 2.254× | 1.976× | 2.225× | 2.332× | 3.359× | 10.931× |
 | flux1-dev | 15831.380 | 1473.841 | 2.216× | 2.149× | 2.310× | 2.381× | 3.659× | 10.742× |
@@ -14,14 +14,17 @@ Latency covers denoising. Speedups use the historical H100 latency for each work
 
 ## Ablation results
 
-These are the HARP series from Figure 7, normalized to the original dense algorithm on the Matched NPU.
+The workload compiler computes net QK/PV MAC-equivalent reductions relative to dense attention and reductions in active linear bit-plane components relative to the counts before plane clearing.
 
-| Workload | Residual | PlaneClear | HARP-Budget | HARP-All |
+| Workload | Residual QK/PV reduction | PlaneClear linear plane reduction | Combined QK/PV reduction | Combined linear plane reduction |
 |---|---:|---:|---:|---:|
-| dit-xl2-512 | 1.103× | 3.761× | 3.817× | 6.581× |
-| flux1-dev | 1.119× | 3.471× | 3.627× | 6.159× |
-| latte-1 | 1.570× | 3.368× | 4.095× | 7.713× |
-| opensora-v13 | 1.564× | 2.979× | 3.694× | 6.774× |
-| sd3-medium | 1.202× | 3.568× | 3.625× | 6.668× |
-| wan21-14b-81f | 1.550× | 3.177× | 3.863× | 7.238× |
-| Geometric mean | 1.335× | 3.378× | 3.783× | 6.838× |
+| dit-xl2-512 | 40.67% | 45.50% | 40.67% | 43.02% |
+| flux1-dev | 44.58% | 38.80% | 44.58% | 33.05% |
+| latte-1 | 51.73% | 43.03% | 51.73% | 40.61% |
+| opensora-v13 | 46.75% | 38.81% | 46.75% | 36.55% |
+| sd3-medium | 41.70% | 44.72% | 41.70% | 42.33% |
+| wan21-14b-81f | 58.61% | 40.63% | 58.61% | 37.57% |
+
+The generic and HARP hardware models used identical Combined task lists in 6 of 6 workloads.
+
+Figure 7 compares speedups against the original dense algorithm on the Matched NPU. The component run uses a dense generic timing proxy. The historical Matched NPU values in `report.json` are comparison inputs. Reproducing the figure numerically requires timing the variants with the Matched NPU baseline.

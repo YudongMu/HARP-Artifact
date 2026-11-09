@@ -2,7 +2,7 @@
 
 HARP combines the six Table I constrained operator graphs with model and site profiles from Figures 8 and 9(a). The profiles retain a shared fallback and within-plane activity estimate. FLUX packed linear operators use QKV and output projection site proxies. The full assumptions and evidence are described in [Paper consistency audit](PAPER-AUDIT.md).
 
-The compiler separates dense attention, refresh, replay, selected work, active and natural plane skips, fallback MACs and formation. Hardware comparisons replay the same Combined task fingerprint with matched modeled compute, capacity and HBM. The generic execution is a timing proxy. The workbook's HARP-Budget and HARP-All columns supply the historical hardware gain.
+The compiler separates dense attention, refresh, replay, selected work, active and natural plane skips, fallback MACs and formation. Hardware comparisons replay the same Combined task list with matched modeled compute, capacity and HBM. The component run computes speedup relative to its generic dense proxy. The report also carries the historical Matched NPU values as comparison inputs. Its `reference_hardware_gain` is the ratio of the input HARP-All and HARP-Budget speedups.
 
 Run from `AE/`.
 

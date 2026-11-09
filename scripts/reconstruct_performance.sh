@@ -38,8 +38,9 @@ abl = json.loads((out / 'report.json').read_text())
 baseline = json.loads((out / 'baseline.json').read_text())['baselines']
 methods = ('bitred', 'ditto', 'exion', 'adaptiv', 'dstar')
 print('# Six-workload calibrated performance reconstruction\n')
-print('Latency covers denoising. Speedups use the historical H100 latency for each workload.\n')
-print('| Workload | H100 reference (ms) | HARP (ms) | BitRed | Ditto | EXION | AdapTiV | DSTAR | HARP |')
+print('The calibrated model estimates denoising latency from compiled workloads and fitted service times. '
+      'Speedups use historical H100 latency inputs. The run checks all five generated reports against frozen outputs.\n')
+print('| Workload | H100 reference (ms) | Estimated HARP (ms) | BitRed | Ditto | EXION | AdapTiV | DSTAR | HARP |')
 print('|---|---:|---:|---:|---:|---:|---:|---:|---:|')
 for workload, row in e2e['workloads'].items():
     values = row['reconstructed_baseline_speedups_vs_h100']
@@ -48,15 +49,30 @@ for workload, row in e2e['workloads'].items():
           + ' | '.join(f'{value:.3f}×' for value in factors) + ' |')
 means = [baseline[m]['speedup_geomean'] for m in methods] + [e2e['geomean_speedup_vs_reference_h100']]
 print('| Geometric mean | — | — | ' + ' | '.join(f'{value:.3f}×' for value in means) + ' |')
-configurations = ('residual', 'planeclear', 'combined_generic', 'combined_harp')
 print('\n## Ablation results\n')
-print('These are the HARP series from Figure 7, normalized to the original dense algorithm on the Matched NPU.\n')
-print('| Workload | Residual | PlaneClear | HARP-Budget | HARP-All |')
+print('The workload compiler computes net QK/PV MAC-equivalent reductions relative to dense attention and '
+      'reductions in active linear bit-plane components relative to the counts before plane clearing.\n')
+print('| Workload | Residual QK/PV reduction | PlaneClear linear plane reduction | Combined QK/PV reduction | Combined linear plane reduction |')
 print('|---|---:|---:|---:|---:|')
+matched_workloads = 0
 for workload, row in abl['workloads'].items():
-    values = [row['timings'][mode]['reference_speedup_vs_matched_npu'] for mode in configurations]
-    print(f'| {workload} | ' + ' | '.join(f'{v:.3f}×' for v in values) + ' |')
-values = [abl['geomean'][mode]['reference_speedup'] for mode in configurations]
-print('| Geometric mean | ' + ' | '.join(f'{v:.3f}×' for v in values) + ' |')
+    work = row['algorithm_work']
+    values = (
+        work['residual']['net_qkpv_mac_equivalent_reduction'],
+        work['planeclear']['linear_plane_components_active_reduction'],
+        work['combined']['net_qkpv_mac_equivalent_reduction'],
+        work['combined']['linear_plane_components_active_reduction'],
+    )
+    print(f'| {workload} | ' + ' | '.join(f'{value:.2%}' for value in values) + ' |')
+    timings = row['timings']
+    matched_workloads += (
+        timings['combined_generic']['workload_sha256'] == timings['combined_harp']['workload_sha256']
+    )
+print(f"\nThe generic and HARP hardware models used identical Combined task lists in "
+      f"{matched_workloads} of {len(abl['workloads'])} workloads.")
+print('\nFigure 7 compares speedups against the original dense algorithm on the Matched NPU. '
+      'The component run uses a dense generic timing proxy. The historical Matched NPU values '
+      'in `report.json` are comparison inputs. Reproducing the figure numerically requires '
+      'timing the variants with the Matched NPU baseline.')
 PY
 printf 'Summary: %s/summary.md\n' "$out"

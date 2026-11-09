@@ -9,9 +9,9 @@ This audit maps the performance reconstruction to the [revised paper](../../HARP
 | Section IV, Figures 3–4 | The model uses 4×4×32 tiles and a refresh interval of five steps. The workload encodes the paper's aggregate region-selection and bit-plane statistics and distinguishes refresh, replay and steady-state selection. |
 | Section V, Figure 5 | The model uses the reported 2 GHz, 8,192 BF16 MAC/cycle, 96 MiB SRAM and 2.4 TB/s configuration. Component replay approximates buffering and resource timing. |
 | Section VI-A, Table I | The six workload profiles match the reported widths, head counts and denoising steps. FLUX uses 4,096 width and 64 heads. Latte uses 1,408 width and 16 heads. The profiles document the graph and conditioning approximations. |
-| Section VI-B, Figure 6 and Table II | The calibrated reconstruction matches the six latency targets at the precision shown in Table II. It also reconstructs the formation exposure fractions and the reported HARP/BitRed latency ratio of 5.47×. |
-| Section VI-C, Figure 7 | Historical ablation geometric means are 1.33×, 3.38×, 3.78× and 6.84× for Residual, PlaneClear, Budget and All. All/Budget is 1.81×. The historical denominator is Matched NPU. The component model uses its own Dense denominator. |
-| Section VI-D, Figures 8–9 | The six region-selection rates reproduce a mean of 32.66%. The reconstruction uses the 42 model/site entries displayed in Figure 8. |
+| Section VI-B, Figure 6 and Table II | The calibrated reconstruction matches the six latency targets at the precision shown in Table II. The formation fractions are calibration inputs. The reconstructed HARP/BitRed latency ratio is 5.47×. |
+| Section VI-C, Figure 7 | The artifact checks work reductions for the algorithm variants and uses the same Combined tasks across hardware models. Figure 7 uses the dense Matched NPU baseline. The report carries historical speedups as comparison inputs and reports the component run relative to its own generic dense proxy. |
+| Section VI-D, Figures 8–9 | The six region-selection input rates average 32.66%. The reconstruction uses the 42 model/site entries displayed in Figure 8. |
 | Sections VI-E and VI-F | The reconstruction reports latency and speedup. The paper provides the area, power and sensitivity results. |
 
 ## Reference provenance

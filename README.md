@@ -1,6 +1,6 @@
 # HARP Artifact Evaluation
 
-HARP combines residual-compensated attention windows with selective removal of BF16 bit planes. The artifact reconstructs performance across six models and provides generation and quality evaluation for DiT and Wan.
+HARP combines residual-compensated attention windows with selective removal of BF16 bit planes. To keep the quality evaluation practical, we use DiT and Wan as representative workloads for class-conditioned image generation and text-to-video generation, respectively. The repository also provides HARP adapters and λ tables for SD3 Medium, FLUX.1-dev, Latte-1, and Open-Sora v1.3. The performance reconstruction covers all six models.
 
 | Workflow | Entry point | Reference result |
 |---|---|---|
@@ -97,7 +97,7 @@ Run from the directory containing this README. Choose a fresh output directory f
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-The command runs 35 tests and checks five reports against the frozen references byte for byte. Open `results/performance-check/summary.md` for the six-model end-to-end table and the HARP ablation series from Figure 7. The end-to-end geometric mean is **12.243×** against the historical H100 references. The ablation series uses the original dense algorithm on the Matched NPU as its denominator. See the [reference summary](hardware/results/harp-paper-audit/summary.md) for both tables and the [hardware guide](hardware/README.md) for the report definitions.
+The command compiles the workloads, reruns the calibrated latency model, and checks five generated reports against the frozen outputs byte for byte. It also runs 35 tests. Open `results/performance-check/summary.md` for the reconstructed end-to-end latencies and the workload reductions computed for the HARP ablations. The end-to-end geometric mean is **12.243×** relative to the historical H100 latency inputs. The ablation checks verify the work removed by each mechanism and that the hardware models process the same Combined workload. Verifying the Figure 7 speedups requires timing against its dense Matched NPU baseline. See the [reference summary](hardware/results/harp-paper-audit/summary.md) and [hardware guide](hardware/README.md).
 
 ## DiT paired FID
 
@@ -109,7 +109,7 @@ Allow about **3 hours on one H100** for generation and scoring at the default ba
 bash scripts/run_dit_fid.sh run primary 100
 ~~~
 
-The primary table reports each configuration's percentage change relative to Dense BF16. The output at `results/dit-fid-primary/fid-comparison.json` includes the underlying FID scores. The reference PlaneClear implementation takes longer to generate samples, so the four-configuration experiment uses a fixed subset.
+The table reports the percentage changes measured on H100 relative to Dense BF16. The output at `results/dit-fid-primary/fid-comparison.json` includes the underlying FID scores. The reference PlaneClear implementation takes longer to generate samples, so the four-configuration experiment uses a fixed subset.
 
 | Configuration | FID change vs. Dense BF16 |
 |---|---:|
@@ -147,7 +147,7 @@ Allow about **7 hours on one H100** for the full run with the assets already pre
 bash scripts/run_quality.sh wan development dev-check
 ~~~
 
-The expected 16-dimension VBench totals are **80.370 / 80.153 / 80.430 / 80.274** in Dense, Residual, PlaneClear and Combined order. The new scores are saved to `results/wan-dev-check/heldout-scores/summary.json`. [Reference scoring record](results/wan-stage4-9f-v1/heldout-scores/summary.json)
+The 22-input run on H100 yielded 16-dimension VBench totals of **80.370 / 80.153 / 80.430 / 80.274** in Dense, Residual, PlaneClear and Combined order. Compare your new scores at `results/wan-dev-check/heldout-scores/summary.json` with the [recorded scores](results/wan-stage4-9f-v1/heldout-scores/summary.json).
 
 For a one-input Wan generation check, run `bash scripts/run_quality.sh wan smoke check`. The [runbook](submit/HARP-AE-Runbook.md) gives the output paths and how to resume Wan scoring.
 

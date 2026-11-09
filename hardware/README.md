@@ -2,7 +2,7 @@
 
 The active workload descriptions are in `workloads/dataflow/`. Table I supplies the reported widths, head counts and denoising steps. Each graph lists the assumed structure and any discrepancy with the upstream implementation. HARP-specific settings are in `workloads/harp/revised/` and use the model and site values shown in Figures 8 and 9(a).
 
-The historical workbooks provide **numerical calibration targets**. Their provenance and the differences from the revised paper are documented in [Paper consistency audit](docs/PAPER-AUDIT.md). The independent development H100 timing is in `results/h100-dit-v0.1/measurements.json`.
+The end-to-end reconstruction applies fitted service times to compiled workloads and uses historical H100 latency inputs to compute speedups. The ablation compiler computes work reductions and supplies identical Combined tasks to the two hardware models. Figure 7 uses the dense Matched NPU baseline. In the ablation report, `reference_speedup_vs_matched_npu` holds the historical comparison input and `speedup_vs_modeled_dense` holds the result of the component run against its generic dense proxy. See the [paper consistency audit](docs/PAPER-AUDIT.md) for provenance. The independent DiT development H100 timing is in `results/h100-dit-v0.1/measurements.json`.
 
 Run from `AE/` and choose new output files.
 
