@@ -99,7 +99,7 @@ bash scripts/reconstruct_performance.sh results/performance-check
 
 The command compiles the workloads, runs the timing models, and checks five generated reports against the frozen outputs byte for byte. Open `results/performance-check/summary.md` for the end-to-end comparison, work reductions, and ablation speedups. The end-to-end geometric mean is **12.243×** relative to the historical H100 Dense latencies.
 
-The ablation replay computes geometric means of **1.335×, 3.378×, 3.697×, and 6.838×** for HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All, respectively, relative to the historical analytical Matched NPU Dense baseline. HARP-All shares its latency with the frozen end-to-end reconstruction. The run writes the underlying timings to `matched-npu-ablation.json`. See the [reference summary](hardware/results/harp-paper-audit/summary.md) and [hardware guide](hardware/README.md).
+The ablation reports geometric-mean speedups of **1.335×, 3.378×, 3.697×, and 6.838×** for HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All, respectively, over the dense algorithm on Matched NPU. The end-to-end and ablation comparisons use the same HARP-All latency. The run writes per-configuration latencies to `matched-npu-ablation.json`. See the [reference summary](hardware/results/harp-paper-audit/summary.md) and [hardware guide](hardware/README.md).
 
 ## DiT paired FID
 

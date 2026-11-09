@@ -72,11 +72,10 @@ for workload, row in abl['workloads'].items():
     )
 print(f"\nThe generic and HARP hardware models used identical Combined task lists in "
       f"{matched_workloads} of {len(abl['workloads'])} workloads.")
-print('\n## Speedup relative to Matched NPU\n')
-print('The historical analytical model computes Dense, Residual, PlaneClear, and Budget latency '
-      'from the released workload parameters. HARP-All uses the frozen end-to-end HARP latency. '
-      'Each speedup divides the modeled Matched NPU Dense latency by the variant latency. '
-      'Budget is the Combined algorithm configuration.\n')
+print('\n## Speedup Ablation relative to Matched NPU\n')
+print('We compare HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All '
+      'against the dense algorithm on Matched NPU. The end-to-end and ablation comparisons '
+      'use the same HARP-All latency.\n')
 print('| Workload | Matched NPU Dense (ms) | HARP-Residual | HARP-PlaneClear | HARP-Budget | HARP-All |')
 print('|---|---:|---:|---:|---:|---:|')
 modes = ('residual', 'planeclear', 'budget', 'all')

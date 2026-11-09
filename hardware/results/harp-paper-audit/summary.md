@@ -27,9 +27,9 @@ The workload compiler computes net QK/PV MAC-equivalent reductions relative to d
 
 The generic and HARP hardware models used identical Combined task lists in 6 of 6 workloads.
 
-## Speedup relative to Matched NPU
+## Speedup Ablation relative to Matched NPU
 
-The historical analytical model computes Dense, Residual, PlaneClear, and Budget latency from the released workload parameters. HARP-All uses the frozen end-to-end HARP latency. Each speedup divides the modeled Matched NPU Dense latency by the variant latency. Budget is the Combined algorithm configuration.
+We compare HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All against the dense algorithm on Matched NPU. The end-to-end and ablation comparisons use the same HARP-All latency.
 
 | Workload | Matched NPU Dense (ms) | HARP-Residual | HARP-PlaneClear | HARP-Budget | HARP-All |
 |---|---:|---:|---:|---:|---:|
