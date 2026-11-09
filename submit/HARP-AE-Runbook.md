@@ -8,7 +8,7 @@ Run the commands from the artifact root. The [README](../README.md#environment-r
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-Expect 35 passing tests and byte-for-byte agreement for five JSON files: `baseline.json`, `workload.json`, `report.json`, `formation.json` and `e2e.json`. The generated `summary.md` presents the end-to-end, algorithm, hardware and formation tables. The [hardware guide](../hardware/README.md) describes their denominators.
+Expect 35 passing tests and byte-for-byte agreement for `baseline.json`, `workload.json`, `report.json`, `formation.json` and `e2e.json`. The generated `summary.md` presents the end-to-end table and the HARP ablation series from Figure 7. The [hardware guide](../hardware/README.md) describes their denominators. This run takes a few seconds on the reference host.
 
 ## DiT paired FID
 

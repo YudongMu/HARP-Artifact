@@ -57,7 +57,7 @@ Use a free GPU index from `nvidia-ctk cdi list`. For example, use `HARP_GPU=1` f
 
 ### 3. Prepare assets for the workflow you want to run
 
-From the repository root, copy the entire block for your chosen workflow. Use the same shell for setup and subsequent runs. The Python command downloads and verifies the model weights. The `tar` command installs the scoring assets.
+From the repository root, copy the entire block for your chosen workflow. Use the same shell for setup and subsequent runs. The Python command downloads and verifies the model weights. The `tar` command installs the scoring assets. The parentheses run the archive checks in `scoring-assets/` in a Bash subshell. The remaining commands run from the repository root.
 
 **For DiT FID**, `prepare_weights.py dit` downloads the DiT checkpoint and VAE (about 3 GB).
 
@@ -91,17 +91,19 @@ The [asset inventory](submit/HARP-AE-Stage6.1-Review-Catalog.md#asset-inventory)
 
 ## Performance reconstruction
 
-Run from the directory containing this README. Choose a fresh output directory for each run.
+Run from the directory containing this README. Choose a fresh output directory for each run. The complete reconstruction and its checks take a few seconds on the reference host.
 
 ~~~bash
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-The command runs 35 tests and checks five reports against the frozen references byte for byte. Open `results/performance-check/summary.md` for the six-model end-to-end results, historical and modeled ablation tables, and fixed-work hardware and formation breakdown. The end-to-end geometric mean is **12.243×** against the historical H100 references. The historical All/Budget hardware ablation is **1.807×**. See the [reference summary](hardware/results/harp-paper-audit/summary.md) for all tables and the [hardware guide](hardware/README.md) for the report definitions.
+The command runs 35 tests and checks five reports against the frozen references byte for byte. Open `results/performance-check/summary.md` for the six-model end-to-end table and the HARP ablation series from Figure 7. The end-to-end geometric mean is **12.243×** against the historical H100 references. The ablation series uses the original dense algorithm on the Matched NPU as its denominator. See the [reference summary](hardware/results/harp-paper-audit/summary.md) for both tables and the [hardware guide](hardware/README.md) for the report definitions.
 
 ## DiT paired FID
 
 The primary experiment compares Dense BF16, HARP-Residual, HARP-PlaneClear and HARP-Budget / HARP on the same 100 class, seed and initial noise inputs. The class list samples every tenth ImageNet class. All configurations use 512×512 images, 50 denoising steps, and the same ADM evaluator and reference statistics. PlaneClear and HARP-Budget use the released DiT budget table.
+
+Allow about **3 hours on one H100** for generation and scoring at the default batch size of 2.
 
 ~~~bash
 bash scripts/run_dit_fid.sh run primary 100
@@ -120,6 +122,8 @@ The primary table reports each configuration's percentage change relative to Den
 
 The extension compares Dense BF16 and HARP-Residual on 5,000 matched inputs, with five images per ImageNet class. Its absolute scores show how the FID scale changes when more images and classes contribute to the estimate.
 
+Allow about **8 hours on one H100** at batch size 2. Running generation for the two modes on separate H100s takes about **6.5 hours** including scoring.
+
 ~~~bash
 bash scripts/run_dit_fid.sh run extension 5000 dense,residual
 ~~~
@@ -136,6 +140,8 @@ The output is `results/dit-fid-extension/fid-comparison.json`. The count and com
 ## Wan VBench
 
 Use 22 paired inputs at 832×480, 9 frames and 50 denoising steps. PlaneClear and Combined share one λ table.
+
+Allow about **7 hours on one H100** for the full run with the assets already prepared. The 88 generation records total about 6.5 hours, and a scoring pass takes about 7–12 minutes.
 
 ~~~bash
 bash scripts/run_quality.sh wan development dev-check
