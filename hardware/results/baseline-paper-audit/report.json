@@ -1,0 +1,596 @@
+{
+  "baselines": {
+    "adaptiv": {
+      "max_relative_error": 4.551914400963142e-15,
+      "speedup_geomean": 2.4204100789629925,
+      "workloads": {
+        "dit-xl2-512": {
+          "component_service_ms": {
+            "AdapTME_SPMU": 0.2016,
+            "AdapTME_SSCU": 2.0160000000000003e-10,
+            "AdapTME_token_merge": 8.064000000000001e-10,
+            "AdapTiV_PE_Array": 451.4660197448889,
+            "AdapTiV_VPU": 1.6128000554624,
+            "HBM_operand_read": 4.644864028734123,
+            "HBM_output_write": 2.7525120000000003e-09
+          },
+          "kernel_count": 23,
+          "latency_ms": 457.9252838328459,
+          "relative_error": 0.0,
+          "speedup_vs_reference_h100": 2.33222215,
+          "target_speedup": 2.33222215
+        },
+        "flux1-dev": {
+          "component_service_ms": {
+            "AdapTME_SPMU": 3.2832e-09,
+            "AdapTME_SSCU": 3.2832e-09,
+            "AdapTME_token_merge": 0.48640001264640004,
+            "AdapTiV_PE_Array": 6376.892487741924,
+            "AdapTiV_VPU": 25.2928020102912,
+            "HBM_operand_read": 114.55692941620224,
+            "HBM_output_write": 132.81962705350384
+          },
+          "kernel_count": 71,
+          "latency_ms": 6650.048246241135,
+          "relative_error": -2.220446049250313e-16,
+          "speedup_vs_reference_h100": 2.3806414199999995,
+          "target_speedup": 2.38064142
+        },
+        "latte-1": {
+          "component_service_ms": {
+            "AdapTME_SPMU": 7.884800000000002e-09,
+            "AdapTME_SSCU": 7.884800000000002e-09,
+            "AdapTME_token_merge": 31.5392,
+            "AdapTiV_PE_Array": 16088.094630590198,
+            "AdapTiV_VPU": 252.313601652224,
+            "HBM_operand_read": 376.78831076227885,
+            "HBM_output_write": 430.61521185085843
+          },
+          "kernel_count": 37,
+          "latency_ms": 17179.35095487133,
+          "relative_error": 0.0,
+          "speedup_vs_reference_h100": 2.46058545,
+          "target_speedup": 2.46058545
+        },
+        "opensora-v13": {
+          "component_service_ms": {
+            "AdapTME_SPMU": 1.0321920000000002e-07,
+            "AdapTME_SSCU": 1.0321920000000002e-07,
+            "AdapTME_token_merge": 412.8768,
+            "AdapTiV_PE_Array": 425236.8975966375,
+            "AdapTiV_VPU": 18854.707234813417,
+            "HBM_operand_read": 12152.340511944929,
+            "HBM_output_write": 11978.932251481081
+          },
+          "kernel_count": 56,
+          "latency_ms": 468635.75439508323,
+          "relative_error": -1.6653345369377348e-15,
+          "speedup_vs_reference_h100": 2.479917609999996,
+          "target_speedup": 2.47991761
+        },
+        "sd3-medium": {
+          "component_service_ms": {
+            "AdapTME_SPMU": 9.965250000000001e-10,
+            "AdapTME_SSCU": 9.965250000000001e-10,
+            "AdapTME_token_merge": 3.9861000000000005e-09,
+            "AdapTiV_PE_Array": 814.3804130361755,
+            "AdapTiV_VPU": 5.555147625e-07,
+            "HBM_operand_read": 2.24866816e-07,
+            "HBM_output_write": 13.60691211422754
+          },
+          "kernel_count": 46,
+          "latency_ms": 827.9873259367638,
+          "relative_error": -1.1102230246251565e-15,
+          "speedup_vs_reference_h100": 2.405763599999997,
+          "target_speedup": 2.4057636
+        },
+        "wan21-14b-81f": {
+          "component_service_ms": {
+            "AdapTME_SPMU": 4.095e-08,
+            "AdapTME_SSCU": 4.095e-08,
+            "AdapTME_token_merge": 1.638e-07,
+            "AdapTiV_PE_Array": 208633.66759727665,
+            "AdapTiV_VPU": 6.8077844e-05,
+            "HBM_operand_read": 2304.6144147624277,
+            "HBM_output_write": 1677.3120125239293
+          },
+          "kernel_count": 50,
+          "latency_ms": 212615.5940928866,
+          "relative_error": -4.551914400963142e-15,
+          "speedup_vs_reference_h100": 2.466841019999989,
+          "target_speedup": 2.46684102
+        }
+      }
+    },
+    "bitred": {
+      "max_relative_error": 4.6629367034256575e-15,
+      "speedup_geomean": 2.237536482401817,
+      "workloads": {
+        "dit-xl2-512": {
+          "component_service_ms": {
+            "BitRed_array": 4.1423760000000006e-07,
+            "BitRed_bit_serial_array": 468.26603642248676,
+            "BitRed_cal.adis": 0.8064000048383999,
+            "BitRed_cal.red": 7.257600000000001e-09,
+            "BitRed_vector": 1.0008320000000001e-07,
+            "HBM_operand_read": 4.644864028734123,
+            "HBM_output_write": 2.7525120000000003e-09
+          },
+          "kernel_count": 28,
+          "latency_ms": 473.7173009803902,
+          "relative_error": -4.440892098500626e-16,
+          "speedup_vs_reference_h100": 2.254474319999999,
+          "target_speedup": 2.25447432
+        },
+        "flux1-dev": {
+          "component_service_ms": {
+            "BitRed_array": 3.0275481600000003e-05,
+            "BitRed_bit_serial_array": 2324.136307786758,
+            "BitRed_cal.adis": 19.456000063718403,
+            "BitRed_cal.red": 1.0944e-07,
+            "BitRed_vector": 4727.808000853631,
+            "HBM_operand_read": 71.39055079270194,
+            "HBM_output_write": 5.196567893333334e-07
+          },
+          "kernel_count": 82,
+          "latency_ms": 7142.790890401389,
+          "relative_error": 4.6629367034256575e-15,
+          "speedup_vs_reference_h100": 2.2164138000000104,
+          "target_speedup": 2.2164138
+        },
+        "latte-1": {
+          "component_service_ms": {
+            "BitRed_array": 67.1440081371136,
+            "BitRed_bit_serial_array": 18013.324382109357,
+            "BitRed_cal.adis": 126.15680009461761,
+            "BitRed_cal.red": 126.1568001576981,
+            "BitRed_vector": 2.6034176000000002e-06,
+            "HBM_operand_read": 53.82690308524032,
+            "HBM_output_write": 430.61521185085843
+          },
+          "kernel_count": 42,
+          "latency_ms": 18817.2241080383,
+          "relative_error": 1.3322676295501878e-15,
+          "speedup_vs_reference_h100": 2.246413220000003,
+          "target_speedup": 2.24641322
+        },
+        "opensora-v13": {
+          "component_service_ms": {
+            "BitRed_array": 509348.0276023051,
+            "BitRed_bit_serial_array": 0.0021403533312,
+            "BitRed_cal.adis": 412.8768024772608,
+            "BitRed_cal.red": 3.7158912000000006e-06,
+            "BitRed_vector": 8.87626488e-05,
+            "HBM_operand_read": 12152.340511944929,
+            "HBM_output_write": 7751.073823708941
+          },
+          "kernel_count": 61,
+          "latency_ms": 529664.3209732682,
+          "relative_error": -7.771561172376096e-16,
+          "speedup_vs_reference_h100": 2.1941784899999983,
+          "target_speedup": 2.19417849
+        },
+        "sd3-medium": {
+          "component_service_ms": {
+            "BitRed_array": 503.62607539275666,
+            "BitRed_bit_serial_array": 330.8688134127251,
+            "BitRed_cal.adis": 2.7827775000000004e-08,
+            "BitRed_cal.red": 18.719212517080763,
+            "BitRed_vector": 1.5899543625e-06,
+            "HBM_operand_read": 0.9813335572188161,
+            "HBM_output_write": 14.588245446579542
+          },
+          "kernel_count": 56,
+          "latency_ms": 868.783681944143,
+          "relative_error": -4.440892098500626e-15,
+          "speedup_vs_reference_h100": 2.29279371999999,
+          "target_speedup": 2.29279372
+        },
+        "wan21-14b-81f": {
+          "component_service_ms": {
+            "BitRed_array": 59378.95028953549,
+            "BitRed_bit_serial_array": 157248.0013208832,
+            "BitRed_cal.adis": 769.8600001638,
+            "BitRed_cal.red": 163.80000109746,
+            "BitRed_vector": 7371.000217916453,
+            "HBM_operand_read": 3422.924813644118,
+            "HBM_output_write": 7659.724806541516
+          },
+          "kernel_count": 55,
+          "latency_ms": 236014.26144978203,
+          "relative_error": -5.551115123125783e-16,
+          "speedup_vs_reference_h100": 2.222276169999999,
+          "target_speedup": 2.22227617
+        }
+      }
+    },
+    "ditto": {
+      "max_relative_error": 4.440892098500626e-15,
+      "speedup_geomean": 2.242235095664362,
+      "workloads": {
+        "dit-xl2-512": {
+          "component_service_ms": {
+            "Ditto_Encoding_Unit": 7.902720003161088,
+            "Ditto_PE": 1.3608004128768,
+            "Ditto_PE_difference": 455.1966729103934,
+            "Ditto_PE_full_width": 32.51404802322432,
+            "Ditto_cache_seed": 0.05505024044040192,
+            "Ditto_cached_output_read": 2.4277155840000002e-08,
+            "Ditto_cached_output_write": 2.378170368e-08,
+            "Ditto_output_restore": 2.370816004741632,
+            "Ditto_vector": 38.71020984294509,
+            "HBM_operand_read": 2.322432021766827,
+            "HBM_output_write": 2.7525120000000003e-09
+          },
+          "kernel_count": 44,
+          "latency_ms": 540.4327495103608,
+          "relative_error": -3.3306690738754696e-16,
+          "speedup_vs_reference_h100": 1.9761635299999993,
+          "target_speedup": 1.97616353
+        },
+        "flux1-dev": {
+          "component_service_ms": {
+            "Ditto_Encoding_Unit": 1.63021824e-07,
+            "Ditto_PE": 3.0275481600000003e-05,
+            "Ditto_PE_difference": 7360.663758589824,
+            "Ditto_PE_full_width": 3.227516928e-06,
+            "Ditto_cache_seed": 7.471104000000001e-09,
+            "Ditto_cached_output_read": 3.660840960000001e-07,
+            "Ditto_cached_output_write": 3.5861299200000006e-07,
+            "Ditto_output_restore": 1.0725120000000001e-07,
+            "Ditto_vector": 5.5814400000000016e-06,
+            "HBM_operand_read": 6.6409825386844155,
+            "HBM_output_write": 5.196567893333334e-07
+          },
+          "kernel_count": 122,
+          "latency_ms": 7367.304781735045,
+          "relative_error": -2.1094237467877974e-15,
+          "speedup_vs_reference_h100": 2.1488700099999956,
+          "target_speedup": 2.14887001
+        },
+        "latte-1": {
+          "component_service_ms": {
+            "Ditto_Encoding_Unit": 374.6856960624476,
+            "Ditto_PE": 63.078408141179196,
+            "Ditto_PE_difference": 14948.74365898186,
+            "Ditto_PE_full_width": 444.0719368881439,
+            "Ditto_cache_seed": 3.2296140864592284,
+            "Ditto_cached_output_read": 9.591953817600002e-07,
+            "Ditto_cached_output_write": 422.002906980837,
+            "Ditto_output_restore": 124.89523215611904,
+            "Ditto_vector": 1184.153601419264,
+            "HBM_operand_read": 53.82690305748583,
+            "HBM_output_write": 430.61521185085843
+          },
+          "kernel_count": 58,
+          "latency_ms": 18049.30317058385,
+          "relative_error": -3.3306690738754696e-16,
+          "speedup_vs_reference_h100": 2.341988529999999,
+          "target_speedup": 2.34198853
+        },
+        "opensora-v13": {
+          "component_service_ms": {
+            "Ditto_Encoding_Unit": 5.722472448000001e-06,
+            "Ditto_PE": 33143.040955809796,
+            "Ditto_PE_difference": 417028.3493409001,
+            "Ditto_PE_full_width": 9512.681491025363,
+            "Ditto_cache_seed": 1.2683575296000002e-07,
+            "Ditto_cached_output_read": 1.2556739543040003e-05,
+            "Ditto_cached_output_write": 1.2429903790080001e-05,
+            "Ditto_output_restore": 1226.2440984524885,
+            "Ditto_vector": 1238.6304875240182,
+            "HBM_operand_read": 4.394863274666668e-05,
+            "HBM_output_write": 2818.5723246414404
+          },
+          "kernel_count": 77,
+          "latency_ms": 464967.51877313777,
+          "relative_error": 4.440892098500626e-16,
+          "speedup_vs_reference_h100": 2.499482250000001,
+          "target_speedup": 2.49948225
+        },
+        "sd3-medium": {
+          "component_service_ms": {
+            "Ditto_Encoding_Unit": 8.375692546166746,
+            "Ditto_PE": 8.8312794e-06,
+            "Ditto_PE_difference": 336.807311118162,
+            "Ditto_PE_full_width": 226.49241614000346,
+            "Ditto_cache_seed": 2.153093120290912,
+            "Ditto_cached_output_read": 53.16799494658823,
+            "Ditto_cached_output_write": 52.20761606510462,
+            "Ditto_output_restore": 20.351819264732157,
+            "Ditto_vector": 166.46242642349193,
+            "HBM_operand_read": 15.676074847988225,
+            "HBM_output_write": 64.9198933962479
+          },
+          "kernel_count": 88,
+          "latency_ms": 946.6143467000555,
+          "relative_error": -8.881784197001252e-16,
+          "speedup_vs_reference_h100": 2.1042801399999984,
+          "target_speedup": 2.10428014
+        },
+        "wan21-14b-81f": {
+          "component_service_ms": {
+            "Ditto_Encoding_Unit": 1.8299736000000002e-06,
+            "Ditto_PE": 20966.403129891998,
+            "Ditto_PE_difference": 188131.80724389385,
+            "Ditto_PE_full_width": 3.9416832e-05,
+            "Ditto_cache_seed": 44.72832004137369,
+            "Ditto_cached_output_read": 547.9219236710769,
+            "Ditto_cached_output_write": 1449.197570683699,
+            "Ditto_output_restore": 321.0480009149868,
+            "Ditto_vector": 0.00022528745300000002,
+            "HBM_operand_read": 2745.753613910596,
+            "HBM_output_write": 1677.3120125239293
+          },
+          "kernel_count": 71,
+          "latency_ms": 215884.1720820658,
+          "relative_error": -4.440892098500626e-15,
+          "speedup_vs_reference_h100": 2.4294919999999895,
+          "target_speedup": 2.429492
+        }
+      }
+    },
+    "dstar": {
+      "max_relative_error": 9.2148511043888e-15,
+      "speedup_geomean": 3.8184700516478958,
+      "workloads": {
+        "dit-xl2-512": {
+          "component_service_ms": {
+            "DSTAR_FMDQ_cache_read": 10.789847042697463,
+            "DSTAR_FMDQ_cache_seed": 2.752512000000001e-10,
+            "DSTAR_FMDQ_cache_write": 1.3212057600000001e-08,
+            "DSTAR_MPU_A8W8": 252.18345671530906,
+            "DSTAR_MPU_FMDQ": 6.13661549094678,
+            "DSTAR_MPU_SAR": 2.7662810000000005e-07,
+            "DSTAR_QPU_FMDQ": 3.95136e-09,
+            "DSTAR_SAR_index": 8.96e-11,
+            "DSTAR_VPU": 8.0640000346752,
+            "DSTAR_VPU_reverse_difference": 3.95136e-09,
+            "DSTAR_VPU_softmax": 38.42055,
+            "HBM_operand_read": 2.3224320171219626,
+            "HBM_output_write": 2.7525120000000003e-09
+          },
+          "kernel_count": 33,
+          "latency_ms": 317.91690160161073,
+          "relative_error": 1.7763568394002505e-15,
+          "speedup_vs_reference_h100": 3.3593164900000057,
+          "target_speedup": 3.35931649
+        },
+        "flux1-dev": {
+          "component_service_ms": {
+            "DSTAR_FMDQ_cache_read": 6.508161773375324,
+            "DSTAR_FMDQ_cache_seed": 0.13281962802806785,
+            "DSTAR_FMDQ_cache_write": 58.971914252750686,
+            "DSTAR_MPU_A8W8": 39.84601420943673,
+            "DSTAR_MPU_FMDQ": 3515.711677262342,
+            "DSTAR_MPU_SAR": 1.785220335e-05,
+            "DSTAR_QPU_FMDQ": 2.1450240000000004e-08,
+            "DSTAR_SAR_index": 1.8468000000000003e-09,
+            "DSTAR_VPU": 464.9984003886336,
+            "DSTAR_VPU_reverse_difference": 2.1450240000000004e-08,
+            "DSTAR_VPU_softmax": 2.7894068625e-06,
+            "HBM_operand_read": 107.91594765120512,
+            "HBM_output_write": 132.81962705350384
+          },
+          "kernel_count": 87,
+          "latency_ms": 4326.904582905633,
+          "relative_error": 2.220446049250313e-15,
+          "speedup_vs_reference_h100": 3.658823530000008,
+          "target_speedup": 3.65882353
+        },
+        "latte-1": {
+          "component_service_ms": {
+            "DSTAR_FMDQ_cache_read": 5.328863232000001e-07,
+            "DSTAR_FMDQ_cache_seed": 5.3826901333333345e-09,
+            "DSTAR_FMDQ_cache_write": 5.275036330666668e-07,
+            "DSTAR_MPU_A8W8": 4.5299403072e-05,
+            "DSTAR_MPU_FMDQ": 10221.299986516831,
+            "DSTAR_MPU_SAR": 5.822137300000001e-06,
+            "DSTAR_QPU_FMDQ": 1.5611904e-07,
+            "DSTAR_SAR_index": 1.4560000000000003e-09,
+            "DSTAR_VPU": 1.6715776e-06,
+            "DSTAR_VPU_reverse_difference": 1.5611904e-07,
+            "DSTAR_VPU_softmax": 6.6160675e-07,
+            "HBM_operand_read": 1.7641021440000001e-06,
+            "HBM_output_write": 322.96140929184554
+          },
+          "kernel_count": 48,
+          "latency_ms": 10544.261452406969,
+          "relative_error": -8.881784197001252e-16,
+          "speedup_vs_reference_h100": 4.008935209999996,
+          "target_speedup": 4.00893521
+        },
+        "opensora-v13": {
+          "component_service_ms": {
+            "DSTAR_FMDQ_cache_read": 6.975966412800001e-06,
+            "DSTAR_FMDQ_cache_seed": 56.37144577409287,
+            "DSTAR_FMDQ_cache_write": 6.905502105600001e-06,
+            "DSTAR_MPU_A8W8": 167698.54726793055,
+            "DSTAR_MPU_FMDQ": 0.001012387126212,
+            "DSTAR_MPU_SAR": 105696.46091890852,
+            "DSTAR_QPU_FMDQ": 2.04374016e-06,
+            "DSTAR_SAR_index": 45.8752000028672,
+            "DSTAR_VPU": 4.1969944800000006e-05,
+            "DSTAR_VPU_reverse_difference": 2.04374016e-06,
+            "DSTAR_VPU_softmax": 2.3396352000000004e-05,
+            "HBM_operand_read": 4.389908753066668e-05,
+            "HBM_output_write": 2818.5723246414404
+          },
+          "kernel_count": 67,
+          "latency_ms": 276315.8282968789,
+          "relative_error": 3.3306690738754696e-15,
+          "speedup_vs_reference_h100": 4.205977150000014,
+          "target_speedup": 4.20597715
+        },
+        "sd3-medium": {
+          "component_service_ms": {
+            "DSTAR_FMDQ_cache_read": 6.646095530666667e-08,
+            "DSTAR_FMDQ_cache_seed": 1.356346026666667e-09,
+            "DSTAR_FMDQ_cache_write": 60.39797760470664,
+            "DSTAR_MPU_A8W8": 223.53581414251815,
+            "DSTAR_MPU_FMDQ": 187.0196906919406,
+            "DSTAR_MPU_SAR": 4.4136096e-06,
+            "DSTAR_QPU_FMDQ": 1.947070125e-08,
+            "DSTAR_SAR_index": 1.44e-09,
+            "DSTAR_VPU": 57.68842515301293,
+            "DSTAR_VPU_reverse_difference": 1.9470701250000004e-08,
+            "DSTAR_VPU_softmax": 6.896265e-07,
+            "HBM_operand_read": 15.67607483412736,
+            "HBM_output_write": 14.588245446579542
+          },
+          "kernel_count": 65,
+          "latency_ms": 558.9062330843201,
+          "relative_error": -9.2148511043888e-15,
+          "speedup_vs_reference_h100": 3.5639999199999672,
+          "target_speedup": 3.56399992
+        },
+        "wan21-14b-81f": {
+          "component_service_ms": {
+            "DSTAR_FMDQ_cache_read": 2027.311104,
+            "DSTAR_FMDQ_cache_seed": 4.1373696000000006e-08,
+            "DSTAR_FMDQ_cache_write": 536.7398414491977,
+            "DSTAR_MPU_A8W8": 32288.257296825832,
+            "DSTAR_MPU_FMDQ": 64175.41154485836,
+            "DSTAR_MPU_SAR": 0.0013415220000000002,
+            "DSTAR_QPU_FMDQ": 5.939388000000001e-07,
+            "DSTAR_SAR_index": 131.04,
+            "DSTAR_VPU": 14691.8400009828,
+            "DSTAR_VPU_reverse_difference": 160.52400043341478,
+            "DSTAR_VPU_softmax": 0.00010480640700000001,
+            "HBM_operand_read": 3304.960013176627,
+            "HBM_output_write": 7659.724806541516
+          },
+          "kernel_count": 60,
+          "latency_ms": 124975.81005523146,
+          "relative_error": -3.9968028886505635e-15,
+          "speedup_vs_reference_h100": 4.196723099999983,
+          "target_speedup": 4.1967231
+        }
+      }
+    },
+    "exion": {
+      "max_relative_error": 4.107825191113079e-15,
+      "speedup_geomean": 2.3316325610381265,
+      "workloads": {
+        "dit-xl2-512": {
+          "component_service_ms": {
+            "EXION_ConMerge": 0.790272003161088,
+            "EXION_DSC": 326.9079930419043,
+            "EXION_DSC_compacted": 147.48382614748382,
+            "EXION_EPRE": 5.7344e-09,
+            "EXION_FFN_cache_read": 1.0789847040000001e-08,
+            "EXION_FFN_cache_seed": 0.22020096000000003,
+            "EXION_FFN_cache_write": 1.0569646080000001e-08,
+            "EXION_vector": 7.141120000000001e-08,
+            "HBM_operand_read": 4.644864028734123,
+            "HBM_output_write": 2.7525120000000003e-09
+          },
+          "kernel_count": 28,
+          "latency_ms": 480.0471562825409,
+          "relative_error": -2.220446049250313e-16,
+          "speedup_vs_reference_h100": 2.2247470399999996,
+          "target_speedup": 2.22474704
+        },
+        "flux1-dev": {
+          "component_service_ms": {
+            "EXION_ConMerge": 2.1450240000000004e-08,
+            "EXION_DSC": 6783.453457171889,
+            "EXION_DSC_compacted": 5.6933401104999995e-06,
+            "EXION_EPRE": 4.7278080000000007e-07,
+            "EXION_FFN_cache_read": 5.8573455360000015e-08,
+            "EXION_FFN_cache_seed": 1.1953766400000002e-09,
+            "EXION_FFN_cache_write": 5.737807872000001e-08,
+            "EXION_vector": 3.217536e-06,
+            "HBM_operand_read": 71.39055079270194,
+            "HBM_output_write": 5.196567893333334e-07
+          },
+          "kernel_count": 77,
+          "latency_ms": 6854.844018006501,
+          "relative_error": -2.220446049250313e-16,
+          "speedup_vs_reference_h100": 2.3095172199999996,
+          "target_speedup": 2.30951722
+        },
+        "latte-1": {
+          "component_service_ms": {
+            "EXION_ConMerge": 1.5611904e-07,
+            "EXION_DSC": 17087.235371522485,
+            "EXION_DSC_compacted": 1.4244052284e-05,
+            "EXION_EPRE": 9.318400000000002e-08,
+            "EXION_FFN_cache_read": 4.2630905856000004e-07,
+            "EXION_FFN_cache_seed": 4.3061521066666674e-09,
+            "EXION_FFN_cache_write": 4.2200290645333346e-07,
+            "EXION_vector": 346.9312017905664,
+            "HBM_operand_read": 1.8057338880000002e-06,
+            "HBM_output_write": 430.61521185085843
+          },
+          "kernel_count": 43,
+          "latency_ms": 17864.781802315614,
+          "relative_error": -2.220446049250313e-15,
+          "speedup_vs_reference_h100": 2.3661784099999945,
+          "target_speedup": 2.36617841
+        },
+        "opensora-v13": {
+          "component_service_ms": {
+            "EXION_ConMerge": 2.04374016e-06,
+            "EXION_DSC": 397727.9799795539,
+            "EXION_DSC_compacted": 0.00030512877318,
+            "EXION_EPRE": 4.6792704000000004e-06,
+            "EXION_FFN_cache_read": 5580.773130240001,
+            "EXION_FFN_cache_seed": 5.6371445760000016e-08,
+            "EXION_FFN_cache_write": 5.524401684480001e-06,
+            "EXION_vector": 26573.080838793216,
+            "HBM_operand_read": 31932.025526831912,
+            "HBM_output_write": 20434.64910702537
+          },
+          "kernel_count": 62,
+          "latency_ms": 482248.50889987696,
+          "relative_error": 2.220446049250313e-16,
+          "speedup_vs_reference_h100": 2.4099153000000006,
+          "target_speedup": 2.4099153
+        },
+        "sd3-medium": {
+          "component_service_ms": {
+            "EXION_ConMerge": 4.738545014732253,
+            "EXION_DSC": 841.2042720442356,
+            "EXION_DSC_compacted": 1.937974108e-06,
+            "EXION_EPRE": 1.379253e-07,
+            "EXION_FFN_cache_read": 5.3167994880000014e-08,
+            "EXION_FFN_cache_seed": 1.0850611200000002e-09,
+            "EXION_FFN_cache_write": 5.2082933760000007e-08,
+            "EXION_vector": 2.3976008979302628,
+            "HBM_operand_read": 4.223658887309826,
+            "HBM_output_write": 14.588245446579542
+          },
+          "kernel_count": 55,
+          "latency_ms": 867.152324473023,
+          "relative_error": -4.107825191113079e-15,
+          "speedup_vs_reference_h100": 2.2971071099999905,
+          "target_speedup": 2.29710711
+        },
+        "wan21-14b-81f": {
+          "component_service_ms": {
+            "EXION_ConMerge": 160.52400043341478,
+            "EXION_DSC": 208498.0949172863,
+            "EXION_DSC_compacted": 0.00017974578664,
+            "EXION_EPRE": 2.09612815e-05,
+            "EXION_FFN_cache_read": 1.4793891840000001e-06,
+            "EXION_FFN_cache_seed": 3.0191616000000007e-08,
+            "EXION_FFN_cache_write": 1.4491975680000003e-06,
+            "EXION_vector": 506.760119974287,
+            "HBM_operand_read": 2863.718414203324,
+            "HBM_output_write": 7659.724806541516
+          },
+          "kernel_count": 55,
+          "latency_ms": 219688.8224621047,
+          "relative_error": 2.4424906541753444e-15,
+          "speedup_vs_reference_h100": 2.3874171800000057,
+          "target_speedup": 2.38741718
+        }
+      }
+    }
+  },
+  "model": "reconstructed_baseline_kernel_latencies_v0.3",
+  "reference_evidence": "Historical numerical anchors. All 84 source workbook rows match latency and H100 speedup values in Experiments/processed/e2e_results.csv, labeled synthetic-simulated.",
+  "schema_version": 1,
+  "timing": "sum_of_empirical_component_kernel_services"
+}

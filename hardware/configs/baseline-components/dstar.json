@@ -1,0 +1,8 @@
+{
+  "buffer_bytes": 100663296,
+  "rates": {
+    "sar": 64,
+    "qpu": 2048
+  },
+  "evidence": "SIMD64 QPU times 32 native MPCs; inherited issue throughput proxy; SAR index rate is provisional. Score cache assumed resident in modeled attention stream."
+}

@@ -1,0 +1,48 @@
+{
+  "backends": {
+    "generic": {
+      "sparse_issue_utilization": 0.5183,
+      "overlap_residual": false,
+      "engine_mapping": {
+        "plane_formation": [
+          "vector",
+          512
+        ],
+        "packet_dispatch": [
+          "vector",
+          1
+        ],
+        "multicast": [
+          "vector",
+          0.5
+        ],
+        "region_control": [
+          "vector",
+          1
+        ],
+        "shift_reduce": [
+          "vector",
+          1
+        ]
+      }
+    },
+    "harp": {
+      "sparse_issue_utilization": 0.8683,
+      "overlap_residual": true,
+      "engine_mapping": {}
+    },
+    "harp_unsplit": {
+      "sparse_issue_utilization": 0.5183,
+      "overlap_residual": true,
+      "engine_mapping": {}
+    },
+    "harp_dedicated_serial": {
+      "sparse_issue_utilization": 0.5183,
+      "overlap_residual": false,
+      "engine_mapping": {}
+    }
+  },
+  "scope": "Matched compute, buffer and HBM settings. Generic service mapping is a modeled proxy, not a GPU timing run.",
+  "utilization": "The 51.83% and 86.83% representative Slice utilization values are transferred to sparse issue stages; they are not measured trajectory averages.",
+  "generic_cost": "Plane formation is charged as one vector operation per value in a 512-value Slice. Multicast is charged as one vector unit per BF16 value. Prefetch and compute are serial on the generic path."
+}

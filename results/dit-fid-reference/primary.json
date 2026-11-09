@@ -1,0 +1,76 @@
+{
+  "metric": "ADM FID",
+  "samples_per_mode": 100,
+  "class_count": 100,
+  "paired_inputs_sha256": "423ed5103cd2e6c9088ac1f602d4dc75852fa45f8d907ed57a9ed41132030336",
+  "sampling_contract": {
+    "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+    "steps": 50,
+    "cfg_scale": 4.0,
+    "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+    "resolution": 512,
+    "cfg_channels": "first3",
+    "seed_base": 100000,
+    "batch_size": 2,
+    "torch": "2.5.1+cu121",
+    "diffusers": "0.32.2",
+    "cuda": "12.1",
+    "gpu": "NVIDIA H100 PCIe",
+    "source_sha256": {
+      "harp/__init__.py": "4997bf526ba8e4748bfcf1a2285c4897e445ddc7e18cbc6066c7b1cc44ecd1f8",
+      "harp/adapters/__init__.py": "1a0e003a51f3c28442ec691bdebb0f1cec235b81eb6e8bd6e7947a3833597b0f",
+      "harp/adapters/dit.py": "5d65b2a9f95eeac42364bc8298bb53da0714ea8516b0e895ffda88bdbd7d642c",
+      "harp/adapters/wan.py": "a12afd10a20fa25ab95b5d53c570794588d277b7c86affa116804e1dfc3739dd",
+      "harp/additional_models/__init__.py": "c71b7ee984a95ad93c26744dc0f5a2ed15b202f05046ab294ba41181b73913f9",
+      "harp/calibration.py": "9e85bc42e8108f556cdaf425f482d68c12ecf287bdf7ea142880f9206adbbfde",
+      "harp/cli.py": "59614923fe5ac4fac247a7640a6dd882f8d51974601fd3927bd0ec75bed9a5d2",
+      "harp/core/__init__.py": "8ed502d78d93492953fdd8ce65fae0aba0dfd4924c1e43b71f2cafeee99fe118",
+      "harp/core/attention.py": "82555f2975697315cd47aa0faa8520dd5236cd0b55858dd1f885cd6165976cea",
+      "harp/core/planes.py": "6064ab23d7697e0bbaa8278eec7ce23391e1738669cc3017e16040e8de598a17",
+      "harp/diagnostics.py": "d7ef37dc5f2eb3cd9c5862a490aca81abc9b55812247ad387ef1538017e45c26",
+      "harp/intervention.py": "ba9678f3198421c9aa184479ed0c05d1dbdb81827f458cb36dc5b99e9d1d9973",
+      "harp/protocol.py": "78a8640955e73424b7514a6cce089ec0d83b8f8a6023d7ac0f5400f33ed16479",
+      "harp/runtime.py": "c46a3674b615aa6e6c5db26656c65c5d245b5397d803e51b2b68cc2ffbb22d80",
+      "harp/wan_cli.py": "26de3b4c3db0efb30f9cb12e3fa551084f1021894e6c3bc94d016e7f10bfcfd2",
+      "harp/wan_suite.py": "516ccfa0fad80478a0aae689239018b4fae2eaad8957b961f2a662f32a218719",
+      "src/dit-original/models.py": "78f2364c9de7b4c38f3809162891f0ae894574df311788d83d81e8f49558faba",
+      "quality/dit.py": "0c959d7915bd69a0fb173bf7b9442f837aeefa167b2549298ef6207af09c70a7",
+      "quality/dit_paired.py": "d35775455033567193fd015c6a35fd89b2b3c2af698207c78811182e33ffeaaf",
+      "quality/dit_budget.py": "f451622eb9ed6ac04be4b89ced5135ceee2593af2c8693585e5790c63d674457"
+    },
+    "budget_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "vae_sha256": {
+      "config.json": "92d3dfb746fca211a2c9e019e285f8597412211728dce3c5bcf4eda0f2d62e7e",
+      "diffusion_pytorch_model.safetensors": "a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815"
+    },
+    "cohort": "class-balanced-v1"
+  },
+  "reference_sha256": "8f26924dce0b769659e302fa5404bae32182846b6bd6d5240449b4ab8372bf9d",
+  "inception_graph_sha256": "009d6814d1bc560d4e7b236e170e9b2d5ca6f4b57bd8037f6db05776204415c6",
+  "modes": {
+    "dense": {
+      "label": "Dense BF16",
+      "fid": 190.94773529569073,
+      "delta_fid": 0.0,
+      "delta_percent_dense": 0.0
+    },
+    "residual": {
+      "label": "HARP-Residual",
+      "fid": 192.66452330397846,
+      "delta_fid": 1.7167880082877218,
+      "delta_percent_dense": 0.8990879130507634
+    },
+    "planeclear": {
+      "label": "HARP-PlaneClear",
+      "fid": 190.97848212940403,
+      "delta_fid": 0.030746833713294563,
+      "delta_percent_dense": 0.01610222486571091
+    },
+    "combined": {
+      "label": "HARP-Budget / HARP",
+      "fid": 193.07441631834024,
+      "delta_fid": 2.1266810226495068,
+      "delta_percent_dense": 1.113750325111869
+    }
+  }
+}

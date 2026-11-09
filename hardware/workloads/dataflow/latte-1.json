@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "latte-1",
+  "grid": [
+    16,
+    32,
+    32
+  ],
+  "width": 1408,
+  "heads": 16,
+  "ffn": 5632,
+  "steps": 100,
+  "forwards": 1,
+  "lanes": 2,
+  "conditioning": "linear6",
+  "patch_in": 16,
+  "patch_out": 32,
+  "evidence": "table_i_geometry_with_structural_proxies",
+  "source": [
+    "https://github.com/Vchitect/Latte/blob/main/models/latte.py",
+    "HARP-326-revised.pdf Table I"
+  ],
+  "assumptions": [
+    "Table I gives width 1408; upstream Latte-XL/2 gives 1152. The upstream 28-block spatial/temporal structure is retargeted to the Table I width with an x4 FFN proxy.",
+    "The 16-frame, 32x32 token grid and CFG execution are deployment assumptions."
+  ],
+  "bundles": [
+    {
+      "repeat": 14,
+      "layers": [
+        {
+          "id": "latte_spatial",
+          "type": "self",
+          "attention": "spatial"
+        },
+        {
+          "id": "latte_temporal",
+          "type": "self",
+          "attention": "temporal"
+        }
+      ]
+    }
+  ],
+  "table_i": {
+    "resolution": "512x512",
+    "frames": 16,
+    "sampler": "DDIM",
+    "tokens_display": "1.6e4",
+    "width": 1408,
+    "heads": 16,
+    "steps": 100
+  }
+}

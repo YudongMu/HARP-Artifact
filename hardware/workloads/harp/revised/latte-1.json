@@ -1,0 +1,36 @@
+{
+  "id": "latte-1",
+  "selected_fraction": 0.2827,
+  "plane_sites": {
+    "qkv": {
+      "natural_skip_fraction": 0.19,
+      "final_skip_fraction": 0.46
+    },
+    "q": {
+      "natural_skip_fraction": 0.15,
+      "final_skip_fraction": 0.46
+    },
+    "k": {
+      "natural_skip_fraction": 0.16,
+      "final_skip_fraction": 0.46
+    },
+    "v": {
+      "natural_skip_fraction": 0.18,
+      "final_skip_fraction": 0.48
+    },
+    "attention_out": {
+      "natural_skip_fraction": 0.21,
+      "final_skip_fraction": 0.51
+    },
+    "ffn_in": {
+      "natural_skip_fraction": 0.23,
+      "final_skip_fraction": 0.59
+    },
+    "ffn_out": {
+      "natural_skip_fraction": 0.28,
+      "final_skip_fraction": 0.63
+    }
+  },
+  "features": "Alternating spatial and temporal groups. The published workload average is shared across those groups because a separate rate per group is unavailable.",
+  "source": "HARP revised Figures 8 and 9(a); plane percentages read at the figure's displayed precision."
+}

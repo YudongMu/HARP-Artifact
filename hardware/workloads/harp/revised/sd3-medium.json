@@ -1,0 +1,36 @@
+{
+  "id": "sd3-medium",
+  "selected_fraction": 0.383,
+  "plane_sites": {
+    "qkv": {
+      "natural_skip_fraction": 0.25,
+      "final_skip_fraction": 0.5
+    },
+    "q": {
+      "natural_skip_fraction": 0.2,
+      "final_skip_fraction": 0.48
+    },
+    "k": {
+      "natural_skip_fraction": 0.21,
+      "final_skip_fraction": 0.49
+    },
+    "v": {
+      "natural_skip_fraction": 0.23,
+      "final_skip_fraction": 0.51
+    },
+    "attention_out": {
+      "natural_skip_fraction": 0.27,
+      "final_skip_fraction": 0.54
+    },
+    "ffn_in": {
+      "natural_skip_fraction": 0.28,
+      "final_skip_fraction": 0.64
+    },
+    "ffn_out": {
+      "natural_skip_fraction": 0.33,
+      "final_skip_fraction": 0.67
+    }
+  },
+  "features": "Joint image/text stream with a context-pre-only final block. The published Region and site rates are applied across the modeled joint groups.",
+  "source": "HARP revised Figures 8 and 9(a); plane percentages read at the figure's displayed precision."
+}

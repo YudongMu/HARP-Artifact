@@ -1,0 +1,3074 @@
+[
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 0,
+      "id": "heldout256-000",
+      "seed": 400000
+    },
+    "mode": "dense",
+    "noise_sha256": "ee10a680686749390a4028c5f359e80857ec8c69c99150ff1044bb3a234f4043",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-000/sample.json",
+      "sha256": "b2a986476179249d37690816e38e2ace7ae91f16b227aee522013bfaf21f24c6"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 0,
+      "id": "heldout256-000",
+      "seed": 400000
+    },
+    "mode": "residual",
+    "noise_sha256": "ee10a680686749390a4028c5f359e80857ec8c69c99150ff1044bb3a234f4043",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8656525,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-000/sample.json",
+      "sha256": "12704fcdca979d8d8cf75bed5d28f9cdc58c05821dcf6951951ae5b0bc67cae4"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 0,
+      "id": "heldout256-000",
+      "seed": 400000
+    },
+    "mode": "planeclear",
+    "noise_sha256": "ee10a680686749390a4028c5f359e80857ec8c69c99150ff1044bb3a234f4043",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1185776,
+        "opportunity_slices": 6451200,
+        "retained_planes": 864678,
+        "slices": 6451200,
+        "supported_slices": 74111
+      },
+      "ffn2": {
+        "eligible_planes": 37000640,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25626335,
+        "slices": 25804800,
+        "supported_slices": 2312540
+      },
+      "out": {
+        "eligible_planes": 6764624,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4745327,
+        "slices": 6451200,
+        "supported_slices": 422789
+      },
+      "qkv": {
+        "eligible_planes": 675424,
+        "opportunity_slices": 6451200,
+        "retained_planes": 494216,
+        "slices": 6451200,
+        "supported_slices": 42214
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-000/sample.json",
+      "sha256": "c3e702d105e977c04346819bf6712d49f8bd2b910eb62ebe63ce7024bd98b677"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 0,
+      "id": "heldout256-000",
+      "seed": 400000
+    },
+    "mode": "combined",
+    "noise_sha256": "ee10a680686749390a4028c5f359e80857ec8c69c99150ff1044bb3a234f4043",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1186992,
+        "opportunity_slices": 6451200,
+        "retained_planes": 865029,
+        "slices": 6451200,
+        "supported_slices": 74187
+      },
+      "ffn2": {
+        "eligible_planes": 37066960,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25668902,
+        "slices": 25804800,
+        "supported_slices": 2316685
+      },
+      "out": {
+        "eligible_planes": 5300144,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3716390,
+        "slices": 5160960,
+        "supported_slices": 331259
+      },
+      "qkv": {
+        "eligible_planes": 537840,
+        "opportunity_slices": 6451200,
+        "retained_planes": 393244,
+        "slices": 5160960,
+        "supported_slices": 33615
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8656545,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-000/sample.json",
+      "sha256": "51e2b49c64db381bb5ec7268de9febabead642350e3d7803f04c5f46eda12cb7"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 62,
+      "id": "heldout256-016",
+      "seed": 400016
+    },
+    "mode": "dense",
+    "noise_sha256": "615fe0ca61ecac0c243c25f6f315df851b3cbe348ecbff01ad219ffdb2015c08",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-016/sample.json",
+      "sha256": "96e094efa1aae260b39f69ae68266eb12f66d3c8a579ce479eff206058e6ebef"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 62,
+      "id": "heldout256-016",
+      "seed": 400016
+    },
+    "mode": "residual",
+    "noise_sha256": "615fe0ca61ecac0c243c25f6f315df851b3cbe348ecbff01ad219ffdb2015c08",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8829890,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-016/sample.json",
+      "sha256": "751126af20eb374c21cae4297f24ef7906a7a91b587ee04042746c8180c19dca"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 62,
+      "id": "heldout256-016",
+      "seed": 400016
+    },
+    "mode": "planeclear",
+    "noise_sha256": "615fe0ca61ecac0c243c25f6f315df851b3cbe348ecbff01ad219ffdb2015c08",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1221056,
+        "opportunity_slices": 6451200,
+        "retained_planes": 889128,
+        "slices": 6451200,
+        "supported_slices": 76316
+      },
+      "ffn2": {
+        "eligible_planes": 46836368,
+        "opportunity_slices": 25804800,
+        "retained_planes": 32213695,
+        "slices": 25804800,
+        "supported_slices": 2927273
+      },
+      "out": {
+        "eligible_planes": 7456176,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5209298,
+        "slices": 6451200,
+        "supported_slices": 466011
+      },
+      "qkv": {
+        "eligible_planes": 682432,
+        "opportunity_slices": 6451200,
+        "retained_planes": 499986,
+        "slices": 6451200,
+        "supported_slices": 42652
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-016/sample.json",
+      "sha256": "dc116f5cc3d2560cf11b95c5d6e33ae740d1f1147cf46ce5b0941a0b71b47367"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 62,
+      "id": "heldout256-016",
+      "seed": 400016
+    },
+    "mode": "combined",
+    "noise_sha256": "615fe0ca61ecac0c243c25f6f315df851b3cbe348ecbff01ad219ffdb2015c08",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1216272,
+        "opportunity_slices": 6451200,
+        "retained_planes": 885463,
+        "slices": 6451200,
+        "supported_slices": 76017
+      },
+      "ffn2": {
+        "eligible_planes": 46950592,
+        "opportunity_slices": 25804800,
+        "retained_planes": 32287441,
+        "slices": 25804800,
+        "supported_slices": 2934412
+      },
+      "out": {
+        "eligible_planes": 5855968,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4089668,
+        "slices": 5160960,
+        "supported_slices": 365998
+      },
+      "qkv": {
+        "eligible_planes": 543024,
+        "opportunity_slices": 6451200,
+        "retained_planes": 397631,
+        "slices": 5160960,
+        "supported_slices": 33939
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8825415,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-016/sample.json",
+      "sha256": "56ddc09ad454edc1a8dce7ddce98aca5c27f51e704bb7768b55a0ff73e6e3bdc"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 125,
+      "id": "heldout256-032",
+      "seed": 400032
+    },
+    "mode": "dense",
+    "noise_sha256": "0b2115a4390c0d2978da6d701d26d7a6d33514f9a72bacc6f2d471035adff39a",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-032/sample.json",
+      "sha256": "ac89e0d3b432ca7c6687892b235be01f306040bb7f97109e1d8c61a0627c46ab"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 125,
+      "id": "heldout256-032",
+      "seed": 400032
+    },
+    "mode": "residual",
+    "noise_sha256": "0b2115a4390c0d2978da6d701d26d7a6d33514f9a72bacc6f2d471035adff39a",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8429610,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-032/sample.json",
+      "sha256": "51285644b4ead87ff912650620b3fea70c99572e2be6d556465076e63fef2582"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 125,
+      "id": "heldout256-032",
+      "seed": 400032
+    },
+    "mode": "planeclear",
+    "noise_sha256": "0b2115a4390c0d2978da6d701d26d7a6d33514f9a72bacc6f2d471035adff39a",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1209952,
+        "opportunity_slices": 6451200,
+        "retained_planes": 880708,
+        "slices": 6451200,
+        "supported_slices": 75622
+      },
+      "ffn2": {
+        "eligible_planes": 36683504,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25490529,
+        "slices": 25804800,
+        "supported_slices": 2292719
+      },
+      "out": {
+        "eligible_planes": 7045984,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4942599,
+        "slices": 6451200,
+        "supported_slices": 440374
+      },
+      "qkv": {
+        "eligible_planes": 732656,
+        "opportunity_slices": 6451200,
+        "retained_planes": 535730,
+        "slices": 6451200,
+        "supported_slices": 45791
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-032/sample.json",
+      "sha256": "aeeb82a79779ff3bb44949bbb4d12c514b87d42913333fcf09bb52874030d56b"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 125,
+      "id": "heldout256-032",
+      "seed": 400032
+    },
+    "mode": "combined",
+    "noise_sha256": "0b2115a4390c0d2978da6d701d26d7a6d33514f9a72bacc6f2d471035adff39a",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1220672,
+        "opportunity_slices": 6451200,
+        "retained_planes": 888503,
+        "slices": 6451200,
+        "supported_slices": 76292
+      },
+      "ffn2": {
+        "eligible_planes": 36865776,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25601522,
+        "slices": 25804800,
+        "supported_slices": 2304111
+      },
+      "out": {
+        "eligible_planes": 5450640,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3821941,
+        "slices": 5160960,
+        "supported_slices": 340665
+      },
+      "qkv": {
+        "eligible_planes": 585456,
+        "opportunity_slices": 6451200,
+        "retained_planes": 428009,
+        "slices": 5160960,
+        "supported_slices": 36591
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8432625,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-032/sample.json",
+      "sha256": "dc7252e8487129ec5b34ae9b370d7261ba2df47d5d86a98c6eefe807e49d3395"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 188,
+      "id": "heldout256-048",
+      "seed": 400048
+    },
+    "mode": "dense",
+    "noise_sha256": "b7ab5b073e34396c709de0355ad781187adacd1543f72ca0e864134fe0362748",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-048/sample.json",
+      "sha256": "f7fc28fadfbbe3fba792bfe60abea7ce98474a4913d7f10a839e023c6f4b79f8"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 188,
+      "id": "heldout256-048",
+      "seed": 400048
+    },
+    "mode": "residual",
+    "noise_sha256": "b7ab5b073e34396c709de0355ad781187adacd1543f72ca0e864134fe0362748",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9179810,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-048/sample.json",
+      "sha256": "75cd26b4794cc740f542ff3802be3978e02d2396a73698582353cf0682f69933"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 188,
+      "id": "heldout256-048",
+      "seed": 400048
+    },
+    "mode": "planeclear",
+    "noise_sha256": "b7ab5b073e34396c709de0355ad781187adacd1543f72ca0e864134fe0362748",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1184736,
+        "opportunity_slices": 6451200,
+        "retained_planes": 863862,
+        "slices": 6451200,
+        "supported_slices": 74046
+      },
+      "ffn2": {
+        "eligible_planes": 37227264,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25744588,
+        "slices": 25804800,
+        "supported_slices": 2326704
+      },
+      "out": {
+        "eligible_planes": 6496416,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4558960,
+        "slices": 6451200,
+        "supported_slices": 406026
+      },
+      "qkv": {
+        "eligible_planes": 702528,
+        "opportunity_slices": 6451200,
+        "retained_planes": 513539,
+        "slices": 6451200,
+        "supported_slices": 43908
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-048/sample.json",
+      "sha256": "90b79f63e5dfcfb1d94eee9b3ff3b1901d6593d1ad9a52a2926137cce75ae80a"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 188,
+      "id": "heldout256-048",
+      "seed": 400048
+    },
+    "mode": "combined",
+    "noise_sha256": "b7ab5b073e34396c709de0355ad781187adacd1543f72ca0e864134fe0362748",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1188464,
+        "opportunity_slices": 6451200,
+        "retained_planes": 866883,
+        "slices": 6451200,
+        "supported_slices": 74279
+      },
+      "ffn2": {
+        "eligible_planes": 37558288,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25972363,
+        "slices": 25804800,
+        "supported_slices": 2347393
+      },
+      "out": {
+        "eligible_planes": 5085360,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3566178,
+        "slices": 5160960,
+        "supported_slices": 317835
+      },
+      "qkv": {
+        "eligible_planes": 564112,
+        "opportunity_slices": 6451200,
+        "retained_planes": 412126,
+        "slices": 5160960,
+        "supported_slices": 35257
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9170665,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-048/sample.json",
+      "sha256": "3e7de58a6bc4858c348b2ef170d14b341bbabc52f53e05f65938a1cae6725e73"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 250,
+      "id": "heldout256-064",
+      "seed": 400064
+    },
+    "mode": "dense",
+    "noise_sha256": "9afc6838e6b0dd27d4f90ca6e042df5d4c87e6a1b53e5f4248da070b6748dd69",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-064/sample.json",
+      "sha256": "f51062c2ca2dda2e4712f80f5eff60cbaf87051e8591845fcb0fca6e0c6d0a7d"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 250,
+      "id": "heldout256-064",
+      "seed": 400064
+    },
+    "mode": "residual",
+    "noise_sha256": "9afc6838e6b0dd27d4f90ca6e042df5d4c87e6a1b53e5f4248da070b6748dd69",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8892285,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-064/sample.json",
+      "sha256": "7f737406d716f0a4eb27503a1d88117ec4cf10644156dd120d92726c1db0f512"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 250,
+      "id": "heldout256-064",
+      "seed": 400064
+    },
+    "mode": "planeclear",
+    "noise_sha256": "9afc6838e6b0dd27d4f90ca6e042df5d4c87e6a1b53e5f4248da070b6748dd69",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1221072,
+        "opportunity_slices": 6451200,
+        "retained_planes": 888421,
+        "slices": 6451200,
+        "supported_slices": 76317
+      },
+      "ffn2": {
+        "eligible_planes": 42584656,
+        "opportunity_slices": 25804800,
+        "retained_planes": 29439197,
+        "slices": 25804800,
+        "supported_slices": 2661541
+      },
+      "out": {
+        "eligible_planes": 6901968,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4834308,
+        "slices": 6451200,
+        "supported_slices": 431373
+      },
+      "qkv": {
+        "eligible_planes": 677472,
+        "opportunity_slices": 6451200,
+        "retained_planes": 495547,
+        "slices": 6451200,
+        "supported_slices": 42342
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-064/sample.json",
+      "sha256": "1ee90588d27bbd92a6cf402e1a7ad4ec84187b82f83bbe583515a860fc01a511"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 250,
+      "id": "heldout256-064",
+      "seed": 400064
+    },
+    "mode": "combined",
+    "noise_sha256": "9afc6838e6b0dd27d4f90ca6e042df5d4c87e6a1b53e5f4248da070b6748dd69",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1212720,
+        "opportunity_slices": 6451200,
+        "retained_planes": 883099,
+        "slices": 6451200,
+        "supported_slices": 75795
+      },
+      "ffn2": {
+        "eligible_planes": 43194000,
+        "opportunity_slices": 25804800,
+        "retained_planes": 29860998,
+        "slices": 25804800,
+        "supported_slices": 2699625
+      },
+      "out": {
+        "eligible_planes": 5394240,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3774257,
+        "slices": 5160960,
+        "supported_slices": 337140
+      },
+      "qkv": {
+        "eligible_planes": 537488,
+        "opportunity_slices": 6451200,
+        "retained_planes": 392645,
+        "slices": 5160960,
+        "supported_slices": 33593
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8898655,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-064/sample.json",
+      "sha256": "2dff003c48975dd4c7fe5cd8729b2d276d3a9f39fa24cc24e5c3188eada9bbe7"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 313,
+      "id": "heldout256-080",
+      "seed": 400080
+    },
+    "mode": "dense",
+    "noise_sha256": "c01680e40ac419d119d7ba151110d746f5bb31522808c2522227852a7751fb37",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-080/sample.json",
+      "sha256": "8a936c458904d341a3e4bd67db9b63a18b883e8d44401617cf4120968fb6f40f"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 313,
+      "id": "heldout256-080",
+      "seed": 400080
+    },
+    "mode": "residual",
+    "noise_sha256": "c01680e40ac419d119d7ba151110d746f5bb31522808c2522227852a7751fb37",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9305500,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-080/sample.json",
+      "sha256": "7d8d88881768ab843aae526b42d65b23ed33adfee2de2e53791176cf485e15e0"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 313,
+      "id": "heldout256-080",
+      "seed": 400080
+    },
+    "mode": "planeclear",
+    "noise_sha256": "c01680e40ac419d119d7ba151110d746f5bb31522808c2522227852a7751fb37",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1178752,
+        "opportunity_slices": 6451200,
+        "retained_planes": 858493,
+        "slices": 6451200,
+        "supported_slices": 73672
+      },
+      "ffn2": {
+        "eligible_planes": 38675856,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26935081,
+        "slices": 25804800,
+        "supported_slices": 2417241
+      },
+      "out": {
+        "eligible_planes": 7369280,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5185196,
+        "slices": 6451200,
+        "supported_slices": 460580
+      },
+      "qkv": {
+        "eligible_planes": 688352,
+        "opportunity_slices": 6451200,
+        "retained_planes": 503859,
+        "slices": 6451200,
+        "supported_slices": 43022
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-080/sample.json",
+      "sha256": "8001d211a8f9203f904286b432292832d86587e40a4027d31d602ef35d81ac1e"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 313,
+      "id": "heldout256-080",
+      "seed": 400080
+    },
+    "mode": "combined",
+    "noise_sha256": "c01680e40ac419d119d7ba151110d746f5bb31522808c2522227852a7751fb37",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1182736,
+        "opportunity_slices": 6451200,
+        "retained_planes": 861748,
+        "slices": 6451200,
+        "supported_slices": 73921
+      },
+      "ffn2": {
+        "eligible_planes": 38195072,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26602194,
+        "slices": 25804800,
+        "supported_slices": 2387192
+      },
+      "out": {
+        "eligible_planes": 5865936,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4126538,
+        "slices": 5160960,
+        "supported_slices": 366621
+      },
+      "qkv": {
+        "eligible_planes": 552880,
+        "opportunity_slices": 6451200,
+        "retained_planes": 404437,
+        "slices": 5160960,
+        "supported_slices": 34555
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9324460,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-080/sample.json",
+      "sha256": "9749cf8f3a92e2b2155f9d0965a60d209952166e067377ab194517f29e8a960a"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 376,
+      "id": "heldout256-096",
+      "seed": 400096
+    },
+    "mode": "dense",
+    "noise_sha256": "8640e62e91d8c4b40ca448af6ca12caeb84f5f7b6ed0f5e38535b37c116bfe9b",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-096/sample.json",
+      "sha256": "ed822b484b75e692b41e5b13df0b05a5436343a07858fb1add691b90dd076341"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 376,
+      "id": "heldout256-096",
+      "seed": 400096
+    },
+    "mode": "residual",
+    "noise_sha256": "8640e62e91d8c4b40ca448af6ca12caeb84f5f7b6ed0f5e38535b37c116bfe9b",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8815345,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-096/sample.json",
+      "sha256": "56a1d41c29e23d878e57a779336fa410fb00f570484d7c3ee83ede66242e56f6"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 376,
+      "id": "heldout256-096",
+      "seed": 400096
+    },
+    "mode": "planeclear",
+    "noise_sha256": "8640e62e91d8c4b40ca448af6ca12caeb84f5f7b6ed0f5e38535b37c116bfe9b",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1190496,
+        "opportunity_slices": 6451200,
+        "retained_planes": 867039,
+        "slices": 6451200,
+        "supported_slices": 74406
+      },
+      "ffn2": {
+        "eligible_planes": 37902192,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26267099,
+        "slices": 25804800,
+        "supported_slices": 2368887
+      },
+      "out": {
+        "eligible_planes": 6445968,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4512278,
+        "slices": 6451200,
+        "supported_slices": 402873
+      },
+      "qkv": {
+        "eligible_planes": 669584,
+        "opportunity_slices": 6451200,
+        "retained_planes": 489989,
+        "slices": 6451200,
+        "supported_slices": 41849
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-096/sample.json",
+      "sha256": "1f79b3c8599ff38911dac0b9d6d6b789ca120e32a28450c40a6294c055526667"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 376,
+      "id": "heldout256-096",
+      "seed": 400096
+    },
+    "mode": "combined",
+    "noise_sha256": "8640e62e91d8c4b40ca448af6ca12caeb84f5f7b6ed0f5e38535b37c116bfe9b",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1168352,
+        "opportunity_slices": 6451200,
+        "retained_planes": 851851,
+        "slices": 6451200,
+        "supported_slices": 73022
+      },
+      "ffn2": {
+        "eligible_planes": 37716832,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26130783,
+        "slices": 25804800,
+        "supported_slices": 2357302
+      },
+      "out": {
+        "eligible_planes": 4959472,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3470617,
+        "slices": 5160960,
+        "supported_slices": 309967
+      },
+      "qkv": {
+        "eligible_planes": 528480,
+        "opportunity_slices": 6451200,
+        "retained_planes": 386751,
+        "slices": 5160960,
+        "supported_slices": 33030
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8887710,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-096/sample.json",
+      "sha256": "8d5e1297192fad055c14ac67ab06bf8f24d3cba37db25aa9bcf242e840d8a0e8"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 438,
+      "id": "heldout256-112",
+      "seed": 400112
+    },
+    "mode": "dense",
+    "noise_sha256": "9dce122bb37b44fabf4a0bf4489f6adf16510a0363ecc1887736bfbfa3ee4797",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-112/sample.json",
+      "sha256": "03f29f5b4b2f3bc5a95f2a2d36815bb49e3eba4a113a1a3dcce330f2ccb523ec"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 438,
+      "id": "heldout256-112",
+      "seed": 400112
+    },
+    "mode": "residual",
+    "noise_sha256": "9dce122bb37b44fabf4a0bf4489f6adf16510a0363ecc1887736bfbfa3ee4797",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8596645,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-112/sample.json",
+      "sha256": "78def4266a76a980c4aade614a9bcc91a13c402cfde7365923cc6711490e673e"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 438,
+      "id": "heldout256-112",
+      "seed": 400112
+    },
+    "mode": "planeclear",
+    "noise_sha256": "9dce122bb37b44fabf4a0bf4489f6adf16510a0363ecc1887736bfbfa3ee4797",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1285056,
+        "opportunity_slices": 6451200,
+        "retained_planes": 936764,
+        "slices": 6451200,
+        "supported_slices": 80316
+      },
+      "ffn2": {
+        "eligible_planes": 34307280,
+        "opportunity_slices": 25804800,
+        "retained_planes": 23879295,
+        "slices": 25804800,
+        "supported_slices": 2144205
+      },
+      "out": {
+        "eligible_planes": 7082576,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4975180,
+        "slices": 6451200,
+        "supported_slices": 442661
+      },
+      "qkv": {
+        "eligible_planes": 769216,
+        "opportunity_slices": 6451200,
+        "retained_planes": 562304,
+        "slices": 6451200,
+        "supported_slices": 48076
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-112/sample.json",
+      "sha256": "db158f634bcab7a22c7f3441e8ef3c50d00486dd19176205a89d07983525721a"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 438,
+      "id": "heldout256-112",
+      "seed": 400112
+    },
+    "mode": "combined",
+    "noise_sha256": "9dce122bb37b44fabf4a0bf4489f6adf16510a0363ecc1887736bfbfa3ee4797",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1278272,
+        "opportunity_slices": 6451200,
+        "retained_planes": 931876,
+        "slices": 6451200,
+        "supported_slices": 79892
+      },
+      "ffn2": {
+        "eligible_planes": 34580400,
+        "opportunity_slices": 25804800,
+        "retained_planes": 24067715,
+        "slices": 25804800,
+        "supported_slices": 2161275
+      },
+      "out": {
+        "eligible_planes": 5556048,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3900825,
+        "slices": 5160960,
+        "supported_slices": 347253
+      },
+      "qkv": {
+        "eligible_planes": 614992,
+        "opportunity_slices": 6451200,
+        "retained_planes": 449484,
+        "slices": 5160960,
+        "supported_slices": 38437
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8594980,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-112/sample.json",
+      "sha256": "bd63ceacfb8fac787fcc722c23dfa9e93df116bcef6ab2096ac547a6b1cfe15b"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 501,
+      "id": "heldout256-128",
+      "seed": 400128
+    },
+    "mode": "dense",
+    "noise_sha256": "9dc8d823c10e34189bc32c37d9db085c14cae367b6726a63c82490577c31e2c3",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-128/sample.json",
+      "sha256": "71d72a36be0eb237f7c8303dbfef7406588a08c5645222c40d8f83eac17bf5ce"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 501,
+      "id": "heldout256-128",
+      "seed": 400128
+    },
+    "mode": "residual",
+    "noise_sha256": "9dc8d823c10e34189bc32c37d9db085c14cae367b6726a63c82490577c31e2c3",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8979715,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-128/sample.json",
+      "sha256": "0df21d1ddd92c9bb9fb35fef8ed3116b02ad410ea03c0dae0d26d82fac017719"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 501,
+      "id": "heldout256-128",
+      "seed": 400128
+    },
+    "mode": "planeclear",
+    "noise_sha256": "9dc8d823c10e34189bc32c37d9db085c14cae367b6726a63c82490577c31e2c3",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1206896,
+        "opportunity_slices": 6451200,
+        "retained_planes": 877769,
+        "slices": 6451200,
+        "supported_slices": 75431
+      },
+      "ffn2": {
+        "eligible_planes": 38119792,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26606532,
+        "slices": 25804800,
+        "supported_slices": 2382487
+      },
+      "out": {
+        "eligible_planes": 7526640,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5290670,
+        "slices": 6451200,
+        "supported_slices": 470415
+      },
+      "qkv": {
+        "eligible_planes": 739008,
+        "opportunity_slices": 6451200,
+        "retained_planes": 539748,
+        "slices": 6451200,
+        "supported_slices": 46188
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-128/sample.json",
+      "sha256": "bc253fd362912148fd7748fabf7106f79ad9bc5a41cd59d69fc0f67bbd3cc4e6"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 501,
+      "id": "heldout256-128",
+      "seed": 400128
+    },
+    "mode": "combined",
+    "noise_sha256": "9dc8d823c10e34189bc32c37d9db085c14cae367b6726a63c82490577c31e2c3",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1211664,
+        "opportunity_slices": 6451200,
+        "retained_planes": 881013,
+        "slices": 6451200,
+        "supported_slices": 75729
+      },
+      "ffn2": {
+        "eligible_planes": 38108032,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26603063,
+        "slices": 25804800,
+        "supported_slices": 2381752
+      },
+      "out": {
+        "eligible_planes": 5983216,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4203879,
+        "slices": 5160960,
+        "supported_slices": 373951
+      },
+      "qkv": {
+        "eligible_planes": 594656,
+        "opportunity_slices": 6451200,
+        "retained_planes": 434087,
+        "slices": 5160960,
+        "supported_slices": 37166
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8976845,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-128/sample.json",
+      "sha256": "fb60065f0b48a691dba7e981856395ff782c2a60c20f4854fb8b5413ca57f63d"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 564,
+      "id": "heldout256-144",
+      "seed": 400144
+    },
+    "mode": "dense",
+    "noise_sha256": "f7e5ce9ac4b88d79f5810fda556742593038bd08bbc05925c7764d9e6a6507c6",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-144/sample.json",
+      "sha256": "dea305fde78e1281e50a5e85d701fef59e0383068e6a576b82d791b379b81bd8"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 564,
+      "id": "heldout256-144",
+      "seed": 400144
+    },
+    "mode": "residual",
+    "noise_sha256": "f7e5ce9ac4b88d79f5810fda556742593038bd08bbc05925c7764d9e6a6507c6",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8932190,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-144/sample.json",
+      "sha256": "6dd11e2bd2643a0207bc050e76079904c4a2990218e72d191653084b948171ed"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 564,
+      "id": "heldout256-144",
+      "seed": 400144
+    },
+    "mode": "planeclear",
+    "noise_sha256": "f7e5ce9ac4b88d79f5810fda556742593038bd08bbc05925c7764d9e6a6507c6",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1244864,
+        "opportunity_slices": 6451200,
+        "retained_planes": 906153,
+        "slices": 6451200,
+        "supported_slices": 77804
+      },
+      "ffn2": {
+        "eligible_planes": 38263952,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26467708,
+        "slices": 25804800,
+        "supported_slices": 2391497
+      },
+      "out": {
+        "eligible_planes": 6571616,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4606873,
+        "slices": 6451200,
+        "supported_slices": 410726
+      },
+      "qkv": {
+        "eligible_planes": 707360,
+        "opportunity_slices": 6451200,
+        "retained_planes": 517161,
+        "slices": 6451200,
+        "supported_slices": 44210
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-144/sample.json",
+      "sha256": "6bb38ed5dc26cbf73d748e00830c1eec8b0c6bc23fc2467b4e0b00f1062c49f2"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 564,
+      "id": "heldout256-144",
+      "seed": 400144
+    },
+    "mode": "combined",
+    "noise_sha256": "f7e5ce9ac4b88d79f5810fda556742593038bd08bbc05925c7764d9e6a6507c6",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1245120,
+        "opportunity_slices": 6451200,
+        "retained_planes": 906046,
+        "slices": 6451200,
+        "supported_slices": 77820
+      },
+      "ffn2": {
+        "eligible_planes": 38132912,
+        "opportunity_slices": 25804800,
+        "retained_planes": 26365516,
+        "slices": 25804800,
+        "supported_slices": 2383307
+      },
+      "out": {
+        "eligible_planes": 5138272,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3600794,
+        "slices": 5160960,
+        "supported_slices": 321142
+      },
+      "qkv": {
+        "eligible_planes": 572720,
+        "opportunity_slices": 6451200,
+        "retained_planes": 419080,
+        "slices": 5160960,
+        "supported_slices": 35795
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8930775,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-144/sample.json",
+      "sha256": "d0128b6beafb5fe59ae1d853f7eba27e47a284002f9d459a1c90e6594f120fc1"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 626,
+      "id": "heldout256-160",
+      "seed": 400160
+    },
+    "mode": "dense",
+    "noise_sha256": "74a47a0d907e38885ba786ae6ee25195025c8d99c79e337fcaaae47038655a4a",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-160/sample.json",
+      "sha256": "61790e2f9c89640c33de441edb0921edad91502653935af794f0d6b4b3d2be08"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 626,
+      "id": "heldout256-160",
+      "seed": 400160
+    },
+    "mode": "residual",
+    "noise_sha256": "74a47a0d907e38885ba786ae6ee25195025c8d99c79e337fcaaae47038655a4a",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8878965,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-160/sample.json",
+      "sha256": "f29bada17da125e07f9bb7e74e9cbbff45f3ff9e25f251d27b3ae582b7bacf60"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 626,
+      "id": "heldout256-160",
+      "seed": 400160
+    },
+    "mode": "planeclear",
+    "noise_sha256": "74a47a0d907e38885ba786ae6ee25195025c8d99c79e337fcaaae47038655a4a",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1246688,
+        "opportunity_slices": 6451200,
+        "retained_planes": 907814,
+        "slices": 6451200,
+        "supported_slices": 77918
+      },
+      "ffn2": {
+        "eligible_planes": 35797888,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25071700,
+        "slices": 25804800,
+        "supported_slices": 2237368
+      },
+      "out": {
+        "eligible_planes": 7821152,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5514297,
+        "slices": 6451200,
+        "supported_slices": 488822
+      },
+      "qkv": {
+        "eligible_planes": 755152,
+        "opportunity_slices": 6451200,
+        "retained_planes": 551136,
+        "slices": 6451200,
+        "supported_slices": 47197
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-160/sample.json",
+      "sha256": "d6477a30f7287acf8db23978ccd7586240feccdbdb6f9ad157a4d6f936205c3f"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 626,
+      "id": "heldout256-160",
+      "seed": 400160
+    },
+    "mode": "combined",
+    "noise_sha256": "74a47a0d907e38885ba786ae6ee25195025c8d99c79e337fcaaae47038655a4a",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1255424,
+        "opportunity_slices": 6451200,
+        "retained_planes": 913960,
+        "slices": 6451200,
+        "supported_slices": 78464
+      },
+      "ffn2": {
+        "eligible_planes": 36195040,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25346559,
+        "slices": 25804800,
+        "supported_slices": 2262190
+      },
+      "out": {
+        "eligible_planes": 6217248,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4378947,
+        "slices": 5160960,
+        "supported_slices": 388578
+      },
+      "qkv": {
+        "eligible_planes": 610784,
+        "opportunity_slices": 6451200,
+        "retained_planes": 445911,
+        "slices": 5160960,
+        "supported_slices": 38174
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8872215,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-160/sample.json",
+      "sha256": "e32b9ca0cefa77c1a08f81ddfe5a1289d6b50baf86a58f993c30aed8300008d5"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 689,
+      "id": "heldout256-176",
+      "seed": 400176
+    },
+    "mode": "dense",
+    "noise_sha256": "311ba4da1168090c402aaf3f59a48a711a6e31c1e24ba1910c0da9a514b190bd",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-176/sample.json",
+      "sha256": "278ad203585f591da441bbd012aed9bc69d8e825fcceb5d67b2cd8e637fcaf85"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 689,
+      "id": "heldout256-176",
+      "seed": 400176
+    },
+    "mode": "residual",
+    "noise_sha256": "311ba4da1168090c402aaf3f59a48a711a6e31c1e24ba1910c0da9a514b190bd",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8749805,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-176/sample.json",
+      "sha256": "ea83b077b3598e0d64f9687f1c33785ba04847bcb6358a693918efac28400e53"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 689,
+      "id": "heldout256-176",
+      "seed": 400176
+    },
+    "mode": "planeclear",
+    "noise_sha256": "311ba4da1168090c402aaf3f59a48a711a6e31c1e24ba1910c0da9a514b190bd",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1364240,
+        "opportunity_slices": 6451200,
+        "retained_planes": 994372,
+        "slices": 6451200,
+        "supported_slices": 85265
+      },
+      "ffn2": {
+        "eligible_planes": 37078880,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25726247,
+        "slices": 25804800,
+        "supported_slices": 2317430
+      },
+      "out": {
+        "eligible_planes": 7627408,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5358588,
+        "slices": 6451200,
+        "supported_slices": 476713
+      },
+      "qkv": {
+        "eligible_planes": 799056,
+        "opportunity_slices": 6451200,
+        "retained_planes": 583804,
+        "slices": 6451200,
+        "supported_slices": 49941
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-176/sample.json",
+      "sha256": "a27bcb691fd6b369d8d9df6beb3ee46f279546e3c4535769982e8ae4c1087257"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 689,
+      "id": "heldout256-176",
+      "seed": 400176
+    },
+    "mode": "combined",
+    "noise_sha256": "311ba4da1168090c402aaf3f59a48a711a6e31c1e24ba1910c0da9a514b190bd",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1351088,
+        "opportunity_slices": 6451200,
+        "retained_planes": 984526,
+        "slices": 6451200,
+        "supported_slices": 84443
+      },
+      "ffn2": {
+        "eligible_planes": 37334560,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25895692,
+        "slices": 25804800,
+        "supported_slices": 2333410
+      },
+      "out": {
+        "eligible_planes": 5996992,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4212666,
+        "slices": 5160960,
+        "supported_slices": 374812
+      },
+      "qkv": {
+        "eligible_planes": 641648,
+        "opportunity_slices": 6451200,
+        "retained_planes": 468553,
+        "slices": 5160960,
+        "supported_slices": 40103
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8745325,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-176/sample.json",
+      "sha256": "00acdc7cd8f625f7f53db4cc57cc97db62ce5bdc8d83268343418d2fc168dbdd"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 752,
+      "id": "heldout256-192",
+      "seed": 400192
+    },
+    "mode": "dense",
+    "noise_sha256": "24b529b2ef3ebe6d70ade42ada97182cb9188d4d413b2c4bb89130d221301483",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-192/sample.json",
+      "sha256": "fcbccd8332a5a52d518a6f9f8a7012510ba3c8e76d8dd4af925f6998c5828888"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 752,
+      "id": "heldout256-192",
+      "seed": 400192
+    },
+    "mode": "residual",
+    "noise_sha256": "24b529b2ef3ebe6d70ade42ada97182cb9188d4d413b2c4bb89130d221301483",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8956180,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-192/sample.json",
+      "sha256": "928f90ad5d46e1e5f0017db04f2e8cf37679e91903df7bd6d986136708443da0"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 752,
+      "id": "heldout256-192",
+      "seed": 400192
+    },
+    "mode": "planeclear",
+    "noise_sha256": "24b529b2ef3ebe6d70ade42ada97182cb9188d4d413b2c4bb89130d221301483",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1265792,
+        "opportunity_slices": 6451200,
+        "retained_planes": 921727,
+        "slices": 6451200,
+        "supported_slices": 79112
+      },
+      "ffn2": {
+        "eligible_planes": 40094384,
+        "opportunity_slices": 25804800,
+        "retained_planes": 27715257,
+        "slices": 25804800,
+        "supported_slices": 2505899
+      },
+      "out": {
+        "eligible_planes": 7121568,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4998165,
+        "slices": 6451200,
+        "supported_slices": 445098
+      },
+      "qkv": {
+        "eligible_planes": 683440,
+        "opportunity_slices": 6451200,
+        "retained_planes": 499745,
+        "slices": 6451200,
+        "supported_slices": 42715
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-192/sample.json",
+      "sha256": "3ad0ae5093d2ecd3f87b99fa3533d81ee268ca67c3057ab43ebaf101083e4268"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 752,
+      "id": "heldout256-192",
+      "seed": 400192
+    },
+    "mode": "combined",
+    "noise_sha256": "24b529b2ef3ebe6d70ade42ada97182cb9188d4d413b2c4bb89130d221301483",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1265392,
+        "opportunity_slices": 6451200,
+        "retained_planes": 921372,
+        "slices": 6451200,
+        "supported_slices": 79087
+      },
+      "ffn2": {
+        "eligible_planes": 40502624,
+        "opportunity_slices": 25804800,
+        "retained_planes": 28007472,
+        "slices": 25804800,
+        "supported_slices": 2531414
+      },
+      "out": {
+        "eligible_planes": 5599584,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3928061,
+        "slices": 5160960,
+        "supported_slices": 349974
+      },
+      "qkv": {
+        "eligible_planes": 559856,
+        "opportunity_slices": 6451200,
+        "retained_planes": 409523,
+        "slices": 5160960,
+        "supported_slices": 34991
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8962085,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-192/sample.json",
+      "sha256": "377efb7531424d51e454ef28e9694b1a6532c02e4629835de4f99726f2b1e508"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 814,
+      "id": "heldout256-208",
+      "seed": 400208
+    },
+    "mode": "dense",
+    "noise_sha256": "7d0f88fd00a18bfccad3634cd6dd8d08c3388a4cd1c8300b7b25003ee9588b48",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-208/sample.json",
+      "sha256": "b78378ea2f24033e5dc4d7e7e53afb4cc8ea4c0210d55d34a93113894636434d"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 814,
+      "id": "heldout256-208",
+      "seed": 400208
+    },
+    "mode": "residual",
+    "noise_sha256": "7d0f88fd00a18bfccad3634cd6dd8d08c3388a4cd1c8300b7b25003ee9588b48",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8711320,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-208/sample.json",
+      "sha256": "85beeb2dfcd8130d737d4f22a8df725f80edb188792e04b68e9eefeb480489dd"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 814,
+      "id": "heldout256-208",
+      "seed": 400208
+    },
+    "mode": "planeclear",
+    "noise_sha256": "7d0f88fd00a18bfccad3634cd6dd8d08c3388a4cd1c8300b7b25003ee9588b48",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1278080,
+        "opportunity_slices": 6451200,
+        "retained_planes": 929726,
+        "slices": 6451200,
+        "supported_slices": 79880
+      },
+      "ffn2": {
+        "eligible_planes": 36055456,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25100019,
+        "slices": 25804800,
+        "supported_slices": 2253466
+      },
+      "out": {
+        "eligible_planes": 8007536,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5607775,
+        "slices": 6451200,
+        "supported_slices": 500471
+      },
+      "qkv": {
+        "eligible_planes": 742672,
+        "opportunity_slices": 6451200,
+        "retained_planes": 542463,
+        "slices": 6451200,
+        "supported_slices": 46417
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-208/sample.json",
+      "sha256": "342ed26b9f1fdc7ce36602249815ec1e87d9c586ce5189e198884de469f65b95"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 814,
+      "id": "heldout256-208",
+      "seed": 400208
+    },
+    "mode": "combined",
+    "noise_sha256": "7d0f88fd00a18bfccad3634cd6dd8d08c3388a4cd1c8300b7b25003ee9588b48",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1275904,
+        "opportunity_slices": 6451200,
+        "retained_planes": 928322,
+        "slices": 6451200,
+        "supported_slices": 79744
+      },
+      "ffn2": {
+        "eligible_planes": 36237056,
+        "opportunity_slices": 25804800,
+        "retained_planes": 25224427,
+        "slices": 25804800,
+        "supported_slices": 2264816
+      },
+      "out": {
+        "eligible_planes": 6286576,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4401115,
+        "slices": 5160960,
+        "supported_slices": 392911
+      },
+      "qkv": {
+        "eligible_planes": 603776,
+        "opportunity_slices": 6451200,
+        "retained_planes": 440662,
+        "slices": 5160960,
+        "supported_slices": 37736
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 8704575,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-208/sample.json",
+      "sha256": "f8fc199f9243bc2eb5977bef5657959dfb1f0028e1e4bdc6b3ddde984e712204"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 877,
+      "id": "heldout256-224",
+      "seed": 400224
+    },
+    "mode": "dense",
+    "noise_sha256": "cf7db5b522da8fb49c48cd03a2c44ba1a49f78692dfb17fa8686345cec9e810b",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-224/sample.json",
+      "sha256": "259e48484d5c69a02c17ea2ff08ea499ae2dab6b63bc59132126b033612f9704"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 877,
+      "id": "heldout256-224",
+      "seed": 400224
+    },
+    "mode": "residual",
+    "noise_sha256": "cf7db5b522da8fb49c48cd03a2c44ba1a49f78692dfb17fa8686345cec9e810b",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9194355,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-224/sample.json",
+      "sha256": "5b29419a2d6a4a5a11004f3cd3bae8bc52233a154fd3681db4e7bd986d9d1f83"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 877,
+      "id": "heldout256-224",
+      "seed": 400224
+    },
+    "mode": "planeclear",
+    "noise_sha256": "cf7db5b522da8fb49c48cd03a2c44ba1a49f78692dfb17fa8686345cec9e810b",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1239968,
+        "opportunity_slices": 6451200,
+        "retained_planes": 901688,
+        "slices": 6451200,
+        "supported_slices": 77498
+      },
+      "ffn2": {
+        "eligible_planes": 42948880,
+        "opportunity_slices": 25804800,
+        "retained_planes": 29619083,
+        "slices": 25804800,
+        "supported_slices": 2684305
+      },
+      "out": {
+        "eligible_planes": 6941216,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4859213,
+        "slices": 6451200,
+        "supported_slices": 433826
+      },
+      "qkv": {
+        "eligible_planes": 693680,
+        "opportunity_slices": 6451200,
+        "retained_planes": 507390,
+        "slices": 6451200,
+        "supported_slices": 43355
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-224/sample.json",
+      "sha256": "4ad3e93122dfb78470e2201cc8863dc1883f0c7db303886532b075e5032fc7c7"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 877,
+      "id": "heldout256-224",
+      "seed": 400224
+    },
+    "mode": "combined",
+    "noise_sha256": "cf7db5b522da8fb49c48cd03a2c44ba1a49f78692dfb17fa8686345cec9e810b",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1241856,
+        "opportunity_slices": 6451200,
+        "retained_planes": 903600,
+        "slices": 6451200,
+        "supported_slices": 77616
+      },
+      "ffn2": {
+        "eligible_planes": 43008288,
+        "opportunity_slices": 25804800,
+        "retained_planes": 29656775,
+        "slices": 25804800,
+        "supported_slices": 2688018
+      },
+      "out": {
+        "eligible_planes": 5422512,
+        "opportunity_slices": 6451200,
+        "retained_planes": 3792426,
+        "slices": 5160960,
+        "supported_slices": 338907
+      },
+      "qkv": {
+        "eligible_planes": 556832,
+        "opportunity_slices": 6451200,
+        "retained_planes": 407284,
+        "slices": 5160960,
+        "supported_slices": 34802
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9183580,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-224/sample.json",
+      "sha256": "202f457f82b15188446263d977bb95f9d1e74db5120315cda542649e0b3d4bd7"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 940,
+      "id": "heldout256-240",
+      "seed": 400240
+    },
+    "mode": "dense",
+    "noise_sha256": "9059529fc0a293a88c192d4b2330e6123aec0b714fce92f3eae61f41b5076f23",
+    "schema_version": 1,
+    "source": {
+      "path": "dense/cases/heldout256-240/sample.json",
+      "sha256": "2d852e8c04fd756c792cd85cfb7f1604cf4564cafbf81c81a1617efd4764fc68"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 940,
+      "id": "heldout256-240",
+      "seed": 400240
+    },
+    "mode": "residual",
+    "noise_sha256": "9059529fc0a293a88c192d4b2330e6123aec0b714fce92f3eae61f41b5076f23",
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9079480,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "residual/cases/heldout256-240/sample.json",
+      "sha256": "9ac3f4de695ce1c82a3507619bcdd097e5f3927d9ed8460f0200e50bd1949800"
+    },
+    "table_sha256": null,
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 940,
+      "id": "heldout256-240",
+      "seed": 400240
+    },
+    "mode": "planeclear",
+    "noise_sha256": "9059529fc0a293a88c192d4b2330e6123aec0b714fce92f3eae61f41b5076f23",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1263568,
+        "opportunity_slices": 6451200,
+        "retained_planes": 919628,
+        "slices": 6451200,
+        "supported_slices": 78973
+      },
+      "ffn2": {
+        "eligible_planes": 39501216,
+        "opportunity_slices": 25804800,
+        "retained_planes": 27545866,
+        "slices": 25804800,
+        "supported_slices": 2468826
+      },
+      "out": {
+        "eligible_planes": 8201728,
+        "opportunity_slices": 6451200,
+        "retained_planes": 5766793,
+        "slices": 6451200,
+        "supported_slices": 512608
+      },
+      "qkv": {
+        "eligible_planes": 736160,
+        "opportunity_slices": 6451200,
+        "retained_planes": 536926,
+        "slices": 6451200,
+        "supported_slices": 46010
+      }
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "pc/cases/heldout256-240/sample.json",
+      "sha256": "e3f4f81719390b411317b3136d7d92e2e49a465c9e055ba0f54a61eb2923f759"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 8601600,
+      "q": 8601600,
+      "v": 8601600
+    },
+    "workload_id": "dit-xl2-512"
+  },
+  {
+    "deployment": {
+      "cfg_scale": 4.0,
+      "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+      "layout": "spatial32x32-region4x4-linear_channels32-QKV_headlocal_padded32",
+      "noise_schedule_sha256": "babfe2adc6748ea1349c26b8a377e8864984bd96b62a2085ee47c36dda472df6",
+      "sampler": "diffusers-0.32.2-dpmsolver-order2-midpoint-linear1000-sigmamin-linspace",
+      "steps": 50
+    },
+    "execution_sha256": "749e3cb584e9ac562b40e135f3edb2dc89ed4ead997957c46eefb9ba32679c50",
+    "granularity": "trajectory_aggregate",
+    "item": {
+      "class_id": 940,
+      "id": "heldout256-240",
+      "seed": 400240
+    },
+    "mode": "combined",
+    "noise_sha256": "9059529fc0a293a88c192d4b2330e6123aec0b714fce92f3eae61f41b5076f23",
+    "planes": {
+      "ffn1": {
+        "eligible_planes": 1277296,
+        "opportunity_slices": 6451200,
+        "retained_planes": 930167,
+        "slices": 6451200,
+        "supported_slices": 79831
+      },
+      "ffn2": {
+        "eligible_planes": 39491248,
+        "opportunity_slices": 25804800,
+        "retained_planes": 27532228,
+        "slices": 25804800,
+        "supported_slices": 2468203
+      },
+      "out": {
+        "eligible_planes": 6514608,
+        "opportunity_slices": 6451200,
+        "retained_planes": 4579065,
+        "slices": 5160960,
+        "supported_slices": 407163
+      },
+      "qkv": {
+        "eligible_planes": 596608,
+        "opportunity_slices": 6451200,
+        "retained_planes": 435136,
+        "slices": 5160960,
+        "supported_slices": 37288
+      }
+    },
+    "residual": {
+      "element_bytes": 2,
+      "read_elements": 2642411520,
+      "refresh_calls": 560,
+      "selected_pairs": 9081735,
+      "tile_tokens": 16,
+      "total_calls": 2800,
+      "write_elements": 660602880
+    },
+    "schema_version": 1,
+    "source": {
+      "path": "combined/cases/heldout256-240/sample.json",
+      "sha256": "6f8ac95dd9d46eba8a5a750625d08a0bd595d3685176ca87dcecef19318cf04a"
+    },
+    "table_sha256": "72b905975ef1d4f1689e2009b0d29d7dde7f11f951e34e4dd519053092986b96",
+    "unmapped_attention_plane_slices": {
+      "k": 6881280,
+      "q": 6881280,
+      "v": 6881280
+    },
+    "workload_id": "dit-xl2-512"
+  }
+]

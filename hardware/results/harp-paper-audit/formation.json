@@ -1,0 +1,167 @@
+{
+  "model": "harp_formation_exposure_v0.5",
+  "reference": {
+    "pdf_sha256": "58c292b406768e707aeb243d6bc7fcd560e1622961ac8cb7ae192346767a8fb2",
+    "source": "HARP-326-revised.pdf, Table II, PlaneClear formation overhead, Exposed latency"
+  },
+  "schema_version": 1,
+  "scope": "Full HARP critical-path formation sensitivity and a Table II constrained estimate",
+  "source_sha256": {
+    "component_timing.py": "14ea4b5d73812f38681767e741bb6df579759d426ac79ba2f7c46c2818664155",
+    "formation_ablation.py": "4878e50fe3cbe7d63464bfde987e70e8cca11e29acbd2bce9569b103cda35929",
+    "harp-ablation.json": "e5441c9a63528e4382603df2588891700807ad71f24b04108a8dbefeec5eccf8",
+    "harp-table-ii.json": "c6abbffb865378de390eafd7c34b2608c94d7025e5aecffb08fee17663b1f366",
+    "harp.json": "efb48291bb479942e895a2bd1bc144526432eb154f93c4c0cba1d2e5490cd319",
+    "harp_ablation.py": "e0acefd4b185dec85aef40dc325f1bc8e753bd4b07307ac3ae8fe8b1b41ddc7e",
+    "report.json": "2279facdf162e838f0cb5016f6a568019a1ba38f13790acfe45690cb15482807",
+    "workload.json": "6ebbacb7b412ccf861ba00af5448765f7240fa3b11abc409d53b2988a31001b1"
+  },
+  "table_ii_full_speedup_geomean": 1.3045552105363531,
+  "table_ii_hardware_gain_geomean": 1.5539114525631428,
+  "workloads": {
+    "dit-xl2-512": {
+      "exposed_formation_cycles": 1189440,
+      "exposed_formation_fraction": 0.00026629011606061633,
+      "formation_busy_cycles": 1189440,
+      "full_cycles_raw": 4466707280,
+      "full_cycles_table_ii": 4550614328,
+      "full_cycles_without_formation_service": 4465517840,
+      "historical_speedups_vs_matched_npu": {
+        "combined_generic": 3.81691668575,
+        "combined_harp": 6.58093559,
+        "planeclear": 3.76050905,
+        "residual": 1.10294699
+      },
+      "modeled_speedups": {
+        "combined_generic": 0.9672852664724998,
+        "combined_harp": 1.5391449604908964,
+        "planeclear": 0.9930437494148188,
+        "residual": 1.0389905446179544
+      },
+      "table_ii_exposed_fraction": 0.0187,
+      "table_ii_full_speedup_vs_modeled_dense": 1.5107652515614372,
+      "table_ii_hardware_gain_fixed_combined": 1.5618611219737715,
+      "workload_sha256": "b82b2a9ca739e781e80265ea574e714136160348edd8416dcc1dd49b54d37ac8"
+    },
+    "flux1-dev": {
+      "exposed_formation_cycles": 13023360,
+      "exposed_formation_fraction": 4.3601731293048806e-05,
+      "formation_busy_cycles": 16306560,
+      "full_cycles_raw": 298689056920,
+      "full_cycles_table_ii": 298676033560,
+      "full_cycles_without_formation_service": 298676033560,
+      "historical_speedups_vs_matched_npu": {
+        "combined_generic": 3.6274758124,
+        "combined_harp": 6.15909866,
+        "planeclear": 3.47126872,
+        "residual": 1.11911464
+      },
+      "modeled_speedups": {
+        "combined_generic": 0.8389823146878707,
+        "combined_harp": 1.3583388077008363,
+        "planeclear": 0.8685344543221236,
+        "residual": 1.0621722435366374
+      },
+      "table_ii_exposed_fraction": 0.0,
+      "table_ii_full_speedup_vs_modeled_dense": 1.3583980362069998,
+      "table_ii_hardware_gain_fixed_combined": 1.6191021102898564,
+      "workload_sha256": "92d31c9fd1bb9ced11ff0df87ab553712a550915e798d5836cdbaa45817b2b92"
+    },
+    "latte-1": {
+      "exposed_formation_cycles": 159201280,
+      "exposed_formation_fraction": 0.0008676580182237391,
+      "formation_busy_cycles": 159201280,
+      "full_cycles_raw": 183483903400,
+      "full_cycles_table_ii": 188858248811,
+      "full_cycles_without_formation_service": 183324702120,
+      "historical_speedups_vs_matched_npu": {
+        "combined_generic": 4.09487313,
+        "combined_harp": 7.71349942,
+        "planeclear": 3.36767281,
+        "residual": 1.57041903
+      },
+      "modeled_speedups": {
+        "combined_generic": 1.0073341769207305,
+        "combined_harp": 1.6356009679266503,
+        "planeclear": 1.0160790543246099,
+        "residual": 1.0246415975299743
+      },
+      "table_ii_exposed_fraction": 0.0293,
+      "table_ii_full_speedup_vs_modeled_dense": 1.5890566172745344,
+      "table_ii_hardware_gain_fixed_combined": 1.577487048173072,
+      "workload_sha256": "1b3d3c1f27d20c19ca0d7a9a545b30e1f61fd8c603486a7380f2394591a7a199"
+    },
+    "opensora-v13": {
+      "exposed_formation_cycles": 547061760,
+      "exposed_formation_fraction": 8.403719886147485e-05,
+      "formation_busy_cycles": 547061760,
+      "full_cycles_raw": 6509757195760,
+      "full_cycles_table_ii": 6509210134000,
+      "full_cycles_without_formation_service": 6509210134000,
+      "historical_speedups_vs_matched_npu": {
+        "combined_generic": 3.69384864,
+        "combined_harp": 6.77389896,
+        "planeclear": 2.97940355,
+        "residual": 1.56411974
+      },
+      "modeled_speedups": {
+        "combined_generic": 0.8371315919269511,
+        "combined_harp": 1.2576392486854027,
+        "planeclear": 0.8135976674432007,
+        "residual": 1.0451511419054542
+      },
+      "table_ii_exposed_fraction": 0.0,
+      "table_ii_full_speedup_vs_modeled_dense": 1.2577449460475507,
+      "table_ii_hardware_gain_fixed_combined": 1.502445921497731,
+      "workload_sha256": "ff087f3d7c5776e037e6fa12e394ba1fccf7789aaedc13d86e1bfa30e95e5544"
+    },
+    "sd3-medium": {
+      "exposed_formation_cycles": 4157280,
+      "exposed_formation_fraction": 8.41429085694798e-05,
+      "formation_busy_cycles": 5277030,
+      "full_cycles_raw": 49407372180,
+      "full_cycles_table_ii": 51057477160,
+      "full_cycles_without_formation_service": 49403214900,
+      "historical_speedups_vs_matched_npu": {
+        "combined_generic": 3.62509708,
+        "combined_harp": 6.66820183,
+        "planeclear": 3.5680574,
+        "residual": 1.20223191
+      },
+      "modeled_speedups": {
+        "combined_generic": 0.777881138776127,
+        "combined_harp": 1.218256926936202,
+        "planeclear": 0.7669719547713224,
+        "residual": 1.1155817875661111
+      },
+      "table_ii_exposed_fraction": 0.0324,
+      "table_ii_full_speedup_vs_modeled_dense": 1.1788845972819704,
+      "table_ii_hardware_gain_fixed_combined": 1.5155073680495184,
+      "workload_sha256": "d37d72e1431eae261bd6901239de961b17bf5a2aeb21ef05f9d126085323e592"
+    },
+    "wan21-14b-81f": {
+      "exposed_formation_cycles": 174860000,
+      "exposed_formation_fraction": 1.5928850135813994e-05,
+      "formation_busy_cycles": 195336000,
+      "full_cycles_raw": 10977565769600,
+      "full_cycles_table_ii": 10977390909600,
+      "full_cycles_without_formation_service": 10977390909600,
+      "historical_speedups_vs_matched_npu": {
+        "combined_generic": 3.86318565,
+        "combined_harp": 7.23836588,
+        "planeclear": 3.17714446,
+        "residual": 1.54979935
+      },
+      "modeled_speedups": {
+        "combined_generic": 0.6577021422164386,
+        "combined_harp": 1.0193905114182482,
+        "planeclear": 0.5232463879632412,
+        "residual": 1.370051668785248
+      },
+      "table_ii_exposed_fraction": 0.0,
+      "table_ii_full_speedup_vs_modeled_dense": 1.0194067493955867,
+      "table_ii_hardware_gain_fixed_combined": 1.5499519979670635,
+      "workload_sha256": "4d92b57ae24f2707bbe97a625d4c7a22d6df8f35637809fea1520cf964e822a2"
+    }
+  }
+}

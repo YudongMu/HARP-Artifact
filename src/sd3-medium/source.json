@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/huggingface/diffusers",
+  "commit": "560fb5f4d65b8593c13e4be50a59b1fd9c2d9992",
+  "scope": "code only",
+  "files": {
+    "upstream/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "upstream/setup.py": "8f8d5533f91322de2ba26872f9b832de97c4f7e3e15424f0e7a7384c9b62d41b",
+    "upstream/src/diffusers/models/transformers/transformer_sd3.py": "df7cac3311117c7efcd2e770babba3391e84bd2278425928bf30f2da8abaadbb",
+    "upstream/src/diffusers/pipelines/stable_diffusion_3/__init__.py": "e09adc4e07e28f89866d24a709a1d2a9144d84252bcbcf871f7cd069422adc31",
+    "upstream/src/diffusers/pipelines/stable_diffusion_3/pipeline_stable_diffusion_3.py": "f78090f117dad7d297e5ce8cde5421536cdf60516b6bc7f0a391ddbedbdad814",
+    "upstream/src/diffusers/pipelines/stable_diffusion_3/pipeline_stable_diffusion_3_img2img.py": "e135c4c41db1515d58372da832cbbb1f1db1a4c8858efd4b5753f78bc0623e4a",
+    "upstream/src/diffusers/pipelines/stable_diffusion_3/pipeline_stable_diffusion_3_inpaint.py": "dd17d6eb6c4e37e4ed47f6aec172cffd870195231dad01d473e96ef8d24029d9"
+  }
+}

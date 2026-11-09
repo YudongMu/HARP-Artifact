@@ -1,0 +1,118 @@
+{
+  "denominator": "Matched NPU",
+  "file": "Ablation.xlsx",
+  "schema_version": 1,
+  "sha256": "588e83f8a574b1ac65297dd1d1b8744b030c8ae5c6f4b5a03e137f745c73cb2b",
+  "sheet": "Sheet1",
+  "workloads": {
+    "dit-xl2-512": {
+      "combined_generic": {
+        "range": "A32:C32",
+        "speedup": 3.81691668575
+      },
+      "combined_harp": {
+        "range": "A38:C38",
+        "speedup": 6.58093559
+      },
+      "planeclear": {
+        "range": "A26:C26",
+        "speedup": 3.76050905
+      },
+      "residual": {
+        "range": "A20:C20",
+        "speedup": 1.10294699
+      }
+    },
+    "flux1-dev": {
+      "combined_generic": {
+        "range": "A34:C34",
+        "speedup": 3.6274758124
+      },
+      "combined_harp": {
+        "range": "A40:C40",
+        "speedup": 6.15909866
+      },
+      "planeclear": {
+        "range": "A28:C28",
+        "speedup": 3.47126872
+      },
+      "residual": {
+        "range": "A22:C22",
+        "speedup": 1.11911464
+      }
+    },
+    "latte-1": {
+      "combined_generic": {
+        "range": "A35:C35",
+        "speedup": 4.09487313
+      },
+      "combined_harp": {
+        "range": "A41:C41",
+        "speedup": 7.71349942
+      },
+      "planeclear": {
+        "range": "A29:C29",
+        "speedup": 3.36767281
+      },
+      "residual": {
+        "range": "A23:C23",
+        "speedup": 1.57041903
+      }
+    },
+    "opensora-v13": {
+      "combined_generic": {
+        "range": "A37:C37",
+        "speedup": 3.69384864
+      },
+      "combined_harp": {
+        "range": "A43:C43",
+        "speedup": 6.77389896
+      },
+      "planeclear": {
+        "range": "A31:C31",
+        "speedup": 2.97940355
+      },
+      "residual": {
+        "range": "A25:C25",
+        "speedup": 1.56411974
+      }
+    },
+    "sd3-medium": {
+      "combined_generic": {
+        "range": "A33:C33",
+        "speedup": 3.62509708
+      },
+      "combined_harp": {
+        "range": "A39:C39",
+        "speedup": 6.66820183
+      },
+      "planeclear": {
+        "range": "A27:C27",
+        "speedup": 3.5680574
+      },
+      "residual": {
+        "range": "A21:C21",
+        "speedup": 1.20223191
+      }
+    },
+    "wan21-14b-81f": {
+      "combined_generic": {
+        "range": "A36:C36",
+        "speedup": 3.86318565
+      },
+      "combined_harp": {
+        "range": "A42:C42",
+        "speedup": 7.23836588
+      },
+      "planeclear": {
+        "range": "A30:C30",
+        "speedup": 3.17714446
+      },
+      "residual": {
+        "range": "A24:C24",
+        "speedup": 1.54979935
+      }
+    }
+  },
+  "evidence": "Historical numerical anchors. 34 of 42 workbook rows match the local synthetic-simulated experiment tables at the same model and normalized speedup."
+}

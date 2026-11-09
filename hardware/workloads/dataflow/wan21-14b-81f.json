@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "wan21-14b-81f",
+  "grid": [
+    21,
+    30,
+    52
+  ],
+  "width": 5120,
+  "heads": 40,
+  "ffn": 13824,
+  "steps": 50,
+  "forwards": 2,
+  "lanes": 1,
+  "conditioning": "shared6",
+  "context": 512,
+  "context_width": 4096,
+  "qk_norm": true,
+  "rope": true,
+  "patch_in": 64,
+  "patch_out": 64,
+  "evidence": "deployed",
+  "source": [
+    "src/Wan2.1/wan/configs/wan_t2v_14B.py",
+    "src/Wan2.1/wan/modules/model.py",
+    "results/wan81-dense50-v1/run.json",
+    "results/wan81-first-layer-activation-v1/capture.json"
+  ],
+  "bundles": [
+    {
+      "repeat": 40,
+      "layers": [
+        {
+          "id": "wan",
+          "type": "cross"
+        }
+      ]
+    }
+  ],
+  "table_i": {
+    "resolution": "832x480",
+    "frames": 81,
+    "sampler": "UniPC",
+    "tokens_display": "3.3e4",
+    "width": 5120,
+    "heads": 40,
+    "steps": 50
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pdf_sha256": "58c292b406768e707aeb243d6bc7fcd560e1622961ac8cb7ae192346767a8fb2",
+  "source": "HARP-326-revised.pdf, Table II, PlaneClear formation overhead, Exposed latency",
+  "workloads": {
+    "dit-xl2-512": 0.0187,
+    "sd3-medium": 0.0324,
+    "flux1-dev": 0.0,
+    "latte-1": 0.0293,
+    "wan21-14b-81f": 0.0,
+    "opensora-v13": 0.0
+  }
+}

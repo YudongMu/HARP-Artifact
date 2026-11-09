@@ -1,0 +1,12 @@
+{
+  "paper": "AdapTiV.pdf",
+  "reference": "Server case, 45 accelerators, 16x64 MAC each, 1 GHz and 960 GB/s. Token retention 0.5 is a scenario based on the merging-ratio sweep, without per-model token traces.",
+  "clock_hz": 1000000000,
+  "macs_per_cycle": 46080,
+  "vector_ops_per_cycle": 2880,
+  "bandwidth_gbps": 960,
+  "profile": {
+    "token_fraction": 0.5
+  },
+  "paper_sha256": "413096ecd92f36b8ff741954c102435efb68ab78eda0d95683e0f62aaf777677"
+}

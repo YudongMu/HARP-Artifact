@@ -1,0 +1,36 @@
+{
+  "id": "wan21-14b-81f",
+  "selected_fraction": 0.2139,
+  "plane_sites": {
+    "qkv": {
+      "natural_skip_fraction": 0.17,
+      "final_skip_fraction": 0.45
+    },
+    "q": {
+      "natural_skip_fraction": 0.13,
+      "final_skip_fraction": 0.43
+    },
+    "k": {
+      "natural_skip_fraction": 0.14,
+      "final_skip_fraction": 0.44
+    },
+    "v": {
+      "natural_skip_fraction": 0.16,
+      "final_skip_fraction": 0.46
+    },
+    "attention_out": {
+      "natural_skip_fraction": 0.19,
+      "final_skip_fraction": 0.49
+    },
+    "ffn_in": {
+      "natural_skip_fraction": 0.21,
+      "final_skip_fraction": 0.57
+    },
+    "ffn_out": {
+      "natural_skip_fraction": 0.25,
+      "final_skip_fraction": 0.59
+    }
+  },
+  "features": "81-frame workload with the lowest published retained Region share. Cross-attention stays dense. Edge-tile weighted selection remains a uniform proxy.",
+  "source": "HARP revised Figures 8 and 9(a); plane percentages read at the figure's displayed precision."
+}

@@ -1,0 +1,7944 @@
+{
+  "kernels": {
+    "01d7b7ac6c13d01ca8e91262": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 4096
+    },
+    "023dbc9da2c58025d5743d1d": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "034f40bea1d5a557e8d6e1a1": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "03f3fd7f20a749fbf31f771a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "048cc5d25473640258d4b922": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "04b653e0e91a12512b249291": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "05c9afb7b24bcb1adff50a70": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "060fd08f94c44230ca004c6c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "0617ebc63e9274220b6d9ac1": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "063962eba0d524fd281aab20": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "06565474735f9cc86cac95ed": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "06d71264ad35ea880737d54b": {
+      "attention_pattern": "global",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "0722f34b87df2220bc1f9554": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "07ff20c8f8682c29939ff457": {
+      "attention_pattern": "spatial",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "090ff4659a04acf577176434": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "09969a1008ac0edf8dea3eac": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "0ae5150acf0f154a68725887": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "0b5b48a77b1f30cdb7db9db5": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "0bd8931d0e0efc44ad97e9c4": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "0c2a43872e8c99070fcb5b2d": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "0c8e24472b47db4f5a979028": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "0d64460ebb14304e2873f208": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "0dfbee5b486a7d7757ed8253": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 4096
+    },
+    "0e3e29847ae7a7cd224b4b93": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "0f443b64af5cb8d298c9c558": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "117bed7dacfdfa1cce716415": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "127625e5c5610f40960a880a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "156040afae8e8f8313a3113f": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "165b7d4c56a744b1357cf279": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "16aa8f8da0e3c5dfabf85f3b": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "18460815827358dece253df2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "1953c365e5d3280d9cef09ef": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "19dd1ba528f858d27d05e4b3": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "1a325b2a132ae09092a4eba8": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "1a773cbd9b23b5e9dca0cb45": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "1a82ff44980abd1ffeb51046": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "1ab5b2348839584ab751c5eb": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "1afe7722eb7e0b04cc800bfb": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "1b2979458c270b51d0a27060": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "1b532767941a53b9036538b9": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "1c09709ec8ecd2c4d6b87c0c": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "1c2d6499557d5f34bdd4e3e3": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "1f089dfa81e60570c1a7412a": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "1fff16648e50040f3121e27c": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "20322dd5003a56ebcef34e04": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "2154561a918aa3051b37e790": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "217aefc833775f373eb8c3a6": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "21f031bec45712f1474f84e9": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "22bf6900c5eea70967110d77": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "22c08bb1a6f234e2d3987f40": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "22e2e7e06e695dd29cf3dd4c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        12288
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "23b75b92ff43611010ec48c8": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "2453fa9b29a8de76113b38a2": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1,
+          6912
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "28b3ac0a2d4405f733cc04ef": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        9216
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "29efe76aedecb8d637223ca2": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "2c161fb21d5b9a28b7d61053": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "2c78df309dd94ed8cb12c950": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "2dd03fd34052c285de1b094d": {
+      "attention_pattern": "temporal",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "2e05aafa98ca14ecfd54fc46": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "2e313e2c427ba15333a884b4": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "2f75c3921e95ade101973ecf": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "30d19a11b8058b89bf189fb0": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "3100da19ac763e1f0f7731da": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 8e-09,
+      "operator": "qk",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "31d894fea13d058774f9e707": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "31dfc78a33ade3b5dd0c6cd2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "32b64e457a2de652794cfd66": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "3364a472372efba5e27c8a8f": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "348373a85ca3a9024f7d3a6e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "34b500dd57ed02785c2565d3": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "36e16200e8f6e386fdc42515": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "3789d0304e17b07492e70d26": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        9216
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "379c6c297fc4b286cfeaa469": {
+      "attention_pattern": "global",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "39a954553b83b8de1a4da619": {
+      "attention_pattern": "global",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          16,
+          1048576
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "3a2cf2c661e7f38dd88f8c36": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "3be2e0b2d9fb1b46caa42653": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "3d7cd888328722afef0bdfc9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "3e780136e119cadc873e8686": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "3f72d55fc12f44a7e6d35a73": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "3feae33f3d0bf40e3344abc6": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "408dfcf30af474cb9091f419": {
+      "attention_pattern": "window",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 8e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "40f987b43ec91fb50aa9d635": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "418161be44b998c4e1c4694d": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "427b8f21d13ab3d1dd758e71": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "42cb9b00ea37d2fbe4bbf247": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "43557bd71f2057d900b9fcad": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "435ee97514fcf8566979a0c7": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "4364101998f3665887dbb17f": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "437c8f912a1a8f1a72dd6395": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "438fd0fbf8419724f0025021": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "4446673344d607bbcde53185": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "45817bbb91d8926db56bbfe8": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "459d278844b8568dd982d76c": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "46d9a95366e8133b310f9729": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "47a55b81c50390f331662d62": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4849a001c9b0afffd8432afa": {
+      "attention_pattern": "temporal",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "4b8623b072d5111f3e17f0bc": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "4b9a030b0653bf677a55118f": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4d3a3a47b83f388d8e777828": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4db7f39928032c719b82ebed": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "4eb949c0d056874b741dfba2": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "4ff22b1c5902274174f9a9e2": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "509ff1774d18433e8657c065": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        24576
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "51853e8bdf6e22863ea9b561": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "525ae38879093d257d424d74": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "538eb3622af67175e48f07f5": {
+      "attention_pattern": "window",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "53ad718c0513c2eebc3ca205": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "541bbba4d55bb4e0d5a92df7": {
+      "attention_pattern": "temporal",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 8e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "541eacd55552fc0de80fc0a6": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "542c1a56a485b304e2f3b021": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "542fa24f750d69edea8ac3c5": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "54572085f4379197b3257488": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "55193410eb3efe981b0bb53b": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "566c64e579275e97e18f8c26": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "568fb86ded079acc49ec4844": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "56dbb0118c377b4ac7c5b765": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "58100a3f69bd362641238ce0": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "586a99d8916de374b1f58260": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "596189d0c1a6f7f88b0576c5": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "59ef4e92c27285da4f53247e": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        24576
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "5a057f5f3e54fc4ff37be83a": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "5a3b001cc500372b2085cb23": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5a652c46a65e2c32ac7b8038": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5b378d3070bd8225a8ac3517": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "5bf7056600bc7ab8cd481f5f": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5c20f3220c5034ec2eb361ef": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        8448
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "5c372886b8bb1318209c927a": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5d31e737400a665f6e4f6433": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "5d341b5df0edf94dbb0dfaa9": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "5dd7ae4bb463cedf14ffa4b9": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "5e14038467d1f0565f47eb75": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "5e8aeb12597eb51c117f4457": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "5eb86426c8fd691448c73f28": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          1,
+          8448
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "5ed5ce12d0f0c534c823af58": {
+      "attention_pattern": "window",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "5f4c80cb223ba621957b400b": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1,
+          6912
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "616f46d3a6e8d57b288f78db": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "61bcbc4bcc317790f725fda2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "62053ea0fc9a38663fda401f": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "6561132fdb9fa3ec923b2b11": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "65c79584452e05a820f19dc3": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "66230202cdf55cc9ca305872": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "669a09c85c77668f61fa4f42": {
+      "attention_pattern": "temporal",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "6747931ff8016d9f413f1713": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "67b0dffe0704fcdb5b35b5de": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "69c03277406a11fafdb84b2f": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        4429,
+        1536
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "69f780b7cbc4e04daf29e0aa": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        12288
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "6abdedc257522a58771eb2ab": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "6b4723c6db8fb6189ae34265": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4429,
+          1536
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 8e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "6b83e891f629c3fd96ee6ca2": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "6e36ff47948e26602f632688": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "6fe3db53cb83ef81be100b33": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "705c0482bdbe8984fd2bbcf3": {
+      "attention_pattern": "cross",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "70f897d4aab6eb2c0a2176c9": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "72102af9fc0e10858e8227bc": {
+      "attention_pattern": "global",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "725d57927100ad424ef7c47f": {
+      "attention_pattern": "window",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "72d3859d198dd505fef82ac8": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "73563628f2b774f06debc338": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "73904575f49eb431633c33eb": {
+      "attention_pattern": "temporal",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "739960d09f524fe4aa1b0697": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "74c48da575d59c47da2eb0d2": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "74f5cb0e573fc4157ded1183": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "75091156cb3159ca868d1511": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "76013332d4d97d692fbafe66": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "7613fe3ebad6c17a541df15f": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "76785e2daa5c5fb055c53386": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "77add370320ff9533290a169": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "77b129d32df159ca19cd0c24": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "77dcde05b1b874522d807df9": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "780d106ba4b0028126ea5005": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "78565cdb92664bea84ab5586": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "78934f4a79f872b8b732a45e": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "790c89f0a29735327b034a8a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "79563bb48c8b65de813105f9": {
+      "attention_pattern": "cross",
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "7a0acd38099449e0b1363828": {
+      "attention_pattern": "global",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "7aa0b18422af295db96b2ff6": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7af1cca94243a43da31d59fc": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "7c6f3cab9042d5f334ee737f": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "7d3a8d522530429dbc155dda": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7ed672b13fed63e0964333da": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7f8925de5921bcc9e1d123a9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "80c1674c7d44042dcef51e40": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "80f7cf02f58becd8b86b53d4": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "816799d15619ef54b580f10a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "8285b0e9dbe1e118e337990c": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "839933cce3e914a37e12542f": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "84ba1859ba51793d13160faf": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "852ee1dba56f49685bd45191": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "8775579f3b7c9a62d35d5b74": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "87ea4185ec7018eca5c2a5c2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "8abaac6b380364d382e2b47d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8c8e78c8340f861c60cf4e90": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8d042693429ef98fae575dfd": {
+      "attention_pattern": "cross",
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 1024
+    },
+    "8d0e929381dd591c708e8b31": {
+      "attention_pattern": "cross",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "8d560d5aff13c2bd3ed9faa9": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "8e7a8bff9ea302aa2646c15a": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "8f0995a58cb4ccf2e98756f3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "8f74da2fb5d09b7f2862d49d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8fc244f89a87a5260f1e4f31": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "90820cea3dc737c6e6239e53": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        6912
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "9090693d2368d162b69fb1e4": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "90aa1ba92260c6828b9033fa": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "9119a9c070ce70efada2f7b4": {
+      "attention_pattern": "global",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "91fc3cdc562addd6dea61b14": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "9268b065db889579ef7e0a54": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "932ff5aedd578d5faf4cb3a9": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9354a924dbcd351bbdbe6a9a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "93db2b5cf8ffdb23c4fb590a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "9441e84fd1e4c04cc446ff8d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "94593afee95b72777e857284": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.05380423904612924,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "945b8578eb6023dcf247f66c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "94b40c1d10ad813e5ed30a5d": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "951285683f469e2a865730ee": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "95af1f26b86010ab17573ed2": {
+      "attention_pattern": "cross",
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "95cf35900e9efd1b1a9371b2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "95cf44a0e8e3ce7ccdacc0b0": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "95e708aff062bad0a1b749ce": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9684cbf35601a3a27c32b043": {
+      "attention_pattern": "window",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "96963372eb73703be60fb9fc": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "98570ddb33bbe077b9258554": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "9c66ba7df522b554cf583793": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary_qk_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "rotary_qk_norm",
+      "units_per_tile": 4096
+    },
+    "9d4cbde384675b2b87c41d21": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "9d9886664d10bef40d9bf2b5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "9d9c7133f92a207c022d74fb": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "9e94163d148f8ab46cbd346d": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "9edfd3c77caddfd206493bdd": {
+      "attention_pattern": "cross",
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.24999999999999967,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "9f4816e2fd1d9ac8c57d7ca9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "9f523e3ae81742a9a8e05959": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "a07aae525df788c53555d66c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "a085a399de714603f35fd10b": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "a3ab651990926fa6ffa70c9c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "a40d95e0343896949ed20225": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "a49119d32cc13b59446fbe68": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "a492e02d3a4f3e64bf164c13": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "a4ae049aae9eb7a92875b80e": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "a4ce0ee4753d117e200c2346": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "a7d6fd6b62141292f8fb4ae5": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "a9b6c2aade71a61595990ce4": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "a9bdb5390e1b0af8a9ae4553": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "aa329c91929a9d5b292d05d1": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "aafb4b5c75966a953155c04f": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "ac5041df7f1d950d61600b7d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "ac870f4c5d184e3cb487c068": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "ad1b27068fc84f884fd72943": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "add699d0637dabe805abbf1c": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "addd0ef6056cf549fdff6576": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "ae6f5fdef5b96cfed05812fe": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "ae88f2093278ea1cd1d9a4d3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "af51d6e5b9d1b4f948d61865": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "b0b2654b9472c295cdb1c97d": {
+      "attention_pattern": "joint",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4429,
+          1536
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "b1136e4f5fed19e2a8f9b8ba": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "b17cd01a55ce1cd8354f6d39": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "b3254d46973a904f62487f55": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b4224c47fd41017655f51042": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b592b464b49f281ce81c2d9d": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "b59ea4bf54ff22b26af8c827": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b790c16f1e2a5f593ab4d40d": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "b9aafca521b14adb1ff4b990": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "ba4fe258465c48470664ba07": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "ba6508e465d0ddc7e01a6b25": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "babcb6599bb0d1c943fb5f9a": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          1,
+          12288
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "bb035beb787d554c8b64ae67": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "bb8fe6854a90b28ab4f3e18c": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "bbe851990bfe2f06757b17c5": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.016521040511249807,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "bc7ebe1df48dc0f20791490f": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "bcac8b090fb127b287dee228": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "bd1accfa52a052bb43baf023": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "bdb4dbcc79ee982dcdcf2815": {
+      "attention_pattern": "global",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "bf0181bbcaa71b6e3af14b36": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c0b46e2495568a2adfc027cf": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c1b0164f3f9024cc9470213d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "c4fed56e609c13d3e8793ecb": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "c541346232f8d8b6f8502a2f": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "c5f308d0b609f3627252bb7c": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "c6a89a9ae1b7b61bd9bc3ce1": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "c7f66d971eec639f88037c66": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "c863fdbab28907b91d000ee4": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.09378479315927563,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c8c64fd392b9e7b83a281784": {
+      "attention_pattern": "cross",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "ca8d220ea812e8a35260e6c6": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "cad859a02441962d7ab74d3f": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.24999999999999398,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "cbcd9e9f2c305dcee1ca8e97": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "ce859503f154dda488fa6747": {
+      "attention_pattern": "global",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 8.0,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "cfd9028f5369570ae427f835": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "d081e2221e60c4fff813f8dc": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "d0acb5c94d46089fda9168a4": {
+      "attention_pattern": "global",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 8e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "d0b37ecbca2521ddb2b5a4e2": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "d141a5b88b66131bfc9ccb50": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "d146c11ad514951a771603bb": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "rotary_qk_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "rotary_qk_norm",
+      "units_per_tile": 1024
+    },
+    "d205e43ba244f1dd74e165f7": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "d2b30ed068e3fff495ff2484": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "d3b9243332a2e75705c9d3bd": {
+      "attention_pattern": "cross",
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "d60f069f2b08ac07c205c1ca": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d6583b14ecf0e63d24fa4a28": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "d6634650acee6644edc7d8e8": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "d706a13082a87b78b3d6bf9b": {
+      "attention_pattern": "temporal",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d7576212ff93489d5a5b455d": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "d7e0368b974a454527a82b6a": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d85b58dee48e9481be10206a": {
+      "attention_pattern": "window",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d86d53c795f160c2014e211c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "d8c0db012b3f92e484f70a06": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "d8f8b99575107faf3b5cfad5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d8fc37be78bedab18c60f1a8": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          1,
+          8448
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "d95c3bf6214b2fe15cb242a6": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "d99ff4aa89063b8c8fbf3f77": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "d9a4eae7787dbb69f862ac69": {
+      "attention_pattern": "window",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "da52ac41a423c824b1a25270": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.0038298958460454557,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "daf68c41674cffcde7e4d9ed": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU_reverse_difference",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "db52c48c1ef79af246cbaf7f": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "dbbc5308d1e2c56606f3cb23": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "dd640b6a9e91113092f0c6ee": {
+      "attention_pattern": null,
+      "component": "DSTAR_QPU_FMDQ",
+      "engine": "qpu",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "dd68e7daa8fd3cdcf4432e0c": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "de1c168dd79e59ae84eb88d8": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "de8bd147b623d5a1e08eeb33": {
+      "attention_pattern": "cross",
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "softmax",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 1024
+    },
+    "de8fb4cee242d9046f5a01ec": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "df48000c41e5d30e909a1719": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "df726762bc4e23115d76a6d2": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "layer_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "dfd91773068f111496aa8360": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "e00280290e16918ea1038bf4": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "e01f5266524306e31a5efe84": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "e0af7ea1d5de1aadca136ef1": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "e16d521b75ce69c5bab9ed52": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "e3fc5c54267af40dd2800d06": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "e47c8b336889e65a95e06c28": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "layer_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "e53f4174a0818e7f4bb5112b": {
+      "attention_pattern": "joint",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "e56f51aa673358923731a111": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "e588a372f209d88d920e68d5": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.08814472907935511,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "e67f4ad311c929ffb00d39b5": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "e8c8c524cd815b37ee77e45a": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 8.0,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "e9465cdcad6593147f9c28cb": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "ea6de61459db956d4499dc2c": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        6912
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "ecaf7ae4e3591e313550ed8b": {
+      "attention_pattern": "global",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "eed94613a59872cf4433011e": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "gelu",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "ef577916a34b9ca2f60050b9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "ef9b73270c9e138626f7f0ed": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "rotary",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "f0308e032356fc6e9828e25e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f17abed4ef1b82d8025f458c": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        8448
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "f17c559d72fdbc2563576da4": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_SAR_index",
+      "engine": "sar",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 8e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "f31919fc9b0189d2ffacd97b": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "f3233c765c399ed3630205ad": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "f3260653f7e082c9177636f3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f3e0ea229f0c3d279b1cd241": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "f4258fc69e033c32d48e4b25": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "f4445bd5f7931ae73937984e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f6ecc08ed39f8706c29ad528": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "f7dcd467c3a71c907db844ec": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "f80f21029b528b69b4b61683": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "f86cc56d8f38763bc6eae258": {
+      "attention_pattern": "spatial",
+      "component": "DSTAR_MPU_SAR",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "f8c67e4bc152671c3f4279f9": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_FMDQ",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.1453107067329294,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "f97b15a6582a15cb56660dea": {
+      "attention_pattern": "cross",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "f9a51b3bb92a14c4b8380938": {
+      "attention_pattern": "global",
+      "component": "DSTAR_VPU_softmax",
+      "engine": "vector",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          16,
+          1048576
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "f9afb6c21ad3f51e2a2ef8c5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "fa1b8f68d3d7ce5fd8a49e68": {
+      "attention_pattern": "joint",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        4429,
+        1536
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "fa2fa474405a91ecb9dd865d": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "faae3cce2d90486c7e782038": {
+      "attention_pattern": null,
+      "component": "DSTAR_MPU_A8W8",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "fc2437268d8f3ae3e40c0350": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "fcf44a9604bcde6b819ff0c9": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "fd1a75fd2c1a62a8657f86fd": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          1,
+          12288
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "fd2c7665097f58f781c630d8": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "fe43856d562a05a35b72cf30": {
+      "attention_pattern": null,
+      "component": "DSTAR_VPU",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "rms_norm",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "fec7928d71c2198dfb73e321": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "ff00be831975a73ddf63bcc0": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "ffa7045b39902756e285ed0f": {
+      "attention_pattern": null,
+      "component": "DSTAR_FMDQ_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    }
+  },
+  "method": "dstar",
+  "model": "empirical_kernel_service_times_v0.3",
+  "schema_version": 1,
+  "unit": "ns_per_tile"
+}

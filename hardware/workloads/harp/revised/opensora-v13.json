@@ -1,0 +1,36 @@
+{
+  "id": "opensora-v13",
+  "selected_fraction": 0.3325,
+  "plane_sites": {
+    "qkv": {
+      "natural_skip_fraction": 0.14,
+      "final_skip_fraction": 0.41
+    },
+    "q": {
+      "natural_skip_fraction": 0.11,
+      "final_skip_fraction": 0.4
+    },
+    "k": {
+      "natural_skip_fraction": 0.12,
+      "final_skip_fraction": 0.4
+    },
+    "v": {
+      "natural_skip_fraction": 0.13,
+      "final_skip_fraction": 0.42
+    },
+    "attention_out": {
+      "natural_skip_fraction": 0.16,
+      "final_skip_fraction": 0.45
+    },
+    "ffn_in": {
+      "natural_skip_fraction": 0.19,
+      "final_skip_fraction": 0.53
+    },
+    "ffn_out": {
+      "natural_skip_fraction": 0.23,
+      "final_skip_fraction": 0.56
+    }
+  },
+  "features": "Spatial and windowed temporal groups use proxy deployment geometry. This workload has the lowest published natural zero-plane rates.",
+  "source": "HARP revised Figures 8 and 9(a); plane percentages read at the figure's displayed precision."
+}

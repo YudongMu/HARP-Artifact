@@ -1,0 +1,184 @@
+{
+  "warmups_ms": [
+    1172.750732421875,
+    908.0297241210938,
+    996.713134765625,
+    1010.2003784179688,
+    993.5400390625
+  ],
+  "measurements_ms": [
+    990.38037109375,
+    1023.6089477539062,
+    1029.723876953125,
+    987.801513671875,
+    990.7979125976562,
+    988.1332397460938,
+    992.9109497070312,
+    986.0533447265625,
+    986.697265625,
+    1033.0823974609375,
+    1034.7178955078125,
+    991.1016845703125,
+    977.22314453125,
+    976.54052734375,
+    981.2216186523438,
+    981.5308227539062,
+    969.175048828125,
+    966.4302368164062,
+    1011.8734741210938,
+    986.0074462890625
+  ],
+  "median_ms": 987.9673767089844,
+  "status": "complete",
+  "workload": "dit-xl2-512",
+  "precision": "BF16",
+  "steps": 50,
+  "request_batch": 1,
+  "cfg_lanes": 2,
+  "cfg": 4.0,
+  "attention": "PyTorch FlashAttention SDPA",
+  "tf32": false,
+  "cuda_graph": false,
+  "boundary": "first DiT forward entry through last block residual of last DiT forward; includes intervening work and launch gaps",
+  "scope": "development H100 baseline with deployed scheduler; no profiler, text encoder or VAE",
+  "gpu": "NVIDIA H100 PCIe",
+  "driver": "570.195.03",
+  "image_id": "sha256:5c8a1141d32b78a6c4ba551014503ca57511c477effbeea49f25402f47c8e51a",
+  "torch": "2.5.1+cu121",
+  "cuda": "12.1",
+  "diffusers": "0.32.2",
+  "checkpoint_sha256": "21eb44f14a72d7476b0e29a1c1cb78ec0f311c98740351952b0a0ba681513510",
+  "inputs_in_measurement_order": [
+    {
+      "index": 0,
+      "class_id": 0,
+      "seed": 425000
+    },
+    {
+      "index": 1,
+      "class_id": 1,
+      "seed": 425001
+    },
+    {
+      "index": 2,
+      "class_id": 2,
+      "seed": 425002
+    },
+    {
+      "index": 3,
+      "class_id": 3,
+      "seed": 425003
+    },
+    {
+      "index": 4,
+      "class_id": 4,
+      "seed": 425004
+    },
+    {
+      "index": 5,
+      "class_id": 5,
+      "seed": 425005
+    },
+    {
+      "index": 6,
+      "class_id": 6,
+      "seed": 425006
+    },
+    {
+      "index": 7,
+      "class_id": 7,
+      "seed": 425007
+    },
+    {
+      "index": 8,
+      "class_id": 8,
+      "seed": 425008
+    },
+    {
+      "index": 9,
+      "class_id": 9,
+      "seed": 425009
+    },
+    {
+      "index": 10,
+      "class_id": 10,
+      "seed": 425010
+    },
+    {
+      "index": 11,
+      "class_id": 11,
+      "seed": 425011
+    },
+    {
+      "index": 12,
+      "class_id": 12,
+      "seed": 425012
+    },
+    {
+      "index": 13,
+      "class_id": 13,
+      "seed": 425013
+    },
+    {
+      "index": 14,
+      "class_id": 14,
+      "seed": 425014
+    },
+    {
+      "index": 15,
+      "class_id": 15,
+      "seed": 425015
+    },
+    {
+      "index": 16,
+      "class_id": 16,
+      "seed": 425016
+    },
+    {
+      "index": 17,
+      "class_id": 17,
+      "seed": 425017
+    },
+    {
+      "index": 18,
+      "class_id": 18,
+      "seed": 425018
+    },
+    {
+      "index": 19,
+      "class_id": 19,
+      "seed": 425019
+    },
+    {
+      "index": 20,
+      "class_id": 20,
+      "seed": 425020
+    },
+    {
+      "index": 21,
+      "class_id": 21,
+      "seed": 425021
+    },
+    {
+      "index": 22,
+      "class_id": 22,
+      "seed": 425022
+    },
+    {
+      "index": 23,
+      "class_id": 23,
+      "seed": 425023
+    },
+    {
+      "index": 24,
+      "class_id": 24,
+      "seed": 425024
+    }
+  ],
+  "source_sha256": {
+    "hardware/baselines/h100.py": "691fb48b895f8ede07da5dc7e02d29864daa208a0a2ec9c9ead88e2b649b1de6",
+    "src/dit-original/models.py": "78f2364c9de7b4c38f3809162891f0ae894574df311788d83d81e8f49558faba",
+    "quality/dit.py": "8739f5e0bf559fd50bba2d804cf2a63e84402e86b99bf4644246cab9dce75416",
+    "harp/adapters/dit.py": "5d65b2a9f95eeac42364bc8298bb53da0714ea8516b0e895ffda88bdbd7d642c"
+  }
+}

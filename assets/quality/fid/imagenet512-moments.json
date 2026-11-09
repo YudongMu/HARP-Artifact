@@ -1,0 +1,25 @@
+{
+  "url": "https://openaipublic.blob.core.windows.net/diffusion/jul-2021/ref_batches/imagenet/512/VIRTUAL_imagenet512.npz",
+  "etag": "0x8D98F4023443FF8",
+  "source_bytes": 857466338,
+  "downloaded_bytes": 33563427,
+  "range_requests": 11,
+  "entries": {
+    "mu.npy": {
+      "sha256": "8804a86e986154f81228bef50c3830eadca0d12935b0e132e6fb5d40de844886",
+      "bytes": 8320,
+      "compressed_bytes": 8320,
+      "crc32": 1853717010
+    },
+    "sigma.npy": {
+      "sha256": "dc9241c847e53100598f1869f4d0b6e192e6d1af4f46de2bd4e7a328cf02055a",
+      "bytes": 33554560,
+      "compressed_bytes": 33554560,
+      "crc32": 539350923
+    }
+  },
+  "saved_bytes": 33563124,
+  "saved_sha256": "8f26924dce0b769659e302fa5404bae32182846b6bd6d5240449b4ab8372bf9d",
+  "feature_dimension": 2048,
+  "note": "Exact official mu/sigma ZIP entries; no reference image samples downloaded"
+}

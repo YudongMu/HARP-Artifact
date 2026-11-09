@@ -1,0 +1,501 @@
+{
+  "version": "wan-stage4-v1",
+  "frames": 9,
+  "steps": 50,
+  "resolution": [
+    832,
+    480
+  ],
+  "inputs": {
+    "calibration": [
+      {
+        "id": "cal-0",
+        "prompt": "a dog and a horse",
+        "seed": 510000,
+        "source_index": 77,
+        "metadata": {
+          "prompt_en": "a dog and a horse",
+          "dimension": [
+            "multiple_objects"
+          ],
+          "auxiliary_info": {
+            "multiple_objects": {
+              "object": "dog and horse"
+            }
+          }
+        }
+      }
+    ],
+    "heldout": [
+      {
+        "id": "held-00-s0",
+        "prompt_index": 0,
+        "seed_index": 0,
+        "prompt": "a cat and a dog",
+        "seed": 520000,
+        "source_index": 76,
+        "metadata": {
+          "prompt_en": "a cat and a dog",
+          "dimension": [
+            "multiple_objects"
+          ],
+          "auxiliary_info": {
+            "multiple_objects": {
+              "object": "cat and dog"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-00-s1",
+        "prompt_index": 0,
+        "seed_index": 1,
+        "prompt": "a cat and a dog",
+        "seed": 520001,
+        "source_index": 76,
+        "metadata": {
+          "prompt_en": "a cat and a dog",
+          "dimension": [
+            "multiple_objects"
+          ],
+          "auxiliary_info": {
+            "multiple_objects": {
+              "object": "cat and dog"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-01-s0",
+        "prompt_index": 1,
+        "seed_index": 0,
+        "prompt": "a person swimming in ocean",
+        "seed": 520002,
+        "source_index": 257,
+        "metadata": {
+          "prompt_en": "a person swimming in ocean",
+          "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+          ]
+        }
+      },
+      {
+        "id": "held-01-s1",
+        "prompt_index": 1,
+        "seed_index": 1,
+        "prompt": "a person swimming in ocean",
+        "seed": 520003,
+        "source_index": 257,
+        "metadata": {
+          "prompt_en": "a person swimming in ocean",
+          "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+          ]
+        }
+      },
+      {
+        "id": "held-02-s0",
+        "prompt_index": 2,
+        "seed_index": 0,
+        "prompt": "A person is riding a bike",
+        "seed": 520004,
+        "source_index": 157,
+        "metadata": {
+          "prompt_en": "A person is riding a bike",
+          "dimension": [
+            "human_action"
+          ]
+        }
+      },
+      {
+        "id": "held-02-s1",
+        "prompt_index": 2,
+        "seed_index": 1,
+        "prompt": "A person is riding a bike",
+        "seed": 520005,
+        "source_index": 157,
+        "metadata": {
+          "prompt_en": "A person is riding a bike",
+          "dimension": [
+            "human_action"
+          ]
+        }
+      },
+      {
+        "id": "held-03-s0",
+        "prompt_index": 3,
+        "seed_index": 0,
+        "prompt": "a person",
+        "seed": 520006,
+        "source_index": 329,
+        "metadata": {
+          "prompt_en": "a person",
+          "dimension": [
+            "object_class"
+          ],
+          "auxiliary_info": {
+            "object_class": {
+              "object": "person"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-03-s1",
+        "prompt_index": 3,
+        "seed_index": 1,
+        "prompt": "a person",
+        "seed": 520007,
+        "source_index": 329,
+        "metadata": {
+          "prompt_en": "a person",
+          "dimension": [
+            "object_class"
+          ],
+          "auxiliary_info": {
+            "object_class": {
+              "object": "person"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-04-s0",
+        "prompt_index": 4,
+        "seed_index": 0,
+        "prompt": "a red car",
+        "seed": 520008,
+        "source_index": 417,
+        "metadata": {
+          "prompt_en": "a red car",
+          "dimension": [
+            "color"
+          ],
+          "auxiliary_info": {
+            "color": {
+              "color": "red"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-04-s1",
+        "prompt_index": 4,
+        "seed_index": 1,
+        "prompt": "a red car",
+        "seed": 520009,
+        "source_index": 417,
+        "metadata": {
+          "prompt_en": "a red car",
+          "dimension": [
+            "color"
+          ],
+          "auxiliary_info": {
+            "color": {
+              "color": "red"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-05-s0",
+        "prompt_index": 5,
+        "seed_index": 0,
+        "prompt": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "seed": 520010,
+        "source_index": 493,
+        "metadata": {
+          "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+          "dimension": [
+            "appearance_style"
+          ],
+          "auxiliary_info": {
+            "appearance_style": {
+              "appearance_style": "Van Gogh style"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-05-s1",
+        "prompt_index": 5,
+        "seed_index": 1,
+        "prompt": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "seed": 520011,
+        "source_index": 493,
+        "metadata": {
+          "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+          "dimension": [
+            "appearance_style"
+          ],
+          "auxiliary_info": {
+            "appearance_style": {
+              "appearance_style": "Van Gogh style"
+            }
+          }
+        }
+      },
+      {
+        "id": "held-06-s0",
+        "prompt_index": 6,
+        "seed_index": 0,
+        "prompt": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "seed": 520012,
+        "source_index": 583,
+        "metadata": {
+          "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+          "dimension": [
+            "temporal_style"
+          ]
+        }
+      },
+      {
+        "id": "held-06-s1",
+        "prompt_index": 6,
+        "seed_index": 1,
+        "prompt": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "seed": 520013,
+        "source_index": 583,
+        "metadata": {
+          "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+          "dimension": [
+            "temporal_style"
+          ]
+        }
+      },
+      {
+        "id": "held-07-s0",
+        "prompt_index": 7,
+        "seed_index": 0,
+        "prompt": "Close up of grapes on a rotating table.",
+        "seed": 520014,
+        "source_index": 683,
+        "metadata": {
+          "prompt_en": "Close up of grapes on a rotating table.",
+          "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+          ]
+        }
+      },
+      {
+        "id": "held-07-s1",
+        "prompt_index": 7,
+        "seed_index": 1,
+        "prompt": "Close up of grapes on a rotating table.",
+        "seed": 520015,
+        "source_index": 683,
+        "metadata": {
+          "prompt_en": "Close up of grapes on a rotating table.",
+          "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+          ]
+        }
+      },
+      {
+        "id": "held-08-s0",
+        "prompt_index": 8,
+        "seed_index": 0,
+        "prompt": "alley",
+        "seed": 520016,
+        "source_index": 776,
+        "metadata": {
+          "prompt_en": "alley",
+          "dimension": [
+            "scene",
+            "background_consistency"
+          ],
+          "auxiliary_info": {
+            "scene": {
+              "scene": {
+                "scene": "alley"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "held-08-s1",
+        "prompt_index": 8,
+        "seed_index": 1,
+        "prompt": "alley",
+        "seed": 520017,
+        "source_index": 776,
+        "metadata": {
+          "prompt_en": "alley",
+          "dimension": [
+            "scene",
+            "background_consistency"
+          ],
+          "auxiliary_info": {
+            "scene": {
+              "scene": {
+                "scene": "alley"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "held-09-s0",
+        "prompt_index": 9,
+        "seed_index": 0,
+        "prompt": "a bicycle on the left of a car, front view",
+        "seed": 520018,
+        "source_index": 862,
+        "metadata": {
+          "prompt_en": "a bicycle on the left of a car, front view",
+          "dimension": [
+            "spatial_relationship"
+          ],
+          "auxiliary_info": {
+            "spatial_relationship": {
+              "spatial_relationship": {
+                "object_a": "bicycle",
+                "object_b": "car",
+                "relationship": "on the left of"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "held-09-s1",
+        "prompt_index": 9,
+        "seed_index": 1,
+        "prompt": "a bicycle on the left of a car, front view",
+        "seed": 520019,
+        "source_index": 862,
+        "metadata": {
+          "prompt_en": "a bicycle on the left of a car, front view",
+          "dimension": [
+            "spatial_relationship"
+          ],
+          "auxiliary_info": {
+            "spatial_relationship": {
+              "spatial_relationship": {
+                "object_a": "bicycle",
+                "object_b": "car",
+                "relationship": "on the left of"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "held-10-s0",
+        "prompt_index": 10,
+        "seed_index": 0,
+        "prompt": "In a still frame, a stop sign",
+        "seed": 520020,
+        "source_index": 0,
+        "metadata": {
+          "prompt_en": "In a still frame, a stop sign",
+          "dimension": [
+            "temporal_flickering"
+          ]
+        }
+      },
+      {
+        "id": "held-10-s1",
+        "prompt_index": 10,
+        "seed_index": 1,
+        "prompt": "In a still frame, a stop sign",
+        "seed": 520021,
+        "source_index": 0,
+        "metadata": {
+          "prompt_en": "In a still frame, a stop sign",
+          "dimension": [
+            "temporal_flickering"
+          ]
+        }
+      }
+    ]
+  },
+  "heldout_official_dimension_coverage": [
+    "aesthetic_quality",
+    "appearance_style",
+    "background_consistency",
+    "color",
+    "dynamic_degree",
+    "human_action",
+    "imaging_quality",
+    "motion_smoothness",
+    "multiple_objects",
+    "object_class",
+    "overall_consistency",
+    "scene",
+    "spatial_relationship",
+    "subject_consistency",
+    "temporal_flickering",
+    "temporal_style"
+  ],
+  "heldout_videos_per_mode": 22,
+  "unique_heldout_prompts": 11,
+  "seeds_per_heldout_prompt": 2,
+  "replacement": "Predeclared red bicycle -> official red car only; old undefined result retained elsewhere",
+  "expected_modes": [
+    "dense",
+    "residual",
+    "planeclear",
+    "combined"
+  ],
+  "artifact_pattern": "runs/<input_id>/<mode>/{run.json,initial-noise.pt,latent.pt,sample.mp4,stage4-execution.json}",
+  "scorer_sampling_note": "Official uniform16 frame sampling may repeat short9/17 input frames; temporal diagnostic is not standard81 quality. Never pad or forge a new video.",
+  "official_metadata_sha256": "5dd2de80ee43cda750b2b72ea7023657c0b90d3702041c7e4608c65dbe50dccd",
+  "generator_source_sha256": {
+    "harp/runtime.py": "c46a3674b615aa6e6c5db26656c65c5d245b5397d803e51b2b68cc2ffbb22d80",
+    "harp/protocol.py": "78a8640955e73424b7514a6cce089ec0d83b8f8a6023d7ac0f5400f33ed16479",
+    "harp/cli.py": "59614923fe5ac4fac247a7640a6dd882f8d51974601fd3927bd0ec75bed9a5d2",
+    "harp/__init__.py": "4997bf526ba8e4748bfcf1a2285c4897e445ddc7e18cbc6066c7b1cc44ecd1f8",
+    "harp/calibration.py": "9e85bc42e8108f556cdaf425f482d68c12ecf287bdf7ea142880f9206adbbfde",
+    "harp/wan_cli.py": "26de3b4c3db0efb30f9cb12e3fa551084f1021894e6c3bc94d016e7f10bfcfd2",
+    "harp/diagnostics.py": "d7ef37dc5f2eb3cd9c5862a490aca81abc9b55812247ad387ef1538017e45c26",
+    "harp/intervention.py": "ba9678f3198421c9aa184479ed0c05d1dbdb81827f458cb36dc5b99e9d1d9973",
+    "harp/wan_suite.py": "516ccfa0fad80478a0aae689239018b4fae2eaad8957b961f2a662f32a218719",
+    "harp/core/__init__.py": "8ed502d78d93492953fdd8ce65fae0aba0dfd4924c1e43b71f2cafeee99fe118",
+    "harp/core/planes.py": "6064ab23d7697e0bbaa8278eec7ce23391e1738669cc3017e16040e8de598a17",
+    "harp/core/attention.py": "82555f2975697315cd47aa0faa8520dd5236cd0b55858dd1f885cd6165976cea",
+    "harp/adapters/dit.py": "5d65b2a9f95eeac42364bc8298bb53da0714ea8516b0e895ffda88bdbd7d642c",
+    "harp/adapters/__init__.py": "1a0e003a51f3c28442ec691bdebb0f1cec235b81eb6e8bd6e7947a3833597b0f",
+    "harp/adapters/wan.py": "a12afd10a20fa25ab95b5d53c570794588d277b7c86affa116804e1dfc3739dd",
+    "src/Wan2.1/wan/text2video.py": "169f0929b273b27a7bc0e094d15a01d48183adc529a1dbce626b179dced29fe8",
+    "src/Wan2.1/wan/image2video.py": "79fab091a8847dd0f9e5fd81d0c75ce77bc833f8dbe32d5706dce17070ddf609",
+    "src/Wan2.1/wan/vace.py": "bcb792e4750459af3049bfcc52a3e804895d2d7c98bc2e4d2ce7aaa545da9837",
+    "src/Wan2.1/wan/__init__.py": "bd4c7993b6022f321f63c77d36a146955f0ce1d3a9fb520698b645a9f3e728b9",
+    "src/Wan2.1/wan/first_last_frame2video.py": "5cee40e4a25bdb33e64a04ed55d2f23c3092d349f8407529aa98d585c14b724f",
+    "src/Wan2.1/wan/configs/wan_i2v_14B.py": "86704d4a08fd3b7e71b8256a001cca4fa8c065abd189c67f9f19eb348606ab88",
+    "src/Wan2.1/wan/configs/wan_t2v_14B.py": "99aadb67eec94e28c2a02db45c178c07f7488b7e1b3c148aae1e23e908fe580f",
+    "src/Wan2.1/wan/configs/__init__.py": "0af8a5a3374058b1b21f0b2408fc109062c55589e4441bcae25fcfa005d3c9d0",
+    "src/Wan2.1/wan/configs/shared_config.py": "a942b6f0a1d1a4ec9a7893c17a6218651ce272953b90d012ce5cdd19d15e45f7",
+    "src/Wan2.1/wan/configs/wan_t2v_1_3B.py": "6976ec4c03f737b69ae17afe13339b32905739205d4c19f16c8b329f9f06e986",
+    "src/Wan2.1/wan/utils/__init__.py": "225f3a18c782ea3776adacdfb4c21bb4ac4d02497c77882545f2c2d619175572",
+    "src/Wan2.1/wan/utils/prompt_extend.py": "a7d81b451377a47413e932d440d573ea010c0d608c8bb668b3af9c01261c0a67",
+    "src/Wan2.1/wan/utils/vace_processor.py": "3fc56687d1d6204cc9603625238f20a8453f7d89f38efff11c3353ac7ab83e36",
+    "src/Wan2.1/wan/utils/utils.py": "8e2d85b1c7961233379b9ab38cee153ca8d95358f27cb8bb6dd154e809731c8c",
+    "src/Wan2.1/wan/utils/qwen_vl_utils.py": "be11ac9808a6d79bb4e99482ea7ae9b2eccd48c2b517845b55f71cf5bb768239",
+    "src/Wan2.1/wan/utils/fm_solvers_unipc.py": "0dec8c7ed17f6f2049275c6848113314da6ccec1c8db5bdc89df43c05c6038d9",
+    "src/Wan2.1/wan/utils/fm_solvers.py": "b870bdc7253593b75097896b2351e74f747f76d756f58f1b4b0008d6821ae811",
+    "src/Wan2.1/wan/modules/__init__.py": "bfc04ed14de761c0cdacbbf4abced65464b894c9e2f84b60cd5c0f24e3a627c8",
+    "src/Wan2.1/wan/modules/vace_model.py": "91194ce34c771f6ecc264577ee7adf542551a62167a793cfef24f876e3291faa",
+    "src/Wan2.1/wan/modules/t5.py": "8b0cebf3192c542f92a344255a06c203df3ba24160715899a055cc8de0cd930f",
+    "src/Wan2.1/wan/modules/tokenizers.py": "cf5b189c1ae017326efadab2fc6380ba223fa7a59d0be6464bd264db53c76934",
+    "src/Wan2.1/wan/modules/clip.py": "70a589a3a77d777352fbce633838b490a6ffc7968ec8beb927e5d7a5a585eb89",
+    "src/Wan2.1/wan/modules/attention.py": "23fe7c6f6e4065242d95e5e188cb2d1a16bd283f05dca7e7e878977158fcfdbc",
+    "src/Wan2.1/wan/modules/vae.py": "4912ffd7a9fbb17ceef9a17d4a9c4b8aee36ec37c32594f54e57693b29909498",
+    "src/Wan2.1/wan/modules/model.py": "c1572ade3bf7345bd4c00d4a19535788fab62f9c08b5aeb15f6d01f4435bb47a",
+    "src/Wan2.1/wan/modules/xlm_roberta.py": "7e27d93573b5fb0fef1c9db9205264453bd30dcb1404c38031f24ed9c84b8d4a",
+    "src/Wan2.1/wan/distributed/fsdp.py": "b787312856a1f4da54648999c143d08c3dfa09be75be78e8c39fd21f55b823dd",
+    "src/Wan2.1/wan/distributed/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/Wan2.1/wan/distributed/xdit_context_parallel.py": "a805a84aca2e41fbcfe1e58806f98f6dd024f3484bfa1f14a7277ed0778d8416"
+  },
+  "sidecar_sha256": "f600db742f40a5cd776938733a75f3676577c0583d888b52a5a504cd3c25dabe",
+  "gpu_deterministic_algorithms": true
+}

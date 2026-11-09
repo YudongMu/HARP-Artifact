@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "opensora-v13",
+  "grid": [
+    16,
+    64,
+    64
+  ],
+  "width": 2304,
+  "heads": 24,
+  "ffn": 9216,
+  "steps": 100,
+  "forwards": 1,
+  "lanes": 2,
+  "conditioning": "shared6",
+  "context": 300,
+  "context_width": 4096,
+  "qk_norm": true,
+  "rope": true,
+  "patch_in": 64,
+  "patch_out": 64,
+  "evidence": "parameterized_structure",
+  "source": [
+    "https://github.com/hpcaitech/Open-Sora/blob/main/docs/report_04.md",
+    "HARP-326-revised.pdf Table I"
+  ],
+  "assumptions": [
+    "Grid factorization, 28 spatial/temporal pairs, 300 text tokens and window shape are unverified. Unshifted window histogram approximates shifted geometry."
+  ],
+  "bundles": [
+    {
+      "repeat": 28,
+      "layers": [
+        {
+          "id": "opensora_spatial",
+          "type": "cross",
+          "attention": "spatial"
+        },
+        {
+          "id": "opensora_temporal_window",
+          "type": "cross",
+          "attention": "window",
+          "window": [
+            4,
+            8,
+            8
+          ]
+        }
+      ]
+    }
+  ],
+  "table_i": {
+    "resolution": "1280x720",
+    "frames": 24,
+    "sampler": "DDIM",
+    "tokens_display": "6.5e4",
+    "width": 2304,
+    "heads": 24,
+    "steps": 100
+  }
+}

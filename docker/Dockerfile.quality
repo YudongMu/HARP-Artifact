@@ -1,0 +1,10 @@
+FROM harp-ae-gpu:unified-v0.2 AS quality-deps
+COPY env/unified-resolved-lock.txt /tmp/generator-constraints.txt
+RUN python -m pip install --no-cache-dir -c /tmp/generator-constraints.txt \
+    tensorflow-cpu==2.17.1 scipy==1.14.1 decord==0.6.0 openai-clip==1.0.1 \
+    omegaconf==2.3.0 scikit-image==0.24.0 scikit-learn==1.5.2
+FROM quality-deps AS quality-final
+COPY quality/wheel_metadata.py /opt/harp/scripts/repair_decord_metadata.py
+RUN python /opt/harp/scripts/repair_decord_metadata.py \
+    && python -m pip check \
+    && python -m pip freeze > /opt/harp/env/quality-resolved-lock.txt

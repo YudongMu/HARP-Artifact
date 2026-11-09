@@ -1,0 +1,12 @@
+{
+  "source": "E2E-Speedups.xlsx Sheet1 A15:D85; HARP rows 15,29,43,57,71,85",
+  "values": {
+    "dit-xl2-512": 10.9307349,
+    "sd3-medium": 11.6294655,
+    "flux1-dev": 10.7415803,
+    "latte-1": 14.0930781,
+    "wan21-14b-81f": 13.525545,
+    "opensora-v13": 12.9389274
+  },
+  "evidence": "Numerical calibration targets. See e2e-speedups.json and the paper audit for provenance limits."
+}

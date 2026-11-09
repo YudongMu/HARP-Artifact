@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "flux1-dev",
+  "grid": [
+    64,
+    64
+  ],
+  "width": 4096,
+  "heads": 64,
+  "ffn": 16384,
+  "steps": 50,
+  "forwards": 1,
+  "lanes": 1,
+  "conditioning": "linear6",
+  "context": 512,
+  "context_width": 4096,
+  "qk_norm": true,
+  "rope": true,
+  "patch_in": 64,
+  "patch_out": 64,
+  "evidence": "table_i_geometry_with_structural_proxies",
+  "source": [
+    "https://github.com/black-forest-labs/flux/blob/main/src/flux/util.py",
+    "https://github.com/black-forest-labs/flux/blob/main/src/flux/modules/layers.py",
+    "HARP-326-revised.pdf Table I"
+  ],
+  "assumptions": [
+    "Table I gives width 4096 and 64 heads. Official FLUX.1-dev gives 3072 and 24. Layer structure is borrowed from upstream and retargeted; FFN width is an x4 proxy.",
+    "The 64x64 grid models 4096 image tokens; the printed 4.0e3 is approximate. Context length and CFG execution are unverified."
+  ],
+  "bundles": [
+    {
+      "repeat": 19,
+      "layers": [
+        {
+          "id": "flux_double",
+          "type": "joint"
+        }
+      ]
+    },
+    {
+      "repeat": 38,
+      "layers": [
+        {
+          "id": "flux_single",
+          "type": "packed"
+        }
+      ]
+    }
+  ],
+  "table_i": {
+    "resolution": "1024x1024",
+    "frames": 1,
+    "sampler": "Rectified-Flow",
+    "tokens_display": "4.0e3",
+    "width": 4096,
+    "heads": 64,
+    "steps": 50
+  }
+}

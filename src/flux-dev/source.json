@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/huggingface/diffusers",
+  "commit": "560fb5f4d65b8593c13e4be50a59b1fd9c2d9992",
+  "scope": "code only",
+  "files": {
+    "upstream/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "upstream/setup.py": "8f8d5533f91322de2ba26872f9b832de97c4f7e3e15424f0e7a7384c9b62d41b",
+    "upstream/src/diffusers/models/transformers/transformer_flux.py": "d18a6cbe5fbfc5d89e038154fac535a75089891f207189a21a3f96563ba5e3a3",
+    "upstream/src/diffusers/pipelines/flux/__init__.py": "c1599624d9d77e6e4b22c574781d6e82d9f3fe56d1a040c2ee3749671c16c651",
+    "upstream/src/diffusers/pipelines/flux/modeling_flux.py": "5037ae957ed5325e110153b0ed33f6d76eca29dd521414e04f20ac2b7b3c98df",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux.py": "0a3f141f9362bdcc6c64880c433541e02700c593b15f7e826cad6db37e165be7",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_control.py": "15d5f4f80f5d9a8935048ab52ea28a386849242ce7c577fb2a611cb3fb1fbb7d",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_control_img2img.py": "2fba904b2351ca8d6eb246d52aff250a16da32f24bc551323d91c13173ddbf12",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_control_inpaint.py": "1704ca0d030f5ba52bf8c4c7b342dd0cb155e137edc413b79688c6f26103cff3",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_controlnet.py": "21f7871c77856bdf29ff6f0f0b03bcbc52429f389d9f9258ec6191f2ba4e1dcb",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_controlnet_image_to_image.py": "c25e0495f3c1e415a54c2e6e0c92469b4f18429a4911e52d09dd34c7e4bb7da1",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_controlnet_inpainting.py": "50f02b9fdd866d76fd899b2c6c84886691b891800227e8305c623fb89842167c",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_fill.py": "4d41876465915306488e06d4b66a68f5f187a8a8f26ca7c05c500b8e29aa3ea4",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_img2img.py": "56c711c23bc06683c52115ac2a93f6a563b9de606dc95e79e6052b36124ecafd",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_inpaint.py": "c0f3cde87b567b675ea0b001f45d321999c5b96079146a417fa8c1828b4fd5f6",
+    "upstream/src/diffusers/pipelines/flux/pipeline_flux_prior_redux.py": "72db9d529ef6ae481cd0bc8303a94015e6ed45f29f9b04b745314742d608df17",
+    "upstream/src/diffusers/pipelines/flux/pipeline_output.py": "d30d25c56d74d987f9ba9a98c863b624b158ca070937083daa5f76c8a6599532"
+  }
+}

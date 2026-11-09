@@ -1,0 +1,2338 @@
+{
+  "status": "complete",
+  "frames": 9,
+  "steps": 50,
+  "expected_heldout_videos_per_mode": 22,
+  "unique_heldout_prompts": 11,
+  "cases": [
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "reference",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/residual",
+      "run_sha256": "aad1be35e41737eb9b0a4f89de9ee912becba473f13fc97c84be22d985e2715a",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 735.0920100808144
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "reference-repeat",
+      "kind": "repeat",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/reference-repeat",
+      "run_sha256": "66f1c4950c42da9e747a23dc67e0c8928c8cd5cbec8f6674f0e6166c97f80b4f",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 504.81935226079077
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "dense",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/dense",
+      "run_sha256": "89021e07b60f4741df4179f05603bf0499b5663ce7c4fd212d65ad225199cef8",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 232.60591187188402
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "planeclear",
+      "label": "planeclear-zero",
+      "kind": "control",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/planeclear-zero",
+      "run_sha256": "710f714f3f5fad23e8a673716426feacbafa6d24c34882293f28dd7e705c51a7",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": "302c6774cfe86d18bb9628af74836e45849a75ceaa5aec1a25e428dd1655fc4e",
+      "elapsed_seconds": 205.48081579012796
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "combined",
+      "label": "combined-zero",
+      "kind": "control",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/combined-zero",
+      "run_sha256": "09ebf694880bab8508ab1cf0eb5166a12392816e22aa51d7ec2c726c8288d10e",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": "bb06a00081fa387ac51578f072901236915cd7eb477787395bae067be2daaaeb",
+      "elapsed_seconds": 484.18947336496785
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-1-0-q-zero",
+      "kind": "zero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-1-0-q-zero",
+      "run_sha256": "a46cfcefe4a5356a9555f26704e66ccab79fa2e52fe1a9ceb8c805e2dc38459d",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 493.18166519515216
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-1-0-q-lambda-0.005",
+      "kind": "nonzero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-1-0-q-lambda-0.005",
+      "run_sha256": "206d796d306b4bf5f3d329f7af714c00e0d8ee24e578b4330f1ecc79411a56f1",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 473.6436484414153
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-1-0-q-lambda-0.02",
+      "kind": "nonzero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-1-0-q-lambda-0.02",
+      "run_sha256": "d9a101d8712fe406f965b319027518421d511640839e179f7d46f4b522bc7b56",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 496.19746155897155
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-10-20-ffn2_input-zero",
+      "kind": "zero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-10-20-ffn2_input-zero",
+      "run_sha256": "3f146aae847afe0db0f83cc430f0e773adf3d7dddb6a73a7de86c158004779cf",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 494.33626514626667
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-10-20-ffn2_input-lambda-0.005",
+      "kind": "nonzero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-10-20-ffn2_input-lambda-0.005",
+      "run_sha256": "3dd1df368d74c6704afaf25e960d0e43570ba2f6658c1f1354e562fa9fef33d5",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 464.1204242249951
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-10-20-ffn2_input-lambda-0.02",
+      "kind": "nonzero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-10-20-ffn2_input-lambda-0.02",
+      "run_sha256": "669bba3abe46ec54d9d72e10c79785640321ec53ad04272bc0e1d98fdcf2bed1",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 470.54567674268037
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-39-39-v-zero",
+      "kind": "zero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-39-39-v-zero",
+      "run_sha256": "2066dbb2a683e1d03fd3ef521bd43ca93f3bb683d5a89036498a4b69d09e9024",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 478.823312564753
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-39-39-v-lambda-0.005",
+      "kind": "nonzero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-39-39-v-lambda-0.005",
+      "run_sha256": "d8af3ddebb3656ac16b3ebd98c2ff8b582df6bb12bf691affb9b303464d0c045",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 479.9137250180356
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "residual",
+      "label": "probe-39-39-v-lambda-0.02",
+      "kind": "nonzero_probe",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/probe-39-39-v-lambda-0.02",
+      "run_sha256": "7659f878ff06f65e72ec942d52479420953cde7bd085694bb0ab42f02eb87543",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 470.2271109307185
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "combined",
+      "label": "candidate-conservative",
+      "kind": "candidate",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/candidate-conservative",
+      "run_sha256": "b8f460a9a237883423758b2fa18fc1c1e48a8b878a435f7f9e3ef5dd90e27a72",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": "5db71af2986974ce7fe360412c3ff3ed14cbc934a81b4bb293097d9396384537",
+      "elapsed_seconds": 493.30393660627306
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "combined",
+      "label": "candidate-mixed",
+      "kind": "candidate",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/candidate-mixed",
+      "run_sha256": "081978ffabfcbe7fc219edd6af03d5812dee8931de82a8743f94e7290f875f91",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": "a443e476e3670bc54eab97eb808ae329071c9ae024ae2ad01cee7cf8f9a08b6f",
+      "elapsed_seconds": 486.9698233939707
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "selected_candidate_reuse",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/candidate-mixed",
+      "run_sha256": "081978ffabfcbe7fc219edd6af03d5812dee8931de82a8743f94e7290f875f91",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "budget_table_sha256": "a443e476e3670bc54eab97eb808ae329071c9ae024ae2ad01cee7cf8f9a08b6f",
+      "policy_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2"
+    },
+    {
+      "input_id": "cal-0",
+      "split": "calibration",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "selected_policy",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/cal-0/planeclear",
+      "run_sha256": "e09e07b9207eca7ea4046066bcbfda467ea24a551371a56d237ae69b1e594287",
+      "metadata": {
+        "prompt_en": "a dog and a horse",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "dog and horse"
+          }
+        }
+      },
+      "initial_noise_sha256": "2ea25ab0e76f71e8a7de98bd6d78bdc79c5d96516c30e32fe7a12557544e73f2",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 117.46391522604972
+    },
+    {
+      "input_id": "held-00-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s0/dense",
+      "run_sha256": "496f3f01b9853ac445e67cdddb238b8bfd674cf373021b6eda480ecc47d85644",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "231c65eab9aa200b9b51f63ad089d9807f70478a46a5487ca558e2f331632923",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 197.62141888123006
+    },
+    {
+      "input_id": "held-00-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s0/residual",
+      "run_sha256": "1eaf0cb0b0ae9371b11256861b5171292d5509e8c9ddd92cda24bf57a5fc5366",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "231c65eab9aa200b9b51f63ad089d9807f70478a46a5487ca558e2f331632923",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 395.178224734962
+    },
+    {
+      "input_id": "held-00-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s0/planeclear",
+      "run_sha256": "8d224e4e1e4bc5b3b2cd22874791ad7295bf7317a602a02137eb2e2270f2bc7c",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "231c65eab9aa200b9b51f63ad089d9807f70478a46a5487ca558e2f331632923",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.4361038831994
+    },
+    {
+      "input_id": "held-00-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s0/combined",
+      "run_sha256": "50009c1a7950ff6440fb1383f81e3dc6d0e026bafd69624fa13e438360afb9ef",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "231c65eab9aa200b9b51f63ad089d9807f70478a46a5487ca558e2f331632923",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 396.35926031600684
+    },
+    {
+      "input_id": "held-00-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s1/dense",
+      "run_sha256": "c54f1df8a1a56ef896ef3653dc59de43c547e29063f33f8a113e834ffa532388",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "94f22aeec441a372a991cc4330f3c63462d238f7f39ffe0fefc0b823706a46dd",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 114.50802471116185
+    },
+    {
+      "input_id": "held-00-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s1/residual",
+      "run_sha256": "e7d45c298c77f59b282accca8a1ce1e7f36b66e5369192ff725c66a850083baa",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "94f22aeec441a372a991cc4330f3c63462d238f7f39ffe0fefc0b823706a46dd",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 396.0623239898123
+    },
+    {
+      "input_id": "held-00-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s1/planeclear",
+      "run_sha256": "721f7e10108053b01c38735adb828aace40f2e07c5e6cadbee5967a3b4f3b04b",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "94f22aeec441a372a991cc4330f3c63462d238f7f39ffe0fefc0b823706a46dd",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 117.14827417582273
+    },
+    {
+      "input_id": "held-00-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-00-s1/combined",
+      "run_sha256": "a3e98c79f26353b4fefb7354327f470966b02c0b1c1873aeff52a9263cdfe9c1",
+      "metadata": {
+        "prompt_en": "a cat and a dog",
+        "dimension": [
+          "multiple_objects"
+        ],
+        "auxiliary_info": {
+          "multiple_objects": {
+            "object": "cat and dog"
+          }
+        }
+      },
+      "initial_noise_sha256": "94f22aeec441a372a991cc4330f3c63462d238f7f39ffe0fefc0b823706a46dd",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 395.915484091267
+    },
+    {
+      "input_id": "held-01-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s0/dense",
+      "run_sha256": "04193f9442315195b3aab048060cada85a4fa96cd00f4b62d86054fc5dce1a2f",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "c0e235aea21cb68f93ef0bfe3f6410717add884e95f99956f69f1b7c7102d658",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 206.15797636285424
+    },
+    {
+      "input_id": "held-01-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s0/residual",
+      "run_sha256": "8b21404c8c68de3b0b4fc70e3fd3cbdfc6bd1f4543c3394e3bdbe5d5edefb90d",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "c0e235aea21cb68f93ef0bfe3f6410717add884e95f99956f69f1b7c7102d658",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 392.78412866126746
+    },
+    {
+      "input_id": "held-01-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s0/planeclear",
+      "run_sha256": "7326b237d3c3ce9e4b76e1df20af574853d2543d14c6699046038a8e22cc33bf",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "c0e235aea21cb68f93ef0bfe3f6410717add884e95f99956f69f1b7c7102d658",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.6654153461568
+    },
+    {
+      "input_id": "held-01-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s0/combined",
+      "run_sha256": "25fe3a724221bedfdd1a16c439b22c8705e0c7d348834c8280465aacd10169be",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "c0e235aea21cb68f93ef0bfe3f6410717add884e95f99956f69f1b7c7102d658",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 398.679813102819
+    },
+    {
+      "input_id": "held-01-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s1/dense",
+      "run_sha256": "c75699a944a3f4b6076c8060abda0361cbd42746af8aafeb69cf5b8988418c48",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "51d455f9c3f832a2ff35e3c3481c374e16b7b38bd117bc04e2f6b2f35115ff79",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 113.02969363797456
+    },
+    {
+      "input_id": "held-01-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s1/residual",
+      "run_sha256": "9704817de47a400654d5b3b370e196efd1bd303a642996f3bad7b3965eb32602",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "51d455f9c3f832a2ff35e3c3481c374e16b7b38bd117bc04e2f6b2f35115ff79",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 397.4493265468627
+    },
+    {
+      "input_id": "held-01-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s1/planeclear",
+      "run_sha256": "db5cd20102e161cf6a0f967195e373f71b8d39ddbe0ed3e5ca1a5580e08066ee",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "51d455f9c3f832a2ff35e3c3481c374e16b7b38bd117bc04e2f6b2f35115ff79",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 120.15389899117872
+    },
+    {
+      "input_id": "held-01-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-01-s1/combined",
+      "run_sha256": "493d3f29d1e8747e4ed7aae3b20b6e547178015b287cf0bfebf5e109dfa3f310",
+      "metadata": {
+        "prompt_en": "a person swimming in ocean",
+        "dimension": [
+          "subject_consistency",
+          "dynamic_degree",
+          "motion_smoothness"
+        ]
+      },
+      "initial_noise_sha256": "51d455f9c3f832a2ff35e3c3481c374e16b7b38bd117bc04e2f6b2f35115ff79",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 392.15213617729023
+    },
+    {
+      "input_id": "held-02-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s0/dense",
+      "run_sha256": "74742cfa6d1ba38022daa9e75b3966e2a03c37cfa0587e4717dbcac7fb755649",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "7ab8ac1da080a415c1ffc6818fc4d3f62a233bd8288e02a5b40b92239f2fb798",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 212.8035201751627
+    },
+    {
+      "input_id": "held-02-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s0/residual",
+      "run_sha256": "3a7295097e00481f272c67f4dc6e3dcb77ccb2ba8565a7b3650be6480e92f299",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "7ab8ac1da080a415c1ffc6818fc4d3f62a233bd8288e02a5b40b92239f2fb798",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 391.7119034258649
+    },
+    {
+      "input_id": "held-02-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s0/planeclear",
+      "run_sha256": "3b83db8d7d8d05e8aa52ac01ddb1493fad95cfa244771c909acc352b5186e34a",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "7ab8ac1da080a415c1ffc6818fc4d3f62a233bd8288e02a5b40b92239f2fb798",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.17437691194937
+    },
+    {
+      "input_id": "held-02-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s0/combined",
+      "run_sha256": "5a03474717d564cb7e63043cc166bfe9af5cee5da249013fd8496478a5ecfab1",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "7ab8ac1da080a415c1ffc6818fc4d3f62a233bd8288e02a5b40b92239f2fb798",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 399.65673974202946
+    },
+    {
+      "input_id": "held-02-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s1/dense",
+      "run_sha256": "bb711b3b7740b21efe3398628fd8fe9d4a8d22d36d224fce82bdc8bc5e4b0166",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "91403daef27f0a0ebf29655ee087efd8c2275d848b9ef3ab6f45985b30710914",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 112.75259860511869
+    },
+    {
+      "input_id": "held-02-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s1/residual",
+      "run_sha256": "e4dd25fdf93f258d7dd1955202ba7f22effa1b7e3a197a089091538a0167706f",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "91403daef27f0a0ebf29655ee087efd8c2275d848b9ef3ab6f45985b30710914",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 398.78598095010966
+    },
+    {
+      "input_id": "held-02-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s1/planeclear",
+      "run_sha256": "ce2d2d35a0daadf1009eb409bb602fd5f99d14aae80adbb174a816bf935d417b",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "91403daef27f0a0ebf29655ee087efd8c2275d848b9ef3ab6f45985b30710914",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 116.57787470566109
+    },
+    {
+      "input_id": "held-02-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-02-s1/combined",
+      "run_sha256": "022277b870afcbd5272a7d14da46e48cd8ee8ec5f4cfcd0209b339b3c3aad696",
+      "metadata": {
+        "prompt_en": "A person is riding a bike",
+        "dimension": [
+          "human_action"
+        ]
+      },
+      "initial_noise_sha256": "91403daef27f0a0ebf29655ee087efd8c2275d848b9ef3ab6f45985b30710914",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 396.45906593604013
+    },
+    {
+      "input_id": "held-03-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s0/dense",
+      "run_sha256": "a562b5799b49c29968301d93731593f91def912143fcd0abc7ccc8db506d4db0",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "ccac8d1fb85e881d6420683c4e35e74f2d7f52b70aff561b48a19f552fd0423a",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 208.66091217193753
+    },
+    {
+      "input_id": "held-03-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s0/residual",
+      "run_sha256": "24e9143b7616eab3c8bc186f4c3ed2479150cbb5485ca069238073195633c645",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "ccac8d1fb85e881d6420683c4e35e74f2d7f52b70aff561b48a19f552fd0423a",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 392.94243944995105
+    },
+    {
+      "input_id": "held-03-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s0/planeclear",
+      "run_sha256": "c0ce56cecdaa7ba204442a0ec3ca7a2fab39ad49231506a7655d78ea2f989039",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "ccac8d1fb85e881d6420683c4e35e74f2d7f52b70aff561b48a19f552fd0423a",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 117.14321721391752
+    },
+    {
+      "input_id": "held-03-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s0/combined",
+      "run_sha256": "dbe399c0fc4c728402ebe2568e51001ba94bb802a6c393dfeb935a8403e59d4f",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "ccac8d1fb85e881d6420683c4e35e74f2d7f52b70aff561b48a19f552fd0423a",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 395.96883903071284
+    },
+    {
+      "input_id": "held-03-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s1/dense",
+      "run_sha256": "765418580836fa252789dc8720214b31af669b9d1a48f425887e06241bd8a0fa",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "95572534698a413b4b0b541a78a5d30815d412d7ce06d506ca6d3ca8dc974149",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 113.53415938001126
+    },
+    {
+      "input_id": "held-03-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s1/residual",
+      "run_sha256": "847eed03f872fa9b42871071355a49febfd0b6c3343d33cd9f1f4da206a18046",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "95572534698a413b4b0b541a78a5d30815d412d7ce06d506ca6d3ca8dc974149",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 394.9798054532148
+    },
+    {
+      "input_id": "held-03-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s1/planeclear",
+      "run_sha256": "188cf3ab5dbdc29de859c62a5ec52de5c235fa7eb1dad2a409c933c41ada1e68",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "95572534698a413b4b0b541a78a5d30815d412d7ce06d506ca6d3ca8dc974149",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 117.67504966119304
+    },
+    {
+      "input_id": "held-03-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-03-s1/combined",
+      "run_sha256": "49520149dc95f0cdfa0970821929d78ea1582280a1df889f8037a5506b12ba1c",
+      "metadata": {
+        "prompt_en": "a person",
+        "dimension": [
+          "object_class"
+        ],
+        "auxiliary_info": {
+          "object_class": {
+            "object": "person"
+          }
+        }
+      },
+      "initial_noise_sha256": "95572534698a413b4b0b541a78a5d30815d412d7ce06d506ca6d3ca8dc974149",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 396.54222417389974
+    },
+    {
+      "input_id": "held-04-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s0/dense",
+      "run_sha256": "95d6914c21add30a9bedc818c34301b53e2cf3519681d2ea9b933f8ddde340c6",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "9060d53eaf0c36d686e372e50e867e9f3d5684a7353823fca2ec96975c397999",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 213.49707276467234
+    },
+    {
+      "input_id": "held-04-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s0/residual",
+      "run_sha256": "d51f609f66bbad0baa2520dee040cf6de5110985287127a132a54d186801bb26",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "9060d53eaf0c36d686e372e50e867e9f3d5684a7353823fca2ec96975c397999",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 395.09092675708234
+    },
+    {
+      "input_id": "held-04-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s0/planeclear",
+      "run_sha256": "c5b4e000201d0c9eb8be6d9cc6edaa7bbc1488277a43692e1b8ca53501106d42",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "9060d53eaf0c36d686e372e50e867e9f3d5684a7353823fca2ec96975c397999",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 117.71775617590174
+    },
+    {
+      "input_id": "held-04-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s0/combined",
+      "run_sha256": "98f5bcbe3ca138ef3c09591a1d211463d9222875f3fab4935664569bf5bdc2af",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "9060d53eaf0c36d686e372e50e867e9f3d5684a7353823fca2ec96975c397999",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 394.40068555017933
+    },
+    {
+      "input_id": "held-04-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s1/dense",
+      "run_sha256": "6c68c33200da13ea3f4247a2b92ab835e5cd4c8afec8acddd9575df506a80487",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "cc9cfe93cd8318b65342ad5c7bdf18df84bc334ee5c3602ab468aec30889e58d",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 112.55624274443835
+    },
+    {
+      "input_id": "held-04-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s1/residual",
+      "run_sha256": "760019827e7ff356a62afcd39cad750257ee304a1b9caed5552a0c2bc9c75379",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "cc9cfe93cd8318b65342ad5c7bdf18df84bc334ee5c3602ab468aec30889e58d",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 393.4854955347255
+    },
+    {
+      "input_id": "held-04-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s1/planeclear",
+      "run_sha256": "cfa4655b09ee4c1b687502e1c93ec8428f90914ad21f48bb1871bfb3c97f1b1d",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "cc9cfe93cd8318b65342ad5c7bdf18df84bc334ee5c3602ab468aec30889e58d",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.48579548392445
+    },
+    {
+      "input_id": "held-04-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-04-s1/combined",
+      "run_sha256": "43647f4ce2a108f463600edec394ddf2d0d2a349bd336cc028f1135007f2720a",
+      "metadata": {
+        "prompt_en": "a red car",
+        "dimension": [
+          "color"
+        ],
+        "auxiliary_info": {
+          "color": {
+            "color": "red"
+          }
+        }
+      },
+      "initial_noise_sha256": "cc9cfe93cd8318b65342ad5c7bdf18df84bc334ee5c3602ab468aec30889e58d",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 393.2038627122529
+    },
+    {
+      "input_id": "held-05-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s0/dense",
+      "run_sha256": "58a0f765de79da1ed71ffad82537dfae5156288787db8df4cdcd61c34a7e96d6",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "40ed113763f86e0122d724482670855f7ab281327d68d74b7418e5bd78cf779f",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 195.05691667180508
+    },
+    {
+      "input_id": "held-05-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s0/residual",
+      "run_sha256": "4f0b22746304f63dd67fe8a7b412974f27150e8d34f0c8a2435b36bc43420e86",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "40ed113763f86e0122d724482670855f7ab281327d68d74b7418e5bd78cf779f",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 390.6009937389754
+    },
+    {
+      "input_id": "held-05-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s0/planeclear",
+      "run_sha256": "89af5930abce9cf36b874810dd2cd9d24767bfe57c2c5225a5d692696ef9150d",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "40ed113763f86e0122d724482670855f7ab281327d68d74b7418e5bd78cf779f",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.93666533380747
+    },
+    {
+      "input_id": "held-05-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s0/combined",
+      "run_sha256": "6660ba039f05a6b1cb81607077057fe013d0cacf675109c8f965d0605a189c4d",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "40ed113763f86e0122d724482670855f7ab281327d68d74b7418e5bd78cf779f",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 395.40038532204926
+    },
+    {
+      "input_id": "held-05-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s1/dense",
+      "run_sha256": "4d158a423310d1b2225ee0a8aa5f8e468f49a05abaf2b03ec4978660dc6f061b",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "01d11f906009f9f7e6f147748f9c77d4423b63c3a2591f8d104759ee31f6894a",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 112.50779509264976
+    },
+    {
+      "input_id": "held-05-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s1/residual",
+      "run_sha256": "dfd699e524ec29277c4a9e887f674810baf901804db19e3b958d1320aa0dce5c",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "01d11f906009f9f7e6f147748f9c77d4423b63c3a2591f8d104759ee31f6894a",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 392.9833859857172
+    },
+    {
+      "input_id": "held-05-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s1/planeclear",
+      "run_sha256": "d651ab8a84e2888c14003ba6aab2649efd1c204905a271a8779925dc516df07e",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "01d11f906009f9f7e6f147748f9c77d4423b63c3a2591f8d104759ee31f6894a",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.4807169502601
+    },
+    {
+      "input_id": "held-05-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-05-s1/combined",
+      "run_sha256": "37143de53d70a49e24cc74c4e76ca4bfd31717389d11621a0bd3da36eb1b6da9",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, Van Gogh style",
+        "dimension": [
+          "appearance_style"
+        ],
+        "auxiliary_info": {
+          "appearance_style": {
+            "appearance_style": "Van Gogh style"
+          }
+        }
+      },
+      "initial_noise_sha256": "01d11f906009f9f7e6f147748f9c77d4423b63c3a2591f8d104759ee31f6894a",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 396.25636162329465
+    },
+    {
+      "input_id": "held-06-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s0/dense",
+      "run_sha256": "d523931c30dbfc63f30088e6cb43e8d9ed3c42282ff654d161eb38e74e5657a3",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "71126e23cbe1ef7c6301d15d9468c622e2769435c48b66c19bd87e32d54e4fdc",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 197.84105511428788
+    },
+    {
+      "input_id": "held-06-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s0/residual",
+      "run_sha256": "11f952cc55d7de59c8c00128e76bd94fa6aea8871df0bd2407249ab0db31ae9b",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "71126e23cbe1ef7c6301d15d9468c622e2769435c48b66c19bd87e32d54e4fdc",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 393.0348103903234
+    },
+    {
+      "input_id": "held-06-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s0/planeclear",
+      "run_sha256": "7df2802faad6f87a58da1ae9701ca71c136adc641da0a39bc9cbe85fc551ebe9",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "71126e23cbe1ef7c6301d15d9468c622e2769435c48b66c19bd87e32d54e4fdc",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.71353873191401
+    },
+    {
+      "input_id": "held-06-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s0/combined",
+      "run_sha256": "bb37595dfb9a25a349229fe73f6ce082d1dc715aa0b5c5a2018de55e87d39605",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "71126e23cbe1ef7c6301d15d9468c622e2769435c48b66c19bd87e32d54e4fdc",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 400.2612988851033
+    },
+    {
+      "input_id": "held-06-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s1/dense",
+      "run_sha256": "d30144a443032d6c09e98a648c53ee14e2dadf6229cfcf817807a51e9f55c860",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "e91680dc14c9d321aaa859821bd2db4d3074bb2bcd1a0a84d5f1929939373fe1",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 113.09601941565052
+    },
+    {
+      "input_id": "held-06-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s1/residual",
+      "run_sha256": "85ad14213fd648ab5ec98e32de4e105fdc8f2e740f355df4595e66f7f197baf1",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "e91680dc14c9d321aaa859821bd2db4d3074bb2bcd1a0a84d5f1929939373fe1",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 392.509668327868
+    },
+    {
+      "input_id": "held-06-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s1/planeclear",
+      "run_sha256": "2ba4fb046636aff4362112362fdf183ceb5493676f213fa47e44dbdf102cbf00",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "e91680dc14c9d321aaa859821bd2db4d3074bb2bcd1a0a84d5f1929939373fe1",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.42927973810583
+    },
+    {
+      "input_id": "held-06-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-06-s1/combined",
+      "run_sha256": "b41f9dcedbfac33f5958f161c648df6ed0b3db70992f004088e7ae513ff7a6c5",
+      "metadata": {
+        "prompt_en": "A beautiful coastal beach in spring, waves lapping on sand, in super slow motion",
+        "dimension": [
+          "temporal_style"
+        ]
+      },
+      "initial_noise_sha256": "e91680dc14c9d321aaa859821bd2db4d3074bb2bcd1a0a84d5f1929939373fe1",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 394.11122681573033
+    },
+    {
+      "input_id": "held-07-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s0/dense",
+      "run_sha256": "ef0e71d2f5e0bff414a52a2f62521b01158326be1a2163acc1347efd62683353",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "8aff8c2a9e439185ffeac7752b19c603adca0ac385360029d4db01091354fdf7",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 200.7770614712499
+    },
+    {
+      "input_id": "held-07-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s0/residual",
+      "run_sha256": "818c035b41cfdf0bbc87df60b3e3cab59da2eb618fb039ca5df06ddbf588bbc6",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "8aff8c2a9e439185ffeac7752b19c603adca0ac385360029d4db01091354fdf7",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 392.8375262389891
+    },
+    {
+      "input_id": "held-07-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s0/planeclear",
+      "run_sha256": "c0e8842b07a6386064301eca7a276be997e8ad703d2edb7f7a2d096cc204b78a",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "8aff8c2a9e439185ffeac7752b19c603adca0ac385360029d4db01091354fdf7",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.30008934577927
+    },
+    {
+      "input_id": "held-07-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s0/combined",
+      "run_sha256": "c88314f87518721154984adff16c46720d39df7e400ff70af7e1d4fbcf9264be",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "8aff8c2a9e439185ffeac7752b19c603adca0ac385360029d4db01091354fdf7",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 397.11390128498897
+    },
+    {
+      "input_id": "held-07-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s1/dense",
+      "run_sha256": "542dff32936e3237f27df7754fd87d32202facab71d391fc974699f3b85a430c",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "860004fcb18763ac3af764035fc42561a7a374a21eafee76b15cc19c6e00d7a4",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 113.45860487502068
+    },
+    {
+      "input_id": "held-07-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s1/residual",
+      "run_sha256": "16438c466b44e9a4525b851fc6c6d779ea9fe9d5c93a67c37dcafb8b41b7bdb2",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "860004fcb18763ac3af764035fc42561a7a374a21eafee76b15cc19c6e00d7a4",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 399.5368575947359
+    },
+    {
+      "input_id": "held-07-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s1/planeclear",
+      "run_sha256": "0079fd3bd8a9dac47e286ade2544294d2c48d19fd0fd8843ed91ff950b6d0329",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "860004fcb18763ac3af764035fc42561a7a374a21eafee76b15cc19c6e00d7a4",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 116.94912463286892
+    },
+    {
+      "input_id": "held-07-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-07-s1/combined",
+      "run_sha256": "1a1ae9238f1f96d8e22e9415a0dd2e92d9d7b97c78ccec67043f821c8c629cf2",
+      "metadata": {
+        "prompt_en": "Close up of grapes on a rotating table.",
+        "dimension": [
+          "overall_consistency",
+          "aesthetic_quality",
+          "imaging_quality"
+        ]
+      },
+      "initial_noise_sha256": "860004fcb18763ac3af764035fc42561a7a374a21eafee76b15cc19c6e00d7a4",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 394.86051600798965
+    },
+    {
+      "input_id": "held-08-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s0/dense",
+      "run_sha256": "35086856e58e0298ed0c512ba591a47fe852538c456f4266c5b32f3687538cf8",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "296e9700efbacef7b9e750713d9a95444fbfd6dfaee0ad4410f33225c70e597b",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 206.06292660767213
+    },
+    {
+      "input_id": "held-08-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s0/residual",
+      "run_sha256": "4bbaaa3f4ab7f23715bcfcf6cba94daaaa33a7a7c9882d62390e163e43aad9bb",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "296e9700efbacef7b9e750713d9a95444fbfd6dfaee0ad4410f33225c70e597b",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 397.9304774561897
+    },
+    {
+      "input_id": "held-08-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s0/planeclear",
+      "run_sha256": "01352de136eb0c19bc6331022f91b5d721b0219377ad17c77571d8efe34650d4",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "296e9700efbacef7b9e750713d9a95444fbfd6dfaee0ad4410f33225c70e597b",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.379799508024
+    },
+    {
+      "input_id": "held-08-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s0/combined",
+      "run_sha256": "142c272130d672893866775b30d79f61399866988b03d693db8af273f99c5478",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "296e9700efbacef7b9e750713d9a95444fbfd6dfaee0ad4410f33225c70e597b",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 399.7819806858897
+    },
+    {
+      "input_id": "held-08-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s1/dense",
+      "run_sha256": "929ed375c5e2d097076fa1087d497986f7b208757febcb8f95e5abd194e6eed6",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "b307baf7c7b73d3378000ef820841838ea602430a19b4a868be60c847626c41f",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 115.42294901888818
+    },
+    {
+      "input_id": "held-08-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s1/residual",
+      "run_sha256": "555861fc8dda382eb655bfa4a4e08fc2f5d3b5fc295cb228117a01b325a3e6f0",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "b307baf7c7b73d3378000ef820841838ea602430a19b4a868be60c847626c41f",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 396.38647757004946
+    },
+    {
+      "input_id": "held-08-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s1/planeclear",
+      "run_sha256": "1f2cc7fc3edf73c833ebd7c6be1bbbb034f6405ce3808772222928847a9067c5",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "b307baf7c7b73d3378000ef820841838ea602430a19b4a868be60c847626c41f",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.09016246907413
+    },
+    {
+      "input_id": "held-08-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-08-s1/combined",
+      "run_sha256": "1073789a482670fb192fadfa4b10d75b9efb624777f0a62a21c96160563283f3",
+      "metadata": {
+        "prompt_en": "alley",
+        "dimension": [
+          "scene",
+          "background_consistency"
+        ],
+        "auxiliary_info": {
+          "scene": {
+            "scene": {
+              "scene": "alley"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "b307baf7c7b73d3378000ef820841838ea602430a19b4a868be60c847626c41f",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 394.64689354691654
+    },
+    {
+      "input_id": "held-09-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s0/dense",
+      "run_sha256": "d1263cb8ad8d40e23de61c1b0b39b2088e2a4fcf2dab616399c8ddb388481420",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "ab401486e57be5febabadcc860b655172379800e047644c729f67ca491ce7b45",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 201.28622968215495
+    },
+    {
+      "input_id": "held-09-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s0/residual",
+      "run_sha256": "7f8fc2efadb084e2fa9964bd88c4910155c6d091198b610caaf95017a5fbb971",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "ab401486e57be5febabadcc860b655172379800e047644c729f67ca491ce7b45",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 400.3968420410529
+    },
+    {
+      "input_id": "held-09-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s0/planeclear",
+      "run_sha256": "6e32f018ba95e858e2a3d45a5531ef445495b690c98fdc3326944250b2ad30fb",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "ab401486e57be5febabadcc860b655172379800e047644c729f67ca491ce7b45",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 119.98723577521741
+    },
+    {
+      "input_id": "held-09-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s0/combined",
+      "run_sha256": "acb835f11b8bf5237378c59d4b47ab474318ac03a99dbc252c7029f4b3896f16",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "ab401486e57be5febabadcc860b655172379800e047644c729f67ca491ce7b45",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 397.12828751001507
+    },
+    {
+      "input_id": "held-09-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s1/dense",
+      "run_sha256": "b3241791b507fca9391c79ec12b84e864bde4d6948965b1fef7f2877edbe4ae6",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "75c11132eac29bdcd98d238d523b485090fcc9ec3c52a661744857b60616432c",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 114.0210299580358
+    },
+    {
+      "input_id": "held-09-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s1/residual",
+      "run_sha256": "f035fb98a43e515638ad340e81f58957f6318939e6982df77295aa08d39ad4b2",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "75c11132eac29bdcd98d238d523b485090fcc9ec3c52a661744857b60616432c",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 394.51176339620724
+    },
+    {
+      "input_id": "held-09-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s1/planeclear",
+      "run_sha256": "6e84801c8021c793e6552d25fae032c003dd01a3134ead739486ddd26c7fb310",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "75c11132eac29bdcd98d238d523b485090fcc9ec3c52a661744857b60616432c",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.95719053409994
+    },
+    {
+      "input_id": "held-09-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-09-s1/combined",
+      "run_sha256": "75b4a561225acfc36d6e74f985e813476504880c688195e15c62d640d18a6f7f",
+      "metadata": {
+        "prompt_en": "a bicycle on the left of a car, front view",
+        "dimension": [
+          "spatial_relationship"
+        ],
+        "auxiliary_info": {
+          "spatial_relationship": {
+            "spatial_relationship": {
+              "object_a": "bicycle",
+              "object_b": "car",
+              "relationship": "on the left of"
+            }
+          }
+        }
+      },
+      "initial_noise_sha256": "75c11132eac29bdcd98d238d523b485090fcc9ec3c52a661744857b60616432c",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 399.86903613014147
+    },
+    {
+      "input_id": "held-10-s0",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s0/dense",
+      "run_sha256": "2c7dc89f0499621297a284884c09b356bc10d682aa1fe1b5ca398966167fd924",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "7415dc459d17c43a9ef071662bdf55331fc3475b0d6466503012419647ae6e76",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 199.44919496169314
+    },
+    {
+      "input_id": "held-10-s0",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s0/residual",
+      "run_sha256": "c63092138bf8abf4cac2ec456646d0d4932bfdcce4e0099179d4c48d36edea0a",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "7415dc459d17c43a9ef071662bdf55331fc3475b0d6466503012419647ae6e76",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 396.24590977234766
+    },
+    {
+      "input_id": "held-10-s0",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s0/planeclear",
+      "run_sha256": "362f6f329e4a6e1bfb0a56926520f44c4e349291f3a8f266d6648ab10a8bf416",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "7415dc459d17c43a9ef071662bdf55331fc3475b0d6466503012419647ae6e76",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.3884009597823
+    },
+    {
+      "input_id": "held-10-s0",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s0/combined",
+      "run_sha256": "97c29e69b056e90ceeec5baa5d7c3604ce81a7143021e2c69da0e64dbaa24091",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "7415dc459d17c43a9ef071662bdf55331fc3475b0d6466503012419647ae6e76",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 396.02881946694106
+    },
+    {
+      "input_id": "held-10-s1",
+      "split": "heldout",
+      "mode": "dense",
+      "label": "dense",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s1/dense",
+      "run_sha256": "13808bf3ac6efe8433103dfd639472a8985afcf7162d3aa4e9d157b61826952c",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "ecb8a79cedbfbdc5b865cec85fd5f57d753f4e91d8c9d02ae6928089c7f2cfa0",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 112.29984578723088
+    },
+    {
+      "input_id": "held-10-s1",
+      "split": "heldout",
+      "mode": "residual",
+      "label": "residual",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s1/residual",
+      "run_sha256": "9cff8334c27dbf00fe9619eeee96fb20906206a15ce0a3c5d19de36c7ff0040d",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "ecb8a79cedbfbdc5b865cec85fd5f57d753f4e91d8c9d02ae6928089c7f2cfa0",
+      "budget_table_sha256": null,
+      "elapsed_seconds": 397.40986255928874
+    },
+    {
+      "input_id": "held-10-s1",
+      "split": "heldout",
+      "mode": "planeclear",
+      "label": "planeclear",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s1/planeclear",
+      "run_sha256": "d58f33927b2480670f1a45525f2efa1edda5923de23fefe20728af412487efe5",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "ecb8a79cedbfbdc5b865cec85fd5f57d753f4e91d8c9d02ae6928089c7f2cfa0",
+      "budget_table_sha256": "94d2eed12d6a5e29944bfc06ce135923b39aa0b24ba6a1292acfae4258d14aee",
+      "elapsed_seconds": 118.42578859906644
+    },
+    {
+      "input_id": "held-10-s1",
+      "split": "heldout",
+      "mode": "combined",
+      "label": "combined",
+      "kind": "heldout",
+      "run_directory": "/opt/harp/results/wan-stage4-9f-v1/runs/held-10-s1/combined",
+      "run_sha256": "ef64807224317cc17c715ff429641682b006730a1ccda42fefd453a99d3f01ea",
+      "metadata": {
+        "prompt_en": "In a still frame, a stop sign",
+        "dimension": [
+          "temporal_flickering"
+        ]
+      },
+      "initial_noise_sha256": "ecb8a79cedbfbdc5b865cec85fd5f57d753f4e91d8c9d02ae6928089c7f2cfa0",
+      "budget_table_sha256": "a8e7e953e18ad82a6cf035af853997c4bfc59c27bb9c448304b3655b22f9dfdd",
+      "elapsed_seconds": 397.700919653289
+    }
+  ],
+  "selected_development_policy": true,
+  "exploratory_only": false,
+  "heldout_never_used_for_selection": true
+}

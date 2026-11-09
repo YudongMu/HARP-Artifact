@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "source": "HARP-326-revised.pdf, Tables I–II, Figures 6–9",
+  "table_i_status": "Publication dimensions and sampler labels. Executable graph internals may use structural proxies.",
+  "workloads": {
+    "dit-xl2-512": {
+      "width": 1152,
+      "heads": 16,
+      "steps": 50,
+      "resolution": "512x512",
+      "frames": 1,
+      "sampler": "DPM-Solver",
+      "tokens_display": "1.0e3",
+      "h100_ms_printed": 1067.983,
+      "harp_ms_printed": 97.705,
+      "formation_exposed_fraction": 0.0187,
+      "selected_region_fraction": 0.3933
+    },
+    "sd3-medium": {
+      "width": 1536,
+      "heads": 24,
+      "steps": 50,
+      "resolution": "1024x1024",
+      "frames": 1,
+      "sampler": "DPM++",
+      "tokens_display": "4.1e3",
+      "h100_ms_printed": 1991.942,
+      "harp_ms_printed": 171.284,
+      "formation_exposed_fraction": 0.0324,
+      "selected_region_fraction": 0.383
+    },
+    "flux1-dev": {
+      "width": 4096,
+      "heads": 64,
+      "steps": 50,
+      "resolution": "1024x1024",
+      "frames": 1,
+      "sampler": "Rectified-Flow",
+      "tokens_display": "4.0e3",
+      "h100_ms_printed": 15831.38,
+      "harp_ms_printed": 1473.841,
+      "formation_exposed_fraction": 0,
+      "selected_region_fraction": 0.3542
+    },
+    "latte-1": {
+      "width": 1408,
+      "heads": 16,
+      "steps": 100,
+      "resolution": "512x512",
+      "frames": 16,
+      "sampler": "DDIM",
+      "tokens_display": "1.6e4",
+      "h100_ms_printed": 42271.261,
+      "harp_ms_printed": 2999.434,
+      "formation_exposed_fraction": 0.0293,
+      "selected_region_fraction": 0.2827
+    },
+    "wan21-14b-81f": {
+      "width": 5120,
+      "heads": 40,
+      "steps": 50,
+      "resolution": "832x480",
+      "frames": 81,
+      "sampler": "UniPC",
+      "tokens_display": "3.3e4",
+      "h100_ms_printed": 524488.869,
+      "harp_ms_printed": 38777.651,
+      "formation_exposed_fraction": 0,
+      "selected_region_fraction": 0.2139
+    },
+    "opensora-v13": {
+      "width": 2304,
+      "heads": 24,
+      "steps": 100,
+      "resolution": "1280x720",
+      "frames": 24,
+      "sampler": "DDIM",
+      "tokens_display": "6.5e4",
+      "h100_ms_printed": 1162178.06,
+      "harp_ms_printed": 89820.278,
+      "formation_exposed_fraction": 0,
+      "selected_region_fraction": 0.3325
+    }
+  },
+  "hardware": {
+    "clock_hz": 2000000000,
+    "dense_macs_per_cycle": 8192,
+    "sram_bytes": 100663296,
+    "hbm_bytes_per_cycle": 1200
+  },
+  "algorithm": {
+    "region": [
+      4,
+      4,
+      32
+    ],
+    "attention_mass_threshold": 0.95,
+    "refresh_interval": 5,
+    "plane_budget": 0.02
+  },
+  "figure_6": {
+    "harp_vs_h100": 12.24,
+    "harp_vs_bitred": 5.47,
+    "harp_vs_dstar": 3.21
+  },
+  "figure_7": {
+    "residual": 1.33,
+    "planeclear": 3.38,
+    "combined_generic": 3.78,
+    "combined_harp": 6.84,
+    "hardware_gain": 1.81
+  }
+}

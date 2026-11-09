@@ -1,0 +1,12 @@
+{
+  "paper": "Ditto.pdf",
+  "reference": "Table III, 39398 A4W8 PEs at 1 GHz. A8 work modeled as two A4 issues; one issue/PE/cycle and 76.8 GB/s are assumptions. First step stays A8, then model uses an A4 differential scenario.",
+  "clock_hz": 1000000000,
+  "macs_per_cycle": 19699,
+  "vector_ops_per_cycle": 1024,
+  "bandwidth_gbps": 76.8,
+  "profile": {
+    "difference_issue_fraction": 0.5
+  },
+  "paper_sha256": "513974c801dd1631635ff760972456c1951dc46959f544d7e61754050b3d11a3"
+}

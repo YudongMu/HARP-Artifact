@@ -1,0 +1,46 @@
+{
+  "paper": {
+    "title": "DSTAR: Accelerating Diffusion Transformers via Spatial and Temporal Redundancy Reduction",
+    "url": "https://arxiv.org/abs/2607.15846",
+    "attachment_sha256": "83a6b48f2103a7400a4642af25e3ee964ff03d1aecb51aa5d9cfeee62268016a",
+    "anchors": "Section 5.1, Tables 2 and 3, Figures 14 and 15"
+  },
+  "profiles": {
+    "dit-xl2-512": {
+      "fmdq_bits": 3.52,
+      "sar_work_fraction": 0.67,
+      "evidence": "paper_model_proxy",
+      "source": "DiT-XL-512, 50 steps. Fig. 14 labeled 56% below INT8; Fig. 15 visually digitized, approximately 0.67 retained work. DSTAR inputs and accuracy protocol differ."
+    },
+    "flux1-dev": {
+      "fmdq_bits": 4.8,
+      "sar_work_fraction": 0.59,
+      "evidence": "paper_model_proxy",
+      "source": "FLUX.1-dev-1k. Fig. 14 labeled 40% below INT8; Fig. 15 approximately 0.59. DSTAR uses 28 steps versus HARP workload's 50."
+    },
+    "latte-1": {
+      "fmdq_bits": 3.2,
+      "sar_work_fraction": 0.71,
+      "evidence": "paper_model_proxy",
+      "source": "Latte. Section 5.2 reports 3.2 average bits; Fig. 15 approximately 0.71. DSTAR uses 50 steps; HARP's proxy uses 100 steps and a different hidden width."
+    },
+    "sd3-medium": {
+      "fmdq_bits": 4.08,
+      "sar_work_fraction": 0.5,
+      "evidence": "cross_version_proxy",
+      "source": "SD3.5-Medium substituted for HARP's SD3 Medium. Fig. 14 labeled 49% below INT8; Fig. 15 approximately 0.50."
+    },
+    "wan21-14b-81f": {
+      "fmdq_bits": 4.3,
+      "sar_work_fraction": 0.5,
+      "evidence": "sensitivity_only",
+      "source": "Wan absent from DSTAR evaluation. Scenario transfers paper-wide 4.3-bit average and up-to-50% attention reduction; no model-specific observation."
+    },
+    "opensora-v13": {
+      "fmdq_bits": 4.3,
+      "sar_work_fraction": 0.5,
+      "evidence": "sensitivity_only",
+      "source": "Open-Sora absent from DSTAR evaluation. Scenario transfers paper-wide 4.3-bit average and up-to-50% attention reduction; no model-specific observation."
+    }
+  }
+}

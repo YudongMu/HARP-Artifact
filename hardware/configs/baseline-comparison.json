@@ -1,0 +1,22 @@
+{
+  "normalized": {
+    "clock_hz": 2000000000,
+    "macs_per_cycle": 8192,
+    "vector_ops_per_cycle": 2048,
+    "hbm_bytes_per_cycle": 1200
+  },
+  "calibration": {
+    "stream_fraction_min": 0.05,
+    "stream_fraction_max": 1,
+    "stream_fraction_step": 0.05,
+    "dispatch_ns_max": 2000,
+    "dispatch_ns_step": 100
+  },
+  "anchor_methods": {
+    "bitred": "BitRed-Adapt",
+    "ditto": "Ditto-Adapt",
+    "exion": "EXION-Adapt",
+    "adaptiv": "AdapTiV-Adapt",
+    "dstar": "DSTAR-Adapt"
+  }
+}

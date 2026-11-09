@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "completed_model_calls": 100,
+  "completed_transformer_blocks": 4000,
+  "mode": "combined",
+  "input_id": "cal-0",
+  "sidecar_sha256": "f600db742f40a5cd776938733a75f3676577c0583d888b52a5a504cd3c25dabe",
+  "budget_table_sha256_before": "a443e476e3670bc54eab97eb808ae329071c9ae024ae2ad01cee7cf8f9a08b6f",
+  "budget_table_sha256_after": "a443e476e3670bc54eab97eb808ae329071c9ae024ae2ad01cee7cf8f9a08b6f",
+  "sidecar_sha256_after": "f600db742f40a5cd776938733a75f3676577c0583d888b52a5a504cd3c25dabe",
+  "artifacts": {
+    "run.json": "081978ffabfcbe7fc219edd6af03d5812dee8931de82a8743f94e7290f875f91",
+    "initial-noise.pt": "06ae5c35246b2e11eba41a37d5c170f4a9ddf86c273696eade922d4dab2b6d8b",
+    "latent.pt": "e592998de828cf38a234348aa9dd69279ae878ec215be61c4c0c86dd27924d1e",
+    "sample.mp4": "f3291e3021656aa592fbd925d811c7d473c10aa2e9274d2ae08cc7550d0c0aba"
+  }
+}

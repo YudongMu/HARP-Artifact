@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "sd3-medium",
+  "grid": [
+    64,
+    64
+  ],
+  "width": 1536,
+  "heads": 24,
+  "ffn": 6144,
+  "steps": 50,
+  "forwards": 1,
+  "lanes": 2,
+  "conditioning": "linear6",
+  "context": 333,
+  "context_width": 4096,
+  "patch_in": 64,
+  "patch_out": 64,
+  "evidence": "source_structure_with_deployment_assumptions",
+  "source": [
+    "https://github.com/huggingface/diffusers/blob/main/src/diffusers/models/transformers/transformer_sd3.py",
+    "HARP-326-revised.pdf Table I"
+  ],
+  "assumptions": [
+    "333 text tokens and two CFG lanes are deployment assumptions."
+  ],
+  "bundles": [
+    {
+      "repeat": 23,
+      "layers": [
+        {
+          "id": "mmdit",
+          "type": "joint"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "layers": [
+        {
+          "id": "mmdit_final",
+          "type": "joint",
+          "context_pre_only": true
+        }
+      ]
+    }
+  ],
+  "table_i": {
+    "resolution": "1024x1024",
+    "frames": 1,
+    "sampler": "DPM++",
+    "tokens_display": "4.1e3",
+    "width": 1536,
+    "heads": 24,
+    "steps": 50
+  }
+}

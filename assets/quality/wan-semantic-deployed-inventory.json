@@ -1,0 +1,262 @@
+{
+  "scope": "All deployed VBench checkpoint files plus pinned BERT base checkpoint; includes the expanded official RAFT checkpoint files actually deployed. Excludes archives, download ranges, prefixes, and secondary HOME cache copies.",
+  "checkpoint_files": [
+    {
+      "path": "hf-cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/pytorch_model.bin",
+      "bytes": 440473133,
+      "sha256": "097417381d6c7230bd9e3557456d726de6e83245ec8b24f529f60198a67b203a",
+      "source_receipt": "wan-semantic-assets.json or wan-semantic-bert.json (included below)"
+    },
+    {
+      "path": "vbench-cache/ViCLIP/ViClip-InternVid-10M-FLT.pth",
+      "bytes": 1710545812,
+      "sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+      "source_receipt": "wan-semantic-assets.json or wan-semantic-bert.json (included below)"
+    },
+    {
+      "path": "vbench-cache/aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth",
+      "bytes": 4071,
+      "sha256": "2cd4e60f4f24ae3bcd57b847b13c1f3ba27edc28cc1a7f9ce74ee9f421243cba",
+      "source_url": "https://raw.githubusercontent.com/LAION-AI/aesthetic-predictor/main/sa_0_4_vit_l_14_linear.pth"
+    },
+    {
+      "path": "vbench-cache/amt_model/amt-s.pth",
+      "bytes": 12038359,
+      "sha256": "07e7e03405c213fe4405678db9b42d05671e48c56faf6a441b99bb0047d3cf77",
+      "source_url": "https://huggingface.co/lalala125/AMT/resolve/31d0420ef7788f6dc22aad3445148705007141bb/amt-s.pth"
+    },
+    {
+      "path": "vbench-cache/caption_model/tag2text_swin_14m.pth",
+      "bytes": 4478705095,
+      "sha256": "4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac",
+      "source_receipt": "wan-semantic-assets.json or wan-semantic-bert.json (included below)"
+    },
+    {
+      "path": "vbench-cache/clip_model/ViT-B-32.pt",
+      "bytes": 353976522,
+      "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+      "source_url": "https://openaipublic.blob.core.windows.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt"
+    },
+    {
+      "path": "vbench-cache/clip_model/ViT-L-14.pt",
+      "bytes": 932768134,
+      "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+      "source_url": "https://openaipublic.azureedge.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt"
+    },
+    {
+      "path": "vbench-cache/dino_model/dino_vitbase16_pretrain.pth",
+      "bytes": 343242485,
+      "sha256": "bf34ad0f424b9029b593e8dc3ed553bf26e88bcba0d32bf3e62a6209cb64c85e",
+      "source_url": "https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth"
+    },
+    {
+      "path": "vbench-cache/grit_model/grit_b_densecap_objectdet.pth",
+      "bytes": 417381733,
+      "sha256": "53b6e9b3fd948eac55b574c9b6f94ad0743dff46ba449df7ac2d33009ee92ef1",
+      "source_receipt": "wan-semantic-assets.json or wan-semantic-bert.json (included below)"
+    },
+    {
+      "path": "vbench-cache/pyiqa_model/musiq_spaq_ckpt-358bb6af.pth",
+      "bytes": 108610983,
+      "sha256": "358bb6af275e28ea56821d44fb55c6cb83645db11f394d3ad65b2d149965ab50",
+      "source_url": "https://github.com/chaofengc/IQA-PyTorch/releases/download/v0.1-weights/musiq_spaq_ckpt-358bb6af.pth"
+    },
+    {
+      "path": "vbench-cache/raft_model/models/raft-things.pth",
+      "bytes": 21108000,
+      "sha256": "fcfa4125d6418f4de95d84aec20a3c5f4e205101715a79f193243c186ac9a7e1",
+      "source_distribution": {
+        "path": "raft_model/models.zip",
+        "url": "https://dl.dropboxusercontent.com/s/4j4z58wuv8o0mfz/models.zip",
+        "bytes": 81977417,
+        "sha256": "4be6101b271f58ec49866da5cf609fd17e86e9cae2483f70630ef4a295dc66bd"
+      }
+    },
+    {
+      "path": "vbench-cache/umt_model/l16_ptk710_ftk710_ftk400_f16_res224.pth",
+      "bytes": 607024201,
+      "sha256": "bfee78a03bf806fbc0c216309e8f92792011b7db6556fa860e9d869c1e69fecd",
+      "source_receipt": "wan-semantic-assets.json or wan-semantic-bert.json (included below)"
+    }
+  ],
+  "checkpoint_file_count": 12,
+  "checkpoint_total_bytes": 9425878528,
+  "receipts": {
+    "vbench-assets.json": {
+      "dino_model/dino_vitbase16_pretrain.pth": {
+        "path": "dino_model/dino_vitbase16_pretrain.pth",
+        "url": "https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth",
+        "bytes": 343242485,
+        "sha256": "bf34ad0f424b9029b593e8dc3ed553bf26e88bcba0d32bf3e62a6209cb64c85e"
+      },
+      "aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth": {
+        "path": "aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth",
+        "url": "https://raw.githubusercontent.com/LAION-AI/aesthetic-predictor/main/sa_0_4_vit_l_14_linear.pth",
+        "bytes": 4071,
+        "sha256": "2cd4e60f4f24ae3bcd57b847b13c1f3ba27edc28cc1a7f9ce74ee9f421243cba"
+      },
+      "amt_model/amt-s.pth": {
+        "path": "amt_model/amt-s.pth",
+        "url": "https://huggingface.co/lalala125/AMT/resolve/31d0420ef7788f6dc22aad3445148705007141bb/amt-s.pth",
+        "bytes": 12038359,
+        "sha256": "07e7e03405c213fe4405678db9b42d05671e48c56faf6a441b99bb0047d3cf77"
+      },
+      "raft_model/models.zip": {
+        "path": "raft_model/models.zip",
+        "url": "https://dl.dropboxusercontent.com/s/4j4z58wuv8o0mfz/models.zip",
+        "bytes": 81977417,
+        "sha256": "4be6101b271f58ec49866da5cf609fd17e86e9cae2483f70630ef4a295dc66bd"
+      },
+      "pyiqa_model/musiq_spaq_ckpt-358bb6af.pth": {
+        "path": "pyiqa_model/musiq_spaq_ckpt-358bb6af.pth",
+        "url": "https://github.com/chaofengc/IQA-PyTorch/releases/download/v0.1-weights/musiq_spaq_ckpt-358bb6af.pth",
+        "bytes": 108610983,
+        "sha256": "358bb6af275e28ea56821d44fb55c6cb83645db11f394d3ad65b2d149965ab50"
+      },
+      "clip_model/ViT-B-32.pt": {
+        "path": "clip_model/ViT-B-32.pt",
+        "url": "https://openaipublic.blob.core.windows.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt",
+        "bytes": 353976522,
+        "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
+      }
+    },
+    "wan-semantic-assets.json": {
+      "umt_model/l16_ptk710_ftk710_ftk400_f16_res224.pth": {
+        "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/l16_ptk710_ftk710_ftk400_f16_res224.pth",
+        "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+        "bytes": 607024201,
+        "sha256": "bfee78a03bf806fbc0c216309e8f92792011b7db6556fa860e9d869c1e69fecd",
+        "etag": "\"9fc8ec5ed9a8263807935790d6b08803ed5f32fe8d7f964148ea1bb831e4fe24\"",
+        "official_sha256": "bfee78a03bf806fbc0c216309e8f92792011b7db6556fa860e9d869c1e69fecd"
+      },
+      "grit_model/grit_b_densecap_objectdet.pth": {
+        "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/grit_b_densecap_objectdet.pth",
+        "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+        "bytes": 417381733,
+        "sha256": "53b6e9b3fd948eac55b574c9b6f94ad0743dff46ba449df7ac2d33009ee92ef1",
+        "etag": "\"a8d87d776e672ff2e9b408b04ba5f2d970b66c1fe5cca51eb9ae6581290f9dad\"",
+        "official_sha256": "53b6e9b3fd948eac55b574c9b6f94ad0743dff46ba449df7ac2d33009ee92ef1"
+      },
+      "caption_model/tag2text_swin_14m.pth": {
+        "url": "https://huggingface.co/spaces/xinyu1205/recognize-anything/resolve/7c76cec1377de0d46df8091a032c4b667aea4459/tag2text_swin_14m.pth",
+        "revision": "7c76cec1377de0d46df8091a032c4b667aea4459",
+        "bytes": 4478705095,
+        "sha256": "4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac",
+        "etag": "\"69fb8f8857cb9310e4ba14cc1b23d797c85aa4981460dbfac37dbdfa2acce18b\"",
+        "official_sha256": "4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac"
+      },
+      "ViCLIP/ViClip-InternVid-10M-FLT.pth": {
+        "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+        "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+        "bytes": 1710545812,
+        "sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+        "etag": "\"2774a6ae2fc6dd8f7ff069a79cab415fafce30d8ab9207a708654f0c73894529\"",
+        "official_sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56"
+      }
+    },
+    "wan-semantic-bert.json": {
+      "repository": "bert-base-uncased",
+      "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "files": {
+        "tokenizer.json": {
+          "bytes": 466062,
+          "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98"
+        },
+        "tokenizer_config.json": {
+          "bytes": 48,
+          "sha256": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10"
+        },
+        "pytorch_model.bin": {
+          "bytes": 440473133,
+          "sha256": "097417381d6c7230bd9e3557456d726de6e83245ec8b24f529f60198a67b203a"
+        },
+        "config.json": {
+          "bytes": 570,
+          "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20"
+        },
+        "vocab.txt": {
+          "bytes": 231508,
+          "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+        }
+      }
+    },
+    "wan-semantic-bpe.json": {
+      "url": "https://raw.githubusercontent.com/openai/CLIP/main/clip/bpe_simple_vocab_16e6.txt.gz",
+      "bytes": 1356917,
+      "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+      "note": "Official CLIP BPE file reused from installed pinned openai-clip 1.0.1 distribution"
+    },
+    "wan-semantic-official-lfs.json": {
+      "viclip": {
+        "official_pointer_url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/raw/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+        "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+        "lfs_sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+        "bytes": 1710545812,
+        "resolve_status": 302,
+        "resolve_public_headers": {
+          "X-Repo-Commit": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+          "X-Linked-Etag": "\"7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56\"",
+          "X-Linked-Size": "1710545812",
+          "ETag": null
+        }
+      },
+      "tag2text": {
+        "official_pointer_url": "https://huggingface.co/spaces/xinyu1205/recognize-anything/raw/7c76cec1377de0d46df8091a032c4b667aea4459/tag2text_swin_14m.pth",
+        "revision": "7c76cec1377de0d46df8091a032c4b667aea4459",
+        "lfs_sha256": "4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac",
+        "bytes": 4478705095,
+        "resolve_status": 302,
+        "resolve_public_headers": {
+          "X-Repo-Commit": "7c76cec1377de0d46df8091a032c4b667aea4459",
+          "X-Linked-Etag": "\"4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac\"",
+          "X-Linked-Size": "4478705095",
+          "ETag": null
+        }
+      }
+    },
+    "source-manifest.json": {
+      "repositories": {
+        "guided-diffusion": {
+          "repository": "openai/guided-diffusion",
+          "commit": "22e0df8183507e13a7813f8d38d51b072ca1e67c",
+          "archive_sha256": "e7d4a8be1cf144c16cecd5ebf6b1156c2c9c7e29156651ef43b375857c1de652",
+          "archive_bytes": 51065
+        },
+        "VBench": {
+          "repository": "Vchitect/VBench",
+          "commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+          "archive_sha256": "571c1b5d6cf5d77c48b124d8f3070f625c3b7215f07b6a5d45edef70247ccaf4",
+          "archive_bytes": 131643858
+        }
+      },
+      "objects": {
+        "imagenet512_reference": {
+          "url": "https://openaipublic.blob.core.windows.net/diffusion/jul-2021/ref_batches/imagenet/512/VIRTUAL_imagenet512.npz",
+          "bytes": 857466338,
+          "etag": "0x8D98F4023443FF8",
+          "accept_ranges": null
+        },
+        "inception_graph": {
+          "url": "https://openaipublic.blob.core.windows.net/diffusion/jul-2021/ref_batches/classify_image_graph_def.pb",
+          "bytes": 95673916,
+          "etag": "0x8D98F418F1E6E44",
+          "accept_ranges": null
+        }
+      },
+      "vbench_prompts": {
+        "entries": 946,
+        "unique_prompts": 944,
+        "bytes": 228118,
+        "sha256": "5dd2de80ee43cda750b2b72ea7023657c0b90d3702041c7e4608c65dbe50dccd"
+      }
+    }
+  },
+  "receipt_sha256": {
+    "vbench-assets.json": "89c413f6c4af95d2ced0ebf63bc5c6d9d527d24c9fdcf55961fbf4df25e47a3f",
+    "wan-semantic-assets.json": "b2e3c3ffdaa0af581c6e4303c5dcbfc3a2175fde357ca19551ab96d9256e23e2",
+    "wan-semantic-bert.json": "792a06a85479abc94f827fc2b74c11b23ce82134aabed64a851148a7aa10a540",
+    "wan-semantic-bpe.json": "9b6e2e81813215c75c057b07702999c350ce01e1ddaf085c71831d086cf68216",
+    "wan-semantic-official-lfs.json": "4ee63d02c71aaedb2231e725c9d82355264413438f263acf3efb791252e038bd",
+    "source-manifest.json": "1af0d5cbdcddfc159f03d3d9f04da0c3a9564e133177037e07c93fa4774fa140"
+  }
+}

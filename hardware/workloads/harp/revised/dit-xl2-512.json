@@ -1,0 +1,36 @@
+{
+  "id": "dit-xl2-512",
+  "selected_fraction": 0.3933,
+  "plane_sites": {
+    "qkv": {
+      "natural_skip_fraction": 0.27,
+      "final_skip_fraction": 0.52
+    },
+    "q": {
+      "natural_skip_fraction": 0.23,
+      "final_skip_fraction": 0.51
+    },
+    "k": {
+      "natural_skip_fraction": 0.24,
+      "final_skip_fraction": 0.52
+    },
+    "v": {
+      "natural_skip_fraction": 0.26,
+      "final_skip_fraction": 0.53
+    },
+    "attention_out": {
+      "natural_skip_fraction": 0.29,
+      "final_skip_fraction": 0.56
+    },
+    "ffn_in": {
+      "natural_skip_fraction": 0.31,
+      "final_skip_fraction": 0.66
+    },
+    "ffn_out": {
+      "natural_skip_fraction": 0.36,
+      "final_skip_fraction": 0.69
+    }
+  },
+  "features": "512 px image; one forward with two CFG lanes; global self-attention. Its retained Region share is the largest of the six.",
+  "source": "HARP revised Figures 8 and 9(a); plane percentages read at the figure's displayed precision."
+}

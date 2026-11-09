@@ -1,0 +1,10 @@
+FROM harp-ae-gpu:dev-v0.1
+COPY env/unified-requirements.txt /opt/harp/env/unified-requirements.txt
+RUN python -m pip install --no-cache-dir -r /opt/harp/env/unified-requirements.txt
+COPY docker/vendor/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp310-cp310-linux_x86_64.whl /tmp/
+RUN python -m pip install --no-deps /tmp/flash_attn-*.whl && rm /tmp/flash_attn-*.whl \
+    && python -m pip check \
+    && python -m pip list --format=json > /opt/harp/env/unified-packages.json
+RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+COPY src/Wan2.1 /opt/harp/src/Wan2.1

@@ -1,0 +1,13 @@
+{
+  "paper": "EXION.pdf",
+  "reference": "Table II EXION24, 235.2 INT12 TOPS and 819 GB/s; 800 MHz synthesis. Fig. 17 reports 16.2% FFN1 and 50% attention columns remaining after ConMerge. Transfer those fractions as workload proxies.",
+  "clock_hz": 800000000,
+  "macs_per_cycle": 147000,
+  "vector_ops_per_cycle": 1536,
+  "bandwidth_gbps": 819,
+  "profile": {
+    "ffn_fraction": 0.162,
+    "attention_fraction": 0.5
+  },
+  "paper_sha256": "6c80f6f7d95aba31688c1898ee90a9ce82783f8661ebcc81566ec7b193fe09d4"
+}

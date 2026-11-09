@@ -1,0 +1,41 @@
+{
+  "hardware": {
+    "clock_hz": 2000000000,
+    "buffer_bytes": 100663296,
+    "rates": {
+      "pe": 8192,
+      "vector": 1024,
+      "hbm": 1200,
+      "plane_formation": 64,
+      "packet_dispatch": 64,
+      "multicast": 2048,
+      "region_control": 64,
+      "shift_reduce": 1024
+    }
+  },
+  "algorithm": {
+    "refresh_interval": 5,
+    "region_tokens": 16,
+    "slice_values": 512,
+    "numeric_planes": 16,
+    "selected_fraction": 0.3266,
+    "natural_skip_fraction": 0.2146,
+    "final_skip_fraction": 0.5068,
+    "dense_fallback_fraction": 0.005,
+    "active_component_fraction": 0.0625,
+    "issue_utilization_balanced": 0.8683,
+    "issue_utilization_unsplit": 0.5183,
+    "slice_channels": 32
+  },
+  "sources": {
+    "pe": "HARP revised Section V and rebuttal D2: 16 HCC × 64 SIMD-8 PEs.",
+    "vector": "HARP revised Section VI: two SIMD-32 datapaths per HCC.",
+    "memory": "HARP revised Section VI: 64 MiB global plus 16×2 MiB local, 2.4 TB/s. The graph allocator treats capacity as pooled.",
+    "plane_formation": "Four pipelines/HCC per Section V, with an assumed one Slice issued per pipeline cycle.",
+    "algorithm": "HARP revised Section VI-D: average selected Region fraction 32.66%, natural skipped planes 21.46%, final skipped planes 50.68%, fallback 0.50% for 4×4 Regions. Average values are transferred to workload templates, including structural proxies.",
+    "active_component_fraction": "Provisional 2/32 active components per retained numeric plane; required separately from plane counts to map to issue units.",
+    "issue_utilization": "Representative Slice utilization from rebuttal GC1 and Figure 9(b), used as an initial sustained-rate proxy for sparse work.",
+    "other_rates": "Packet, multicast, region-control and shift-reduction rates are first reconstruction assumptions, not RTL measurements.",
+    "qk_issue": "Section V-B Plane–Plane uses one retained plane pair per 32-channel Slice; edge slices round up; no additional joint-zero pruning is assumed."
+  }
+}

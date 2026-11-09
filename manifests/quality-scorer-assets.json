@@ -1,0 +1,49 @@
+{
+  "scope": "Seven VBench-v1 quality dimensions; semantic scorers not included",
+  "assets": [
+    {
+      "path": "assets/quality/vbench-cache/clip_model/ViT-B-32.pt",
+      "url": "https://openaipublic.blob.core.windows.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt",
+      "bytes": 353976522,
+      "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
+    },
+    {
+      "path": "assets/quality/vbench-cache/clip_model/ViT-L-14.pt",
+      "url": "https://openaipublic.blob.core.windows.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt",
+      "bytes": 932768134,
+      "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836"
+    },
+    {
+      "path": "assets/quality/vbench-cache/dino_model/dino_vitbase16_pretrain.pth",
+      "url": "https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth",
+      "bytes": 343242485,
+      "sha256": "bf34ad0f424b9029b593e8dc3ed553bf26e88bcba0d32bf3e62a6209cb64c85e"
+    },
+    {
+      "path": "assets/quality/vbench-cache/aesthetic_model/emb_reader/sa_0_4_vit_l_14_linear.pth",
+      "url": "https://raw.githubusercontent.com/LAION-AI/aesthetic-predictor/main/sa_0_4_vit_l_14_linear.pth",
+      "bytes": 4071,
+      "sha256": "2cd4e60f4f24ae3bcd57b847b13c1f3ba27edc28cc1a7f9ce74ee9f421243cba"
+    },
+    {
+      "path": "assets/quality/vbench-cache/amt_model/amt-s.pth",
+      "url": "https://huggingface.co/lalala125/AMT/resolve/main/amt-s.pth",
+      "bytes": 12038359,
+      "sha256": "07e7e03405c213fe4405678db9b42d05671e48c56faf6a441b99bb0047d3cf77"
+    },
+    {
+      "path": "assets/quality/vbench-cache/raft_model/models.zip",
+      "url": "https://dl.dropboxusercontent.com/s/4j4z58wuv8o0mfz/models.zip",
+      "bytes": 81977417,
+      "sha256": "4be6101b271f58ec49866da5cf609fd17e86e9cae2483f70630ef4a295dc66bd"
+    },
+    {
+      "path": "assets/quality/vbench-cache/pyiqa_model/musiq_spaq_ckpt-358bb6af.pth",
+      "url": "https://github.com/chaofengc/IQA-PyTorch/releases/download/v0.1-weights/musiq_spaq_ckpt-358bb6af.pth",
+      "bytes": 108610983,
+      "sha256": "358bb6af275e28ea56821d44fb55c6cb83645db11f394d3ad65b2d149965ab50"
+    }
+  ],
+  "total_download_bytes": 1832617971,
+  "extracted_raft_additional_bytes": 21108000
+}

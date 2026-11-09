@@ -1,0 +1,7 @@
+{
+  "buffer_bytes": 100663296,
+  "rates": {
+    "encoding": 1024
+  },
+  "evidence": "Encoding throughput and full previous-output HBM residency are provisional."
+}

@@ -1,0 +1,7104 @@
+{
+  "kernels": {
+    "0054eb847c4999f9d534d50e": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "00d8318b71b93af8e3f4c1a7": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "015d5d3485f99fbbf18083ba": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "03f3fd7f20a749fbf31f771a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "05b601aaf8ae82cb5aa99a38": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "060fd08f94c44230ca004c6c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "06565474735f9cc86cac95ed": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "06d71264ad35ea880737d54b": {
+      "attention_pattern": "global",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "07d4cd9ba8b14b0391189714": {
+      "attention_pattern": "spatial",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "07ff20c8f8682c29939ff457": {
+      "attention_pattern": "spatial",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "082012b118fe5be2dc6111f9": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "0975e5c9b1a6a3a8416b1543": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "0a464a1988848518eba58d7d": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "0bd8931d0e0efc44ad97e9c4": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "0d64460ebb14304e2873f208": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "0dfbee5b486a7d7757ed8253": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 4096
+    },
+    "0e1c5d416f939851cbe78814": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "0f443b64af5cb8d298c9c558": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "127625e5c5610f40960a880a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "1400a770a2d541e4c8f21e1d": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 4096
+    },
+    "14bbb4dab772112464c74b7e": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "1565c107686b1532fce1e0e7": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "165b7d4c56a744b1357cf279": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "1787b6f00baae00bafe3f3be": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "17b9a7ce4cae978b68dcbbb7": {
+      "attention_pattern": "joint",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        4429,
+        1536
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "18460815827358dece253df2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "1850cd4184b34e454e037aab": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "19a816627c37eb34c90bd0aa": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "1a325b2a132ae09092a4eba8": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "1a784fe134193e46696cdf62": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "1afe7722eb7e0b04cc800bfb": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "1dd5bd58daf94ec9160169a8": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "1e3d0a0104d81c75b1f4ebd3": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "1fc3c6d81c6096300cfd2593": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "2137175bcbc0a32dd1c5e664": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "2154561a918aa3051b37e790": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "217aefc833775f373eb8c3a6": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "21d5cdaee9432188167ea1ec": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "22998783c03e65dc0594819c": {
+      "attention_pattern": "temporal",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "22e2e7e06e695dd29cf3dd4c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        12288
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "23bd12d4fef0a37d3a92a240": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "24332c6326068ce6472bba0d": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "24b134c97e9bd2ee0a73b6cc": {
+      "attention_pattern": "global",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          16,
+          1048576
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "25a7003897d749ca38822b22": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "264cc5d78d26e84d2814ef6b": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "2750a43ab97621f635ab62ff": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        12288
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "277dca84a91bca3d3cc495b3": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        9216
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "289cde6d6592c78d0fc09fdf": {
+      "attention_pattern": "global",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "29e1696d4e834b7c55c7e98a": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "2a88e0858cc0893085e59ab9": {
+      "attention_pattern": "global",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "2b8f200a6b63a5b747adadcf": {
+      "attention_pattern": "spatial",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "2c161fb21d5b9a28b7d61053": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "2e05aafa98ca14ecfd54fc46": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "2e313e2c427ba15333a884b4": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "2e8921a957c420191a695542": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "2f0fbe58fcd1aec8d1572071": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "2f4d16f9860278691cc747fd": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "2f75c3921e95ade101973ecf": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "2fb1f129cfedea042719a8e6": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "30b0f6444d5bcd4aaebfe2f0": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        8448
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "31ce3c2cffdfe3cf003672b0": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "31d894fea13d058774f9e707": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "31dfc78a33ade3b5dd0c6cd2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "32d6d0dc01e7846f7d4f290d": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "340a7b3f5447bc51566009a9": {
+      "attention_pattern": "spatial",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "348373a85ca3a9024f7d3a6e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "35dc1712a162458f46d568b7": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "3655504eff03ed653f0dadac": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "36589e370474bba6cc379165": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "37037d03e0de778390498503": {
+      "attention_pattern": "cross",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "3789d0304e17b07492e70d26": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        9216
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "37ef5a7044d36caa8e9559ba": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1,
+          6912
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "380fdfed67520db954c89ed1": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "3941993a0e88ce134c508d08": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "3d7cd888328722afef0bdfc9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "40496cdecabf2d18db1f1529": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "41ec0df9b44fe6a585e080ec": {
+      "attention_pattern": "cross",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 1024
+    },
+    "427b8f21d13ab3d1dd758e71": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "42cb9b00ea37d2fbe4bbf247": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "437c8f912a1a8f1a72dd6395": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "43b298da4294a42fc46b39d1": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "4446673344d607bbcde53185": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "45112bb326f008b4a0c71c83": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "45817bbb91d8926db56bbfe8": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "459d278844b8568dd982d76c": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "4649264acb179f0e4648d468": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        24576
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "46adf8808f943c7bd1147469": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "46d4424ef183204a3d952e47": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "46dc3c5ed00f37a662cdd0b8": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "4737f2d1e4eb2ec319cf47f4": {
+      "attention_pattern": "window",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "47fa64c8192615d3a4e05feb": {
+      "attention_pattern": "global",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "483625d6fc111b0865c78090": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "498ab5978a9c96c7a835736f": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "49eab0538b0e8994e8a57c1d": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "4b8623b072d5111f3e17f0bc": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "4b9a030b0653bf677a55118f": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4c03d7547104e0a311a31966": {
+      "attention_pattern": "spatial",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "4d3a3a47b83f388d8e777828": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4e858c061ac306873f84af7b": {
+      "attention_pattern": "joint",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4429,
+          1536
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "4f2c397a1e0569bbf3c6df12": {
+      "attention_pattern": "cross",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "509ff1774d18433e8657c065": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        24576
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "525ae38879093d257d424d74": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "53ad718c0513c2eebc3ca205": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "542c1a56a485b304e2f3b021": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "542c60c6cfba40829ab27378": {
+      "attention_pattern": "global",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "542ef038c21482d1f4b0aac1": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "542fa24f750d69edea8ac3c5": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "5464997c0e1add4a54062423": {
+      "attention_pattern": "global",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "550e5fc2223a62f7a8d2c53e": {
+      "attention_pattern": "joint",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "56dbb0118c377b4ac7c5b765": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "58100a3f69bd362641238ce0": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "58236c07f7f47af1a4e0f8c9": {
+      "attention_pattern": "spatial",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "586a99d8916de374b1f58260": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "5877c9acd76f16cc4e8957e3": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "58a142ec762e0d6f3d80f988": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5b378d3070bd8225a8ac3517": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "5c20f3220c5034ec2eb361ef": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        8448
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "5c68d4a55895644193839491": {
+      "attention_pattern": "joint",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "5c9ce8548d1f706bca63b25e": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5d8cb4664f3e329d8821598d": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "5da41d0ca65408a8b2c1972e": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "5e7b06eecf18a30fede26f2c": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "5eb86426c8fd691448c73f28": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          1,
+          8448
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "5ed5ce12d0f0c534c823af58": {
+      "attention_pattern": "window",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "5f4c80cb223ba621957b400b": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1,
+          6912
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "6008d89b25abe6c3dbbd1bb7": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "61947885d0f64403404b934b": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "61bcbc4bcc317790f725fda2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "66230202cdf55cc9ca305872": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "669a09c85c77668f61fa4f42": {
+      "attention_pattern": "temporal",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "66bf904f3e77e48175191825": {
+      "attention_pattern": "spatial",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "6747931ff8016d9f413f1713": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "6b83e891f629c3fd96ee6ca2": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "6bcc62b6f529849dec9d4048": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "6e36ff47948e26602f632688": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "705c0482bdbe8984fd2bbcf3": {
+      "attention_pattern": "cross",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "7085bd0725478f823922718c": {
+      "attention_pattern": "spatial",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "71975aeed68706bcf4bf5bf8": {
+      "attention_pattern": "cross",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 1024
+    },
+    "71dbc0d232fa2c7c71229c33": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "72102af9fc0e10858e8227bc": {
+      "attention_pattern": "global",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "72d3859d198dd505fef82ac8": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "730f1f1ff0a2ed194dbe9342": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "7347647c03a052c18ebc9f57": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "75091156cb3159ca868d1511": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "751fbc4b730e5e431ee9a890": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "752ba64d7a49803b69895643": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "762bee071eb9e3dad21450ec": {
+      "attention_pattern": "temporal",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "76f5299e2cf8ddaabb23f7fc": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "777a4509080258ed12d60fdd": {
+      "attention_pattern": "joint",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4429,
+          1536
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "77b129d32df159ca19cd0c24": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "780d106ba4b0028126ea5005": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "78934f4a79f872b8b732a45e": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "790c89f0a29735327b034a8a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "7aa0b18422af295db96b2ff6": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7c6f3cab9042d5f334ee737f": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "7cd1f7f331fad0a0ae4083d4": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7d0f859e72af5d95b19a1862": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "7d3a8d522530429dbc155dda": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7d4e121e6fe0769ca2f6a67f": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "7d55ce76ab4b4087c8b16ae6": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "7daf1c6a16356c5ade54d0fe": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "7dd65c776efab52b3a243df2": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7e1e3b6091f3b17b18a4eeab": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "7e7ed55ec45f782e25040fef": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "7f8925de5921bcc9e1d123a9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "8082d80abb6493e16238493a": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "816799d15619ef54b580f10a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "81b3c6c280051884eecf7b9c": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "82197d51568bc789ebce74ba": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.06596260056544986,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "82ccb2d7da69c04cd1bacc11": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "83eb14955be6c5b1d19370ec": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "849d6d45beea346b2071ed54": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "852ee1dba56f49685bd45191": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "854629c94ebd9d38c0e98171": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "87ea4185ec7018eca5c2a5c2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "88ec44152040ca6e0a9967b8": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8abaac6b380364d382e2b47d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8d0e929381dd591c708e8b31": {
+      "attention_pattern": "cross",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "8d5a3a6470fd9a338f2f3d7e": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "rms_norm",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "8f0995a58cb4ccf2e98756f3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "8f74da2fb5d09b7f2862d49d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8ff60051b2d76cdda8198a6d": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "90820cea3dc737c6e6239e53": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        6912
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "9090693d2368d162b69fb1e4": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "91b392e8a95855211e9e6edc": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "91fc3cdc562addd6dea61b14": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "9234304bb663adbd99fd834b": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "9354a924dbcd351bbdbe6a9a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "93db2b5cf8ffdb23c4fb590a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "9441e84fd1e4c04cc446ff8d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "945b8578eb6023dcf247f66c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "951285683f469e2a865730ee": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "9579111654bf82d06b01033e": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "95cf35900e9efd1b1a9371b2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "95cf44a0e8e3ce7ccdacc0b0": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9684cbf35601a3a27c32b043": {
+      "attention_pattern": "window",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "96963372eb73703be60fb9fc": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "97cc62bc05ca672f89f9353e": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "98570ddb33bbe077b9258554": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "9883733884d07b875de40096": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "9a5d6285eb124aed8c3bd00a": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9afd05cb978329d774d6503a": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9c66ba7df522b554cf583793": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary_qk_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "rotary_qk_norm",
+      "units_per_tile": 4096
+    },
+    "9d06ba3cd2e4514a736c2564": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9d9886664d10bef40d9bf2b5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "9e1ccf3ba4824441102a4c9e": {
+      "attention_pattern": "global",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          16,
+          1048576
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "9ec6a682465247557d8a6db1": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "9f4816e2fd1d9ac8c57d7ca9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "9f92491cb4933fd792458daf": {
+      "attention_pattern": "temporal",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "a07aae525df788c53555d66c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "a17614ea62499edc82126199": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "a23a3fd8bdfa4fe906400a7b": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "a3ab651990926fa6ffa70c9c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "a3d2bcbb28de0642e604d472": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "a40d95e0343896949ed20225": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "a492e02d3a4f3e64bf164c13": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "a7467539ec00791a51d6fcf0": {
+      "attention_pattern": "joint",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "a865f408b0f963ce90cb8941": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "a92898e9ef515cfd84ab1510": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "a9bdb5390e1b0af8a9ae4553": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "a9bea8da4f6cfc0b36f82e2f": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "aafb4b5c75966a953155c04f": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "ab42ef6de418784ec84269b3": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "ac4355442924c74bcf76f11f": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "ac5041df7f1d950d61600b7d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "ad0b560d293a94f6d6de9f08": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "ae22cca177488477fac4da4e": {
+      "attention_pattern": "spatial",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "ae76fba26a598d25a216c0bf": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "ae88f2093278ea1cd1d9a4d3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "aeca09edae4dcd4036d35974": {
+      "attention_pattern": "global",
+      "component": "EXION_EPRE",
+      "engine": "epre",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.25e-10,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "b001f25ba26909f6ffb49e3d": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "b0b1b04b65cc42c8fb55a03e": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        6912
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "b11347869c2292a249a28d03": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "b16ff85a8a183580c1d2e62c": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.11730088421846258,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "b1b344b5fb3a7e1a0c42fb5b": {
+      "attention_pattern": "window",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "b2d3ee5aa4419335f92bd56d": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.059098461083547354,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "b3254d46973a904f62487f55": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b3dc696ffad100c268b2b334": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "b4224c47fd41017655f51042": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b592b464b49f281ce81c2d9d": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "b59ea4bf54ff22b26af8c827": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b5d0c6b3f3be928a8fd38134": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "b61f286ffe95feb744d1dc63": {
+      "attention_pattern": "window",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "b62a30ebfe7ac0b74fc254eb": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "b9a4139f7c0f0054fffe2296": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "bb035beb787d554c8b64ae67": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "bd1accfa52a052bb43baf023": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "bd41d8e31ceb79b037736e88": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary_qk_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "rotary_qk_norm",
+      "units_per_tile": 1024
+    },
+    "be16c09061b5cbfb420c8171": {
+      "attention_pattern": "cross",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "be92301191133f7a12f68b69": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "bea702a8a3efcbbf0ed723fc": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "bf038867dd0759d2b3ac9227": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "c10b70d97cd1a7f76d5f730e": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c1b0164f3f9024cc9470213d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "c4516f62eb11ae364a8de74e": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c5415615b5bf3cae782be8e9": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c7f66d971eec639f88037c66": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "c8c64fd392b9e7b83a281784": {
+      "attention_pattern": "cross",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "cb6c115aedf36350b2418f86": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "cba39dd0fe5de2142ce1b933": {
+      "attention_pattern": null,
+      "component": "EXION_DSC_compacted",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "cc7f1c33906c401447782082": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "cc9a44051a08dee4d287b80d": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "cd10faa064bbb035b9ebcc65": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "cda2c0d2be3bba31ce1d79cf": {
+      "attention_pattern": "temporal",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "cf3f160d16dac09eea51c944": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "d0a34ab06f426a6ce29de99d": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "d0af6d74416c585f73dc65c5": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "d0b68ba9a168b0b65217fe21": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "d4c161af6866bd65e634473b": {
+      "attention_pattern": "joint",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d56875d5d675e8d7b6d1369b": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "d60f069f2b08ac07c205c1ca": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d6583b14ecf0e63d24fa4a28": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "d661c8625c77382f067f1967": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "d706a13082a87b78b3d6bf9b": {
+      "attention_pattern": "temporal",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d7bc16279e8acc919dbebe18": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.12826176699615005,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d7e0368b974a454527a82b6a": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d86d53c795f160c2014e211c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "d8c0db012b3f92e484f70a06": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "d8f8b99575107faf3b5cfad5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d9a4eae7787dbb69f862ac69": {
+      "attention_pattern": "window",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "db597f5e4691d9de545902c6": {
+      "attention_pattern": null,
+      "component": "EXION_FFN_cache_seed",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "dbbc5308d1e2c56606f3cb23": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "dd68e7daa8fd3cdcf4432e0c": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "de3ad5d2697d588e43066a7a": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "de43d8021ed9e9e3ab922d50": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.14856201854991025,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "de8fb4cee242d9046f5a01ec": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "df48000c41e5d30e909a1719": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "df83e0d90c2f1cd9bc07817f": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25000000000000666,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "dfd91773068f111496aa8360": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "e05c901b2bffea9d2ba8559b": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "e16d521b75ce69c5bab9ed52": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "e20eccfe7b4c1ae27605274c": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "e391163ecff762dd3d315d84": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "e4778cd37518579efb62b4e6": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "rms_norm",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "e510162122b4308b571088bd": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "e53f4174a0818e7f4bb5112b": {
+      "attention_pattern": "joint",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "e56f51aa673358923731a111": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "e67f4ad311c929ffb00d39b5": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "e69600713c34d216ec87fef6": {
+      "attention_pattern": null,
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "e9465cdcad6593147f9c28cb": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "ea318d1ef73f359f2a2b82c5": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          1,
+          12288
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "ecaf7ae4e3591e313550ed8b": {
+      "attention_pattern": "global",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "ed1ab25df1be9307604477b4": {
+      "attention_pattern": "window",
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "ee9bfc0e980509b412a9e9be": {
+      "attention_pattern": null,
+      "component": "EXION_ConMerge",
+      "engine": "conmerge",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "eeb5e8cda218a8a87a2f203f": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "layer_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "ef577916a34b9ca2f60050b9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "f0308e032356fc6e9828e25e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f111bb1a62b8209e7d56593d": {
+      "attention_pattern": null,
+      "component": "EXION_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          1,
+          8448
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "f1d88f4bba0e08a75428ff1c": {
+      "attention_pattern": "cross",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "f245a25bbfc4aed737a0a964": {
+      "attention_pattern": "joint",
+      "component": "EXION_DSC",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.2241873150886637,
+      "operator": "qk",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "f3260653f7e082c9177636f3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f4258fc69e033c32d48e4b25": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "f4445bd5f7931ae73937984e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f97b15a6582a15cb56660dea": {
+      "attention_pattern": "cross",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "f9afb6c21ad3f51e2a2ef8c5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "fa1b8f68d3d7ce5fd8a49e68": {
+      "attention_pattern": "joint",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        4429,
+        1536
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "fc2437268d8f3ae3e40c0350": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "fcf44a9604bcde6b819ff0c9": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "fd1a75fd2c1a62a8657f86fd": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          1,
+          12288
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "fec7928d71c2198dfb73e321": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    }
+  },
+  "method": "exion",
+  "model": "empirical_kernel_service_times_v0.3",
+  "schema_version": 1,
+  "unit": "ns_per_tile"
+}

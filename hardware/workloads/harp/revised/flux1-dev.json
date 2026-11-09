@@ -1,0 +1,36 @@
+{
+  "id": "flux1-dev",
+  "selected_fraction": 0.3542,
+  "plane_sites": {
+    "qkv": {
+      "natural_skip_fraction": 0.22,
+      "final_skip_fraction": 0.49
+    },
+    "q": {
+      "natural_skip_fraction": 0.18,
+      "final_skip_fraction": 0.48
+    },
+    "k": {
+      "natural_skip_fraction": 0.19,
+      "final_skip_fraction": 0.49
+    },
+    "v": {
+      "natural_skip_fraction": 0.2,
+      "final_skip_fraction": 0.5
+    },
+    "attention_out": {
+      "natural_skip_fraction": 0.23,
+      "final_skip_fraction": 0.53
+    },
+    "ffn_in": {
+      "natural_skip_fraction": 0.26,
+      "final_skip_fraction": 0.61
+    },
+    "ffn_out": {
+      "natural_skip_fraction": 0.31,
+      "final_skip_fraction": 0.65
+    }
+  },
+  "features": "Double-stream and packed single-stream structural proxy at Table I width and head count. Packed input/output use QKV/O-projection site proxies.",
+  "source": "HARP revised Figures 8 and 9(a); plane percentages read at the figure's displayed precision."
+}

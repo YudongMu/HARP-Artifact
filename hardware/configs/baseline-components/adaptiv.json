@@ -1,0 +1,9 @@
+{
+  "buffer_bytes": 100663296,
+  "rates": {
+    "scratchpad": 8192,
+    "sign_compare": 8192,
+    "merge": 2048
+  },
+  "evidence": "AdapTME service rates are provisional values/cycle; matrix work follows retained token proxy."
+}

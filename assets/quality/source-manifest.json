@@ -1,0 +1,36 @@
+{
+  "repositories": {
+    "guided-diffusion": {
+      "repository": "openai/guided-diffusion",
+      "commit": "22e0df8183507e13a7813f8d38d51b072ca1e67c",
+      "archive_sha256": "e7d4a8be1cf144c16cecd5ebf6b1156c2c9c7e29156651ef43b375857c1de652",
+      "archive_bytes": 51065
+    },
+    "VBench": {
+      "repository": "Vchitect/VBench",
+      "commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+      "archive_sha256": "571c1b5d6cf5d77c48b124d8f3070f625c3b7215f07b6a5d45edef70247ccaf4",
+      "archive_bytes": 131643858
+    }
+  },
+  "objects": {
+    "imagenet512_reference": {
+      "url": "https://openaipublic.blob.core.windows.net/diffusion/jul-2021/ref_batches/imagenet/512/VIRTUAL_imagenet512.npz",
+      "bytes": 857466338,
+      "etag": "0x8D98F4023443FF8",
+      "accept_ranges": null
+    },
+    "inception_graph": {
+      "url": "https://openaipublic.blob.core.windows.net/diffusion/jul-2021/ref_batches/classify_image_graph_def.pb",
+      "bytes": 95673916,
+      "etag": "0x8D98F418F1E6E44",
+      "accept_ranges": null
+    }
+  },
+  "vbench_prompts": {
+    "entries": 946,
+    "unique_prompts": 944,
+    "bytes": 228118,
+    "sha256": "5dd2de80ee43cda750b2b72ea7023657c0b90d3702041c7e4608c65dbe50dccd"
+  }
+}

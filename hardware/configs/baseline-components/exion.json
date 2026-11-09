@@ -1,0 +1,8 @@
+{
+  "buffer_bytes": 100663296,
+  "rates": {
+    "epre": 4096,
+    "conmerge": 2048
+  },
+  "evidence": "EPRE scores/cycle and ConMerge values/cycle are provisional; FFN1 cache on HBM."
+}

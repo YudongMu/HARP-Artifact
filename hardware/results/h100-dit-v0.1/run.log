@@ -1,0 +1,28 @@
+/opt/python/lib/python3.10/site-packages/diffusers/schedulers/scheduling_dpmsolver_multistep.py:238: FutureWarning: `algorithm_types dpmsolver and sde-dpmsolver` is deprecated and will be removed in version 1.0.0. algorithm_type dpmsolver is deprecated and will be removed in a future version. Choose from `dpmsolver++` or `sde-dpmsolver++` instead
+  deprecate("algorithm_types dpmsolver and sde-dpmsolver", "1.0.0", deprecation_message)
+trajectory 1/25: 1172.751 ms
+trajectory 2/25: 908.030 ms
+trajectory 3/25: 996.713 ms
+trajectory 4/25: 1010.200 ms
+trajectory 5/25: 993.540 ms
+trajectory 6/25: 990.380 ms
+trajectory 7/25: 1023.609 ms
+trajectory 8/25: 1029.724 ms
+trajectory 9/25: 987.802 ms
+trajectory 10/25: 990.798 ms
+trajectory 11/25: 988.133 ms
+trajectory 12/25: 992.911 ms
+trajectory 13/25: 986.053 ms
+trajectory 14/25: 986.697 ms
+trajectory 15/25: 1033.082 ms
+trajectory 16/25: 1034.718 ms
+trajectory 17/25: 991.102 ms
+trajectory 18/25: 977.223 ms
+trajectory 19/25: 976.541 ms
+trajectory 20/25: 981.222 ms
+trajectory 21/25: 981.531 ms
+trajectory 22/25: 969.175 ms
+trajectory 23/25: 966.430 ms
+trajectory 24/25: 1011.873 ms
+trajectory 25/25: 986.007 ms
+median: 987.967 ms

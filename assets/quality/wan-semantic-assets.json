@@ -1,0 +1,34 @@
+{
+  "umt_model/l16_ptk710_ftk710_ftk400_f16_res224.pth": {
+    "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/l16_ptk710_ftk710_ftk400_f16_res224.pth",
+    "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+    "bytes": 607024201,
+    "sha256": "bfee78a03bf806fbc0c216309e8f92792011b7db6556fa860e9d869c1e69fecd",
+    "etag": "\"9fc8ec5ed9a8263807935790d6b08803ed5f32fe8d7f964148ea1bb831e4fe24\"",
+    "official_sha256": "bfee78a03bf806fbc0c216309e8f92792011b7db6556fa860e9d869c1e69fecd"
+  },
+  "grit_model/grit_b_densecap_objectdet.pth": {
+    "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/grit_b_densecap_objectdet.pth",
+    "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+    "bytes": 417381733,
+    "sha256": "53b6e9b3fd948eac55b574c9b6f94ad0743dff46ba449df7ac2d33009ee92ef1",
+    "etag": "\"a8d87d776e672ff2e9b408b04ba5f2d970b66c1fe5cca51eb9ae6581290f9dad\"",
+    "official_sha256": "53b6e9b3fd948eac55b574c9b6f94ad0743dff46ba449df7ac2d33009ee92ef1"
+  },
+  "caption_model/tag2text_swin_14m.pth": {
+    "url": "https://huggingface.co/spaces/xinyu1205/recognize-anything/resolve/7c76cec1377de0d46df8091a032c4b667aea4459/tag2text_swin_14m.pth",
+    "revision": "7c76cec1377de0d46df8091a032c4b667aea4459",
+    "bytes": 4478705095,
+    "sha256": "4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac",
+    "etag": "\"69fb8f8857cb9310e4ba14cc1b23d797c85aa4981460dbfac37dbdfa2acce18b\"",
+    "official_sha256": "4ce96f0ce98f940a6680d567f66a38ccc9ca8c4e638e5f5c5c2e881a0e3502ac"
+  },
+  "ViCLIP/ViClip-InternVid-10M-FLT.pth": {
+    "url": "https://huggingface.co/OpenGVLab/VBench_Used_Models/resolve/83290ee59b4e2c0a4d198857edbc79dd186b8d44/ViClip-InternVid-10M-FLT.pth",
+    "revision": "83290ee59b4e2c0a4d198857edbc79dd186b8d44",
+    "bytes": 1710545812,
+    "sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56",
+    "etag": "\"2774a6ae2fc6dd8f7ff069a79cab415fafce30d8ab9207a708654f0c73894529\"",
+    "official_sha256": "7a4d6ad6eac6632db3693f4b97f9f8f6445b65b1e139a6fc6686150522238c56"
+  }
+}

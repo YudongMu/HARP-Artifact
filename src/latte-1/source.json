@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/huggingface/diffusers",
+  "commit": "560fb5f4d65b8593c13e4be50a59b1fd9c2d9992",
+  "scope": "code only",
+  "files": {
+    "upstream/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "upstream/setup.py": "8f8d5533f91322de2ba26872f9b832de97c4f7e3e15424f0e7a7384c9b62d41b",
+    "upstream/src/diffusers/models/transformers/latte_transformer_3d.py": "69bee2ec38a59760ced6c784ca6be836e952f40c18adf90bdd92dc2090f2d990",
+    "upstream/src/diffusers/pipelines/latte/__init__.py": "d5732192802fa70d9a91b0e6313b0a25b4d4e0fb11f47e9ba2ae051210866f0a",
+    "upstream/src/diffusers/pipelines/latte/pipeline_latte.py": "5315d8d5fe2adb67b54ef615c2024e169f075837f4d37608d41ed8867e86cf61"
+  }
+}

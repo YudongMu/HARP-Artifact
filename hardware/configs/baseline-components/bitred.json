@@ -1,0 +1,7 @@
+{
+  "buffer_bytes": 100663296,
+  "rates": {
+    "dispatch": 2048
+  },
+  "evidence": "cal.adis and cal.red modeled separately. Dispatch throughput is provisional."
+}

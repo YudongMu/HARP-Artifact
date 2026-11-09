@@ -1,0 +1,7156 @@
+{
+  "kernels": {
+    "015835d49395d831e3712a43": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "029d4129a0374f6affc12994": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1,
+          6912
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "03f3fd7f20a749fbf31f771a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "05f33e5b0d51c2ec406e8b49": {
+      "attention_pattern": "cross",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 1024
+    },
+    "060fd08f94c44230ca004c6c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "06565474735f9cc86cac95ed": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "06d71264ad35ea880737d54b": {
+      "attention_pattern": "global",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "07bd74ada7cc2b05e111ad35": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "07ff20c8f8682c29939ff457": {
+      "attention_pattern": "spatial",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "08590f78dd16c6e7343e95b2": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "0953a3de92ca7bd5dd2d019b": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "09612d1b45ef23993f3c5f14": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "0bd8931d0e0efc44ad97e9c4": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "0bdc29bcda2884ef35b3fe20": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "0c0a82d3c1db6580f4b9726d": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "0d3eafd40a8e2bf414744c10": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "0d64460ebb14304e2873f208": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "0de938b381b3ec8107a1d108": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "0dfbee5b486a7d7757ed8253": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 4096
+    },
+    "0f443b64af5cb8d298c9c558": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "127625e5c5610f40960a880a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "1279bd980f57732d91d7e843": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          1,
+          8448
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "129d6c67905d3b8dbca29f62": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "13dfc58284149d4e09f86b14": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 1024
+    },
+    "141eedfe53b16c2ebc90e7a8": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "1477302135f4c67b4e2b8b2e": {
+      "attention_pattern": "global",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "14c93aab78eefe9231eedf85": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "165b7d4c56a744b1357cf279": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "16a7edcbf471836899926ea3": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "18460815827358dece253df2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "1a1e2caf354c7221809ee45a": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "1a325b2a132ae09092a4eba8": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "1a3370fcfbc16380d60b126a": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        12288
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "1ab857d1323c5d9216a7c5d4": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "1afe7722eb7e0b04cc800bfb": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "1b0233147b2c66dc8fd68d5a": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "1e6b5825e2f98f49f9445c46": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 1024
+    },
+    "20ff1673307e6eee141500d4": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "212972e2a5752f4109680fa0": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "2154561a918aa3051b37e790": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "217aefc833775f373eb8c3a6": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "218b5f4f3ddbba933e3dc96f": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "22e2e7e06e695dd29cf3dd4c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        12288
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "23a0ff3c907bd905fdedac9d": {
+      "attention_pattern": "temporal",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "270dabadb58bfba4a742ea5f": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "285011d9a37db3a3f012f58d": {
+      "attention_pattern": "spatial",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "293d59f8798b8c4652319d20": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "2c161fb21d5b9a28b7d61053": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "2d8f8d3475fc3dda6c294919": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "2e05aafa98ca14ecfd54fc46": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "2e313e2c427ba15333a884b4": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "2f75c3921e95ade101973ecf": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "301a1a79d2dabc209c6df246": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "30bd20e6b207e403d6c339ee": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "31d894fea13d058774f9e707": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "31dfc78a33ade3b5dd0c6cd2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "348373a85ca3a9024f7d3a6e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "3579009e40cc374a66308af9": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 1024
+    },
+    "35d8c8fe5b2fdeb8ee331cb7": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "36f53ea2ca552f5711e189fe": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "3789d0304e17b07492e70d26": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        9216
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "3984f83aae018c7a789bc3b0": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "3a3000dcf9823c58d55e3ee7": {
+      "attention_pattern": "cross",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "3ac0ba4697de4da4b4357f57": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "3b5eff31ab57ae3341cc336b": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "3c2ee4489ca9433187de5eec": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "3d3f6a618dfaf0f01e38b0a4": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "3d7cd888328722afef0bdfc9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "4273736ee10b329baa42bfef": {
+      "attention_pattern": "window",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "427b8f21d13ab3d1dd758e71": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "42cb9b00ea37d2fbe4bbf247": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "437c8f912a1a8f1a72dd6395": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "4446673344d607bbcde53185": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "45817bbb91d8926db56bbfe8": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "459d278844b8568dd982d76c": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "46a9b63cf56b97d18f97a5fe": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "4777c50d819380d7e5d13291": {
+      "attention_pattern": "joint",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "47bbaa24553683f1e0ee3e41": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "47f6b879e883b48583209ef6": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "48a76769608d9f514720eda5": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "49ab5d6207737b17b9689785": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "4a48c71fc9ef9c5cff68f0c2": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "4ad75af92df92a0570292176": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "4b714aa32c58325d7f3c8b04": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "4b8623b072d5111f3e17f0bc": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "4b9a030b0653bf677a55118f": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4c13ff0534021acb3328edd2": {
+      "attention_pattern": "global",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "4d3a3a47b83f388d8e777828": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4d790216056aab74620a1d09": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "4eec0787512cb3ee9fc158fd": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "4fb2d2c775a1792a67099a74": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "509ff1774d18433e8657c065": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        24576
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "50bca2beb75b5effda5f0c8f": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "525ae38879093d257d424d74": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "530f0d791c71f891cb0b0642": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "53ad718c0513c2eebc3ca205": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "542c1a56a485b304e2f3b021": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "542fa24f750d69edea8ac3c5": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "548c7e26b5a83597b43a2c87": {
+      "attention_pattern": "window",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "54af172c5d71577565ffd16d": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "56dbb0118c377b4ac7c5b765": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "570a11663a84f11e4ea40cc6": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "5749158cec3e095e793a4233": {
+      "attention_pattern": "temporal",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "57bd7c025c18aa5e6c32dbda": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "58100a3f69bd362641238ce0": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "586a99d8916de374b1f58260": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "58c0314d5fa7ad49ae385a72": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "59ecd37fb24c453745d41f28": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "5b378d3070bd8225a8ac3517": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "5c20f3220c5034ec2eb361ef": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        8448
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "5e57f59922756df05d3bbd47": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "5e90e6b2e8cada890e853790": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "5ea022d346f324196a620740": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "5eb86426c8fd691448c73f28": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          1,
+          8448
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "5ed5ce12d0f0c534c823af58": {
+      "attention_pattern": "window",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "5f4c80cb223ba621957b400b": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1,
+          6912
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "5f7b1d4048a03c7f7f39aef6": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "5fbd8950eb4480496fe466de": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "61bcbc4bcc317790f725fda2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "620f09428c6064900cea13b9": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "6267f5f4200d08d10fbfc25d": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "62716bf1f4f7ca8faa8baf2e": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "632ac20c6d3231029cc12def": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "63ed44d6fcf663cee21154eb": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "64f8b9d0d2f94110947ca4a8": {
+      "attention_pattern": "cross",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "66230202cdf55cc9ca305872": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "663c0d480068508a3e9ce8e1": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "669a09c85c77668f61fa4f42": {
+      "attention_pattern": "temporal",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "6747931ff8016d9f413f1713": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "691a4065f1be608fcd3c3e3e": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "69c003623d30470a4cf6bca7": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "6b83e891f629c3fd96ee6ca2": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "6c25cf3bf6cd31d58b730d61": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "6c3330a6a565731577d7d3e3": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "6c9ef3ad35f28ddd83b93a2d": {
+      "attention_pattern": "spatial",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "6d0c0d58136b83bbe76bf730": {
+      "attention_pattern": "spatial",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "6d2962cf3b513a311f4be4b0": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "6e36ff47948e26602f632688": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "6e8509d9e7231384ee661fa7": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        6912
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "6f94569a8d63fdd2291d2aed": {
+      "attention_pattern": "global",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          16,
+          1048576
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "705c0482bdbe8984fd2bbcf3": {
+      "attention_pattern": "cross",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "72102af9fc0e10858e8227bc": {
+      "attention_pattern": "global",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "72ba63c8c968c8b2ba77bcb4": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "72d3859d198dd505fef82ac8": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "74203f6fe92ad83e2f6ded91": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "75091156cb3159ca868d1511": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "758a5f80f40f7efb7b5d12a7": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "75c9d02db7a40e6f647e7289": {
+      "attention_pattern": "window",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "77b129d32df159ca19cd0c24": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "780d106ba4b0028126ea5005": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "786471bf0f6244dc5da28a60": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "787c86e2c04772dc7f7e99bd": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "78934f4a79f872b8b732a45e": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "790c89f0a29735327b034a8a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "79b8db83744b9c81a797098a": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          20480
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "packed_out",
+      "units_per_tile": 4096
+    },
+    "7a7c8c800e430cdf24d095c2": {
+      "attention_pattern": "global",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        1073217600
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "7aa0b18422af295db96b2ff6": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7c353359a37cc797ba06612c": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "7c3e55525df58629cd91548e": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "7c6f3cab9042d5f334ee737f": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "7d3a8d522530429dbc155dda": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "7e91b6fb24eb0e4df01c575f": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "7f65781a91320d5f77698d92": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "7f8925de5921bcc9e1d123a9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "8026030fd5da96731b78c2b2": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        333,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "80da37f2f6b2a7fdb0c1287a": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "816799d15619ef54b580f10a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "835211d56034499a810e60fd": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "852ee1dba56f49685bd45191": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "859eead7856c0da442a00583": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "87ea4185ec7018eca5c2a5c2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "881629e6dd25c21b53511ea3": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "8abaac6b380364d382e2b47d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8b6f029f641a4e90da98274f": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "8d0e929381dd591c708e8b31": {
+      "attention_pattern": "cross",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19660800
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "8ebce2a6f143dd2b56e81407": {
+      "attention_pattern": "cross",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "8f0995a58cb4ccf2e98756f3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "8f3a8ce43dad4045d3439b7f": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "8f5e2111f2e09d9f0c520e8a": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "8f606aab40ea15f18335df9a": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "8f6b83bcf154f5a54dc614c2": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "8f74da2fb5d09b7f2862d49d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "8fb1007aa513b6f2ebe12813": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "8fc29dc8aeb8b92c282f2973": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "8fc3c1e4372e3116afdf2565": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "90820cea3dc737c6e6239e53": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        6912
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "9090693d2368d162b69fb1e4": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "91de60bc119658162776bc30": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        16384,
+        5632
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "91fc3cdc562addd6dea61b14": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "926e087d2bdc34765d69c475": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "9354a924dbcd351bbdbe6a9a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "93aa13972ef12b2958366d56": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "93db2b5cf8ffdb23c4fb590a": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "9441e84fd1e4c04cc446ff8d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "945b8578eb6023dcf247f66c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "951285683f469e2a865730ee": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "95cf35900e9efd1b1a9371b2": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "95cf44a0e8e3ce7ccdacc0b0": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "9684cbf35601a3a27c32b043": {
+      "attention_pattern": "window",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        16777216
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "96963372eb73703be60fb9fc": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "97db638aba603f01a965d64c": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          1,
+          12288
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "98570ddb33bbe077b9258554": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "997a3f6a58681e5a6e8f7d42": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "9c66ba7df522b554cf583793": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary_qk_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "rotary_qk_norm",
+      "units_per_tile": 4096
+    },
+    "9d9886664d10bef40d9bf2b5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "9d98fed79d59e8c259668a49": {
+      "attention_pattern": "joint",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "9f4816e2fd1d9ac8c57d7ca9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "a02e72fb38a6baae7e6838a7": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        512,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "a07aae525df788c53555d66c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          1,
+          13824
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "a3660b55ab5fbde8188b85a4": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "a36eea0c7764c9a16abe38ad": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        9216
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "a3ab651990926fa6ffa70c9c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "a40d95e0343896949ed20225": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "a4356c03db4c49fca2cba316": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "a492e02d3a4f3e64bf164c13": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "a4b7e7fef0a49137f6efb681": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 1024
+    },
+    "a570719b194227a81d02759f": {
+      "attention_pattern": "global",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          16,
+          1048576
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "a99bfdccf654a26f8c781cec": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rms_norm",
+      "output_shape": [
+        300,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 1024
+    },
+    "a9bdb5390e1b0af8a9ae4553": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "a9fdb7f132fa57e345af3eb4": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.03540125364750571,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "aafb4b5c75966a953155c04f": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "ac042a32b3df3189f441a0ba": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        24576
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "ac5041df7f1d950d61600b7d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "ac68d236510546bd6251d3b5": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "ac8ed7b5501cd39a1f7b4995": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "ae88f2093278ea1cd1d9a4d3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "aed039fa69af52aad6686740": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "afa2f7e37db113f1992fae6d": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "b058b78c123c76d5c778b867": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "b0d95ad2927d20ba2d86a65e": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "b258f32218c34e9ab3fa18ea": {
+      "attention_pattern": "spatial",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          16777216
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "b2c9f44b8bbb68bffba10d5e": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "b3254d46973a904f62487f55": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b4224c47fd41017655f51042": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b592b464b49f281ce81c2d9d": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "b59ea4bf54ff22b26af8c827": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "b60091f04ecd5b84be52d314": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "b623e64f4bb097f327c8b667": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "b7647cd03509e704b004df05": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4608
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "b8fc6edf165bc212f6936419": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "layer_norm",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "b9dd9a8062abfaaa25e0916e": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "bad784aa51df542c106790d4": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary_qk_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "rotary_qk_norm",
+      "units_per_tile": 1024
+    },
+    "bb035beb787d554c8b64ae67": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "bc37b0ec3f5b7471aa4c8a6b": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.18028434731571874,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "bd1accfa52a052bb43baf023": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "layer_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 4096
+    },
+    "bd952f03f91d3a22d6805e8c": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "be08132b42f5efc83666d874": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          4608
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        1152
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "bebe0a97dbac76682b2f90d1": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "c01bca99d779b15232f56929": {
+      "attention_pattern": "cross",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          19660800
+        ],
+        [
+          300,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "c02e4a33efd9291b8719a978": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "layer_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "layer_norm",
+      "units_per_tile": 1024
+    },
+    "c1b0164f3f9024cc9470213d": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "c1d05d2af7bf48b8537ad122": {
+      "attention_pattern": "global",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 72,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ],
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        1048576
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "c380480e5f0e51aea6d09e04": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "c5c3e158051b60360d4f1c27": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 1024
+    },
+    "c7f66d971eec639f88037c66": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "c85089e81ce8bc6b8d10d952": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "c874767f5d16968e261d732c": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.2500000000000055,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "c8c64fd392b9e7b83a281784": {
+      "attention_pattern": "cross",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "c9105f3a174ff3e7893e054b": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "rotary",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rotary",
+      "units_per_tile": 1024
+    },
+    "ca73824f6669135551f59ee1": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "cb4b2498dae427d0e81c9a84": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          1,
+          24576
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 1024
+    },
+    "cc08bbf4b299c8cf24d5afe4": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "cc180397d2dee996a514534f": {
+      "attention_pattern": "cross",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          16773120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "softmax",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 1024
+    },
+    "d1a3480458d81d20b5bf8f96": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "d1e57fd92189e7aac94eeb44": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "d2299e8da3dc4aa40c5d1c14": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "d4289e6d13805248bdd622dc": {
+      "attention_pattern": "spatial",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        268435456
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "d4d9f0c871d454385f533450": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.1680228725136077,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        4608
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "d570f0ac2ee6a9dee9d9beff": {
+      "attention_pattern": "spatial",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.039871195124703884,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d60f069f2b08ac07c205c1ca": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        6912
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d61981b845314859bf1e25c5": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "cross_projection",
+      "units_per_tile": 4096
+    },
+    "d6583b14ecf0e63d24fa4a28": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "d67ffb9978ed9e7ca171d403": {
+      "attention_pattern": "temporal",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "qk",
+      "output_shape": [
+        16,
+        262144
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d706a13082a87b78b3d6bf9b": {
+      "attention_pattern": "temporal",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 88,
+      "input_shapes": [
+        [
+          16,
+          262144
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d7e0368b974a454527a82b6a": {
+      "attention_pattern": "spatial",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          268435456
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "d86d53c795f160c2014e211c": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          1,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "d8c0db012b3f92e484f70a06": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "d8f8b99575107faf3b5cfad5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        15360
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "d911fa806e6489bb232f260a": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        9216
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "d9a4eae7787dbb69f862ac69": {
+      "attention_pattern": "window",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 96,
+      "input_shapes": [
+        [
+          24,
+          16777216
+        ],
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "db071e24a1938cb770dcead1": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "db278a1303d1976d8ad4188b": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4608,
+        28672
+      ],
+      "role": "packed_in",
+      "units_per_tile": 4096
+    },
+    "dbbc5308d1e2c56606f3cb23": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          9216
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "dc676fb1cfb71f34e397e6bd": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "dd68e7daa8fd3cdcf4432e0c": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "de8fb4cee242d9046f5a01ec": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          1,
+          30720
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "df48000c41e5d30e909a1719": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1024,
+          1152
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        1024,
+        3456
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "df9d48f362e04bbe59760b17": {
+      "attention_pattern": "joint",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "pv",
+      "output_shape": [
+        4429,
+        1536
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "dfd91773068f111496aa8360": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          28672
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "gelu",
+      "output_shape": [
+        4608,
+        16384
+      ],
+      "role": "gelu",
+      "units_per_tile": 4096
+    },
+    "e06d83297961a124c6acec28": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          5632
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "e0a27db734acd413fbb3d457": {
+      "attention_pattern": null,
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ],
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "residual_add",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 1024
+    },
+    "e0af7dc49741bec94be0f59e": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "e0e4910f82c1c241e7aa0969": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 2.5e-10,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        12288
+      ],
+      "role": "qkv",
+      "units_per_tile": 1024
+    },
+    "e13c21926de6e8ec453ef414": {
+      "attention_pattern": "joint",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 2.5e-10,
+      "operator": "softmax",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "e16d521b75ce69c5bab9ed52": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "e53f4174a0818e7f4bb5112b": {
+      "attention_pattern": "joint",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ],
+        [
+          4608,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "pv",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "e56f51aa673358923731a111": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.706666666666667e-09,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    },
+    "e5c052eb37bd35dcc91c8095": {
+      "attention_pattern": "joint",
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          4429,
+          1536
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.02852688337043599,
+      "operator": "qk",
+      "output_shape": [
+        24,
+        19616041
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "e67f4ad311c929ffb00d39b5": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "e9465cdcad6593147f9c28cb": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        13824
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 4096
+    },
+    "ecaf7ae4e3591e313550ed8b": {
+      "attention_pattern": "global",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          40,
+          1073217600
+        ],
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "ef577916a34b9ca2f60050b9": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "ef6421cede0dbc0dab290f9d": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.0486067763275983,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "ef6ab22b102d00e84bcd40d5": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "f0308e032356fc6e9828e25e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ],
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f1537f4864ace6123c288004": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          16384
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "f1a4716cf13cfbc4bdef3e6f": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        1536
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "f1aeaf111182f2ffb68b6e6e": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        1408
+      ],
+      "role": "attention_out",
+      "units_per_tile": 1024
+    },
+    "f3260653f7e082c9177636f3": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ],
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f3b7d445b1bf2ec6fb8763b2": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        16384
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "f4258fc69e033c32d48e4b25": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        4096,
+        4096
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "f4445bd5f7931ae73937984e": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          1536
+        ],
+        [
+          333,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "residual_add",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "residual_add",
+      "units_per_tile": 4096
+    },
+    "f47804425f2772477f40a216": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.red",
+      "engine": "vector",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4096,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        4096,
+        6144
+      ],
+      "role": "ffn_in",
+      "units_per_tile": 1024
+    },
+    "f53f238353094506c6c39fdc": {
+      "attention_pattern": null,
+      "component": "BitRed_bit_serial_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          333,
+          6144
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        333,
+        1536
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 4096
+    },
+    "f66214bfda89bb0c93c39ca7": {
+      "attention_pattern": null,
+      "component": "BitRed_cal.adis",
+      "engine": "dispatch",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          13824
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "ffn_out",
+      "units_per_tile": 1024
+    },
+    "f97b15a6582a15cb56660dea": {
+      "attention_pattern": "cross",
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": 128,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ],
+        [
+          512,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "qk",
+      "output_shape": [
+        40,
+        16773120
+      ],
+      "role": "cross_attention",
+      "units_per_tile": 4096
+    },
+    "f9afb6c21ad3f51e2a2ef8c5": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          32760,
+          5120
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rms_norm",
+      "output_shape": [
+        32760,
+        5120
+      ],
+      "role": "rms_norm",
+      "units_per_tile": 4096
+    },
+    "fa1b8f68d3d7ce5fd8a49e68": {
+      "attention_pattern": "joint",
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          24,
+          19616041
+        ],
+        [
+          4429,
+          1536
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "pv",
+      "output_shape": [
+        4429,
+        1536
+      ],
+      "role": "self_attention",
+      "units_per_tile": 4096
+    },
+    "fc2437268d8f3ae3e40c0350": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          65536,
+          2304
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "rotary",
+      "output_shape": [
+        65536,
+        2304
+      ],
+      "role": "rotary",
+      "units_per_tile": 4096
+    },
+    "fcf44a9604bcde6b819ff0c9": {
+      "attention_pattern": null,
+      "component": "HBM_output_write",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          16384,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        16384,
+        4224
+      ],
+      "role": "qkv",
+      "units_per_tile": 4096
+    },
+    "fd1a75fd2c1a62a8657f86fd": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          4608,
+          4096
+        ],
+        [
+          1,
+          12288
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "adaptive_norm",
+      "output_shape": [
+        4608,
+        4096
+      ],
+      "role": "adaptive_norm",
+      "units_per_tile": 4096
+    },
+    "fe8f330b2d188873896129df": {
+      "attention_pattern": "joint",
+      "component": "BitRed_vector",
+      "engine": "vector",
+      "head_width": 64,
+      "input_shapes": [
+        [
+          64,
+          21233664
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 0.25,
+      "operator": "softmax",
+      "output_shape": [
+        64,
+        21233664
+      ],
+      "role": "self_attention",
+      "units_per_tile": 1024
+    },
+    "fec2162d730f5297fefc9e3c": {
+      "attention_pattern": null,
+      "component": "BitRed_array",
+      "engine": "pe",
+      "head_width": null,
+      "input_shapes": [
+        [
+          1,
+          1408
+        ]
+      ],
+      "lanes": 2,
+      "latency_ns": 0.25,
+      "operator": "linear",
+      "output_shape": [
+        1,
+        8448
+      ],
+      "role": "conditioning",
+      "units_per_tile": 4096
+    },
+    "fec7928d71c2198dfb73e321": {
+      "attention_pattern": null,
+      "component": "HBM_operand_read",
+      "engine": "hbm",
+      "head_width": null,
+      "input_shapes": [
+        [
+          512,
+          4096
+        ]
+      ],
+      "lanes": 1,
+      "latency_ns": 1.7066666666666668,
+      "operator": "linear",
+      "output_shape": [
+        512,
+        4096
+      ],
+      "role": "attention_out",
+      "units_per_tile": 4096
+    }
+  },
+  "method": "bitred",
+  "model": "empirical_kernel_service_times_v0.3",
+  "schema_version": 1,
+  "unit": "ns_per_tile"
+}

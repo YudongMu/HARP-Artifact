@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "dit-xl2-512",
+  "grid": [
+    32,
+    32
+  ],
+  "width": 1152,
+  "heads": 16,
+  "ffn": 4608,
+  "steps": 50,
+  "forwards": 1,
+  "lanes": 2,
+  "conditioning": "linear6",
+  "patch_in": 16,
+  "patch_out": 32,
+  "evidence": "deployed",
+  "source": [
+    "src/dit-original/models.py",
+    "quality/dit.py",
+    "results/dit-micro-floor-smoke-v1/protocol.json"
+  ],
+  "bundles": [
+    {
+      "repeat": 28,
+      "layers": [
+        {
+          "id": "dit",
+          "type": "self"
+        }
+      ]
+    }
+  ],
+  "table_i": {
+    "resolution": "512x512",
+    "frames": 1,
+    "sampler": "DPM-Solver",
+    "tokens_display": "1.0e3",
+    "width": 1152,
+    "heads": 16,
+    "steps": 50
+  }
+}

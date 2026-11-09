@@ -1,0 +1,201 @@
+{
+  "file": "E2E-Speedups.xlsx",
+  "schema_version": 1,
+  "sha256": "b9060c01b60a3c2409366429e99d66a110284fdd16468edd974467f8711920c7",
+  "sheet": "Sheet1",
+  "workloads": {
+    "dit-xl2-512": {
+      "AdapTiV-Adapt": {
+        "latency_ms": 457.925283,
+        "range": "A8:D8",
+        "speedup_vs_h100": 2.33222215
+      },
+      "BitRed-Adapt": {
+        "latency_ms": 473.717298,
+        "range": "A4:D4",
+        "speedup_vs_h100": 2.25447432
+      },
+      "DSTAR-Adapt": {
+        "latency_ms": 317.9169,
+        "range": "A10:D10",
+        "speedup_vs_h100": 3.35931649
+      },
+      "Ditto-Adapt": {
+        "latency_ms": 540.432747,
+        "range": "A6:D6",
+        "speedup_vs_h100": 1.97616353
+      },
+      "EXION-Adapt": {
+        "latency_ms": 480.047155,
+        "range": "A7:D7",
+        "speedup_vs_h100": 2.22474704
+      },
+      "H100-Dense": {
+        "latency_ms": 1067.98349,
+        "range": "A2:D2",
+        "speedup_vs_h100": 1
+      }
+    },
+    "flux1-dev": {
+      "AdapTiV-Adapt": {
+        "latency_ms": 6650.04825,
+        "range": "A36:D36",
+        "speedup_vs_h100": 2.38064142
+      },
+      "BitRed-Adapt": {
+        "latency_ms": 7142.79089,
+        "range": "A32:D32",
+        "speedup_vs_h100": 2.2164138
+      },
+      "DSTAR-Adapt": {
+        "latency_ms": 4326.9046,
+        "range": "A38:D38",
+        "speedup_vs_h100": 3.65882353
+      },
+      "Ditto-Adapt": {
+        "latency_ms": 7367.3048,
+        "range": "A34:D34",
+        "speedup_vs_h100": 2.14887001
+      },
+      "EXION-Adapt": {
+        "latency_ms": 6854.84403,
+        "range": "A35:D35",
+        "speedup_vs_h100": 2.30951722
+      },
+      "H100-Dense": {
+        "latency_ms": 15831.3803,
+        "range": "A30:D30",
+        "speedup_vs_h100": 1
+      }
+    },
+    "latte-1": {
+      "AdapTiV-Adapt": {
+        "latency_ms": 17179.351,
+        "range": "A50:D50",
+        "speedup_vs_h100": 2.46058545
+      },
+      "BitRed-Adapt": {
+        "latency_ms": 18817.2241,
+        "range": "A46:D46",
+        "speedup_vs_h100": 2.24641322
+      },
+      "DSTAR-Adapt": {
+        "latency_ms": 10544.2614,
+        "range": "A52:D52",
+        "speedup_vs_h100": 4.00893521
+      },
+      "Ditto-Adapt": {
+        "latency_ms": 18049.3031,
+        "range": "A48:D48",
+        "speedup_vs_h100": 2.34198853
+      },
+      "EXION-Adapt": {
+        "latency_ms": 17864.7818,
+        "range": "A49:D49",
+        "speedup_vs_h100": 2.36617841
+      },
+      "H100-Dense": {
+        "latency_ms": 42271.261,
+        "range": "A44:D44",
+        "speedup_vs_h100": 1
+      }
+    },
+    "opensora-v13": {
+      "AdapTiV-Adapt": {
+        "latency_ms": 468635.755,
+        "range": "A78:D78",
+        "speedup_vs_h100": 2.47991761
+      },
+      "BitRed-Adapt": {
+        "latency_ms": 529664.322,
+        "range": "A74:D74",
+        "speedup_vs_h100": 2.19417849
+      },
+      "DSTAR-Adapt": {
+        "latency_ms": 276315.828,
+        "range": "A80:D80",
+        "speedup_vs_h100": 4.20597715
+      },
+      "Ditto-Adapt": {
+        "latency_ms": 464967.518,
+        "range": "A76:D76",
+        "speedup_vs_h100": 2.49948225
+      },
+      "EXION-Adapt": {
+        "latency_ms": 482248.509,
+        "range": "A77:D77",
+        "speedup_vs_h100": 2.4099153
+      },
+      "H100-Dense": {
+        "latency_ms": 1162178.06,
+        "range": "A72:D72",
+        "speedup_vs_h100": 1
+      }
+    },
+    "sd3-medium": {
+      "AdapTiV-Adapt": {
+        "latency_ms": 827.987324,
+        "range": "A22:D22",
+        "speedup_vs_h100": 2.4057636
+      },
+      "BitRed-Adapt": {
+        "latency_ms": 868.78368,
+        "range": "A18:D18",
+        "speedup_vs_h100": 2.29279372
+      },
+      "DSTAR-Adapt": {
+        "latency_ms": 558.906233,
+        "range": "A24:D24",
+        "speedup_vs_h100": 3.56399992
+      },
+      "Ditto-Adapt": {
+        "latency_ms": 946.614347,
+        "range": "A20:D20",
+        "speedup_vs_h100": 2.10428014
+      },
+      "EXION-Adapt": {
+        "latency_ms": 867.152322,
+        "range": "A21:D21",
+        "speedup_vs_h100": 2.29710711
+      },
+      "H100-Dense": {
+        "latency_ms": 1991.94177,
+        "range": "A16:D16",
+        "speedup_vs_h100": 1
+      }
+    },
+    "wan21-14b-81f": {
+      "AdapTiV-Adapt": {
+        "latency_ms": 212615.594,
+        "range": "A64:D64",
+        "speedup_vs_h100": 2.46684102
+      },
+      "BitRed-Adapt": {
+        "latency_ms": 236014.262,
+        "range": "A60:D60",
+        "speedup_vs_h100": 2.22227617
+      },
+      "DSTAR-Adapt": {
+        "latency_ms": 124975.81,
+        "range": "A66:D66",
+        "speedup_vs_h100": 4.1967231
+      },
+      "Ditto-Adapt": {
+        "latency_ms": 215884.172,
+        "range": "A62:D62",
+        "speedup_vs_h100": 2.429492
+      },
+      "EXION-Adapt": {
+        "latency_ms": 219688.823,
+        "range": "A63:D63",
+        "speedup_vs_h100": 2.38741718
+      },
+      "H100-Dense": {
+        "latency_ms": 524488.869,
+        "range": "A58:D58",
+        "speedup_vs_h100": 1
+      }
+    }
+  },
+  "evidence": "Historical numerical anchors. All 84 source workbook rows match latency and H100 speedup values in Experiments/processed/e2e_results.csv, labeled synthetic-simulated."
+}
