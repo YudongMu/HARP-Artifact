@@ -1,4 +1,4 @@
-"""Score the 16 fixed DiT inputs from the reviewer generation entry."""
+"""Score the 16 fixed DiT inputs from the generation entry."""
 
 import argparse
 import json

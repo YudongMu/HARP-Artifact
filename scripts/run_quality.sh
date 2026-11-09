@@ -2,7 +2,7 @@
 set -euo pipefail
 
 usage() {
-  echo 'Usage: bash scripts/reviewer_quality.sh {dit|wan} {smoke|generate|score|development} RUN'
+  echo 'Usage: bash scripts/run_quality.sh {dit|wan} {smoke|generate|score|development} RUN'
   echo 'Use the same RUN to resume or score a development run.'
 }
 if [[ $# == 1 && $1 == --help ]]; then usage; exit 0; fi
@@ -25,14 +25,14 @@ if [[ "$phase" == smoke ]]; then
   exec bash scripts/run_model_budget.sh "$model" "source-budget-$model-smoke-$run"
 fi
 
-out="$root/results/reviewer-$model-$run"
+out="$root/results/$model-$run"
 if [[ "$phase" == score && ! -d "$out" ]]; then
   echo "Run generation first: $out" >&2
   exit 2
 fi
 mkdir -p "$out"
-exec 9>"$out/.reviewer.lock"
-flock -n 9 || { echo "Another reviewer command is using $out" >&2; exit 1; }
+exec 9>"$out/.run.lock"
+flock -n 9 || { echo "Another command is using $out" >&2; exit 1; }
 echo "Outputs: $out"
 common=(--rm --pull=never --network=none --user "$(id -u):$(id -g)" --shm-size=4g
   -e PYTHONPATH=/opt/harp:/opt/harp/src/Wan2.1 -e HOME=/opt/harp/cache -e PYTHONDONTWRITEBYTECODE=1
@@ -71,31 +71,31 @@ generate() {
   else
     docker run "$@" --device="nvidia.com/gpu=$gpu" \
       --mount "type=bind,src=$root/results/wan-stage4-9f-v1,dst=/reference/wan-stage4,readonly" \
-      -e REVIEWER_OUT="$container_out" "$gen_image" bash -ec '
-        python /opt/harp/scripts/reviewer_wan_prepare.py \
-          /reference/wan-stage4 "$REVIEWER_OUT" /opt/harp/src/Wan2.1/harp/lambda.json
-        python -m quality.wan_stage4 --phase heldout --root "$REVIEWER_OUT" --frames 9 --resume --gpu-deterministic 1
+      -e RUN_OUTPUT="$container_out" "$gen_image" bash -ec '
+        python /opt/harp/scripts/prepare_wan_run.py \
+          /reference/wan-stage4 "$RUN_OUTPUT" /opt/harp/src/Wan2.1/harp/lambda.json
+        python -m quality.wan_stage4 --phase heldout --root "$RUN_OUTPUT" --frames 9 --resume --gpu-deterministic 1
       '
   fi
 }
 score() {
   if [[ "$model" == dit ]]; then
     docker run "$@" -e CUDA_VISIBLE_DEVICES= -e TF_ENABLE_ONEDNN_OPTS=0 "$score_image" \
-      python /opt/harp/scripts/reviewer_dit_score.py "$container_out"
+      python /opt/harp/scripts/score_dit_development.py "$container_out"
   else
     check_gpu
     docker run "$@" --device="nvidia.com/gpu=$gpu" -e HF_HOME=/quality/hf-cache \
-      -e TOKENIZERS_PARALLELISM=false -e REVIEWER_OUT="$container_out" "$score_image" bash -ec '
+      -e TOKENIZERS_PARALLELISM=false -e RUN_OUTPUT="$container_out" "$score_image" bash -ec '
         python /opt/harp/scripts/wan_stage4_score.py \
-          --root "$REVIEWER_OUT" --output "$REVIEWER_OUT/heldout-scores" --resume
-        python -c "import json,sys; p=sys.argv[1]; s=json.load(open(p)); sys.exit(0 if s[\"all_modes_all_dimensions_finite\"] else \"VBench has undefined or failed dimensions; see \" + p)" "$REVIEWER_OUT/heldout-scores/summary.json"
-        python /opt/harp/scripts/stage4_wan_uncertainty.py --root "$REVIEWER_OUT"
+          --root "$RUN_OUTPUT" --output "$RUN_OUTPUT/heldout-scores" --resume
+        python -c "import json,sys; p=sys.argv[1]; s=json.load(open(p)); sys.exit(0 if s[\"all_modes_all_dimensions_finite\"] else \"VBench has undefined or failed dimensions; see \" + p)" "$RUN_OUTPUT/heldout-scores/summary.json"
+        python /opt/harp/scripts/stage4_wan_uncertainty.py --root "$RUN_OUTPUT"
       '
   fi
 }
 if [[ "$phase" == generate || "$phase" == development ]]; then
-  generate "${common[@]}" 2>&1 | tee -a "$out/reviewer-generate.log"
+  generate "${common[@]}" 2>&1 | tee -a "$out/generation.log"
 fi
 if [[ "$phase" == score || "$phase" == development ]]; then
-  score "${common[@]}" 2>&1 | tee -a "$out/reviewer-score.log"
+  score "${common[@]}" 2>&1 | tee -a "$out/scoring.log"
 fi

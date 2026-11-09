@@ -36,7 +36,7 @@ HARP combines residual-compensated attention windows with trajectory-aware remov
 
 ## 8. Hardware Dependencies
 
-Performance reconstruction uses Python 3. The reference generation and scoring environments were developed on NVIDIA H100 PCIe 80 GB hardware. The reviewer runbook gives the commands and measured runtimes from the H100 rehearsal.
+Performance reconstruction uses Python 3. The reference generation and scoring environments were developed on NVIDIA H100 PCIe 80 GB hardware. The runbook gives the commands and measured runtimes from the H100 rehearsal.
 
 ## 9. Software Dependencies
 
@@ -60,6 +60,6 @@ The quality workflow uses the official DiT checkpoint and VAE, the ADM Inception
 | A1 | Workload, ablation, and formation reconstruction | [Workload](../hardware/results/harp-paper-audit/workload.json), [ablation](../hardware/results/harp-paper-audit/report.json), and [formation](../hardware/results/harp-paper-audit/formation.json) |
 | R1 | Independent DiT H100 development timing, provided as reference evidence | [Measurements](../hardware/results/h100-dit-v0.1/measurements.json) and [log](../hardware/results/h100-dit-v0.1/run.log) |
 
-The [reviewer runbook](HARP-AE-Reviewer-Runbook.md) gives the commands and acceptance checks for Q1, Q2, P1, and A1. The [6.1 review catalog](HARP-AE-Stage6.1-Review-Catalog.md) indexes their inputs and reference evidence.
+The [runbook](HARP-AE-Runbook.md) gives the commands and acceptance checks for Q1, Q2, P1, and A1. The [6.1 review catalog](HARP-AE-Stage6.1-Review-Catalog.md) indexes their inputs and reference evidence.
 
 [DiT primary results](../results/dit-fid-reference/primary.json) and [DiT extension results](../results/dit-fid-reference/extension.json).

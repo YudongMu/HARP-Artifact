@@ -4,6 +4,10 @@ __pycache__/
 /harp-assets/
 /containers/
 /scoring-assets/
-/results/.reviewer-*.lock
-/results/reviewer-*/
+/results/.*-fid-*.lock
+/results/dit-fid-*/
+!/results/dit-fid-reference/
+/results/performance-*/
+/results/wan-*/
+!/results/wan-stage4-9f-v1/
 /results/paired-benchmark*

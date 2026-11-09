@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Download and verify the upstream DiT or Wan files used by the reviewer runs."""
+"""Download and verify the upstream DiT or Wan files used by the evaluation runs."""
 
 import argparse
 import hashlib

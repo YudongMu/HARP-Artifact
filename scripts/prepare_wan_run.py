@@ -1,4 +1,4 @@
-"""Stage frozen Wan selection evidence into an independent reviewer run."""
+"""Stage frozen Wan selection evidence into an independent run."""
 
 import argparse
 import json
@@ -17,7 +17,7 @@ def prepare(reference, run, source):
         dest.parent.mkdir(parents=True, exist_ok=True)
         if dest.exists():
             if dest.read_bytes() != data:
-                raise ValueError(f"Frozen Wan reviewer input changed: {dest}")
+                raise ValueError(f"Frozen Wan input changed: {dest}")
         else:
             with dest.open("xb") as stream:
                 stream.write(data)

@@ -8,7 +8,7 @@
 | A1 | Algorithm and hardware ablation and formation | [Workload](../hardware/results/harp-paper-audit/workload.json), [ablation](../hardware/results/harp-paper-audit/report.json), [formation](../hardware/results/harp-paper-audit/formation.json) |
 | R1 | Independent DiT H100 development timing | [Measurements](../hardware/results/h100-dit-v0.1/measurements.json) and [log](../hardware/results/h100-dit-v0.1/run.log) |
 
-The [reviewer runbook](HARP-AE-Reviewer-Runbook.md) maps each workflow to its commands and outputs. The six model source snapshots carry one λ table per model. The four models outside the DiT/Wan quality workflows include their source snapshots, adapter interfaces and λ tables.
+The [runbook](HARP-AE-Runbook.md) maps each workflow to its commands and outputs. The six model source snapshots carry one λ table per model. The four models outside the DiT/Wan quality workflows include their source snapshots, adapter interfaces and λ tables.
 
 ## Container images
 

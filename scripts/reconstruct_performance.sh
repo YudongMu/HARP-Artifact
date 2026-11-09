@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 if (( $# > 1 )); then
-  echo "Usage: bash scripts/reviewer_cpu.sh [new-output-directory]" >&2
+  echo "Usage: bash scripts/reconstruct_performance.sh [new-output-directory]" >&2
   exit 2
 fi
 if (( $# == 1 )); then
@@ -35,6 +35,7 @@ from pathlib import Path
 out = Path(sys.argv[1])
 e2e = json.loads((out / 'e2e.json').read_text())
 abl = json.loads((out / 'report.json').read_text())
+formation = json.loads((out / 'formation.json').read_text())
 baseline = json.loads((out / 'baseline.json').read_text())['baselines']
 methods = ('bitred', 'ditto', 'exion', 'adaptiv', 'dstar')
 print('# Six-workload calibrated performance reconstruction\n')
@@ -48,7 +49,33 @@ for workload, row in e2e['workloads'].items():
           + ' | '.join(f'{value:.3f}×' for value in factors) + ' |')
 means = [baseline[m]['speedup_geomean'] for m in methods] + [e2e['geomean_speedup_vs_reference_h100']]
 print('| Geometric mean | — | — | ' + ' | '.join(f'{value:.3f}×' for value in means) + ' |')
-print(f"\nThe historical All/Budget ablation geometric mean is {abl['reference_hardware_gain_geomean']:.3f}×.")
-print('See report.json for the historical and unfitted ablation results and their denominators.')
+configurations = ('residual', 'planeclear', 'combined_generic', 'combined_harp')
+for title, denominator, field, aggregate in (
+    ('Historical algorithm and hardware ablation', 'historical Matched NPU',
+     'reference_speedup_vs_matched_npu', 'reference_speedup'),
+    ('Modeled algorithm and hardware ablation', 'modeled dense generic substrate',
+     'speedup_vs_modeled_dense', 'modeled_speedup'),
+):
+    print(f'\n## {title}\n')
+    print(f'Speedup is relative to the {denominator}. Budget and All use the same combined algorithm on the generic and HARP substrates, respectively.\n')
+    print('| Workload | Residual | PlaneClear | HARP-Budget | HARP-All |')
+    print('|---|---:|---:|---:|---:|')
+    for workload, row in abl['workloads'].items():
+        values = [row['timings'][mode][field] for mode in configurations]
+        print(f'| {workload} | ' + ' | '.join(f'{v:.3f}×' for v in values) + ' |')
+    values = [abl['geomean'][mode][aggregate] for mode in configurations]
+    print('| Geometric mean | ' + ' | '.join(f'{v:.3f}×' for v in values) + ' |')
+
+print('\n## Fixed-work hardware gain and formation overhead\n')
+print('The hardware ratios compare HARP-All with HARP-Budget using the same Combined work. Formation columns report the exposed share of full execution time.\n')
+print('| Workload | Historical All / Budget | Modeled All / Budget | Modeled exposed formation | Table II exposed formation |')
+print('|---|---:|---:|---:|---:|')
+for workload, row in abl['workloads'].items():
+    form = formation['workloads'][workload]
+    print(f"| {workload} | {row['reference_hardware_gain']:.3f}× | {row['hardware_gain_fixed_combined']:.3f}× "
+          f"| {form['exposed_formation_fraction']:.3%} | {form['table_ii_exposed_fraction']:.3%} |")
+print(f"| Geometric mean | {abl['reference_hardware_gain_geomean']:.3f}× "
+      f"| {abl['fixed_work_hardware_gain_geomean']:.3f}× | — | — |")
+print('\nSee report.json and formation.json for per-workload counters and model assumptions.')
 PY
 printf 'Summary: %s/summary.md\n' "$out"

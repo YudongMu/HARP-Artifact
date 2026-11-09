@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ $# -lt 2 || $# -gt 4 || ! "$2" =~ ^[A-Za-z0-9][A-Za-z0-9-]*$ ]]; then
-  echo 'Usage: bash scripts/reviewer_dit_fid.sh {generate|score|run|clear} RUN [COUNT [MODE,MODE,...]]' >&2
+  echo 'Usage: bash scripts/run_dit_fid.sh {generate|score|run|clear} RUN [COUNT [MODE,MODE,...]]' >&2
   exit 2
 fi
 phase=$1
@@ -30,7 +30,7 @@ assets=${HARP_ASSETS:-$root/assets}
 gpu=${HARP_GPU:-0}
 batch_size=${HARP_DIT_BATCH_SIZE:-2}
 [[ "$batch_size" =~ ^[1-9][0-9]*$ ]] || exit 2
-name="reviewer-dit-fid-$2"
+name="dit-fid-$2"
 target="results/$name"
 out="/opt/harp/$target"
 mkdir -p results
