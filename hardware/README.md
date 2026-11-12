@@ -2,7 +2,9 @@
 
 The active workload descriptions are in `workloads/dataflow/`. Table I supplies the reported widths, head counts and denoising steps. Each graph lists the assumed structure and any discrepancy with the upstream implementation. HARP-specific settings are in `workloads/harp/revised/` and use the model and site values shown in Figures 8 and 9(a).
 
-The end-to-end reconstruction applies fitted service times to compiled workloads and uses historical H100 latency inputs to compute speedups. The ablation replay computes variant latencies relative to the historical analytical Matched NPU Dense baseline and takes HARP-All latency from the frozen end-to-end report. The workload compiler separately computes work reductions and supplies identical Combined tasks to the two component models. In that component report, `speedup_vs_modeled_dense` uses the generic dense proxy, and `reference_speedup_vs_matched_npu` is a comparison input. See the [paper consistency audit](docs/PAPER-AUDIT.md) for provenance. The independent DiT development H100 timing is in `results/h100-dit-v0.1/measurements.json`.
+The end-to-end and Matched NPU reports compute Full HARP latency with the same evaluator. It applies the released service-time table and formation exposure fractions to each compiled Combined workload. The end-to-end report uses historical H100 latencies for comparison. Matched NPU Dense, Residual, PlaneClear, and Budget use the analytical timing model documented in the [ablation guide](docs/HARP-ABLATION.md).
+
+The workload compiler computes work reductions and supplies identical Combined tasks to the two component models. In the component report, `speedup_vs_modeled_dense` uses the generic dense proxy, and `reference_speedup_vs_matched_npu` records the historical comparison value. The [paper consistency audit](docs/PAPER-AUDIT.md#reference-provenance) describes the service-table calibration and the independent DiT development H100 timing.
 
 Run from `AE/` and choose new output files.
 

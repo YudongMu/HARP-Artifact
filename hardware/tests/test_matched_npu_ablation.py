@@ -2,14 +2,17 @@ from statistics import geometric_mean
 import unittest
 
 from hardware.baselines.common import ROOT, read
+from hardware.harp_latency import SERVICE_TABLE, estimate, load_cases
 from hardware.matched_npu_ablation import reconstruct
 
 
 class MatchedNPUAblationTest(unittest.TestCase):
-    def test_replay_and_frozen_full_harp_latency(self):
+    def test_replay_matches_reference_using_shared_harp_model(self):
         inputs = read(ROOT / "workloads/harp/matched-npu.json")
         e2e = read(ROOT / "results/harp-paper-audit/e2e.json")
-        report = reconstruct(inputs, e2e)
+        cases, hardware = load_cases()
+        timing = estimate(cases, hardware, read(SERVICE_TABLE))
+        report = reconstruct(inputs, {name: row["estimated_full_harp_ms"] for name, row in timing.items()})
         self.assertEqual(set(report["workloads"]), set(e2e["workloads"]))
         expected = {"residual": 1.334534324, "planeclear": 3.377617618,
                     "budget": 3.696720309, "all": 6.837920362}

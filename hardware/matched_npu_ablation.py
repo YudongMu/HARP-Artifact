@@ -5,6 +5,7 @@ from pathlib import Path
 from statistics import geometric_mean
 
 from .baselines.common import ROOT, digest, read, write
+from .harp_latency import BACKENDS, FORMATION, HARDWARE, SERVICE_TABLE, estimate, load_cases
 
 
 def dense_latency_ms(work, inputs):
@@ -17,8 +18,8 @@ def dense_latency_ms(work, inputs):
     return max(compute_ms, memory_ms) * 1.025
 
 
-def reconstruct(inputs, e2e):
-    if set(inputs["workloads"]) != set(e2e["workloads"]):
+def reconstruct(inputs, full_harp_ms):
+    if set(inputs["workloads"]) != set(full_harp_ms):
         raise ValueError("Matched NPU and end-to-end workload coverage differ")
     results = {}
     for name, work in inputs["workloads"].items():
@@ -39,7 +40,7 @@ def reconstruct(inputs, e2e):
             ),
         }
         latency = {mode: dense * factor for mode, factor in normalized.items()}
-        latency["all"] = e2e["workloads"][name]["estimated_full_harp_ms"]
+        latency["all"] = full_harp_ms[name]
         results[name] = {
             "matched_npu_dense_ms": dense,
             "latency_ms": latency,
@@ -59,11 +60,19 @@ def reconstruct(inputs, e2e):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--table", type=Path, default=SERVICE_TABLE)
+    parser.add_argument("--workload-tasks", type=Path)
     args = parser.parse_args()
+    if args.out.exists():
+        parser.error("Choose a new output file")
     inputs = ROOT / "workloads/harp/matched-npu.json"
-    frozen_e2e = ROOT / "results/harp-paper-audit/e2e.json"
-    report = reconstruct(read(inputs), read(frozen_e2e))
-    report["input_sha256"] = {path.name: digest(path) for path in (inputs, frozen_e2e)}
+    cases, hardware = load_cases(args.workload_tasks)
+    timing = estimate(cases, hardware, read(args.table))
+    report = reconstruct(read(inputs), {name: row["estimated_full_harp_ms"] for name, row in timing.items()})
+    report["input_sha256"] = {path.relative_to(ROOT).as_posix(): digest(path)
+                              for path in (inputs, HARDWARE, BACKENDS, FORMATION)}
+    report["service_table_sha256"] = digest(args.table)
+    report["workload_sha256"] = {name: row["workload_sha256"] for name, row in timing.items()}
     write(args.out, report)
 
 

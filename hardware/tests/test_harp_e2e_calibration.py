@@ -1,7 +1,7 @@
 import unittest
 
 from hardware.baselines.kernel_latencies import fit_latencies, predict_ns
-from hardware.reconstruct_harp_e2e import with_exposed_formation
+from hardware.harp_latency import with_exposed_formation
 
 
 class HarpE2ECalibrationTest(unittest.TestCase):

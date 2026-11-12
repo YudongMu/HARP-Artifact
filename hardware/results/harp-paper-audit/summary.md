@@ -1,6 +1,6 @@
-# Six-workload calibrated performance reconstruction
+# Six-workload performance reconstruction
 
-The calibrated model estimates denoising latency from compiled workloads and fitted service times. Speedups use historical H100 latency inputs. The run checks all five generated reports against frozen outputs.
+The evaluator applies the released service-time parameters to compiled workloads. Speedups use historical H100 reference latencies. See the hardware documentation for calibration provenance.
 
 | Workload | H100 reference (ms) | Estimated HARP (ms) | BitRed | Ditto | EXION | AdapTiV | DSTAR | HARP |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -29,7 +29,7 @@ The generic and HARP hardware models used identical Combined task lists in 6 of 
 
 ## Speedup Ablation relative to Matched NPU
 
-We compare HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All against the dense algorithm on Matched NPU. The end-to-end and ablation comparisons use the same HARP-All latency.
+We compare HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All against the dense algorithm on Matched NPU. Both reports compute HARP-All latency with the same evaluator and inputs.
 
 | Workload | Matched NPU Dense (ms) | HARP-Residual | HARP-PlaneClear | HARP-Budget | HARP-All |
 |---|---:|---:|---:|---:|---:|

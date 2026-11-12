@@ -19,13 +19,15 @@ printf 'Reports and logs: %s\n' "$out"
   python3 -B -m hardware --out "$out/report.json" --tasks-out "$out/workload.json"
   python3 -B -m hardware.formation_ablation --ablation-dir "$out" --out "$out/formation.json"
   python3 -B -m hardware.reconstruct_harp_e2e \
-    --workload-tasks "$out/workload.json" --formation-report "$out/formation.json" --out "$out/e2e.json"
+    --workload-tasks "$out/workload.json" --formation-report "$out/formation.json" \
+    --baseline-report "$out/baseline.json" --out "$out/e2e.json"
+  python3 -B -m hardware.matched_npu_ablation \
+    --workload-tasks "$out/workload.json" --out "$out/matched-npu-ablation.json"
   cmp "$out/baseline.json" hardware/results/baseline-paper-audit/report.json
-  for name in workload report formation e2e; do
+  for name in workload report formation e2e matched-npu-ablation; do
     cmp "$out/$name.json" "hardware/results/harp-paper-audit/$name.json"
   done
-  echo 'All five reports match the frozen references byte for byte.'
-  python3 -B -m hardware.matched_npu_ablation --out "$out/matched-npu-ablation.json"
+  echo 'All six reports match the reference outputs byte for byte.'
 } 2>&1 | tee "$out/reconstruction.log"
 
 python3 -B - "$out" <<'PY' > "$out/summary.md"
@@ -39,9 +41,9 @@ abl = json.loads((out / 'report.json').read_text())
 matched_npu = json.loads((out / 'matched-npu-ablation.json').read_text())
 baseline = json.loads((out / 'baseline.json').read_text())['baselines']
 methods = ('bitred', 'ditto', 'exion', 'adaptiv', 'dstar')
-print('# Six-workload calibrated performance reconstruction\n')
-print('The calibrated model estimates denoising latency from compiled workloads and fitted service times. '
-      'Speedups use historical H100 latency inputs. The run checks all five generated reports against frozen outputs.\n')
+print('# Six-workload performance reconstruction\n')
+print('The evaluator applies the released service-time parameters to compiled workloads. '
+      'Speedups use historical H100 reference latencies. See the hardware documentation for calibration provenance.\n')
 print('| Workload | H100 reference (ms) | Estimated HARP (ms) | BitRed | Ditto | EXION | AdapTiV | DSTAR | HARP |')
 print('|---|---:|---:|---:|---:|---:|---:|---:|---:|')
 for workload, row in e2e['workloads'].items():
@@ -74,8 +76,8 @@ print(f"\nThe generic and HARP hardware models used identical Combined task list
       f"{matched_workloads} of {len(abl['workloads'])} workloads.")
 print('\n## Speedup Ablation relative to Matched NPU\n')
 print('We compare HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All '
-      'against the dense algorithm on Matched NPU. The end-to-end and ablation comparisons '
-      'use the same HARP-All latency.\n')
+      'against the dense algorithm on Matched NPU. Both reports compute HARP-All latency '
+      'with the same evaluator and inputs.\n')
 print('| Workload | Matched NPU Dense (ms) | HARP-Residual | HARP-PlaneClear | HARP-Budget | HARP-All |')
 print('|---|---:|---:|---:|---:|---:|')
 modes = ('residual', 'planeclear', 'budget', 'all')

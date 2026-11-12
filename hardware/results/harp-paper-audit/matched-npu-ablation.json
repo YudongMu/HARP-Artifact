@@ -6,11 +6,22 @@
     "residual": 1.3345343237081044
   },
   "input_sha256": {
-    "e2e.json": "9db5ce17d00a584f849914790679130cca459d50d534bd738c191f78f005597f",
-    "matched-npu.json": "119a14bc402e46301084510d8973edd5cc8f89084fa5067c3a2278a2ac3d9a25"
+    "configs/harp-ablation.json": "e5441c9a63528e4382603df2588891700807ad71f24b04108a8dbefeec5eccf8",
+    "configs/harp.json": "efb48291bb479942e895a2bd1bc144526432eb154f93c4c0cba1d2e5490cd319",
+    "reference/harp-table-ii.json": "c6abbffb865378de390eafd7c34b2608c94d7025e5aecffb08fee17663b1f366",
+    "workloads/harp/matched-npu.json": "119a14bc402e46301084510d8973edd5cc8f89084fa5067c3a2278a2ac3d9a25"
   },
   "model": "historical_analytical_matched_npu",
   "schema_version": 1,
+  "service_table_sha256": "1bd33e1cdb0e063c1ae0a7733128611ed75049875de1ef456c413b29f289e958",
+  "workload_sha256": {
+    "dit-xl2-512": "b82b2a9ca739e781e80265ea574e714136160348edd8416dcc1dd49b54d37ac8",
+    "flux1-dev": "92d31c9fd1bb9ced11ff0df87ab553712a550915e798d5836cdbaa45817b2b92",
+    "latte-1": "1b3d3c1f27d20c19ca0d7a9a545b30e1f61fd8c603486a7380f2394591a7a199",
+    "opensora-v13": "ff087f3d7c5776e037e6fa12e394ba1fccf7789aaedc13d86e1bfa30e95e5544",
+    "sd3-medium": "d37d72e1431eae261bd6901239de961b17bf5a2aeb21ef05f9d126085323e592",
+    "wan21-14b-81f": "4d92b57ae24f2707bbe97a625d4c7a22d6df8f35637809fea1520cf964e822a2"
+  },
   "workloads": {
     "dit-xl2-512": {
       "latency_ms": {
