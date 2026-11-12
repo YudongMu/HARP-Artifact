@@ -91,13 +91,13 @@ The [asset inventory](submit/HARP-AE-Stage6.1-Review-Catalog.md#asset-inventory)
 
 ## Performance reconstruction
 
-Run from the directory containing this README. Choose a fresh output directory for each run. The complete reconstruction and its checks take a few seconds on the reference host.
+Run from the directory containing this README. Choose a fresh output directory for each run. The reconstruction takes a few seconds on the reference host.
 
 ~~~bash
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-The command compiles the workloads, evaluates the released timing models, and checks six generated reports against the reference outputs. Open `results/performance-check/summary.md` for the end-to-end comparison, work reductions, and ablation speedups. The end-to-end geometric mean is **12.243×** relative to the historical H100 Dense latencies. The [hardware guide](hardware/README.md) documents the timing inputs and their calibration.
+The command compiles the workloads and evaluates the released timing models. Open `results/performance-check/summary.md` for the end-to-end comparison, work reductions, and ablation speedups. The end-to-end geometric mean is **12.243×** relative to the configured H100 Dense latencies. To run the test suite and compare computed metrics with the six archived reports, add `--verify` before the output directory. The [hardware guide](hardware/README.md) documents the timing inputs and their calibration.
 
 The ablation reports geometric-mean speedups of **1.335×, 3.378×, 3.697×, and 6.838×** for HARP-Residual, HARP-PlaneClear, HARP-Budget (Combined), and HARP-All, respectively, over the dense algorithm on Matched NPU. Both reports compute HARP-All latency with the same evaluator and inputs. The run writes per-configuration latencies to `matched-npu-ablation.json`. See the [reference summary](hardware/results/harp-paper-audit/summary.md).
 

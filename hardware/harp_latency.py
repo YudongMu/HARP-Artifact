@@ -1,6 +1,6 @@
 """Estimate Full HARP latency for a compiled Combined workload."""
 
-from .baselines.common import ROOT, read
+from .baselines.common import PERFORMANCE_INPUTS, ROOT, read
 from .baselines.kernel_latencies import execute
 from .dataflow import build, read_workloads
 from .formation_ablation import without_formation
@@ -11,7 +11,6 @@ from .harp_workload import compile_workload, fingerprint, load_profiles
 SERVICE_TABLE = ROOT / "configs/harp-e2e-latencies.json"
 HARDWARE = ROOT / "configs/harp.json"
 BACKENDS = ROOT / "configs/harp-ablation.json"
-FORMATION = ROOT / "reference/harp-table-ii.json"
 
 
 def with_exposed_formation(core_ms, share):
@@ -23,9 +22,9 @@ def with_exposed_formation(core_ms, share):
 
 def load_cases(tasks_path=None):
     specs = read_workloads(ROOT / "workloads/dataflow")
-    formation = read(FORMATION)["workloads"]
+    inputs = read(PERFORMANCE_INPUTS)["workloads"]
     tasks = read(tasks_path)["workloads"] if tasks_path is not None else None
-    if set(specs) != set(formation) or tasks is not None and set(specs) != set(tasks):
+    if set(specs) != set(inputs) or tasks is not None and set(specs) != set(tasks):
         raise ValueError("Mismatched HARP workload coverage")
     profiles = None
     if tasks is None:
@@ -43,7 +42,8 @@ def load_cases(tasks_path=None):
             "graph": graph,
             "phases": execution_phases(graph, without_formation(work), backend),
             "workload_sha256": work["sha256"],
-            "formation_exposed_fraction": formation[name],
+            "formation_exposed_fraction": inputs[name]["formation_exposed_fraction"],
+            "h100_reference_ms": inputs[name]["h100_reference_ms"],
         }
     return cases, read(HARDWARE)["hardware"]
 

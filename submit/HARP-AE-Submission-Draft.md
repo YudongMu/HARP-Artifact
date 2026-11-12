@@ -48,7 +48,7 @@ Domain-Specific Accelerators, Accelerator Architectures, and ML/Diffusion Infere
 
 ## 11. Data Dependencies
 
-The quality workflow uses the official DiT checkpoint and VAE, the ADM Inception graph and ImageNet 512 reference statistics, and the Wan2.1 model, VAE, text encoder, and VBench scoring assets. Source, revisions, and checksums are indexed in the [6.1 review catalog](HARP-AE-Stage6.1-Review-Catalog.md). The reconstruction workflow consumes the released dataflow, HARP profiles, component configurations, calibration inputs, and historical H100 references.
+The quality workflow uses the official DiT checkpoint and VAE, the ADM Inception graph and ImageNet 512 reference statistics, and the Wan2.1 model, VAE, text encoder, and VBench scoring assets. Source, revisions, and checksums are indexed in the [6.1 review catalog](HARP-AE-Stage6.1-Review-Catalog.md). The performance workflow consumes the released dataflow, HARP profiles, component configurations, calibrated service-time tables, and configured H100 comparison latencies.
 
 ## 12. Evaluation catalog
 

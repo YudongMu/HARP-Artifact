@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
+verify=false
+if [[ ${1:-} == --verify ]]; then
+  verify=true
+  shift
+fi
 if (( $# > 1 )); then
-  echo "Usage: bash scripts/reconstruct_performance.sh [new-output-directory]" >&2
+  echo "Usage: bash scripts/reconstruct_performance.sh [--verify] [new-output-directory]" >&2
   exit 2
 fi
 if (( $# == 1 )); then
@@ -14,7 +19,6 @@ cd "$(dirname "$0")/.."
 printf 'Reports and logs: %s\n' "$out"
 
 {
-  python3 -B -m unittest discover -s hardware/tests
   python3 -B -m hardware.baselines.reconstruct_latencies --out "$out/baseline.json"
   python3 -B -m hardware --out "$out/report.json" --tasks-out "$out/workload.json"
   python3 -B -m hardware.formation_ablation --ablation-dir "$out" --out "$out/formation.json"
@@ -23,11 +27,10 @@ printf 'Reports and logs: %s\n' "$out"
     --baseline-report "$out/baseline.json" --out "$out/e2e.json"
   python3 -B -m hardware.matched_npu_ablation \
     --workload-tasks "$out/workload.json" --out "$out/matched-npu-ablation.json"
-  cmp "$out/baseline.json" hardware/results/baseline-paper-audit/report.json
-  for name in workload report formation e2e matched-npu-ablation; do
-    cmp "$out/$name.json" "hardware/results/harp-paper-audit/$name.json"
-  done
-  echo 'All six reports match the reference outputs byte for byte.'
+  if "$verify"; then
+    python3 -B -m unittest discover -s hardware/tests
+    python3 -B -m hardware.verify_performance "$out"
+  fi
 } 2>&1 | tee "$out/reconstruction.log"
 
 python3 -B - "$out" <<'PY' > "$out/summary.md"

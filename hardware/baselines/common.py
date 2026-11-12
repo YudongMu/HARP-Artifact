@@ -6,6 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PERFORMANCE_INPUTS = ROOT / "configs/performance-inputs.json"
 
 
 def read(path):

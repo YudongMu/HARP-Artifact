@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "workloads": {
+    "dit-xl2-512": {
+      "formation_exposed_fraction": 0.0187,
+      "h100_reference_ms": 1067.98349
+    },
+    "flux1-dev": {
+      "formation_exposed_fraction": 0.0,
+      "h100_reference_ms": 15831.3803
+    },
+    "latte-1": {
+      "formation_exposed_fraction": 0.0293,
+      "h100_reference_ms": 42271.261
+    },
+    "opensora-v13": {
+      "formation_exposed_fraction": 0.0,
+      "h100_reference_ms": 1162178.06
+    },
+    "sd3-medium": {
+      "formation_exposed_fraction": 0.0324,
+      "h100_reference_ms": 1991.94177
+    },
+    "wan21-14b-81f": {
+      "formation_exposed_fraction": 0.0,
+      "h100_reference_ms": 524488.869
+    }
+  }
+}

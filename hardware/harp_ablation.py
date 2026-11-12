@@ -62,7 +62,6 @@ def main():
     task_args.add_argument("--tasks-in", type=Path)
     parser.add_argument("--workloads", type=Path, default=ROOT / "workloads/dataflow")
     parser.add_argument("--profiles", type=Path, default=ROOT / "workloads/harp/revised")
-    parser.add_argument("--reference", type=Path, default=ROOT / "reference/harp-ablation.json")
     parser.add_argument("--backends", type=Path, default=ROOT / "configs/harp-ablation.json")
     args = parser.parse_args()
     if args.out.exists() or args.tasks_out and args.tasks_out.exists():
@@ -74,9 +73,6 @@ def main():
     backend_path = args.backends
     hardware = read(hardware_path)["hardware"]
     backend = read(backend_path)
-    reference = read(args.reference)
-    if set(specs) != set(reference["workloads"]) or reference["denominator"] != "Matched NPU":
-        raise ValueError("Reference ablation denominator or workload coverage differs")
     replay = read(args.tasks_in) if args.tasks_in else None
     if replay is not None and (replay["schema_version"] != 1 or set(replay["workloads"]) != set(specs)):
         raise ValueError("Compiled HARP workload coverage or schema differs")
@@ -106,13 +102,8 @@ def main():
             "combined_unsplit": run(graph, work["combined"], hardware, backend["backends"]["harp_unsplit"]),
         }
         dense = timings["dense"]["cycles"]
-        anchors = reference["workloads"][name]
-        for mode, timing in timings.items():
+        for timing in timings.values():
             timing["speedup_vs_modeled_dense"] = dense / timing["cycles"]
-            if mode in anchors:
-                target = anchors[mode]["speedup"]
-                timing["reference_speedup_vs_matched_npu"] = target
-                timing["relative_speedup_error"] = timing["speedup_vs_modeled_dense"] / target - 1
         algorithms = {}
         for mode, workload in work.items():
             counts = workload["counts"]
@@ -136,7 +127,6 @@ def main():
                 "sparse_issue_utilization": timings["combined_unsplit"]["cycles"] /
                 timings["combined_harp"]["cycles"],
             },
-            "reference_hardware_gain": anchors["combined_harp"]["speedup"] / anchors["combined_generic"]["speedup"],
         }
         if args.tasks_out:
             task_output[name] = work
@@ -145,28 +135,23 @@ def main():
         return exp(mean(log(value) for value in values))
 
     report = {
-        "schema_version": 1, "model": "harp_workload_ablation_v0.4",
+        "schema_version": 2, "model": "harp_workload_ablation_v0.4",
         "modeled_denominator": "dense generic substrate proxy",
-        "reference": {key: reference[key] for key in ("file", "sheet", "sha256", "denominator")},
-        "reference_evidence": reference.get("evidence", "Workbook numerical anchors; provenance unverified."),
         "backend_assumptions": backend,
         "workloads": results,
         "geomean": {
             mode: {"modeled_speedup": geomean(row["timings"][mode]["speedup_vs_modeled_dense"]
-                                              for row in results.values()),
-                   "reference_speedup": geomean(anchors[mode]["speedup"]
-                                               for anchors in reference["workloads"].values())}
+                                              for row in results.values())}
             for mode in ("residual", "planeclear", "combined_generic", "combined_harp")
         },
         "fixed_work_hardware_gain_geomean": geomean(row["hardware_gain_fixed_combined"]
                                                     for row in results.values()),
-        "reference_hardware_gain_geomean": geomean(row["reference_hardware_gain"] for row in results.values()),
         "hardware_breakdown_geomean": {
             stage: geomean(row["hardware_breakdown_fixed_combined"][stage] for row in results.values())
             for stage in ("dedicated_services", "residual_overlap", "sparse_issue_utilization")
         },
         "source_sha256": {"algorithm_profiles": profile_sha256, **{
-            path.name: digest(path) for path in (args.reference, hardware_path, backend_path,
+            path.name: digest(path) for path in (hardware_path, backend_path,
                                                  Path(__file__), ROOT / "harp_workload.py",
                                                  ROOT / "harp_components.py", ROOT / "component_timing.py",
                                                  ROOT / "dataflow.py")

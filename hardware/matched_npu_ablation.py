@@ -4,8 +4,8 @@ import argparse
 from pathlib import Path
 from statistics import geometric_mean
 
-from .baselines.common import ROOT, digest, read, write
-from .harp_latency import BACKENDS, FORMATION, HARDWARE, SERVICE_TABLE, estimate, load_cases
+from .baselines.common import PERFORMANCE_INPUTS, ROOT, digest, read, write
+from .harp_latency import BACKENDS, HARDWARE, SERVICE_TABLE, estimate, load_cases
 
 
 def dense_latency_ms(work, inputs):
@@ -70,7 +70,7 @@ def main():
     timing = estimate(cases, hardware, read(args.table))
     report = reconstruct(read(inputs), {name: row["estimated_full_harp_ms"] for name, row in timing.items()})
     report["input_sha256"] = {path.relative_to(ROOT).as_posix(): digest(path)
-                              for path in (inputs, HARDWARE, BACKENDS, FORMATION)}
+                              for path in (inputs, HARDWARE, BACKENDS, PERFORMANCE_INPUTS)}
     report["service_table_sha256"] = digest(args.table)
     report["workload_sha256"] = {name: row["workload_sha256"] for name, row in timing.items()}
     write(args.out, report)

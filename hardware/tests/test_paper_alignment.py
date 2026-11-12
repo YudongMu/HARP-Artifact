@@ -2,7 +2,7 @@ from math import isclose
 from statistics import geometric_mean
 import unittest
 
-from hardware.baselines.common import ROOT, read
+from hardware.baselines.common import PERFORMANCE_INPUTS, ROOT, read
 from hardware.dataflow import read_workloads
 from hardware.harp_workload import load_profiles
 
@@ -25,12 +25,16 @@ class PaperAlignmentTest(unittest.TestCase):
         timing = read(ROOT / "reference/e2e-speedups.json")["workloads"]
         harp = read(ROOT / "reference/harp-speedups.json")["values"]
         formation = read(ROOT / "reference/harp-table-ii.json")["workloads"]
+        inputs = read(PERFORMANCE_INPUTS)["workloads"]
         hardware = read(ROOT / "configs/harp.json")["hardware"]
+        self.assertEqual(set(inputs), set(self.paper["workloads"]))
         for name, expected in self.paper["workloads"].items():
             h100 = timing[name]["H100-Dense"]["latency_ms"]
             self.assertAlmostEqual(h100, expected["h100_ms_printed"], delta=0.00051)
             self.assertAlmostEqual(h100 / harp[name], expected["harp_ms_printed"], delta=0.00051)
             self.assertEqual(formation[name], expected["formation_exposed_fraction"])
+            self.assertEqual(inputs[name]["h100_reference_ms"], h100)
+            self.assertEqual(inputs[name]["formation_exposed_fraction"], formation[name])
         physical = self.paper["hardware"]
         self.assertEqual(hardware["clock_hz"], physical["clock_hz"])
         self.assertEqual(hardware["buffer_bytes"], physical["sram_bytes"])

@@ -8,7 +8,7 @@ Run the commands from the artifact root. The [README](../README.md#environment-r
 bash scripts/reconstruct_performance.sh results/performance-check
 ~~~
 
-Expect passing tests and byte-for-byte agreement with the six reference reports. Open `summary.md` for the end-to-end comparison against H100, work reductions, and the four ablation speedups relative to Matched NPU Dense. Both comparisons compute Full HARP latency with the same evaluator. The underlying Matched NPU timings are in `matched-npu-ablation.json`. This run takes a few seconds on the reference host. See the [hardware guide](../hardware/README.md) for the timing inputs and calibration.
+Open `summary.md` for the end-to-end comparison against H100, work reductions, and the four ablation speedups relative to Matched NPU Dense. Both comparisons compute Full HARP latency with the same evaluator. The underlying Matched NPU timings are in `matched-npu-ablation.json`. To run the tests and compare computed metrics with the archived reports, add `--verify` before the output directory. See the [hardware guide](../hardware/README.md) for the timing inputs and calibration.
 
 ## DiT paired FID
 
