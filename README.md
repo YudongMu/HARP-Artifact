@@ -18,7 +18,7 @@ HARP combines residual-compensated attention windows with selective removal of B
 | Generation | `harp-ae-gpu:unified-v0.2` with Python 3.10.19, CUDA 12.1.1, PyTorch 2.5.1+cu121, Diffusers 0.32.2, Transformers 4.49.0 and FlashAttention 2.7.4.post1 |
 | Scoring | `harp-ae-gpu:quality-v0.4` with Python 3.10.19 and the pinned ADM and VBench stack, including `tensorflow-cpu==2.17.1` for DiT FID |
 
-The exact Python dependency lists are [env/unified-resolved-lock.txt](env/unified-resolved-lock.txt) for generation and [env/quality-semantic-resolved-lock.txt](env/quality-semantic-resolved-lock.txt) for scoring. The [Dockerfiles](docker/) document the build inputs. The steps below load both built images with their dependencies already installed. The [delivery catalog](submit/HARP-AE-Stage6.1-Review-Catalog.md#container-images) records the image IDs.
+The exact Python dependency lists are [env/unified-resolved-lock.txt](env/unified-resolved-lock.txt) for generation and [env/quality-semantic-resolved-lock.txt](env/quality-semantic-resolved-lock.txt) for scoring. The [Dockerfiles](docker/) document the build inputs. The steps below load both built images with their dependencies already installed. The [container image inventory](assets/README.md#container-images) lists the expected image IDs.
 
 ### 1. Get the source and assets
 
@@ -87,7 +87,7 @@ python3 scripts/prepare_weights.py dit --assets "$HARP_ASSETS" --verify-only
 python3 scripts/prepare_weights.py wan --assets "$HARP_ASSETS" --verify-only
 ~~~
 
-The [asset inventory](submit/HARP-AE-Stage6.1-Review-Catalog.md#asset-inventory) records the required layout and provenance.
+The [asset inventory](assets/README.md#asset-inventory) records the required layout and provenance.
 
 ## Performance reconstruction
 
@@ -161,7 +161,9 @@ bash scripts/run_quality.sh wan development dev-check
 
 The 22-input run on H100 yielded 16-dimension VBench totals of **80.370 / 80.153 / 80.430 / 80.274** in Dense, Residual, PlaneClear and Combined order. Compare your new scores at `results/wan-dev-check/heldout-scores/summary.json` with the [recorded scores](results/wan-stage4-9f-v1/heldout-scores/summary.json).
 
-For a one-input Wan generation check, run `bash scripts/run_quality.sh wan smoke check`. The [runbook](submit/HARP-AE-Runbook.md) gives the output paths and how to resume Wan scoring.
+To resume Wan scoring after generation, run `bash scripts/run_quality.sh wan score dev-check` with the same run name. The script writes its log to `results/wan-dev-check/scoring.log`.
+
+For a one-input generation check, run `bash scripts/run_quality.sh wan smoke check`. The four modes write their receipts under `results/source-budget-wan-smoke-check/`. This check took about 28 minutes on the reference H100.
 
 ## Package map
 
@@ -169,7 +171,7 @@ For a one-input Wan generation check, run `bash scripts/run_quality.sh wan smoke
 |---|---|
 | `containers/` | Docker image archive assembled from Release assets |
 | `scoring-assets/` | DiT FID and Wan VBench archives assembled from Release assets |
-| [submit/](submit/README.md) | Runbook, delivery catalog and evaluation evidence |
+| [assets/](assets/README.md) | Container image IDs, scoring asset inventory and model budget tables |
 | [scripts/](scripts/) | Performance, generation and scoring entry points |
 | [hardware/](hardware/) | Workload profiles, performance models, tests and frozen reports |
 | [harp/](harp/) and [quality/](quality/) | HARP reference code, model adapters and quality scoring |
