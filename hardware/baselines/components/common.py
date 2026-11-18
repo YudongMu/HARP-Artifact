@@ -9,6 +9,7 @@ from ...dataflow import build, read_workloads
 from ..common import ROOT, digest, native_architecture, read, write
 
 
+COMPONENT_CONFIGS = ROOT / "configs/baseline-components"
 LINEAR_ROLES = {"qkv", "attention_out", "ffn_in", "ffn_out", "packed_in", "packed_out"}
 
 
@@ -39,7 +40,7 @@ def temporal_phases(graph, build_plan):
 
 def model_inputs(name, *, normalized=False):
     profile_path = ROOT / "configs" / f"{name}.json"
-    timing_path = ROOT / "configs/baseline-components" / f"{name}.json"
+    timing_path = COMPONENT_CONFIGS / f"{name}.json"
     profile, timing = read(profile_path), read(timing_path)
     if normalized:
         peak = read(ROOT / "configs/baseline-comparison.json")["normalized"]

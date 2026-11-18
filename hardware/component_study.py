@@ -1,13 +1,15 @@
 """Run component timing sensitivities with configured work and resource rates."""
 
 import argparse
+from hashlib import sha256
+import json
 from math import ceil, isfinite
 from pathlib import Path
 from statistics import geometric_mean
 
 from .baselines.common import PERFORMANCE_INPUTS, ROOT, digest, read, write
 from .baselines.component_compare import BASELINES
-from .baselines.components.common import model_inputs, workload_profile
+from .baselines.components.common import COMPONENT_CONFIGS, model_inputs, workload_profile
 from .component_timing import run_graph
 from .dataflow import build, read_workloads
 from .harp_ablation import run
@@ -68,12 +70,25 @@ def scaled_timing(row, scale, clock_hz):
     return {"effective_cycles": cycles, "latency_ms": cycles / clock_hz * 1000}
 
 
+def load_cycle_scales(methods, parameters_path):
+    if parameters_path is not None:
+        parameters = read(parameters_path)
+        scales = parameters["cycle_scale"]
+        if parameters["schema_version"] != 1 or set(scales) != set(methods):
+            raise ValueError("Timing parameters and simulator coverage differ")
+        return scales, digest(parameters_path)
+
+    scales = {method: read(COMPONENT_CONFIGS / f"{method}.json")["cycle_scale"]
+              for method in methods}
+    # Keep the v1 parameter fingerprint comparable with archived evaluations.
+    parameters = {"schema_version": 1, "cycle_scale": scales}
+    encoded = json.dumps(parameters, sort_keys=True, indent=2, allow_nan=False) + "\n"
+    return scales, sha256(encoded.encode("utf-8")).hexdigest()
+
+
 def fixed_parameter_timing(report, inputs, parameters_path, harp_clock, baseline_clock):
-    parameters = read(parameters_path)
     methods = component_methods(report)
-    scales = parameters["cycle_scale"]
-    if parameters["schema_version"] != 1 or set(scales) != set(methods):
-        raise ValueError("Timing parameters and simulator coverage differ")
+    scales, parameters_sha256 = load_cycle_scales(methods, parameters_path)
     results = {}
     for method, rows in methods.items():
         clock = harp_clock if method == "harp" else baseline_clock
@@ -91,7 +106,7 @@ def fixed_parameter_timing(report, inputs, parameters_path, harp_clock, baseline
         }
     harp_ms = {name: row["latency_ms"] for name, row in results["harp"]["workloads"].items()}
     matched = matched_npu_timing(read(ROOT / "workloads/harp/matched-npu.json"), harp_ms)
-    return {"parameters_sha256": digest(parameters_path), "methods": results,
+    return {"parameters_sha256": parameters_sha256, "methods": results,
             "matched_npu": matched}
 
 
@@ -180,10 +195,9 @@ def main():
         "harp": results,
         "baselines": baselines,
     }
-    parameters = ROOT / "configs/component-model-timing.json" if args.fixed else args.timing_parameters
-    if parameters is not None:
+    if args.fixed or args.timing_parameters is not None:
         baseline_clock = read(ROOT / "configs/baseline-comparison.json")["normalized"]["clock_hz"]
-        fixed = fixed_parameter_timing(report, inputs, parameters,
+        fixed = fixed_parameter_timing(report, inputs, args.timing_parameters,
                                        hardware["clock_hz"], baseline_clock)
         report = {"schema_version": 1, "model": "fixed_component_timing",
                   "algorithm_profiles_sha256": profile_sha256,
