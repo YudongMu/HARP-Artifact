@@ -4,7 +4,7 @@ HARP combines residual-compensated attention windows with selective removal of B
 
 | Workflow | Entry point | Reference result |
 |---|---|---|
-| Six-model performance reconstruction | [Quick start](#performance-reconstruction) | 12.243× geometric mean against the historical H100 latency references |
+| Six-model component simulation | [Quick start](#performance-reconstruction) | 12.060× geometric mean against the configured H100 Dense latencies |
 | DiT paired quality | [DiT paired FID](#dit-paired-fid) | Four configurations on 100 matched inputs, plus a 5,000-image Dense and Residual comparison |
 | Wan paired quality | [Wan VBench](#wan-vbench) | **80.274 VBench** for Combined and **80.370** for Dense on the same 22 inputs |
 
@@ -91,7 +91,17 @@ The [asset inventory](submit/HARP-AE-Stage6.1-Review-Catalog.md#asset-inventory)
 
 ## Performance reconstruction
 
-Run from the directory containing this README. Choose a fresh output directory for each run. The reconstruction takes a few seconds on the reference host.
+From this checkout, run the updated six workload profiles with the bundled component timing parameters. Choose a new output path.
+
+~~~bash
+python3 -B -m hardware.component_study --fixed --out results/component-rtl/evaluation.json
+~~~
+
+The report contains effective cycles, latency and H100-relative speedup for HARP and the five baselines. The HARP geometric mean is **12.060×**. The [timing method](hardware/docs/COMPONENT-TIMING-METHOD.md) identifies the configuration and the [reference run](results/component-profile-update/evaluation.json) contains the per-workload results.
+
+### Archived release reconstruction
+
+To reproduce the original release with its service-time tables, choose a fresh output directory.
 
 ~~~bash
 bash scripts/reconstruct_performance.sh results/performance-check

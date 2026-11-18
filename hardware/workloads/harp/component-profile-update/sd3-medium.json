@@ -1,0 +1,37 @@
+{
+  "active_component_fraction": 0.0237,
+  "features": "Joint image/text stream with a context-pre-only final block. The published Region and site rates are applied across the modeled joint groups.",
+  "id": "sd3-medium",
+  "plane_sites": {
+    "attention_out": {
+      "final_skip_fraction": 0.7957105263157894,
+      "natural_skip_fraction": 0.27
+    },
+    "ffn_in": {
+      "final_skip_fraction": 0.8313947368421053,
+      "natural_skip_fraction": 0.28
+    },
+    "ffn_out": {
+      "final_skip_fraction": 0.8421,
+      "natural_skip_fraction": 0.33
+    },
+    "k": {
+      "final_skip_fraction": 0.7778684210526315,
+      "natural_skip_fraction": 0.21
+    },
+    "q": {
+      "final_skip_fraction": 0.7743,
+      "natural_skip_fraction": 0.2
+    },
+    "qkv": {
+      "final_skip_fraction": 0.7814368421052632,
+      "natural_skip_fraction": 0.25
+    },
+    "v": {
+      "final_skip_fraction": 0.7850052631578948,
+      "natural_skip_fraction": 0.23
+    }
+  },
+  "selected_fraction": 0.1367,
+  "source": "Region retention, active-component fraction, and final skip range endpoints supplied by the user. Intermediate final skip rates are mapped from the relative positions in the prior profile. Natural skip rates are inherited from the prior profile."
+}

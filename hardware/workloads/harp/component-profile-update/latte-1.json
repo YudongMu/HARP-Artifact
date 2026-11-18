@@ -1,0 +1,37 @@
+{
+  "active_component_fraction": 0.1346,
+  "features": "Alternating spatial and temporal groups. The published workload average is shared across those groups because a separate rate per group is unavailable.",
+  "id": "latte-1",
+  "plane_sites": {
+    "attention_out": {
+      "final_skip_fraction": 0.48518823529411764,
+      "natural_skip_fraction": 0.21
+    },
+    "ffn_in": {
+      "final_skip_fraction": 0.5637294117647059,
+      "natural_skip_fraction": 0.23
+    },
+    "ffn_out": {
+      "final_skip_fraction": 0.603,
+      "natural_skip_fraction": 0.28
+    },
+    "k": {
+      "final_skip_fraction": 0.4361,
+      "natural_skip_fraction": 0.16
+    },
+    "q": {
+      "final_skip_fraction": 0.4361,
+      "natural_skip_fraction": 0.15
+    },
+    "qkv": {
+      "final_skip_fraction": 0.4361,
+      "natural_skip_fraction": 0.19
+    },
+    "v": {
+      "final_skip_fraction": 0.45573529411764707,
+      "natural_skip_fraction": 0.18
+    }
+  },
+  "selected_fraction": 0.3382,
+  "source": "Region retention, active-component fraction, and final skip range endpoints supplied by the user. Intermediate final skip rates are mapped from the relative positions in the prior profile. Natural skip rates are inherited from the prior profile."
+}

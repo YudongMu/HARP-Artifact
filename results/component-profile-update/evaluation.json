@@ -1,0 +1,322 @@
+{
+  "algorithm_profiles_sha256": "24bce403f8861f20a90339e18ac4b0c3d06b450261b2dd3856f95d107a65b748",
+  "fixed_parameter_timing": {
+    "matched_npu": {
+      "geomean_speedup": {
+        "all": 6.735878440940952,
+        "budget": 3.6967203089351535,
+        "planeclear": 3.3776176175902224,
+        "residual": 1.3345343237081044
+      },
+      "model": "historical_analytical_matched_npu",
+      "schema_version": 1,
+      "workloads": {
+        "dit-xl2-512": {
+          "latency_ms": {
+            "all": 97.5728745,
+            "budget": 179.40864589525597,
+            "planeclear": 170.98427781989213,
+            "residual": 582.9726458490413
+          },
+          "matched_npu_dense_ms": 642.9879233880198,
+          "speedup": {
+            "all": 6.589822496087474,
+            "budget": 3.5839294153271464,
+            "planeclear": 3.760509045546966,
+            "residual": 1.1029469872494142
+          }
+        },
+        "flux1-dev": {
+          "latency_ms": {
+            "all": 1470.575975,
+            "budget": 2700.302486175339,
+            "planeclear": 2615.047171756758,
+            "residual": 8111.350789334485
+          },
+          "matched_npu_dense_ms": 9077.531455736826,
+          "speedup": {
+            "all": 6.172772852308311,
+            "budget": 3.3616720727439993,
+            "planeclear": 3.471268722712427,
+            "residual": 1.1191146445882676
+          }
+        },
+        "latte-1": {
+          "latency_ms": {
+            "all": 2998.1149295,
+            "budget": 5650.024709956924,
+            "planeclear": 6870.065969676357,
+            "residual": 14732.459219710132
+          },
+          "matched_npu_dense_ms": 23136.13434555292,
+          "speedup": {
+            "all": 7.716893744767606,
+            "budget": 4.094873125914048,
+            "planeclear": 3.3676728065891983,
+            "residual": 1.5704190319155782
+          }
+        },
+        "opensora-v13": {
+          "latency_ms": {
+            "all": 89871.567841,
+            "budget": 164715.32802213274,
+            "planeclear": 204213.18544404244,
+            "residual": 388994.1886349314
+          },
+          "matched_npu_dense_ms": 608433.4899410972,
+          "speedup": {
+            "all": 6.770033110110336,
+            "budget": 3.6938486372035895,
+            "planeclear": 2.979403551333454,
+            "residual": 1.5641197419329784
+          }
+        },
+        "sd3-medium": {
+          "latency_ms": {
+            "all": 171.508263,
+            "budget": 315.0692191452275,
+            "planeclear": 320.10597941278365,
+            "residual": 950.0301060122304
+          },
+          "matched_npu_dense_ms": 1142.1565071774128,
+          "speedup": {
+            "all": 6.659483847594053,
+            "budget": 3.6250970827173976,
+            "planeclear": 3.568057395468321,
+            "residual": 1.20223190817777
+          }
+        },
+        "wan21-14b-81f": {
+          "latency_ms": {
+            "all": 42528.9324815,
+            "budget": 72656.8312756733,
+            "planeclear": 88345.62975316028,
+            "residual": 181111.72164058877
+          },
+          "matched_npu_dense_ms": 280686.8279076518,
+          "speedup": {
+            "all": 6.599902972635158,
+            "budget": 3.863185649298063,
+            "planeclear": 3.177144457421349,
+            "residual": 1.5497993468620825
+          }
+        }
+      }
+    },
+    "methods": {
+      "adaptiv": {
+        "geomean_speedup_vs_configured_h100": 2.420410078860191,
+        "workloads": {
+          "dit-xl2-512": {
+            "effective_cycles": 439189794,
+            "latency_ms": 219.594897,
+            "speedup_vs_configured_h100": 4.863425810846597
+          },
+          "flux1-dev": {
+            "effective_cycles": 25071392664,
+            "latency_ms": 12535.696332000001,
+            "speedup_vs_configured_h100": 1.2629039409312328
+          },
+          "latte-1": {
+            "effective_cycles": 20419035166,
+            "latency_ms": 10209.517583,
+            "speedup_vs_configured_h100": 4.140377902907618
+          },
+          "opensora-v13": {
+            "effective_cycles": 609343450599,
+            "latency_ms": 304671.7252995,
+            "speedup_vs_configured_h100": 3.8145254826569475
+          },
+          "sd3-medium": {
+            "effective_cycles": 3295968969,
+            "latency_ms": 1647.9844845,
+            "speedup_vs_configured_h100": 1.2087139100732232
+          },
+          "wan21-14b-81f": {
+            "effective_cycles": 611715086727,
+            "latency_ms": 305857.5433635,
+            "speedup_vs_configured_h100": 1.714814234209241
+          }
+        }
+      },
+      "bitred": {
+        "geomean_speedup_vs_configured_h100": 2.237536483705805,
+        "workloads": {
+          "dit-xl2-512": {
+            "effective_cycles": 449958496,
+            "latency_ms": 224.97924799999998,
+            "speedup_vs_configured_h100": 4.747031112842906
+          },
+          "flux1-dev": {
+            "effective_cycles": 26724540911,
+            "latency_ms": 13362.2704555,
+            "speedup_vs_configured_h100": 1.1847822084370174
+          },
+          "latte-1": {
+            "effective_cycles": 19440905302,
+            "latency_ms": 9720.452651,
+            "speedup_vs_configured_h100": 4.34869265019786
+          },
+          "opensora-v13": {
+            "effective_cycles": 559722328415,
+            "latency_ms": 279861.1642075,
+            "speedup_vs_configured_h100": 4.1526950096524144
+          },
+          "sd3-medium": {
+            "effective_cycles": 4088152150,
+            "latency_ms": 2044.076075,
+            "speedup_vs_configured_h100": 0.9744949292065854
+          },
+          "wan21-14b-81f": {
+            "effective_cycles": 827321775621,
+            "latency_ms": 413660.8878105,
+            "speedup_vs_configured_h100": 1.2679198939404461
+          }
+        }
+      },
+      "ditto": {
+        "geomean_speedup_vs_configured_h100": 2.2422350984876953,
+        "workloads": {
+          "dit-xl2-512": {
+            "effective_cycles": 428924906,
+            "latency_ms": 214.462453,
+            "speedup_vs_configured_h100": 4.979815697622372
+          },
+          "flux1-dev": {
+            "effective_cycles": 25456368670,
+            "latency_ms": 12728.184335,
+            "speedup_vs_configured_h100": 1.243805077246314
+          },
+          "latte-1": {
+            "effective_cycles": 17789566040,
+            "latency_ms": 8894.78302,
+            "speedup_vs_configured_h100": 4.752365617570736
+          },
+          "opensora-v13": {
+            "effective_cycles": 559837253389,
+            "latency_ms": 279918.6266945,
+            "speedup_vs_configured_h100": 4.151842532681428
+          },
+          "sd3-medium": {
+            "effective_cycles": 4256060168,
+            "latency_ms": 2128.030084,
+            "speedup_vs_configured_h100": 0.9360496287044032
+          },
+          "wan21-14b-81f": {
+            "effective_cycles": 944266499309,
+            "latency_ms": 472133.2496545,
+            "speedup_vs_configured_h100": 1.1108916166862068
+          }
+        }
+      },
+      "dstar": {
+        "geomean_speedup_vs_configured_h100": 3.8184700563173934,
+        "workloads": {
+          "dit-xl2-512": {
+            "effective_cycles": 260239630,
+            "latency_ms": 130.119815,
+            "speedup_vs_configured_h100": 8.207692963596667
+          },
+          "flux1-dev": {
+            "effective_cycles": 20281624108,
+            "latency_ms": 10140.812054,
+            "speedup_vs_configured_h100": 1.5611550845925974
+          },
+          "latte-1": {
+            "effective_cycles": 11134681202,
+            "latency_ms": 5567.340601,
+            "speedup_vs_configured_h100": 7.592720479937455
+          },
+          "opensora-v13": {
+            "effective_cycles": 347710484223,
+            "latency_ms": 173855.2421115,
+            "speedup_vs_configured_h100": 6.684745572725675
+          },
+          "sd3-medium": {
+            "effective_cycles": 2142126102,
+            "latency_ms": 1071.063051,
+            "speedup_vs_configured_h100": 1.859780120451564
+          },
+          "wan21-14b-81f": {
+            "effective_cycles": 409299280039,
+            "latency_ms": 204649.6400195,
+            "speedup_vs_configured_h100": 2.5628624069410733
+          }
+        }
+      },
+      "exion": {
+        "geomean_speedup_vs_configured_h100": 2.3316325612099145,
+        "workloads": {
+          "dit-xl2-512": {
+            "effective_cycles": 392726824,
+            "latency_ms": 196.36341199999998,
+            "speedup_vs_configured_h100": 5.438811024530375
+          },
+          "flux1-dev": {
+            "effective_cycles": 37249768006,
+            "latency_ms": 18624.884003,
+            "speedup_vs_configured_h100": 0.8500122898725149
+          },
+          "latte-1": {
+            "effective_cycles": 17184759855,
+            "latency_ms": 8592.3799275,
+            "speedup_vs_configured_h100": 4.91962196232855
+          },
+          "opensora-v13": {
+            "effective_cycles": 539472788299,
+            "latency_ms": 269736.39414949995,
+            "speedup_vs_configured_h100": 4.308569719204703
+          },
+          "sd3-medium": {
+            "effective_cycles": 3435469558,
+            "latency_ms": 1717.734779,
+            "speedup_vs_configured_h100": 1.1596329039571713
+          },
+          "wan21-14b-81f": {
+            "effective_cycles": 741856937312,
+            "latency_ms": 370928.468656,
+            "speedup_vs_configured_h100": 1.4139892548566075
+          }
+        }
+      },
+      "harp": {
+        "geomean_speedup_vs_configured_h100": 12.060340513595532,
+        "workloads": {
+          "dit-xl2-512": {
+            "effective_cycles": 195145749,
+            "latency_ms": 97.5728745,
+            "speedup_vs_configured_h100": 10.945495820152352
+          },
+          "flux1-dev": {
+            "effective_cycles": 2941151950,
+            "latency_ms": 1470.575975,
+            "speedup_vs_configured_h100": 10.7654283553762
+          },
+          "latte-1": {
+            "effective_cycles": 5996229859,
+            "latency_ms": 2998.1149295,
+            "speedup_vs_configured_h100": 14.0992797120855
+          },
+          "opensora-v13": {
+            "effective_cycles": 179743135682,
+            "latency_ms": 89871.567841,
+            "speedup_vs_configured_h100": 12.93154317788375
+          },
+          "sd3-medium": {
+            "effective_cycles": 343016526,
+            "latency_ms": 171.508263,
+            "speedup_vs_configured_h100": 11.614261232416538
+          },
+          "wan21-14b-81f": {
+            "effective_cycles": 85057864963,
+            "latency_ms": 42528.9324815,
+            "speedup_vs_configured_h100": 12.332519026386368
+          }
+        }
+      }
+    },
+    "parameters_sha256": "d225f1e308f46a0a21650f3435551f7375d0f4822f88c8b8ca861ccb21110ed0"
+  },
+  "model": "fixed_component_timing",
+  "schema_version": 1
+}

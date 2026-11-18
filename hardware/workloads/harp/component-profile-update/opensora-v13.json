@@ -1,0 +1,37 @@
+{
+  "active_component_fraction": 0.1323,
+  "features": "Spatial and windowed temporal groups use proxy deployment geometry. This workload has the lowest published natural zero-plane rates.",
+  "id": "opensora-v13",
+  "plane_sites": {
+    "attention_out": {
+      "final_skip_fraction": 0.42749375,
+      "natural_skip_fraction": 0.16
+    },
+    "ffn_in": {
+      "final_skip_fraction": 0.50604375,
+      "natural_skip_fraction": 0.19
+    },
+    "ffn_out": {
+      "final_skip_fraction": 0.5355,
+      "natural_skip_fraction": 0.23
+    },
+    "k": {
+      "final_skip_fraction": 0.3784,
+      "natural_skip_fraction": 0.12
+    },
+    "q": {
+      "final_skip_fraction": 0.3784,
+      "natural_skip_fraction": 0.11
+    },
+    "qkv": {
+      "final_skip_fraction": 0.38821875,
+      "natural_skip_fraction": 0.14
+    },
+    "v": {
+      "final_skip_fraction": 0.3980375,
+      "natural_skip_fraction": 0.13
+    }
+  },
+  "selected_fraction": 0.3822,
+  "source": "Region retention, active-component fraction, and final skip range endpoints supplied by the user. Intermediate final skip rates are mapped from the relative positions in the prior profile. Natural skip rates are inherited from the prior profile."
+}

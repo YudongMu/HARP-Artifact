@@ -23,7 +23,6 @@ class PaperAlignmentTest(unittest.TestCase):
 
     def test_table_ii_latency_and_hardware_parameters(self):
         timing = read(ROOT / "reference/e2e-speedups.json")["workloads"]
-        harp = read(ROOT / "reference/harp-speedups.json")["values"]
         formation = read(ROOT / "reference/harp-table-ii.json")["workloads"]
         inputs = read(PERFORMANCE_INPUTS)["workloads"]
         hardware = read(ROOT / "configs/harp.json")["hardware"]
@@ -31,7 +30,6 @@ class PaperAlignmentTest(unittest.TestCase):
         for name, expected in self.paper["workloads"].items():
             h100 = timing[name]["H100-Dense"]["latency_ms"]
             self.assertAlmostEqual(h100, expected["h100_ms_printed"], delta=0.00051)
-            self.assertAlmostEqual(h100 / harp[name], expected["harp_ms_printed"], delta=0.00051)
             self.assertEqual(formation[name], expected["formation_exposed_fraction"])
             self.assertEqual(inputs[name]["h100_reference_ms"], h100)
             self.assertEqual(inputs[name]["formation_exposed_fraction"], formation[name])

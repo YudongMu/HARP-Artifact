@@ -1,0 +1,37 @@
+{
+  "active_component_fraction": 0.0095,
+  "features": "81-frame workload with the lowest published retained Region share. Cross-attention stays dense. Edge-tile weighted selection remains a uniform proxy.",
+  "id": "wan21-14b-81f",
+  "plane_sites": {
+    "attention_out": {
+      "final_skip_fraction": 0.90695,
+      "natural_skip_fraction": 0.19
+    },
+    "ffn_in": {
+      "final_skip_fraction": 0.94395,
+      "natural_skip_fraction": 0.21
+    },
+    "ffn_out": {
+      "final_skip_fraction": 0.9532,
+      "natural_skip_fraction": 0.25
+    },
+    "k": {
+      "final_skip_fraction": 0.883825,
+      "natural_skip_fraction": 0.14
+    },
+    "q": {
+      "final_skip_fraction": 0.8792,
+      "natural_skip_fraction": 0.13
+    },
+    "qkv": {
+      "final_skip_fraction": 0.88845,
+      "natural_skip_fraction": 0.17
+    },
+    "v": {
+      "final_skip_fraction": 0.893075,
+      "natural_skip_fraction": 0.16
+    }
+  },
+  "selected_fraction": 0.0157,
+  "source": "Region retention, active-component fraction, and final skip range endpoints supplied by the user. Intermediate final skip rates are mapped from the relative positions in the prior profile. Natural skip rates are inherited from the prior profile."
+}

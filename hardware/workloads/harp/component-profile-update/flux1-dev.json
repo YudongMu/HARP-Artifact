@@ -1,0 +1,37 @@
+{
+  "active_component_fraction": 0.0423,
+  "features": "Double-stream and packed single-stream structural proxy at Table I width and head count. Packed input/output use QKV/O-projection site proxies.",
+  "id": "flux1-dev",
+  "plane_sites": {
+    "attention_out": {
+      "final_skip_fraction": 0.6649411764705883,
+      "natural_skip_fraction": 0.23
+    },
+    "ffn_in": {
+      "final_skip_fraction": 0.7184470588235294,
+      "natural_skip_fraction": 0.26
+    },
+    "ffn_out": {
+      "final_skip_fraction": 0.7452,
+      "natural_skip_fraction": 0.31
+    },
+    "k": {
+      "final_skip_fraction": 0.6381882352941176,
+      "natural_skip_fraction": 0.19
+    },
+    "q": {
+      "final_skip_fraction": 0.6315,
+      "natural_skip_fraction": 0.18
+    },
+    "qkv": {
+      "final_skip_fraction": 0.6381882352941176,
+      "natural_skip_fraction": 0.22
+    },
+    "v": {
+      "final_skip_fraction": 0.6448764705882353,
+      "natural_skip_fraction": 0.2
+    }
+  },
+  "selected_fraction": 0.2368,
+  "source": "Region retention, active-component fraction, and final skip range endpoints supplied by the user. Intermediate final skip rates are mapped from the relative positions in the prior profile. Natural skip rates are inherited from the prior profile."
+}

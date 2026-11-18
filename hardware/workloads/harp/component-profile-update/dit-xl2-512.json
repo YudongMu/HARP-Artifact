@@ -1,0 +1,37 @@
+{
+  "active_component_fraction": 0.2064,
+  "features": "512 px image; one forward with two CFG lanes; global self-attention. Its retained Region share is the largest of the six.",
+  "id": "dit-xl2-512",
+  "plane_sites": {
+    "attention_out": {
+      "final_skip_fraction": 0.5147611111111111,
+      "natural_skip_fraction": 0.29
+    },
+    "ffn_in": {
+      "final_skip_fraction": 0.6104833333333334,
+      "natural_skip_fraction": 0.31
+    },
+    "ffn_out": {
+      "final_skip_fraction": 0.6392,
+      "natural_skip_fraction": 0.36
+    },
+    "k": {
+      "final_skip_fraction": 0.47647222222222224,
+      "natural_skip_fraction": 0.24
+    },
+    "q": {
+      "final_skip_fraction": 0.4669,
+      "natural_skip_fraction": 0.23
+    },
+    "qkv": {
+      "final_skip_fraction": 0.47647222222222224,
+      "natural_skip_fraction": 0.27
+    },
+    "v": {
+      "final_skip_fraction": 0.48604444444444445,
+      "natural_skip_fraction": 0.26
+    }
+  },
+  "selected_fraction": 0.4867,
+  "source": "Region retention, active-component fraction, and final skip range endpoints supplied by the user. Intermediate final skip rates are mapped from the relative positions in the prior profile. Natural skip rates are inherited from the prior profile."
+}

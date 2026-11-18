@@ -1,0 +1,12 @@
+{
+  "refresh_interval": 5,
+  "region_tokens": 16,
+  "slice_values": 512,
+  "numeric_planes": 16,
+  "dense_fallback_fraction": 0.005,
+  "active_component_fraction": 0.0625,
+  "slice_channels": 32,
+  "assumptions": "Fallback and within-plane active-component density use shared proxies. Site percentages represent workload-level averages; head/edge weighting uses the dataflow geometry.",
+  "natural_skip_fraction": 0.2146,
+  "final_skip_fraction": 0.5068
+}

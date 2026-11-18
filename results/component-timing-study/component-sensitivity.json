@@ -1,0 +1,2066 @@
+{
+  "algorithm_profiles_sha256": "f64cad5244877a0917cf52be6ab0fa063d31aa6f842e775b91151d174dca00c4",
+  "baselines": {
+    "adaptiv": {
+      "current": {
+        "geomean_speedup_ceiling_vs_configured_h100": 0.35202770252639504,
+        "geomean_speedup_vs_configured_h100": 0.3337671505928922,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 3184913200,
+            "hbm_bytes": 86710579200,
+            "layer_overlap_bound_ms": 1498.0392,
+            "resource_busy_ms": {
+              "hbm": 36.132600000000004,
+              "merge": 0.8064,
+              "pe": 1498.0392,
+              "scratchpad": 0.2016,
+              "sign_compare": 0.2016,
+              "vector": 57.0752
+            },
+            "scheduled_ms": 1592.4566,
+            "speedup_ceiling_vs_configured_h100": 0.7129209235646171,
+            "speedup_vs_configured_h100": 0.6706515518225112,
+            "trajectory_overlap_bound_ms": 1498.0392
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 181812534250,
+            "hbm_bytes": 4920998297600,
+            "layer_overlap_bound_ms": 88269.9264,
+            "resource_busy_ms": {
+              "hbm": 2050.43155,
+              "merge": 13.1328,
+              "pe": 88269.9264,
+              "scratchpad": 3.2832,
+              "sign_compare": 3.2832,
+              "vector": 2035.584
+            },
+            "scheduled_ms": 90906.267125,
+            "speedup_ceiling_vs_configured_h100": 0.1793519145836741,
+            "speedup_vs_configured_h100": 0.174150592700404,
+            "trajectory_overlap_bound_ms": 88269.9264
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 148074603600,
+            "hbm_bytes": 8209291059200,
+            "layer_overlap_bound_ms": 68664.90400000001,
+            "resource_busy_ms": {
+              "hbm": 3420.5514,
+              "merge": 31.539200000000005,
+              "pe": 68664.90400000001,
+              "scratchpad": 7.884800000000001,
+              "sign_compare": 7.884800000000001,
+              "vector": 1904.5376
+            },
+            "scheduled_ms": 74037.3018,
+            "speedup_ceiling_vs_configured_h100": 0.6156166911702082,
+            "speedup_vs_configured_h100": 0.570945455497407,
+            "trajectory_overlap_bound_ms": 68664.90400000001
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 4418832191200,
+            "hbm_bytes": 200537461555200,
+            "layer_overlap_bound_ms": 2078947.584,
+            "resource_busy_ms": {
+              "hbm": 83557.3256,
+              "merge": 412.8768,
+              "pe": 2078947.584,
+              "scratchpad": 103.2192,
+              "sign_compare": 103.2192,
+              "vector": 53668.1208
+            },
+            "scheduled_ms": 2209416.0956,
+            "speedup_ceiling_vs_configured_h100": 0.5590223000061939,
+            "speedup_vs_configured_h100": 0.5260114028835267,
+            "trajectory_overlap_bound_ms": 2078947.584
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 23901682650,
+            "hbm_bytes": 846466252800,
+            "layer_overlap_bound_ms": 11373.2616,
+            "resource_busy_ms": {
+              "hbm": 352.700375,
+              "merge": 3.9864,
+              "pe": 11373.2616,
+              "scratchpad": 0.9966,
+              "sign_compare": 0.9966,
+              "vector": 555.515625
+            },
+            "scheduled_ms": 11950.841325000001,
+            "speedup_ceiling_vs_configured_h100": 0.17514252639717703,
+            "speedup_vs_configured_h100": 0.16667795311055222,
+            "trajectory_overlap_bound_ms": 11373.2616
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 4436030804000,
+            "hbm_bytes": 75043880960000,
+            "layer_overlap_bound_ms": 2123996.2,
+            "resource_busy_ms": {
+              "hbm": 31268.294,
+              "merge": 163.8,
+              "pe": 2123996.2,
+              "scratchpad": 40.95,
+              "sign_compare": 40.95,
+              "vector": 68077.844
+            },
+            "scheduled_ms": 2218015.402,
+            "speedup_ceiling_vs_configured_h100": 0.24693493754838164,
+            "speedup_vs_configured_h100": 0.23646764063363343,
+            "trajectory_overlap_bound_ms": 2123996.2
+          }
+        }
+      },
+      "legacy_peak": {
+        "geomean_speedup_ceiling_vs_configured_h100": 2.8157407798043326,
+        "geomean_speedup_vs_configured_h100": 1.9173803862195502,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 563411800,
+            "hbm_bytes": 86710579200,
+            "layer_overlap_bound_ms": 187.2885,
+            "resource_busy_ms": {
+              "hbm": 36.132600000000004,
+              "merge": 0.8064,
+              "pe": 187.2885,
+              "scratchpad": 0.2016,
+              "sign_compare": 0.2016,
+              "vector": 57.0752
+            },
+            "scheduled_ms": 281.7059,
+            "speedup_ceiling_vs_configured_h100": 5.702344190914018,
+            "speedup_vs_configured_h100": 3.7911292947716047,
+            "trajectory_overlap_bound_ms": 187.2885
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 28051218100,
+            "hbm_bytes": 4920998297600,
+            "layer_overlap_bound_ms": 11035.600900000001,
+            "resource_busy_ms": {
+              "hbm": 2050.43155,
+              "merge": 13.1328,
+              "pe": 11035.600900000001,
+              "scratchpad": 3.2832,
+              "sign_compare": 3.2832,
+              "vector": 2035.584
+            },
+            "scheduled_ms": 14025.60905,
+            "speedup_ceiling_vs_configured_h100": 1.4345734721160492,
+            "speedup_vs_configured_h100": 1.1287481522950336,
+            "trajectory_overlap_bound_ms": 11035.600900000001
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 27913914000,
+            "hbm_bytes": 8209291059200,
+            "layer_overlap_bound_ms": 8584.5592,
+            "resource_busy_ms": {
+              "hbm": 3420.5514,
+              "merge": 31.539200000000005,
+              "pe": 8584.5592,
+              "scratchpad": 7.884800000000001,
+              "sign_compare": 7.884800000000001,
+              "vector": 1904.5376
+            },
+            "scheduled_ms": 13956.956999999999,
+            "speedup_ceiling_vs_configured_h100": 4.92410384915279,
+            "speedup_vs_configured_h100": 3.0286874853881116,
+            "trajectory_overlap_bound_ms": 8584.5592
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 784571356800,
+            "hbm_bytes": 200537461555200,
+            "layer_overlap_bound_ms": 259912.09720000002,
+            "resource_busy_ms": {
+              "hbm": 83557.3256,
+              "merge": 412.8768,
+              "pe": 259912.09720000002,
+              "scratchpad": 103.2192,
+              "sign_compare": 103.2192,
+              "vector": 53668.1208
+            },
+            "scheduled_ms": 392285.6784,
+            "speedup_ceiling_vs_configured_h100": 4.471427349938677,
+            "speedup_vs_configured_h100": 2.9625809046614435,
+            "trajectory_overlap_bound_ms": 259912.09720000002
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 4459479600,
+            "hbm_bytes": 846466252800,
+            "layer_overlap_bound_ms": 1421.90255,
+            "resource_busy_ms": {
+              "hbm": 352.700375,
+              "merge": 3.9864,
+              "pe": 1421.90255,
+              "scratchpad": 0.9966,
+              "sign_compare": 0.9966,
+              "vector": 555.515625
+            },
+            "scheduled_ms": 2229.7398,
+            "speedup_ceiling_vs_configured_h100": 1.4008989364285196,
+            "speedup_vs_configured_h100": 0.8933516682081022,
+            "trajectory_overlap_bound_ms": 1421.90255
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 724151396000,
+            "hbm_bytes": 75043880960000,
+            "layer_overlap_bound_ms": 265544.104,
+            "resource_busy_ms": {
+              "hbm": 31268.294,
+              "merge": 163.8,
+              "pe": 265544.104,
+              "scratchpad": 40.95,
+              "sign_compare": 40.95,
+              "vector": 68077.844
+            },
+            "scheduled_ms": 362075.698,
+            "speedup_ceiling_vs_configured_h100": 1.9751478609368784,
+            "speedup_vs_configured_h100": 1.448561369617245,
+            "trajectory_overlap_bound_ms": 265544.104
+          }
+        }
+      }
+    },
+    "bitred": {
+      "current": {
+        "geomean_speedup_ceiling_vs_configured_h100": 0.20039938856667838,
+        "geomean_speedup_vs_configured_h100": 0.1897082397037452,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 5307089200,
+            "hbm_bytes": 86710579200,
+            "layer_overlap_bound_ms": 2504.4264,
+            "resource_busy_ms": {
+              "dispatch": 5.6448,
+              "hbm": 36.132600000000004,
+              "pe": 2504.4264,
+              "vector": 107.3408
+            },
+            "scheduled_ms": 2653.5446,
+            "speedup_ceiling_vs_configured_h100": 0.42643836129502555,
+            "speedup_vs_configured_h100": 0.4024742941950175,
+            "trajectory_overlap_bound_ms": 2504.4264
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 315205788650,
+            "hbm_bytes": 4920998297600,
+            "layer_overlap_bound_ms": 151307.3664,
+            "resource_busy_ms": {
+              "dispatch": 83.17439999999999,
+              "hbm": 2050.43155,
+              "pe": 151307.3664,
+              "vector": 5690.88
+            },
+            "scheduled_ms": 157602.894325,
+            "speedup_ceiling_vs_configured_h100": 0.10463059847428552,
+            "speedup_vs_configured_h100": 0.1004510759006329,
+            "trajectory_overlap_bound_ms": 151307.3664
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 229298078800,
+            "hbm_bytes": 8209291059200,
+            "layer_overlap_bound_ms": 108120.4432,
+            "resource_busy_ms": {
+              "dispatch": 220.7744,
+              "hbm": 3420.5514,
+              "pe": 108120.4432,
+              "vector": 2887.2704
+            },
+            "scheduled_ms": 114649.03940000001,
+            "speedup_ceiling_vs_configured_h100": 0.3909645553506203,
+            "speedup_vs_configured_h100": 0.36870139707424354,
+            "trajectory_overlap_bound_ms": 108120.4432
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 6601711832800,
+            "hbm_bytes": 200537461555200,
+            "layer_overlap_bound_ms": 3129306.1632,
+            "resource_busy_ms": {
+              "dispatch": 2890.1376,
+              "hbm": 83557.3256,
+              "pe": 3129306.1632,
+              "vector": 92478.54
+            },
+            "scheduled_ms": 3300855.9164,
+            "speedup_ceiling_vs_configured_h100": 0.3713852206814968,
+            "speedup_vs_configured_h100": 0.35208385019952704,
+            "trajectory_overlap_bound_ms": 3129306.1632
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 48218198650,
+            "hbm_bytes": 846466252800,
+            "layer_overlap_bound_ms": 22574.874,
+            "resource_busy_ms": {
+              "dispatch": 27.82865,
+              "hbm": 352.700375,
+              "pe": 22574.874,
+              "vector": 1625.756075
+            },
+            "scheduled_ms": 24109.099325,
+            "speedup_ceiling_vs_configured_h100": 0.08823711574204135,
+            "speedup_vs_configured_h100": 0.08262199027627923,
+            "trajectory_overlap_bound_ms": 22574.874
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 9757945464000,
+            "hbm_bytes": 75043880960000,
+            "layer_overlap_bound_ms": 4628989.6,
+            "resource_busy_ms": {
+              "dispatch": 933.6600000000001,
+              "hbm": 31268.294,
+              "pe": 4628989.6,
+              "vector": 226548.71399999998
+            },
+            "scheduled_ms": 4878972.732,
+            "speedup_ceiling_vs_configured_h100": 0.11330525974826126,
+            "speedup_vs_configured_h100": 0.10749985659071315,
+            "trajectory_overlap_bound_ms": 4628989.6
+          }
+        }
+      },
+      "legacy_peak": {
+        "geomean_speedup_ceiling_vs_configured_h100": 1.6029229286645874,
+        "geomean_speedup_vs_configured_h100": 1.089164420971654,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 924453600,
+            "hbm_bytes": 86710579200,
+            "layer_overlap_bound_ms": 313.1086,
+            "resource_busy_ms": {
+              "dispatch": 5.6448,
+              "hbm": 36.132600000000004,
+              "pe": 313.1086,
+              "vector": 107.3408
+            },
+            "scheduled_ms": 462.22679999999997,
+            "speedup_ceiling_vs_configured_h100": 3.4109043635339305,
+            "speedup_vs_configured_h100": 2.3105183213089333,
+            "trajectory_overlap_bound_ms": 313.1086
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 50916966650,
+            "hbm_bytes": 4920998297600,
+            "layer_overlap_bound_ms": 18916.601875,
+            "resource_busy_ms": {
+              "dispatch": 83.17439999999999,
+              "hbm": 2050.43155,
+              "pe": 18916.601875,
+              "vector": 5690.88
+            },
+            "scheduled_ms": 25458.483325,
+            "speedup_ceiling_vs_configured_h100": 0.8369040277219452,
+            "speedup_vs_configured_h100": 0.6218508816058861,
+            "trajectory_overlap_bound_ms": 18916.601875
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 40091853200,
+            "hbm_bytes": 8209291059200,
+            "layer_overlap_bound_ms": 13517.3304,
+            "resource_busy_ms": {
+              "dispatch": 220.7744,
+              "hbm": 3420.5514,
+              "pe": 13517.3304,
+              "vector": 2887.2704
+            },
+            "scheduled_ms": 20045.926600000003,
+            "speedup_ceiling_vs_configured_h100": 3.127190040423958,
+            "speedup_vs_configured_h100": 2.1087207313230407,
+            "trajectory_overlap_bound_ms": 13517.3304
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 1129367562400,
+            "hbm_bytes": 200537461555200,
+            "layer_overlap_bound_ms": 391228.9584,
+            "resource_busy_ms": {
+              "dispatch": 2890.1376,
+              "hbm": 83557.3256,
+              "pe": 391228.9584,
+              "vector": 92478.54
+            },
+            "scheduled_ms": 564683.7812,
+            "speedup_ceiling_vs_configured_h100": 2.9705829158274293,
+            "speedup_vs_configured_h100": 2.058104196883918,
+            "trajectory_overlap_bound_ms": 391228.9584
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 9353715800,
+            "hbm_bytes": 846466252800,
+            "layer_overlap_bound_ms": 2822.338475,
+            "resource_busy_ms": {
+              "dispatch": 27.82865,
+              "hbm": 352.700375,
+              "pe": 2822.338475,
+              "vector": 1625.756075
+            },
+            "scheduled_ms": 4676.8579,
+            "speedup_ceiling_vs_configured_h100": 0.7057770666574639,
+            "speedup_vs_configured_h100": 0.42591453762150866,
+            "trajectory_overlap_bound_ms": 2822.338475
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 1668822536000,
+            "hbm_bytes": 75043880960000,
+            "layer_overlap_bound_ms": 578720.844,
+            "resource_busy_ms": {
+              "dispatch": 933.6600000000001,
+              "hbm": 31268.294,
+              "pe": 578720.844,
+              "vector": 226548.71399999998
+            },
+            "scheduled_ms": 834411.2679999999,
+            "speedup_ceiling_vs_configured_h100": 0.9062899227455508,
+            "speedup_vs_configured_h100": 0.6285735693109072,
+            "trajectory_overlap_bound_ms": 578720.844
+          }
+        }
+      }
+    },
+    "ditto": {
+      "current": {
+        "geomean_speedup_ceiling_vs_configured_h100": 0.25917236837258256,
+        "geomean_speedup_vs_configured_h100": 0.2398444182554844,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 4009893104,
+            "hbm_bytes": 180945580032,
+            "layer_overlap_bound_ms": 1835.565984,
+            "resource_busy_ms": {
+              "encoding": 11.063808,
+              "hbm": 75.400024,
+              "pe": 1835.565984,
+              "vector": 107.195648
+            },
+            "scheduled_ms": 2004.9465519999999,
+            "speedup_ceiling_vs_configured_h100": 0.5818278935811877,
+            "speedup_vs_configured_h100": 0.5326742944517157,
+            "trajectory_overlap_bound_ms": 1835.565984
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 237984122071,
+            "hbm_bytes": 5913160908800,
+            "layer_overlap_bound_ms": 112577.163264,
+            "resource_busy_ms": {
+              "encoding": 163.021824,
+              "hbm": 2463.8403900000003,
+              "pe": 112577.163264,
+              "vector": 5688.6912
+            },
+            "scheduled_ms": 118992.0610355,
+            "speedup_ceiling_vs_configured_h100": 0.14062692504406504,
+            "speedup_vs_configured_h100": 0.13304568525186633,
+            "trajectory_overlap_bound_ms": 112577.163264
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 166309433640,
+            "hbm_bytes": 12746818101248,
+            "layer_overlap_bound_ms": 75481.155904,
+            "resource_busy_ms": {
+              "encoding": 437.133312,
+              "hbm": 5311.193664,
+              "pe": 75481.155904,
+              "vector": 2884.431872
+            },
+            "scheduled_ms": 83154.71682,
+            "speedup_ceiling_vs_configured_h100": 0.5600240284311796,
+            "speedup_vs_configured_h100": 0.508344717131345,
+            "trajectory_overlap_bound_ms": 75481.155904
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 5233754231888,
+            "hbm_bytes": 260453085806592,
+            "layer_overlap_bound_ms": 2430124.0750080002,
+            "resource_busy_ms": {
+              "encoding": 5722.472448,
+              "hbm": 108522.1816,
+              "pe": 2430124.0750080002,
+              "vector": 92441.381088
+            },
+            "scheduled_ms": 2616877.115944,
+            "speedup_ceiling_vs_configured_h100": 0.4782381574472382,
+            "speedup_vs_configured_h100": 0.4441087634261196,
+            "trajectory_overlap_bound_ms": 2430124.0750080002
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 39788657827,
+            "hbm_bytes": 1354396065792,
+            "layer_overlap_bound_ms": 18176.92392,
+            "resource_busy_ms": {
+              "encoding": 54.542439,
+              "hbm": 564.342071,
+              "pe": 18176.92392,
+              "vector": 1625.040058
+            },
+            "scheduled_ms": 19894.3289135,
+            "speedup_ceiling_vs_configured_h100": 0.10958629627141003,
+            "speedup_vs_configured_h100": 0.10012611024281887,
+            "trajectory_overlap_bound_ms": 18176.92392
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 8827670464720,
+            "hbm_bytes": 94309413683200,
+            "layer_overlap_bound_ms": 4155987.6160000004,
+            "resource_busy_ms": {
+              "encoding": 1829.9736,
+              "hbm": 39295.60192,
+              "pe": 4155987.6160000004,
+              "vector": 226523.4888
+            },
+            "scheduled_ms": 4413835.23236,
+            "speedup_ceiling_vs_configured_h100": 0.12620077763966078,
+            "speedup_vs_configured_h100": 0.1188283751859865,
+            "trajectory_overlap_bound_ms": 4155987.6160000004
+          }
+        }
+      },
+      "legacy_peak": {
+        "geomean_speedup_ceiling_vs_configured_h100": 2.0730256448982693,
+        "geomean_speedup_vs_configured_h100": 1.2440052648576339,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 797734980,
+            "hbm_bytes": 180945580032,
+            "layer_overlap_bound_ms": 229.48692200000002,
+            "resource_busy_ms": {
+              "encoding": 11.063808,
+              "hbm": 75.400024,
+              "pe": 229.48692200000002,
+              "vector": 107.195648
+            },
+            "scheduled_ms": 398.86749,
+            "speedup_ceiling_vs_configured_h100": 4.653788027188757,
+            "speedup_vs_configured_h100": 2.677539575862651,
+            "trajectory_overlap_bound_ms": 229.48692200000002
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 41816716884,
+            "hbm_bytes": 5913160908800,
+            "layer_overlap_bound_ms": 14074.515315999999,
+            "resource_busy_ms": {
+              "encoding": 163.021824,
+              "hbm": 2463.8403900000003,
+              "pe": 14074.515315999999,
+              "vector": 5688.6912
+            },
+            "scheduled_ms": 20908.358442,
+            "speedup_ceiling_vs_configured_h100": 1.1248259669732845,
+            "speedup_vs_configured_h100": 0.7571794956508141,
+            "trajectory_overlap_bound_ms": 14074.515315999999
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 34220588780,
+            "hbm_bytes": 12746818101248,
+            "layer_overlap_bound_ms": 9436.733474,
+            "resource_busy_ms": {
+              "encoding": 437.133312,
+              "hbm": 5311.193664,
+              "pe": 9436.733474,
+              "vector": 2884.431872
+            },
+            "scheduled_ms": 17110.29439,
+            "speedup_ceiling_vs_configured_h100": 4.479437839000686,
+            "speedup_vs_configured_h100": 2.470516288995306,
+            "trajectory_overlap_bound_ms": 9436.733474
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 984949277088,
+            "hbm_bytes": 260453085806592,
+            "layer_overlap_bound_ms": 303816.528008,
+            "resource_busy_ms": {
+              "encoding": 5722.472448,
+              "hbm": 108522.1816,
+              "pe": 303816.528008,
+              "vector": 92441.381088
+            },
+            "scheduled_ms": 492474.638544,
+            "speedup_ceiling_vs_configured_h100": 3.825262791395595,
+            "speedup_vs_configured_h100": 2.3598739286067127,
+            "trajectory_overlap_bound_ms": 303816.528008
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 8543799499,
+            "hbm_bytes": 1354396065792,
+            "layer_overlap_bound_ms": 2272.5027830000004,
+            "resource_busy_ms": {
+              "encoding": 54.542439,
+              "hbm": 564.342071,
+              "pe": 2272.5027830000004,
+              "vector": 1625.040058
+            },
+            "scheduled_ms": 4271.8997495,
+            "speedup_ceiling_vs_configured_h100": 0.8765409595540194,
+            "speedup_vs_configured_h100": 0.46628944657073107,
+            "trajectory_overlap_bound_ms": 2272.5027830000004
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 1559910979920,
+            "hbm_bytes": 94309413683200,
+            "layer_overlap_bound_ms": 519585.66959999996,
+            "resource_busy_ms": {
+              "encoding": 1829.9736,
+              "hbm": 39295.60192,
+              "pe": 519585.66959999996,
+              "vector": 226523.4888
+            },
+            "scheduled_ms": 779955.48996,
+            "speedup_ceiling_vs_configured_h100": 1.0094367487151343,
+            "speedup_vs_configured_h100": 0.6724600002839884,
+            "trajectory_overlap_bound_ms": 519585.66959999996
+          }
+        }
+      }
+    },
+    "dstar": {
+      "current": {
+        "geomean_speedup_ceiling_vs_configured_h100": 0.24111176036132068,
+        "geomean_speedup_vs_configured_h100": 0.22895591690815284,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 4340212072,
+            "hbm_bytes": 118006640640,
+            "layer_overlap_bound_ms": 2045.267784,
+            "resource_busy_ms": {
+              "hbm": 49.173964,
+              "pe": 2045.267784,
+              "qpu": 3.95136,
+              "sar": 0.0896,
+              "vector": 85.11146
+            },
+            "scheduled_ms": 2170.106036,
+            "speedup_ceiling_vs_configured_h100": 0.5221729390912854,
+            "speedup_vs_configured_h100": 0.4921342424209542,
+            "trajectory_overlap_bound_ms": 2045.267784
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 338251901939,
+            "hbm_bytes": 4220507586560,
+            "layer_overlap_bound_ms": 165187.93216700002,
+            "resource_busy_ms": {
+              "hbm": 1758.56419,
+              "pe": 165187.93216700002,
+              "qpu": 21.450239999999997,
+              "sar": 1.8468,
+              "vector": 3664.489815
+            },
+            "scheduled_ms": 169125.9509695,
+            "speedup_ceiling_vs_configured_h100": 0.0958386008730647,
+            "speedup_vs_configured_h100": 0.09360704379929852,
+            "trajectory_overlap_bound_ms": 165187.93216700002
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 185701454372,
+            "hbm_bytes": 10667229224960,
+            "layer_overlap_bound_ms": 86292.039512,
+            "resource_busy_ms": {
+              "hbm": 4444.696788,
+              "pe": 86292.039512,
+              "qpu": 156.11903999999998,
+              "sar": 1.456,
+              "vector": 2489.30374
+            },
+            "scheduled_ms": 92850.727186,
+            "speedup_ceiling_vs_configured_h100": 0.4898628105101357,
+            "speedup_vs_configured_h100": 0.4552604193968407,
+            "trajectory_overlap_bound_ms": 86292.039512
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 5799029307848,
+            "hbm_bytes": 233546466263040,
+            "layer_overlap_bound_ms": 2747028.491928,
+            "resource_busy_ms": {
+              "hbm": 97311.086152,
+              "pe": 2747028.491928,
+              "qpu": 2043.74016,
+              "sar": 48.742399999999996,
+              "vector": 67410.03696
+            },
+            "scheduled_ms": 2899514.653924,
+            "speedup_ceiling_vs_configured_h100": 0.4230673483784386,
+            "speedup_vs_configured_h100": 0.4008181363826493,
+            "trajectory_overlap_bound_ms": 2747028.491928
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 35725848395,
+            "hbm_bytes": 1065322106880,
+            "layer_overlap_bound_ms": 16880.691919,
+            "resource_busy_ms": {
+              "hbm": 443.89270899999997,
+              "pe": 16880.691919,
+              "qpu": 19.470983,
+              "sar": 1.4369999999999998,
+              "vector": 919.8000079999999
+            },
+            "scheduled_ms": 17862.9241975,
+            "speedup_ceiling_vs_configured_h100": 0.118001192105045,
+            "speedup_vs_configured_h100": 0.11151263633973106,
+            "trajectory_overlap_bound_ms": 16880.691919
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 6826191985360,
+            "hbm_bytes": 83369882419200,
+            "layer_overlap_bound_ms": 3267014.8767999997,
+            "resource_busy_ms": {
+              "hbm": 34737.46656,
+              "pe": 3267014.8767999997,
+              "qpu": 593.9388,
+              "sar": 131.01,
+              "vector": 121074.9868
+            },
+            "scheduled_ms": 3413095.99268,
+            "speedup_ceiling_vs_configured_h100": 0.16054070421427963,
+            "speedup_vs_configured_h100": 0.1536695335041443,
+            "trajectory_overlap_bound_ms": 3267014.8767999997
+          }
+        }
+      },
+      "legacy_peak": {
+        "geomean_speedup_ceiling_vs_configured_h100": 1.928566762432513,
+        "geomean_speedup_vs_configured_h100": 1.3367638703124496,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 761083232,
+            "hbm_bytes": 118006640640,
+            "layer_overlap_bound_ms": 255.703364,
+            "resource_busy_ms": {
+              "hbm": 49.173964,
+              "pe": 255.703364,
+              "qpu": 3.95136,
+              "sar": 0.0896,
+              "vector": 85.11146
+            },
+            "scheduled_ms": 380.54161600000003,
+            "speedup_ceiling_vs_configured_h100": 4.176650135897313,
+            "speedup_vs_configured_h100": 2.806482773752661,
+            "trajectory_overlap_bound_ms": 255.703364
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 49793169261,
+            "hbm_bytes": 4220507586560,
+            "layer_overlap_bound_ms": 20651.963645,
+            "resource_busy_ms": {
+              "hbm": 1758.56419,
+              "pe": 20651.963645,
+              "qpu": 21.450239999999997,
+              "sar": 1.8468,
+              "vector": 3664.489815
+            },
+            "scheduled_ms": 24896.5846305,
+            "speedup_ceiling_vs_configured_h100": 0.7665799035934726,
+            "speedup_vs_configured_h100": 0.6358856258783981,
+            "trajectory_overlap_bound_ms": 20651.963645
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 34694018884,
+            "hbm_bytes": 10667229224960,
+            "layer_overlap_bound_ms": 10788.321768,
+            "resource_busy_ms": {
+              "hbm": 4444.696788,
+              "pe": 10788.321768,
+              "qpu": 156.11903999999998,
+              "sar": 1.456,
+              "vector": 2489.30374
+            },
+            "scheduled_ms": 17347.009442000002,
+            "speedup_ceiling_vs_configured_h100": 3.9182425134355707,
+            "speedup_vs_configured_h100": 2.4368039425662746,
+            "trajectory_overlap_bound_ms": 10788.321768
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 995654919336,
+            "hbm_bytes": 233546466263040,
+            "layer_overlap_bound_ms": 343436.228072,
+            "resource_busy_ms": {
+              "hbm": 97311.086152,
+              "pe": 343436.228072,
+              "qpu": 2043.74016,
+              "sar": 48.742399999999996,
+              "vector": 67410.03696
+            },
+            "scheduled_ms": 497827.459668,
+            "speedup_ceiling_vs_configured_h100": 3.3839704871099214,
+            "speedup_vs_configured_h100": 2.334499709548071,
+            "trajectory_overlap_bound_ms": 343436.228072
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 6638897218,
+            "hbm_bytes": 1065322106880,
+            "layer_overlap_bound_ms": 2110.445873,
+            "resource_busy_ms": {
+              "hbm": 443.89270899999997,
+              "pe": 2110.445873,
+              "qpu": 19.470983,
+              "sar": 1.4369999999999998,
+              "vector": 919.8000079999999
+            },
+            "scheduled_ms": 3319.448609,
+            "speedup_ceiling_vs_configured_h100": 0.9438487835598709,
+            "speedup_vs_configured_h100": 0.6000821234584747,
+            "trajectory_overlap_bound_ms": 2110.445873
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 1119965302480,
+            "hbm_bytes": 83369882419200,
+            "layer_overlap_bound_ms": 408445.42536,
+            "resource_busy_ms": {
+              "hbm": 34737.46656,
+              "pe": 408445.42536,
+              "qpu": 593.9388,
+              "sar": 131.01,
+              "vector": 121074.9868
+            },
+            "scheduled_ms": 559982.65124,
+            "speedup_ceiling_vs_configured_h100": 1.2841100338869516,
+            "speedup_vs_configured_h100": 0.9366162823769553,
+            "trajectory_overlap_bound_ms": 408445.42536
+          }
+        }
+      }
+    },
+    "exion": {
+      "current": {
+        "geomean_speedup_ceiling_vs_configured_h100": 0.30799338395464937,
+        "geomean_speedup_vs_configured_h100": 0.28670680805284293,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 3193836436,
+            "hbm_bytes": 138501844992,
+            "layer_overlap_bound_ms": 1468.898564,
+            "resource_busy_ms": {
+              "conmerge": 3.95136,
+              "epre": 5.7344,
+              "hbm": 57.712788,
+              "pe": 1468.898564,
+              "vector": 71.4112
+            },
+            "scheduled_ms": 1596.9182179999998,
+            "speedup_ceiling_vs_configured_h100": 0.727064152811031,
+            "speedup_vs_configured_h100": 0.6687778234113678,
+            "trajectory_overlap_bound_ms": 1468.898564
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 302932366972,
+            "hbm_bytes": 5202150883328,
+            "layer_overlap_bound_ms": 147071.60976,
+            "resource_busy_ms": {
+              "conmerge": 21.450239999999997,
+              "epre": 472.7808,
+              "hbm": 2167.5802110000004,
+              "pe": 147071.60976,
+              "vector": 3217.536
+            },
+            "scheduled_ms": 151466.183486,
+            "speedup_ceiling_vs_configured_h100": 0.10764402678283434,
+            "speedup_vs_configured_h100": 0.10452088998111776,
+            "trajectory_overlap_bound_ms": 147071.60976
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 139754426868,
+            "hbm_bytes": 10255574540288,
+            "layer_overlap_bound_ms": 63643.551356,
+            "resource_busy_ms": {
+              "conmerge": 156.11903999999998,
+              "epre": 93.184,
+              "hbm": 4273.1714759999995,
+              "pe": 63643.551356,
+              "vector": 2137.4976
+            },
+            "scheduled_ms": 69877.213434,
+            "speedup_ceiling_vs_configured_h100": 0.6641876529414455,
+            "speedup_vs_configured_h100": 0.6049362721071554,
+            "trajectory_overlap_bound_ms": 63643.551356
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 4387242590416,
+            "hbm_bytes": 227325172580352,
+            "layer_overlap_bound_ms": 2039770.1388959999,
+            "resource_busy_ms": {
+              "conmerge": 2043.74016,
+              "epre": 4679.2704,
+              "hbm": 94718.872304,
+              "pe": 2039770.1388959999,
+              "vector": 65366.296800000004
+            },
+            "scheduled_ms": 2193621.295208,
+            "speedup_ceiling_vs_configured_h100": 0.569759326229285,
+            "speedup_vs_configured_h100": 0.5297988593285432,
+            "trajectory_overlap_bound_ms": 2039770.1388959999
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 27938829703,
+            "hbm_bytes": 1101672628224,
+            "layer_overlap_bound_ms": 12717.637659999999,
+            "resource_busy_ms": {
+              "conmerge": 19.470983,
+              "epre": 137.9256,
+              "hbm": 459.037627,
+              "pe": 12717.637659999999,
+              "vector": 900.329025
+            },
+            "scheduled_ms": 13969.4148515,
+            "speedup_ceiling_vs_configured_h100": 0.15662828453315128,
+            "speedup_vs_configured_h100": 0.14259307144752095,
+            "trajectory_overlap_bound_ms": 12717.637659999999
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 6033124231600,
+            "hbm_bytes": 82144949043200,
+            "layer_overlap_bound_ms": 2850381.8986400003,
+            "resource_busy_ms": {
+              "conmerge": 593.9388,
+              "epre": 20961.282,
+              "hbm": 34227.07472,
+              "pe": 2850381.8986400003,
+              "vector": 120481.048
+            },
+            "scheduled_ms": 3016562.1158,
+            "speedup_ceiling_vs_configured_h100": 0.18400652531867703,
+            "speedup_vs_configured_h100": 0.17386973941390368,
+            "trajectory_overlap_bound_ms": 2850381.8986400003
+          }
+        }
+      },
+      "legacy_peak": {
+        "geomean_speedup_ceiling_vs_configured_h100": 2.4635249831695227,
+        "geomean_speedup_vs_configured_h100": 1.5364558056096438,
+        "workloads": {
+          "dit-xl2-512": {
+            "bottleneck_resource": "pe",
+            "cycles": 623331380,
+            "hbm_bytes": 138501844992,
+            "layer_overlap_bound_ms": 183.646036,
+            "resource_busy_ms": {
+              "conmerge": 3.95136,
+              "epre": 5.7344,
+              "hbm": 57.712788,
+              "pe": 183.646036,
+              "vector": 71.4112
+            },
+            "scheduled_ms": 311.66569,
+            "speedup_ceiling_vs_configured_h100": 5.815445371224893,
+            "speedup_vs_configured_h100": 3.426695732854008,
+            "trajectory_overlap_bound_ms": 183.646036
+          },
+          "flux1-dev": {
+            "bottleneck_resource": "pe",
+            "cycles": 46295296678,
+            "hbm_bytes": 5202150883328,
+            "layer_overlap_bound_ms": 18387.044705,
+            "resource_busy_ms": {
+              "conmerge": 21.450239999999997,
+              "epre": 472.7808,
+              "hbm": 2167.5802110000004,
+              "pe": 18387.044705,
+              "vector": 3217.536
+            },
+            "scheduled_ms": 23147.648339,
+            "speedup_ceiling_vs_configured_h100": 0.8610073317380342,
+            "speedup_vs_configured_h100": 0.683930396217689,
+            "trajectory_overlap_bound_ms": 18387.044705
+          },
+          "latte-1": {
+            "bottleneck_resource": "pe",
+            "cycles": 28380895508,
+            "hbm_bytes": 10255574540288,
+            "layer_overlap_bound_ms": 7956.785676,
+            "resource_busy_ms": {
+              "conmerge": 156.11903999999998,
+              "epre": 93.184,
+              "hbm": 4273.1714759999995,
+              "pe": 7956.785676,
+              "vector": 2137.4976
+            },
+            "scheduled_ms": 14190.447753999999,
+            "speedup_ceiling_vs_configured_h100": 5.312605205328393,
+            "speedup_vs_configured_h100": 2.9788532210398073,
+            "trajectory_overlap_bound_ms": 7956.785676
+          },
+          "opensora-v13": {
+            "bottleneck_resource": "pe",
+            "cycles": 821540644064,
+            "hbm_bytes": 227325172580352,
+            "layer_overlap_bound_ms": 255014.09612,
+            "resource_busy_ms": {
+              "conmerge": 2043.74016,
+              "epre": 4679.2704,
+              "hbm": 94718.872304,
+              "pe": 255014.09612,
+              "vector": 65366.296800000004
+            },
+            "scheduled_ms": 410770.322032,
+            "speedup_ceiling_vs_configured_h100": 4.557309096565089,
+            "speedup_vs_configured_h100": 2.829264914395309,
+            "trajectory_overlap_bound_ms": 255014.09612
+          },
+          "sd3-medium": {
+            "bottleneck_resource": "pe",
+            "cycles": 5940621443,
+            "hbm_bytes": 1101672628224,
+            "layer_overlap_bound_ms": 1589.977477,
+            "resource_busy_ms": {
+              "conmerge": 19.470983,
+              "epre": 137.9256,
+              "hbm": 459.037627,
+              "pe": 1589.977477,
+              "vector": 900.329025
+            },
+            "scheduled_ms": 2970.3107215,
+            "speedup_ceiling_vs_configured_h100": 1.2528113126221347,
+            "speedup_vs_configured_h100": 0.6706173046414733,
+            "trajectory_overlap_bound_ms": 1589.977477
+          },
+          "wan21-14b-81f": {
+            "bottleneck_resource": "pe",
+            "cycles": 1056162536400,
+            "hbm_bytes": 82144949043200,
+            "layer_overlap_bound_ms": 356357.55904,
+            "resource_busy_ms": {
+              "conmerge": 593.9388,
+              "epre": 20961.282,
+              "hbm": 34227.07472,
+              "pe": 356357.55904,
+              "vector": 120481.048
+            },
+            "scheduled_ms": 528081.2681999999,
+            "speedup_ceiling_vs_configured_h100": 1.471805089284293,
+            "speedup_vs_configured_h100": 0.9931972606938987,
+            "trajectory_overlap_bound_ms": 356357.55904
+          }
+        }
+      }
+    }
+  },
+  "harp": {
+    "current": {
+      "geomean_speedup_ceiling_vs_configured_h100": 0.22515579240511832,
+      "geomean_speedup_vs_configured_h100": 0.2001341123725804,
+      "geomean_speedup_vs_modeled_dense": 1.3221074683579155,
+      "parameters": {
+        "active_component_fraction_override": null,
+        "pe_issues_per_cycle": 8192,
+        "sparse_issue_utilization": 0.8683
+      },
+      "workloads": {
+        "dit-xl2-512": {
+          "bottleneck_resource": "pe",
+          "cycles": 4466707280,
+          "dense_bf16_busy_ms": 17.130679999999998,
+          "h100_reference_ms": 1067.98349,
+          "hbm_bytes": 93316608000,
+          "layer_overlap_bound_ms": 1942.682,
+          "modeled_dense_ms": 3437.455,
+          "resource_busy_ms": {
+            "hbm": 38.8857,
+            "multicast": 81.1944,
+            "packet_dispatch": 0.5947199999999999,
+            "pe": 1942.682,
+            "plane_formation": 0.5947199999999999,
+            "region_control": 0.017920000000000002,
+            "shift_reduce": 16.45056,
+            "vector": 155.1361
+          },
+          "scheduled_ms": 2233.35364,
+          "speedup_ceiling_vs_configured_h100": 0.5497469426287988,
+          "speedup_vs_configured_h100": 0.47819721466054976,
+          "speedup_vs_modeled_dense": 1.5391449604908964,
+          "trajectory_overlap_bound_ms": 1942.682,
+          "workload_sha256": "b82b2a9ca739e781e80265ea574e714136160348edd8416dcc1dd49b54d37ac8"
+        },
+        "flux1-dev": {
+          "bottleneck_resource": "pe",
+          "cycles": 298689056920,
+          "dense_bf16_busy_ms": 949.95193,
+          "h100_reference_ms": 15831.3803,
+          "hbm_bytes": 5028582195200,
+          "layer_overlap_bound_ms": 136761.078215,
+          "modeled_dense_ms": 202860.468725,
+          "resource_busy_ms": {
+            "hbm": 2095.2592,
+            "multicast": 5358.6954000000005,
+            "packet_dispatch": 8.15328,
+            "pe": 136761.078215,
+            "plane_formation": 8.15328,
+            "region_control": 0.36936,
+            "shift_reduce": 250.39872000000003,
+            "vector": 6973.8331499999995
+          },
+          "scheduled_ms": 149344.52846,
+          "speedup_ceiling_vs_configured_h100": 0.11575939957940176,
+          "speedup_vs_configured_h100": 0.10600576039342634,
+          "speedup_vs_modeled_dense": 1.3583388077008363,
+          "trajectory_overlap_bound_ms": 136761.078215,
+          "workload_sha256": "92d31c9fd1bb9ced11ff0df87ab553712a550915e798d5836cdbaa45817b2b92"
+        },
+        "latte-1": {
+          "bottleneck_resource": "pe",
+          "cycles": 183483903400,
+          "dense_bf16_busy_ms": 699.81646,
+          "h100_reference_ms": 42271.261,
+          "hbm_bytes": 8467660185600,
+          "layer_overlap_bound_ms": 81763.41446,
+          "modeled_dense_ms": 150053.225,
+          "resource_busy_ms": {
+            "hbm": 3528.2057999999997,
+            "multicast": 1426.5874000000001,
+            "packet_dispatch": 79.60064,
+            "pe": 81763.41446,
+            "plane_formation": 79.60064,
+            "region_control": 1.4336,
+            "shift_reduce": 643.39968,
+            "vector": 4305.833
+          },
+          "scheduled_ms": 91741.9517,
+          "speedup_ceiling_vs_configured_h100": 0.516994810933193,
+          "speedup_vs_configured_h100": 0.46076260878151776,
+          "speedup_vs_modeled_dense": 1.6356009679266503,
+          "trajectory_overlap_bound_ms": 81763.41446,
+          "workload_sha256": "1b3d3c1f27d20c19ca0d7a9a545b30e1f61fd8c603486a7380f2394591a7a199"
+        },
+        "opensora-v13": {
+          "bottleneck_resource": "pe",
+          "cycles": 6509757195760,
+          "dense_bf16_busy_ms": 555802.9503599999,
+          "h100_reference_ms": 1162178.06,
+          "hbm_bytes": 203919748300800,
+          "layer_overlap_bound_ms": 2963155.6948,
+          "modeled_dense_ms": 4093463.0744000003,
+          "resource_busy_ms": {
+            "hbm": 84966.61319999999,
+            "multicast": 74681.1702,
+            "packet_dispatch": 273.53087999999997,
+            "pe": 2963155.6948,
+            "plane_formation": 273.53087999999997,
+            "region_control": 9.74848,
+            "shift_reduce": 8422.68672,
+            "vector": 134599.8752
+          },
+          "scheduled_ms": 3254878.5978800002,
+          "speedup_ceiling_vs_configured_h100": 0.39220958319520294,
+          "speedup_vs_configured_h100": 0.35705726805201315,
+          "speedup_vs_modeled_dense": 1.2576392486854027,
+          "trajectory_overlap_bound_ms": 2963155.6948,
+          "workload_sha256": "ff087f3d7c5776e037e6fa12e394ba1fccf7789aaedc13d86e1bfa30e95e5544"
+        },
+        "sd3-medium": {
+          "bottleneck_resource": "pe",
+          "cycles": 49407372180,
+          "dense_bf16_busy_ms": 134.22111,
+          "h100_reference_ms": 1991.94177,
+          "hbm_bytes": 879120384000,
+          "layer_overlap_bound_ms": 20898.50432,
+          "modeled_dense_ms": 30095.436700000002,
+          "resource_busy_ms": {
+            "hbm": 366.306575,
+            "multicast": 1691.5608,
+            "packet_dispatch": 2.638515,
+            "pe": 20898.50432,
+            "plane_formation": 2.638515,
+            "region_control": 0.28776,
+            "shift_reduce": 81.16659,
+            "vector": 2037.584325
+          },
+          "scheduled_ms": 24703.686090000003,
+          "speedup_ceiling_vs_configured_h100": 0.09531503975113181,
+          "speedup_vs_configured_h100": 0.08063338251396958,
+          "speedup_vs_modeled_dense": 1.218256926936202,
+          "trajectory_overlap_bound_ms": 20898.50432,
+          "workload_sha256": "d37d72e1431eae261bd6901239de961b17bf5a2aeb21ef05f9d126085323e592"
+        },
+        "wan21-14b-81f": {
+          "bottleneck_resource": "pe",
+          "cycles": 10977565769600,
+          "dense_bf16_busy_ms": 485983.56639999995,
+          "h100_reference_ms": 524488.869,
+          "hbm_bytes": 76385730560000,
+          "layer_overlap_bound_ms": 4951336.4392,
+          "modeled_dense_ms": 5595213.192,
+          "resource_busy_ms": {
+            "hbm": 31827.397999999997,
+            "multicast": 306081.66,
+            "packet_dispatch": 97.668,
+            "pe": 4951336.4392,
+            "plane_formation": 97.668,
+            "region_control": 29.811600000000002,
+            "shift_reduce": 2915.64,
+            "vector": 205194.36719999998
+          },
+          "scheduled_ms": 5488782.8848,
+          "speedup_ceiling_vs_configured_h100": 0.10592874781192266,
+          "speedup_vs_configured_h100": 0.09555649768047096,
+          "speedup_vs_modeled_dense": 1.0193905114182482,
+          "trajectory_overlap_bound_ms": 4951336.4392,
+          "workload_sha256": "4d92b57ae24f2707bbe97a625d4c7a22d6df8f35637809fea1520cf964e822a2"
+        }
+      }
+    },
+    "double_active_density": {
+      "geomean_speedup_ceiling_vs_configured_h100": 0.1400122404627267,
+      "geomean_speedup_vs_configured_h100": 0.12992512276965845,
+      "geomean_speedup_vs_modeled_dense": 0.8582993329058216,
+      "parameters": {
+        "active_component_fraction_override": 0.125,
+        "pe_issues_per_cycle": 8192,
+        "sparse_issue_utilization": 0.8683
+      },
+      "workloads": {
+        "dit-xl2-512": {
+          "bottleneck_resource": "pe",
+          "cycles": 7127354360,
+          "dense_bf16_busy_ms": 17.130679999999998,
+          "h100_reference_ms": 1067.98349,
+          "hbm_bytes": 93316608000,
+          "layer_overlap_bound_ms": 3273.00554,
+          "modeled_dense_ms": 3437.455,
+          "resource_busy_ms": {
+            "hbm": 38.8857,
+            "multicast": 81.1944,
+            "packet_dispatch": 0.5947199999999999,
+            "pe": 3273.00554,
+            "plane_formation": 0.5947199999999999,
+            "region_control": 0.017920000000000002,
+            "shift_reduce": 16.45056,
+            "vector": 155.1361
+          },
+          "scheduled_ms": 3563.67718,
+          "speedup_ceiling_vs_configured_h100": 0.32630054454475504,
+          "speedup_vs_configured_h100": 0.29968581217000134,
+          "speedup_vs_modeled_dense": 0.9645809163892898,
+          "trajectory_overlap_bound_ms": 3273.00554,
+          "workload_sha256": "9f69a81d537da29850007b4806fd5003af02ce78d5d271d55bc85ff04d7be46c"
+        },
+        "flux1-dev": {
+          "bottleneck_resource": "pe",
+          "cycles": 499921010660,
+          "dense_bf16_busy_ms": 949.95193,
+          "h100_reference_ms": 15831.3803,
+          "hbm_bytes": 5028582195200,
+          "layer_overlap_bound_ms": 237377.055085,
+          "modeled_dense_ms": 202860.468725,
+          "resource_busy_ms": {
+            "hbm": 2095.2592,
+            "multicast": 5358.6954000000005,
+            "packet_dispatch": 8.15328,
+            "pe": 237377.055085,
+            "plane_formation": 8.15328,
+            "region_control": 0.36936,
+            "shift_reduce": 250.39872000000003,
+            "vector": 6973.8331499999995
+          },
+          "scheduled_ms": 249960.50532999999,
+          "speedup_ceiling_vs_configured_h100": 0.06669296783689181,
+          "speedup_vs_configured_h100": 0.06333552686293091,
+          "speedup_vs_modeled_dense": 0.8115700856708618,
+          "trajectory_overlap_bound_ms": 237377.055085,
+          "workload_sha256": "3fcf6c543aeb8fa6343150fcf5ac9d018e090670e84ccee3d2db69fcc0aa097f"
+        },
+        "latte-1": {
+          "bottleneck_resource": "pe",
+          "cycles": 325283601440,
+          "dense_bf16_busy_ms": 699.81646,
+          "h100_reference_ms": 42271.261,
+          "hbm_bytes": 8467660185600,
+          "layer_overlap_bound_ms": 152663.26348000002,
+          "modeled_dense_ms": 150053.225,
+          "resource_busy_ms": {
+            "hbm": 3528.2057999999997,
+            "multicast": 1426.5874000000001,
+            "packet_dispatch": 79.60064,
+            "pe": 152663.26348000002,
+            "plane_formation": 79.60064,
+            "region_control": 1.4336,
+            "shift_reduce": 643.39968,
+            "vector": 4305.833
+          },
+          "scheduled_ms": 162641.80072,
+          "speedup_ceiling_vs_configured_h100": 0.2768921614566286,
+          "speedup_vs_configured_h100": 0.25990403950810365,
+          "speedup_vs_modeled_dense": 0.9225993830351634,
+          "trajectory_overlap_bound_ms": 152663.26348000002,
+          "workload_sha256": "20f699abb31b88c25edd763e13837a3d9aad57327cbd53b04ed0cf4b696ab814"
+        },
+        "opensora-v13": {
+          "bottleneck_resource": "pe",
+          "cycles": 10076853700480,
+          "dense_bf16_busy_ms": 555802.9503599999,
+          "h100_reference_ms": 1162178.06,
+          "hbm_bytes": 203919748300800,
+          "layer_overlap_bound_ms": 4746703.94716,
+          "modeled_dense_ms": 4093463.0744000003,
+          "resource_busy_ms": {
+            "hbm": 84966.61319999999,
+            "multicast": 74681.1702,
+            "packet_dispatch": 273.53087999999997,
+            "pe": 4746703.94716,
+            "plane_formation": 273.53087999999997,
+            "region_control": 9.74848,
+            "shift_reduce": 8422.68672,
+            "vector": 134599.8752
+          },
+          "scheduled_ms": 5038426.85024,
+          "speedup_ceiling_vs_configured_h100": 0.24483896045283016,
+          "speedup_vs_configured_h100": 0.23066288239247557,
+          "speedup_vs_modeled_dense": 0.8124486463875152,
+          "trajectory_overlap_bound_ms": 4746703.94716,
+          "workload_sha256": "9a96cd0f3272613861f8c7ca1c107fcdfca358c835f1d7ca93e9dece7f79cf99"
+        },
+        "sd3-medium": {
+          "bottleneck_resource": "pe",
+          "cycles": 69984290530,
+          "dense_bf16_busy_ms": 134.22111,
+          "h100_reference_ms": 1991.94177,
+          "hbm_bytes": 879120384000,
+          "layer_overlap_bound_ms": 31353.788819999998,
+          "modeled_dense_ms": 30095.436700000002,
+          "resource_busy_ms": {
+            "hbm": 366.306575,
+            "multicast": 1691.5608,
+            "packet_dispatch": 2.638515,
+            "pe": 31353.788819999998,
+            "plane_formation": 2.638515,
+            "region_control": 0.28776,
+            "shift_reduce": 81.16659,
+            "vector": 2037.584325
+          },
+          "scheduled_ms": 34992.145265,
+          "speedup_ceiling_vs_configured_h100": 0.0635311343530316,
+          "speedup_vs_configured_h100": 0.05692539725457727,
+          "speedup_vs_modeled_dense": 0.86006263611686,
+          "trajectory_overlap_bound_ms": 31353.788819999998,
+          "workload_sha256": "98c5b99352b48fae3951dbebee2c5cd0de8506b83f79ab52661f1db106263e3c"
+        },
+        "wan21-14b-81f": {
+          "bottleneck_resource": "pe",
+          "cycles": 14125955734400,
+          "dense_bf16_busy_ms": 485983.56639999995,
+          "h100_reference_ms": 524488.869,
+          "hbm_bytes": 76385730560000,
+          "layer_overlap_bound_ms": 6525531.4216,
+          "modeled_dense_ms": 5595213.192,
+          "resource_busy_ms": {
+            "hbm": 31827.397999999997,
+            "multicast": 306081.66,
+            "packet_dispatch": 97.668,
+            "pe": 6525531.4216,
+            "plane_formation": 97.668,
+            "region_control": 29.811600000000002,
+            "shift_reduce": 2915.64,
+            "vector": 205194.36719999998
+          },
+          "scheduled_ms": 7062977.8672,
+          "speedup_ceiling_vs_configured_h100": 0.0803748898157018,
+          "speedup_vs_configured_h100": 0.07425888610464028,
+          "speedup_vs_modeled_dense": 0.792188974282901,
+          "trajectory_overlap_bound_ms": 6525531.4216,
+          "workload_sha256": "8aa4287d5925be1e35765a7db7afcd2e0efb129b5e8993d17dab0277d9e59607"
+        }
+      }
+    },
+    "full_issue_half_density": {
+      "geomean_speedup_ceiling_vs_configured_h100": 0.3741883827991431,
+      "geomean_speedup_vs_configured_h100": 0.3090203094666236,
+      "geomean_speedup_vs_modeled_dense": 2.0414213957663736,
+      "parameters": {
+        "active_component_fraction_override": 0.03125,
+        "pe_issues_per_cycle": 8192,
+        "sparse_issue_utilization": 1.0
+      },
+      "workloads": {
+        "dit-xl2-512": {
+          "bottleneck_resource": "pe",
+          "cycles": 2804398520,
+          "dense_bf16_busy_ms": 17.130679999999998,
+          "h100_reference_ms": 1067.98349,
+          "hbm_bytes": 93316608000,
+          "layer_overlap_bound_ms": 1111.5276199999998,
+          "modeled_dense_ms": 3437.455,
+          "resource_busy_ms": {
+            "hbm": 38.8857,
+            "multicast": 81.1944,
+            "packet_dispatch": 0.5947199999999999,
+            "pe": 1111.5276199999998,
+            "plane_formation": 0.5947199999999999,
+            "region_control": 0.017920000000000002,
+            "shift_reduce": 16.45056,
+            "vector": 155.1361
+          },
+          "scheduled_ms": 1402.1992599999999,
+          "speedup_ceiling_vs_configured_h100": 0.9608249680741179,
+          "speedup_vs_configured_h100": 0.7616488757810357,
+          "speedup_vs_modeled_dense": 2.4514739795255633,
+          "trajectory_overlap_bound_ms": 1111.5276199999998,
+          "workload_sha256": "b715d585f6d51617d311db345b44f3a910f2d100644ef98da38746694f5bcf64"
+        },
+        "flux1-dev": {
+          "bottleneck_resource": "pe",
+          "cycles": 175936639090,
+          "dense_bf16_busy_ms": 949.95193,
+          "h100_reference_ms": 15831.3803,
+          "hbm_bytes": 5028582195200,
+          "layer_overlap_bound_ms": 75192.32615,
+          "modeled_dense_ms": 202860.468725,
+          "resource_busy_ms": {
+            "hbm": 2095.2592,
+            "multicast": 5358.6954000000005,
+            "packet_dispatch": 8.15328,
+            "pe": 75192.32615,
+            "plane_formation": 8.15328,
+            "region_control": 0.36936,
+            "shift_reduce": 250.39872000000003,
+            "vector": 6973.8331499999995
+          },
+          "scheduled_ms": 87968.319545,
+          "speedup_ceiling_vs_configured_h100": 0.21054515946771254,
+          "speedup_vs_configured_h100": 0.1799668378557748,
+          "speedup_vs_modeled_dense": 2.3060627936768436,
+          "trajectory_overlap_bound_ms": 75192.32615,
+          "workload_sha256": "5150829e18e2be40d036648755a18643c46912a051c3421cdace952e713cec5c"
+        },
+        "latte-1": {
+          "bottleneck_resource": "pe",
+          "cycles": 100569413000,
+          "dense_bf16_busy_ms": 699.81646,
+          "h100_reference_ms": 42271.261,
+          "hbm_bytes": 8467660185600,
+          "layer_overlap_bound_ms": 40306.169259999995,
+          "modeled_dense_ms": 150053.225,
+          "resource_busy_ms": {
+            "hbm": 3528.2057999999997,
+            "multicast": 1426.5874000000001,
+            "packet_dispatch": 79.60064,
+            "pe": 40306.169259999995,
+            "plane_formation": 79.60064,
+            "region_control": 1.4336,
+            "shift_reduce": 643.39968,
+            "vector": 4305.833
+          },
+          "scheduled_ms": 50284.7065,
+          "speedup_ceiling_vs_configured_h100": 1.0487541181927742,
+          "speedup_vs_configured_h100": 0.8406385150125117,
+          "speedup_vs_modeled_dense": 2.9840728015385753,
+          "trajectory_overlap_bound_ms": 40306.169259999995,
+          "workload_sha256": "6969dfba9f2793e1e54aa30e320639d9d3ec43f0c474002f8e89d4a201bb6a43"
+        },
+        "opensora-v13": {
+          "bottleneck_resource": "pe",
+          "cycles": 4327005543280,
+          "dense_bf16_busy_ms": 555802.9503599999,
+          "h100_reference_ms": 1162178.06,
+          "hbm_bytes": 203919748300800,
+          "layer_overlap_bound_ms": 1871779.86856,
+          "modeled_dense_ms": 4093463.0744000003,
+          "resource_busy_ms": {
+            "hbm": 84966.61319999999,
+            "multicast": 74681.1702,
+            "packet_dispatch": 273.53087999999997,
+            "pe": 1871779.86856,
+            "plane_formation": 273.53087999999997,
+            "region_control": 9.74848,
+            "shift_reduce": 8422.68672,
+            "vector": 134599.8752
+          },
+          "scheduled_ms": 2163502.77164,
+          "speedup_ceiling_vs_configured_h100": 0.6208946252286003,
+          "speedup_vs_configured_h100": 0.5371742875647135,
+          "speedup_vs_modeled_dense": 1.8920535383909087,
+          "trajectory_overlap_bound_ms": 1871779.86856,
+          "workload_sha256": "c04e64987af8778ea38e554799a84c1d457989008152c4d91c0294538f1ead8c"
+        },
+        "sd3-medium": {
+          "bottleneck_resource": "pe",
+          "cycles": 35217804040,
+          "dense_bf16_busy_ms": 134.22111,
+          "h100_reference_ms": 1991.94177,
+          "hbm_bytes": 879120384000,
+          "layer_overlap_bound_ms": 13624.686525,
+          "modeled_dense_ms": 30095.436700000002,
+          "resource_busy_ms": {
+            "hbm": 366.306575,
+            "multicast": 1691.5608,
+            "packet_dispatch": 2.638515,
+            "pe": 13624.686525,
+            "plane_formation": 2.638515,
+            "region_control": 0.28776,
+            "shift_reduce": 81.16659,
+            "vector": 2037.584325
+          },
+          "scheduled_ms": 17608.902019999998,
+          "speedup_ceiling_vs_configured_h100": 0.14620092479522204,
+          "speedup_vs_configured_h100": 0.11312129329458329,
+          "speedup_vs_modeled_dense": 1.7091035355763766,
+          "trajectory_overlap_bound_ms": 13624.686525,
+          "workload_sha256": "661cd0d4b6287fa5d7b07aa3cd5d850f7b7ec49ed4922115d05d5a84010a75f6"
+        },
+        "wan21-14b-81f": {
+          "bottleneck_resource": "pe",
+          "cycles": 8434518325600,
+          "dense_bf16_busy_ms": 485983.56639999995,
+          "h100_reference_ms": 524488.869,
+          "hbm_bytes": 76385730560000,
+          "layer_overlap_bound_ms": 3679812.7172,
+          "modeled_dense_ms": 5595213.192,
+          "resource_busy_ms": {
+            "hbm": 31827.397999999997,
+            "multicast": 306081.66,
+            "packet_dispatch": 97.668,
+            "pe": 3679812.7172,
+            "plane_formation": 97.668,
+            "region_control": 29.811600000000002,
+            "shift_reduce": 2915.64,
+            "vector": 205194.36719999998
+          },
+          "scheduled_ms": 4217259.1628,
+          "speedup_ceiling_vs_configured_h100": 0.14253140290223462,
+          "speedup_vs_configured_h100": 0.12436723681258699,
+          "speedup_vs_modeled_dense": 1.3267416053902468,
+          "trajectory_overlap_bound_ms": 3679812.7172,
+          "workload_sha256": "cfa4f7217a78445bf01cd9a8040453587f53c92f51c6be60dcab42eb40e50502"
+        }
+      }
+    },
+    "full_sparse_issue": {
+      "geomean_speedup_ceiling_vs_configured_h100": 0.2572620694160363,
+      "geomean_speedup_vs_configured_h100": 0.22504760729212436,
+      "geomean_speedup_vs_modeled_dense": 1.4866886949441476,
+      "parameters": {
+        "active_component_fraction_override": null,
+        "pe_issues_per_cycle": 8192,
+        "sparse_issue_utilization": 1.0
+      },
+      "workloads": {
+        "dit-xl2-512": {
+          "bottleneck_resource": "pe",
+          "cycles": 3959519480,
+          "dense_bf16_busy_ms": 17.130679999999998,
+          "h100_reference_ms": 1067.98349,
+          "hbm_bytes": 93316608000,
+          "layer_overlap_bound_ms": 1689.0881,
+          "modeled_dense_ms": 3437.455,
+          "resource_busy_ms": {
+            "hbm": 38.8857,
+            "multicast": 81.1944,
+            "packet_dispatch": 0.5947199999999999,
+            "pe": 1689.0881,
+            "plane_formation": 0.5947199999999999,
+            "region_control": 0.017920000000000002,
+            "shift_reduce": 16.45056,
+            "vector": 155.1361
+          },
+          "scheduled_ms": 1979.75974,
+          "speedup_ceiling_vs_configured_h100": 0.6322840649934128,
+          "speedup_vs_configured_h100": 0.539451059854364,
+          "speedup_vs_modeled_dense": 1.7362990723308678,
+          "trajectory_overlap_bound_ms": 1689.0881,
+          "workload_sha256": "b82b2a9ca739e781e80265ea574e714136160348edd8416dcc1dd49b54d37ac8"
+        },
+        "flux1-dev": {
+          "bottleneck_resource": "pe",
+          "cycles": 262916406400,
+          "dense_bf16_busy_ms": 949.95193,
+          "h100_reference_ms": 15831.3803,
+          "hbm_bytes": 5028582195200,
+          "layer_overlap_bound_ms": 118874.752955,
+          "modeled_dense_ms": 202860.468725,
+          "resource_busy_ms": {
+            "hbm": 2095.2592,
+            "multicast": 5358.6954000000005,
+            "packet_dispatch": 8.15328,
+            "pe": 118874.752955,
+            "plane_formation": 8.15328,
+            "region_control": 0.36936,
+            "shift_reduce": 250.39872000000003,
+            "vector": 6973.8331499999995
+          },
+          "scheduled_ms": 131458.20320000002,
+          "speedup_ceiling_vs_configured_h100": 0.13317697750331361,
+          "speedup_vs_configured_h100": 0.12042900263830776,
+          "speedup_vs_modeled_dense": 1.5431556478553785,
+          "trajectory_overlap_bound_ms": 118874.752955,
+          "workload_sha256": "92d31c9fd1bb9ced11ff0df87ab553712a550915e798d5836cdbaa45817b2b92"
+        },
+        "latte-1": {
+          "bottleneck_resource": "pe",
+          "cycles": 162131752720,
+          "dense_bf16_busy_ms": 699.81646,
+          "h100_reference_ms": 42271.261,
+          "hbm_bytes": 8467660185600,
+          "layer_overlap_bound_ms": 71087.33911999999,
+          "modeled_dense_ms": 150053.225,
+          "resource_busy_ms": {
+            "hbm": 3528.2057999999997,
+            "multicast": 1426.5874000000001,
+            "packet_dispatch": 79.60064,
+            "pe": 71087.33911999999,
+            "plane_formation": 79.60064,
+            "region_control": 1.4336,
+            "shift_reduce": 643.39968,
+            "vector": 4305.833
+          },
+          "scheduled_ms": 81065.87636000001,
+          "speedup_ceiling_vs_configured_h100": 0.5946383916360042,
+          "speedup_vs_configured_h100": 0.5214433359392846,
+          "speedup_vs_modeled_dense": 1.8510035509101106,
+          "trajectory_overlap_bound_ms": 71087.33911999999,
+          "workload_sha256": "1b3d3c1f27d20c19ca0d7a9a545b30e1f61fd8c603486a7380f2394591a7a199"
+        },
+        "opensora-v13": {
+          "bottleneck_resource": "pe",
+          "cycles": 5875660493360,
+          "dense_bf16_busy_ms": 555802.9503599999,
+          "h100_reference_ms": 1162178.06,
+          "hbm_bytes": 203919748300800,
+          "layer_overlap_bound_ms": 2646107.3436000003,
+          "modeled_dense_ms": 4093463.0744000003,
+          "resource_busy_ms": {
+            "hbm": 84966.61319999999,
+            "multicast": 74681.1702,
+            "packet_dispatch": 273.53087999999997,
+            "pe": 2646107.3436000003,
+            "plane_formation": 273.53087999999997,
+            "region_control": 9.74848,
+            "shift_reduce": 8422.68672,
+            "vector": 134599.8752
+          },
+          "scheduled_ms": 2937830.24668,
+          "speedup_ceiling_vs_configured_h100": 0.4392029154867427,
+          "speedup_vs_configured_h100": 0.39559061021764647,
+          "speedup_vs_modeled_dense": 1.3933626965090866,
+          "trajectory_overlap_bound_ms": 2646107.3436000003,
+          "workload_sha256": "ff087f3d7c5776e037e6fa12e394ba1fccf7789aaedc13d86e1bfa30e95e5544"
+        },
+        "sd3-medium": {
+          "bottleneck_resource": "pe",
+          "cycles": 43982001780,
+          "dense_bf16_busy_ms": 134.22111,
+          "h100_reference_ms": 1991.94177,
+          "hbm_bytes": 879120384000,
+          "layer_overlap_bound_ms": 18163.84837,
+          "modeled_dense_ms": 30095.436700000002,
+          "resource_busy_ms": {
+            "hbm": 366.306575,
+            "multicast": 1691.5608,
+            "packet_dispatch": 2.638515,
+            "pe": 18163.84837,
+            "plane_formation": 2.638515,
+            "region_control": 0.28776,
+            "shift_reduce": 81.16659,
+            "vector": 2037.584325
+          },
+          "scheduled_ms": 21991.00089,
+          "speedup_ceiling_vs_configured_h100": 0.10966518379937346,
+          "speedup_vs_configured_h100": 0.09057985945995749,
+          "speedup_vs_modeled_dense": 1.3685341949890668,
+          "trajectory_overlap_bound_ms": 18163.84837,
+          "workload_sha256": "d37d72e1431eae261bd6901239de961b17bf5a2aeb21ef05f9d126085323e592"
+        },
+        "wan21-14b-81f": {
+          "bottleneck_resource": "pe",
+          "cycles": 9801391826400,
+          "dense_bf16_busy_ms": 485983.56639999995,
+          "h100_reference_ms": 524488.869,
+          "hbm_bytes": 76385730560000,
+          "layer_overlap_bound_ms": 4363249.4676,
+          "modeled_dense_ms": 5595213.192,
+          "resource_busy_ms": {
+            "hbm": 31827.397999999997,
+            "multicast": 306081.66,
+            "packet_dispatch": 97.668,
+            "pe": 4363249.4676,
+            "plane_formation": 97.668,
+            "region_control": 29.811600000000002,
+            "shift_reduce": 2915.64,
+            "vector": 205194.36719999998
+          },
+          "scheduled_ms": 4900695.9132,
+          "speedup_ceiling_vs_configured_h100": 0.12020602372032016,
+          "speedup_vs_configured_h100": 0.10702334490644314,
+          "speedup_vs_modeled_dense": 1.1417180929200934,
+          "trajectory_overlap_bound_ms": 4363249.4676,
+          "workload_sha256": "4d92b57ae24f2707bbe97a625d4c7a22d6df8f35637809fea1520cf964e822a2"
+        }
+      }
+    },
+    "half_active_density": {
+      "geomean_speedup_ceiling_vs_configured_h100": 0.3284316000990367,
+      "geomean_speedup_vs_configured_h100": 0.2774478162419257,
+      "geomean_speedup_vs_modeled_dense": 1.8328501102808528,
+      "parameters": {
+        "active_component_fraction_override": 0.03125,
+        "pe_issues_per_cycle": 8192,
+        "sparse_issue_utilization": 0.8683
+      },
+      "workloads": {
+        "dit-xl2-512": {
+          "bottleneck_resource": "pe",
+          "cycles": 3136383880,
+          "dense_bf16_busy_ms": 17.130679999999998,
+          "h100_reference_ms": 1067.98349,
+          "hbm_bytes": 93316608000,
+          "layer_overlap_bound_ms": 1277.5203,
+          "modeled_dense_ms": 3437.455,
+          "resource_busy_ms": {
+            "hbm": 38.8857,
+            "multicast": 81.1944,
+            "packet_dispatch": 0.5947199999999999,
+            "pe": 1277.5203,
+            "plane_formation": 0.5947199999999999,
+            "region_control": 0.017920000000000002,
+            "shift_reduce": 16.45056,
+            "vector": 155.1361
+          },
+          "scheduled_ms": 1568.19194,
+          "speedup_ceiling_vs_configured_h100": 0.835981620018093,
+          "speedup_vs_configured_h100": 0.6810285544510579,
+          "speedup_vs_modeled_dense": 2.191986141696405,
+          "trajectory_overlap_bound_ms": 1277.5203,
+          "workload_sha256": "b715d585f6d51617d311db345b44f3a910f2d100644ef98da38746694f5bcf64"
+        },
+        "flux1-dev": {
+          "bottleneck_resource": "pe",
+          "cycles": 198352932190,
+          "dense_bf16_busy_ms": 949.95193,
+          "h100_reference_ms": 15831.3803,
+          "hbm_bytes": 5028582195200,
+          "layer_overlap_bound_ms": 86453.089875,
+          "modeled_dense_ms": 202860.468725,
+          "resource_busy_ms": {
+            "hbm": 2095.2592,
+            "multicast": 5358.6954000000005,
+            "packet_dispatch": 8.15328,
+            "pe": 86453.089875,
+            "plane_formation": 8.15328,
+            "region_control": 0.36936,
+            "shift_reduce": 250.39872000000003,
+            "vector": 6973.8331499999995
+          },
+          "scheduled_ms": 99176.466095,
+          "speedup_ceiling_vs_configured_h100": 0.18312104660330975,
+          "speedup_vs_configured_h100": 0.15962839697106473,
+          "speedup_vs_modeled_dense": 2.045449658699094,
+          "trajectory_overlap_bound_ms": 86453.089875,
+          "workload_sha256": "5150829e18e2be40d036648755a18643c46912a051c3421cdace952e713cec5c"
+        },
+        "latte-1": {
+          "bottleneck_resource": "pe",
+          "cycles": 112584053960,
+          "dense_bf16_busy_ms": 699.81646,
+          "h100_reference_ms": 42271.261,
+          "hbm_bytes": 8467660185600,
+          "layer_overlap_bound_ms": 46313.489740000005,
+          "modeled_dense_ms": 150053.225,
+          "resource_busy_ms": {
+            "hbm": 3528.2057999999997,
+            "multicast": 1426.5874000000001,
+            "packet_dispatch": 79.60064,
+            "pe": 46313.489740000005,
+            "plane_formation": 79.60064,
+            "region_control": 1.4336,
+            "shift_reduce": 643.39968,
+            "vector": 4305.833
+          },
+          "scheduled_ms": 56292.02698,
+          "speedup_ceiling_vs_configured_h100": 0.9127202730199617,
+          "speedup_vs_configured_h100": 0.7509280313359218,
+          "speedup_vs_modeled_dense": 2.6656212797828798,
+          "trajectory_overlap_bound_ms": 46313.489740000005,
+          "workload_sha256": "6969dfba9f2793e1e54aa30e320639d9d3ec43f0c474002f8e89d4a201bb6a43"
+        },
+        "opensora-v13": {
+          "bottleneck_resource": "pe",
+          "cycles": 4726208949840,
+          "dense_bf16_busy_ms": 555802.9503599999,
+          "h100_reference_ms": 1162178.06,
+          "hbm_bytes": 203919748300800,
+          "layer_overlap_bound_ms": 2071381.57184,
+          "modeled_dense_ms": 4093463.0744000003,
+          "resource_busy_ms": {
+            "hbm": 84966.61319999999,
+            "multicast": 74681.1702,
+            "packet_dispatch": 273.53087999999997,
+            "pe": 2071381.57184,
+            "plane_formation": 273.53087999999997,
+            "region_control": 9.74848,
+            "shift_reduce": 8422.68672,
+            "vector": 134599.8752
+          },
+          "scheduled_ms": 2363104.47492,
+          "speedup_ceiling_vs_configured_h100": 0.5610642074833377,
+          "speedup_vs_configured_h100": 0.4918013876806459,
+          "speedup_vs_modeled_dense": 1.7322395678416118,
+          "trajectory_overlap_bound_ms": 2071381.57184,
+          "workload_sha256": "c04e64987af8778ea38e554799a84c1d457989008152c4d91c0294538f1ead8c"
+        },
+        "sd3-medium": {
+          "bottleneck_resource": "pe",
+          "cycles": 39116953100,
+          "dense_bf16_busy_ms": 134.22111,
+          "h100_reference_ms": 1991.94177,
+          "hbm_bytes": 879120384000,
+          "layer_overlap_bound_ms": 15670.86278,
+          "modeled_dense_ms": 30095.436700000002,
+          "resource_busy_ms": {
+            "hbm": 366.306575,
+            "multicast": 1691.5608,
+            "packet_dispatch": 2.638515,
+            "pe": 15670.86278,
+            "plane_formation": 2.638515,
+            "region_control": 0.28776,
+            "shift_reduce": 81.16659,
+            "vector": 2037.584325
+          },
+          "scheduled_ms": 19558.476550000003,
+          "speedup_ceiling_vs_configured_h100": 0.1271111742834111,
+          "speedup_vs_configured_h100": 0.10184544613726572,
+          "speedup_vs_modeled_dense": 1.5387413545765147,
+          "trajectory_overlap_bound_ms": 15670.86278,
+          "workload_sha256": "661cd0d4b6287fa5d7b07aa3cd5d850f7b7ec49ed4922115d05d5a84010a75f6"
+        },
+        "wan21-14b-81f": {
+          "bottleneck_resource": "pe",
+          "cycles": 9403370787200,
+          "dense_bf16_busy_ms": 485983.56639999995,
+          "h100_reference_ms": 524488.869,
+          "hbm_bytes": 76385730560000,
+          "layer_overlap_bound_ms": 4164238.9480000003,
+          "modeled_dense_ms": 5595213.192,
+          "resource_busy_ms": {
+            "hbm": 31827.397999999997,
+            "multicast": 306081.66,
+            "packet_dispatch": 97.668,
+            "pe": 4164238.9480000003,
+            "plane_formation": 97.668,
+            "region_control": 29.811600000000002,
+            "shift_reduce": 2915.64,
+            "vector": 205194.36719999998
+          },
+          "scheduled_ms": 4701685.3936,
+          "speedup_ceiling_vs_configured_h100": 0.1259507140559024,
+          "speedup_vs_configured_h100": 0.11155337396967085,
+          "speedup_vs_modeled_dense": 1.1900441487676487,
+          "trajectory_overlap_bound_ms": 4164238.9480000003,
+          "workload_sha256": "cfa4f7217a78445bf01cd9a8040453587f53c92f51c6be60dcab42eb40e50502"
+        }
+      }
+    },
+    "legacy_peak": {
+      "geomean_speedup_ceiling_vs_configured_h100": 1.8009370797956832,
+      "geomean_speedup_vs_configured_h100": 0.8961542128724023,
+      "geomean_speedup_vs_modeled_dense": 1.1184923254850316,
+      "parameters": {
+        "active_component_fraction_override": null,
+        "pe_issues_per_cycle": 65525,
+        "sparse_issue_utilization": 0.8683
+      },
+      "workloads": {
+        "dit-xl2-512": {
+          "bottleneck_resource": "pe",
+          "cycles": 1067104640,
+          "dense_bf16_busy_ms": 2.14452,
+          "h100_reference_ms": 1067.98349,
+          "hbm_bytes": 93316608000,
+          "layer_overlap_bound_ms": 242.88067999999998,
+          "modeled_dense_ms": 636.5128,
+          "resource_busy_ms": {
+            "hbm": 38.8857,
+            "multicast": 81.1944,
+            "packet_dispatch": 0.5947199999999999,
+            "pe": 242.88067999999998,
+            "plane_formation": 0.5947199999999999,
+            "region_control": 0.017920000000000002,
+            "shift_reduce": 16.45056,
+            "vector": 155.1361
+          },
+          "scheduled_ms": 533.55232,
+          "speedup_ceiling_vs_configured_h100": 4.397152914756333,
+          "speedup_vs_configured_h100": 2.001647167423056,
+          "speedup_vs_modeled_dense": 1.1929716658340086,
+          "trajectory_overlap_bound_ms": 242.88067999999998,
+          "workload_sha256": "b82b2a9ca739e781e80265ea574e714136160348edd8416dcc1dd49b54d37ac8"
+        },
+        "flux1-dev": {
+          "bottleneck_resource": "pe",
+          "cycles": 60524840670,
+          "dense_bf16_busy_ms": 118.76938,
+          "h100_reference_ms": 15831.3803,
+          "hbm_bytes": 5028582195200,
+          "layer_overlap_bound_ms": 17098.01564,
+          "modeled_dense_ms": 35453.460875,
+          "resource_busy_ms": {
+            "hbm": 2095.2592,
+            "multicast": 5358.6954000000005,
+            "packet_dispatch": 8.15328,
+            "pe": 17098.01564,
+            "plane_formation": 8.15328,
+            "region_control": 0.36936,
+            "shift_reduce": 250.39872000000003,
+            "vector": 6973.8331499999995
+          },
+          "scheduled_ms": 30262.420335000003,
+          "speedup_ceiling_vs_configured_h100": 0.9259191612249572,
+          "speedup_vs_configured_h100": 0.523136620427224,
+          "speedup_vs_modeled_dense": 1.171534215787635,
+          "trajectory_overlap_bound_ms": 17098.01564,
+          "workload_sha256": "92d31c9fd1bb9ced11ff0df87ab553712a550915e798d5836cdbaa45817b2b92"
+        },
+        "latte-1": {
+          "bottleneck_resource": "pe",
+          "cycles": 40401373040,
+          "dense_bf16_busy_ms": 87.49426000000001,
+          "h100_reference_ms": 42271.261,
+          "hbm_bytes": 8467660185600,
+          "layer_overlap_bound_ms": 10222.14928,
+          "modeled_dense_ms": 26308.59,
+          "resource_busy_ms": {
+            "hbm": 3528.2057999999997,
+            "multicast": 1426.5874000000001,
+            "packet_dispatch": 79.60064,
+            "pe": 10222.14928,
+            "plane_formation": 79.60064,
+            "region_control": 1.4336,
+            "shift_reduce": 643.39968,
+            "vector": 4305.833
+          },
+          "scheduled_ms": 20200.686520000003,
+          "speedup_ceiling_vs_configured_h100": 4.135261562135982,
+          "speedup_vs_configured_h100": 2.0925655649449677,
+          "speedup_vs_modeled_dense": 1.302361183316853,
+          "trajectory_overlap_bound_ms": 10222.14928,
+          "workload_sha256": "1b3d3c1f27d20c19ca0d7a9a545b30e1f61fd8c603486a7380f2394591a7a199"
+        },
+        "opensora-v13": {
+          "bottleneck_resource": "pe",
+          "cycles": 1328169290560,
+          "dense_bf16_busy_ms": 69487.05567999999,
+          "h100_reference_ms": 1162178.06,
+          "hbm_bytes": 203919748300800,
+          "layer_overlap_bound_ms": 370456.6726,
+          "modeled_dense_ms": 733036.192,
+          "resource_busy_ms": {
+            "hbm": 84966.61319999999,
+            "multicast": 74681.1702,
+            "packet_dispatch": 273.53087999999997,
+            "pe": 370456.6726,
+            "plane_formation": 273.53087999999997,
+            "region_control": 9.74848,
+            "shift_reduce": 8422.68672,
+            "vector": 134599.8752
+          },
+          "scheduled_ms": 664084.64528,
+          "speedup_ceiling_vs_configured_h100": 3.137149755849748,
+          "speedup_vs_configured_h100": 1.750045070700268,
+          "speedup_vs_modeled_dense": 1.1038294548896366,
+          "trajectory_overlap_bound_ms": 370456.6726,
+          "workload_sha256": "ff087f3d7c5776e037e6fa12e394ba1fccf7789aaedc13d86e1bfa30e95e5544"
+        },
+        "sd3-medium": {
+          "bottleneck_resource": "pe",
+          "cycles": 13329415860,
+          "dense_bf16_busy_ms": 16.784135,
+          "h100_reference_ms": 1991.94177,
+          "hbm_bytes": 879120384000,
+          "layer_overlap_bound_ms": 2623.7202,
+          "modeled_dense_ms": 6742.536174999999,
+          "resource_busy_ms": {
+            "hbm": 366.306575,
+            "multicast": 1691.5608,
+            "packet_dispatch": 2.638515,
+            "pe": 2612.7580199999998,
+            "plane_formation": 2.638515,
+            "region_control": 0.28776,
+            "shift_reduce": 81.16659,
+            "vector": 2037.584325
+          },
+          "scheduled_ms": 6664.70793,
+          "speedup_ceiling_vs_configured_h100": 0.7623904528288464,
+          "speedup_vs_configured_h100": 0.29887907931173213,
+          "speedup_vs_modeled_dense": 1.0116776677714068,
+          "trajectory_overlap_bound_ms": 2612.7580199999998,
+          "workload_sha256": "d37d72e1431eae261bd6901239de961b17bf5a2aeb21ef05f9d126085323e592"
+        },
+        "wan21-14b-81f": {
+          "bottleneck_resource": "pe",
+          "cycles": 2321112766400,
+          "dense_bf16_busy_ms": 60758.1512,
+          "h100_reference_ms": 524488.869,
+          "hbm_bytes": 76385730560000,
+          "layer_overlap_bound_ms": 619020.9696,
+          "modeled_dense_ms": 1117901.668,
+          "resource_busy_ms": {
+            "hbm": 31827.397999999997,
+            "multicast": 306081.66,
+            "packet_dispatch": 97.668,
+            "pe": 619020.9696,
+            "plane_formation": 97.668,
+            "region_control": 29.811600000000002,
+            "shift_reduce": 2915.64,
+            "vector": 205194.36719999998
+          },
+          "scheduled_ms": 1160556.3832,
+          "speedup_ceiling_vs_configured_h100": 0.8472877249035926,
+          "speedup_vs_configured_h100": 0.4519288132764629,
+          "speedup_vs_modeled_dense": 0.9632463223523977,
+          "trajectory_overlap_bound_ms": 619020.9696,
+          "workload_sha256": "4d92b57ae24f2707bbe97a625d4c7a22d6df8f35637809fea1520cf964e822a2"
+        }
+      }
+    }
+  },
+  "inputs_sha256": {
+    "configs/harp-ablation.json": "e5441c9a63528e4382603df2588891700807ad71f24b04108a8dbefeec5eccf8",
+    "configs/harp.json": "efb48291bb479942e895a2bd1bc144526432eb154f93c4c0cba1d2e5490cd319",
+    "configs/performance-inputs.json": "0f8774f9c12789dcd26562e9d7e961644c6d75ac3a7bca9e61e8b8e612fff877",
+    "workloads/harp/matched-npu.json": "119a14bc402e46301084510d8973edd5cc8f89084fa5067c3a2278a2ac3d9a25"
+  },
+  "model": "component_timing_sensitivity",
+  "schema_version": 1,
+  "scope": "Unfitted component estimates and optimistic resource bounds"
+}

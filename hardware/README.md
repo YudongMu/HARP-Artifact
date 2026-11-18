@@ -1,5 +1,9 @@
 # HARP hardware artifact
 
+Run `python3 -B -m hardware.component_study --fixed --out results/component-rtl/evaluation.json` from the repository root for the six-workload component simulation. The [timing method](docs/COMPONENT-TIMING-METHOD.md) describes the fixed parameters and workload inputs.
+
+## Archived release reconstruction
+
 The active workload descriptions are in `workloads/dataflow/`. Table I supplies the reported widths, head counts and denoising steps. Each graph lists the assumed structure and any discrepancy with the upstream implementation. HARP-specific settings are in `workloads/harp/revised/` and use the model and site values shown in Figures 8 and 9(a).
 
 The end-to-end and Matched NPU reports compute Full HARP latency with the same evaluator. It applies the released service-time table and configured formation exposure to each compiled Combined workload. The [performance inputs](configs/performance-inputs.json) specify formation exposure and the H100 latency denominators by workload. Matched NPU Dense, Residual, PlaneClear, and Budget use the analytical timing model documented in the [ablation guide](docs/HARP-ABLATION.md).
